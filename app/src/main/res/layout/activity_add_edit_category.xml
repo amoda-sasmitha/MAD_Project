@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddEditCategory"
+    android:background="#d8d8d8"
+    >
+
+    <View
+
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/shape"
+        android:gravity="center"
+
+        > </View>
+
+
+
+
+    <TextView
+        android:id="@+id/category_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+       android:layout_marginLeft="8dp"
+        android:text="Add Categories"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:textStyle="bold"
+
+        />
+
+    <RelativeLayout
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_below="@id/category_name"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/card"
+        android:elevation="5dp"
+        android:paddingBottom="15dp"
+        >
+
+        <TextView
+            android:id="@+id/category_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="#706F6F"
+            android:background="@drawable/card"
+            android:backgroundTint="#E8ECE8"
+            android:elevation="5dp"
+            android:text="New Category"
+            android:textSize="16dp"
+            android:textStyle="bold"
+          />
+
+
+        <Button
+            android:id="@id/category_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/category_type"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/circle"
+
+            />
+
+        <EditText
+
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/category_type"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_toRightOf="@id/category_icon"
+            android:background="@drawable/rounded_edit_text"
+            android:hint="Category name"
+            android:inputType="textPersonName"
+            android:padding="8dp"
+            android:textSize="15sp" />
+        <TextView
+            android:id="@+id/category_description_text"
+            android:layout_below="@id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginLeft="12dp"
+            android:textColor="#7E7C7C"
+            android:elevation="5dp"
+            android:text="Add description"
+            android:textSize="16dp"
+            android:textStyle="bold"/>
+        <EditText
+            android:textSize="14sp"
+           android:id="@+id/edit_description"
+            android:inputType="textMultiLine"
+            android:layout_marginRight="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="8dp"
+            android:lines="8"
+            android:hint="Write a brief description about the category"
+            android:padding="8dp"
+            android:background="@drawable/rounded_edit_text"
+            android:layout_below="@id/category_description_text"
+            android:minLines="5"
+            android:gravity="top|left"
+            android:maxLines="5"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:scrollbars="vertical"
+        />
+
+        <TextView
+            android:id="@+id/category_type_text"
+            android:layout_below="@id/edit_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="12dp"
+            android:textColor="#7E7C7C"
+            android:elevation="5dp"
+            android:text="Category type"
+            android:textSize="16dp"
+            android:textStyle="bold"/>
+
+        <RadioButton
+            android:id="@+id/income_btn_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Income"
+            android:layout_below="@id/category_type_text"
+            android:layout_marginTop="8dp"
+            android:textColor="#7E7C7C"
+            android:textStyle="bold"
+            android:layout_marginLeft="45dp"
+            android:textSize="14sp"
+
+
+            />
+
+        <RadioButton
+            android:id="@+id/expenses_btn_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Expense"
+            android:layout_below="@id/category_type_text"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@id/income_btn_radio"
+            android:textColor="#7E7C7C"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:layout_marginLeft="20dp"
+
+
+            />
+
+
+        <Button
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:layout_below="@id/income_btn_radio"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="12dp"
+            android:backgroundTint="#bdc3c7"
+            android:text="Save Category"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <!--<ImageView-->
+        <!--android:id="@+id/imageView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_marginBottom="-2dp"-->
+        <!--android:scaleType="fitEnd"-->
+        <!--android:src="@drawable/back2" />-->
+
+</RelativeLayout>

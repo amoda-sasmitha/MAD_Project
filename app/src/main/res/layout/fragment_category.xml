@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Category"
+    android:background="#d8d8d8">
+
+
+
+    <View
+
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@drawable/shape"
+        android:gravity="center"
+
+      > </View>
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/bank_account"
+        android:textColor="#ffffff"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView13"
+        android:layout_marginStart="16dp"
+        android:text="Rs 12450.00"
+        android:textColor="#ffffff"
+        android:textSize="18dp"
+        android:textStyle="bold"
+       />
+
+    <TextView
+        android:id="@+id/category_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="16dp"
+        android:text="28 June 2019"
+        android:textColor="#ffffff"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/category_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+       android:layout_marginTop="55dp"
+        android:layout_marginBottom="10dp"
+        android:text="Categories"
+        android:textColor="#ffffff"
+        android:textSize="26dp"
+        android:textStyle="bold"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/category_name"
+        >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+
+
+        >
+
+        <RelativeLayout
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/card"
+            android:elevation="5dp"
+            android:paddingBottom="20dp"
+            >
+
+            <TextView
+                android:id="@+id/category_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+
+                android:elevation="5dp"
+                android:text="Expenses"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+
+
+
+
+            <View
+                android:id="@+id/date_hr"
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="5dp"
+                android:background="#d8d8d8"
+                android:layout_below="@id/category_type"
+                ></View>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_below="@id/date_hr">
+            <!-- Start of the component -->
+            <RelativeLayout
+                android:id="@+id/category01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/date_hr">
+            <ImageView
+                android:id="@+id/category_icon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/circle"
+
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="12dp"
+                />
+
+            <TextView
+                android:id="@+id/category_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/category_icon"
+                android:elevation="5dp"
+
+                android:text="Food and Beverages"
+                android:textSize="14dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="14dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/category_memo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/category_icon"
+                android:elevation="5dp"
+                android:layout_below="@id/category_text"
+                android:text="main category"
+                android:textSize="13dp"
+                android:layout_marginLeft="14dp"
+                />
+            </RelativeLayout>
+
+            <RelativeLayout
+                 android:id="@+id/category02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+             >
+                <ImageView
+                    android:id="@+id/category_icon2"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/circle"
+                     android:backgroundTint="@color/yellow"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="12dp"
+                    />
+
+                <TextView
+                    android:id="@+id/category_text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/category_icon2"
+                    android:elevation="5dp"
+
+                    android:text="Bills and Utilities"
+                    android:textSize="14dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="14dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/category_memo2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/category_icon2"
+                    android:elevation="5dp"
+                    android:layout_below="@id/category_text2"
+                    android:text="main category"
+                    android:textSize="13dp"
+                    android:layout_marginLeft="14dp"
+                    />
+            </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/category03"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <ImageView
+                        android:id="@+id/category_icon3"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/circle"
+                        android:backgroundTint="@color/blue"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="12dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/category_text3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/category_icon3"
+                        android:elevation="5dp"
+
+                        android:text="Bills and Utilities"
+                        android:textSize="14dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="14dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/category_memo3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/category_icon3"
+                        android:elevation="5dp"
+                        android:layout_below="@id/category_text3"
+                        android:text="main category"
+                        android:textSize="13dp"
+                        android:layout_marginLeft="14dp"
+                        />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+
+        <!-- - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - -->
+        <RelativeLayout
+            android:id="@+id/cardView2"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/card"
+            android:elevation="5dp"
+            android:paddingBottom="20dp"
+            >
+
+            <TextView
+                android:id="@+id/category_type2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+
+                android:elevation="5dp"
+                android:text="Income"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+
+
+
+
+            <View
+                android:id="@+id/date_hr2"
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="5dp"
+                android:background="#d8d8d8"
+                android:layout_below="@id/category_type2"
+                ></View>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_below="@id/date_hr2">
+                <!-- Start of the component -->
+                <RelativeLayout
+                    android:id="@+id/category21"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/date_hr">
+                    <ImageView
+                        android:id="@+id/category_icon21"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/circle"
+
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="12dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/category_text21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/category_icon21"
+                        android:elevation="5dp"
+
+                        android:text="Food and Beverages"
+                        android:textSize="14dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="14dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/category_memo21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/category_icon21"
+                        android:elevation="5dp"
+                        android:layout_below="@id/category_text21"
+                        android:text="main category"
+                        android:textSize="13dp"
+                        android:layout_marginLeft="14dp"
+                        />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/category23"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <ImageView
+                        android:id="@+id/category_icon23"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/circle"
+                        android:backgroundTint="@color/yellow"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="12dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/category_text23"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/category_icon23"
+                        android:elevation="5dp"
+
+                        android:text="Bills and Utilities"
+                        android:textSize="14dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="14dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/category_memo22"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/category_icon23"
+                        android:elevation="5dp"
+                        android:layout_below="@id/category_text23"
+                        android:text="main category"
+                        android:textSize="13dp"
+                        android:layout_marginLeft="14dp"
+                        />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/category24"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <ImageView
+                        android:id="@+id/category_icon24"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/circle"
+                        android:backgroundTint="@color/blue"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="12dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/category_text24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/category_icon24"
+                        android:elevation="5dp"
+
+                        android:text="Bills and Utilities"
+                        android:textSize="14dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="14dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/category_memo24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/category_icon24"
+                        android:elevation="5dp"
+                        android:layout_below="@id/category_text24"
+                        android:text="main category"
+                        android:textSize="13dp"
+                        android:layout_marginLeft="14dp"
+                        />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_category_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="end|bottom"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/ic_add"
+
+        app:backgroundTint="@color/blue" />
+</RelativeLayout>
