@@ -80,8 +80,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-
-
         >
 
         <RelativeLayout
@@ -221,7 +219,7 @@
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@drawable/circle"
-                        android:backgroundTint="@color/blue"
+                        android:backgroundTint="@color/colorPrimaryDark"
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="12dp"
                         />
@@ -250,6 +248,48 @@
                         android:textSize="13dp"
                         android:layout_marginLeft="14dp"
                         />
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/category5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <ImageView
+                        android:id="@+id/category_icon5"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/circle"
+                        android:backgroundTint="@color/blue"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="12dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/category_text5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/category_icon5"
+                        android:elevation="5dp"
+
+                        android:text="Electricity"
+                        android:textSize="14dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="14dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/category_memo5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/category_icon5"
+                        android:elevation="5dp"
+                        android:layout_below="@id/category_text5"
+                        android:text="sub category"
+                        android:textSize="13dp"
+                        android:layout_marginLeft="14dp"
+                        />
+
                 </RelativeLayout>
 
             </LinearLayout>
@@ -261,7 +301,7 @@
 
         <!-- - - - - - - - - - - - - -  - - - - - - - - - - - - - - - -  - - - - - - - - -->
         <RelativeLayout
-            android:id="@+id/cardView2"
+            android:id="@+id/Income_cardView"
             android:layout_width="match_parent"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
@@ -422,6 +462,47 @@
                         android:layout_toRightOf="@id/category_icon24"
                         android:elevation="5dp"
                         android:layout_below="@id/category_text24"
+                        android:text="main category"
+                        android:textSize="13dp"
+                        android:layout_marginLeft="14dp"
+                        />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/category25"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <ImageView
+                        android:id="@+id/category_icon25"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/circle"
+                        android:backgroundTint="@color/cardview_dark_background"
+                        android:tint="#7E49D1" />
+
+                    <TextView
+                        android:id="@+id/category_text25"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/category_icon25"
+                        android:elevation="5dp"
+
+                        android:text="Bills and Utilities"
+                        android:textSize="14dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="14dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/category_memo25"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/category_icon25"
+                        android:elevation="5dp"
+                        android:layout_below="@id/category_text25"
                         android:text="main category"
                         android:textSize="13dp"
                         android:layout_marginLeft="14dp"
