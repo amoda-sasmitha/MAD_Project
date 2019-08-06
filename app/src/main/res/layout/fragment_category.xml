@@ -8,7 +8,6 @@
     android:background="#d8d8d8">
 
 
-
     <View
 
         android:id="@+id/view"
@@ -44,18 +43,7 @@
         android:textStyle="bold"
        />
 
-    <TextView
-        android:id="@+id/category_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="16dp"
-        android:text="28 June 2019"
-        android:textColor="#ffffff"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        />
+    c
 
     <TextView
         android:id="@+id/category_name"
