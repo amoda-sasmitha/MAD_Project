@@ -10,6 +10,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -17,6 +19,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class Category extends Fragment {
 
     private FloatingActionButton plusBtn;
+    private RelativeLayout ViewDetailsbtn;
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_category ,container , false);
@@ -29,8 +32,14 @@ public class Category extends Fragment {
                 startActivity(intent);
             }
         });
-
-
+        ViewDetailsbtn = view.findViewById(R.id.category01);
+        ViewDetailsbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intend = new Intent( getActivity() , ViewCategoryDetails.class );
+                startActivity(intend);
+            }
+        });
 
         return view;
     }
