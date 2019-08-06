@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-       android:layout_marginLeft="8dp"
+       android:layout_marginStart="8dp"
         android:text="Add Categories"
         android:textColor="#ffffff"
         android:textSize="20dp"
@@ -132,7 +132,7 @@
             android:textColor="#7E7C7C"
             android:elevation="5dp"
             android:text="Category type"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:textStyle="bold"/>
 
         <RadioButton
@@ -144,7 +144,7 @@
             android:layout_marginTop="8dp"
             android:textColor="#7E7C7C"
             android:textStyle="bold"
-            android:layout_marginLeft="45dp"
+            android:layout_marginStart="45dp"
             android:textSize="14sp"
 
 
@@ -154,10 +154,10 @@
             android:id="@+id/expenses_btn_radio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Expense"
+            android:text="@string/expense"
             android:layout_below="@id/category_type_text"
             android:layout_marginTop="8dp"
-            android:layout_toRightOf="@id/income_btn_radio"
+            android:layout_toEndOf="@id/income_btn_radio"
             android:textColor="#7E7C7C"
             android:textStyle="bold"
             android:textSize="14sp"

@@ -7,4 +7,5 @@
     <string name="title_expenses">Expenses</string>
     <string name="title_savings">Savings</string>
     <string name="bank_account">Bank Account</string>
+    <string name="expense">Expense</string>
 </resources>
