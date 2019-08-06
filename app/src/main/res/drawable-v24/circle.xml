@@ -6,7 +6,7 @@
     >
 
     <solid
-        android:color="@color/colorPrimary"/>
+        android:color="@color/red"/>
 
     <size
         android:width="120dp"
