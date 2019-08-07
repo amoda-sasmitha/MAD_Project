@@ -19,7 +19,11 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navi_categories:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Category()).commit();
+                    Category category = new Category();
+                    Bundle dataBundle = new Bundle();
+                    dataBundle.putBoolean( "FromExpenses" , false);
+                    category.setArguments( dataBundle);
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, category).commit();
                     return true;
                 case R.id.nav_expenses:
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container , new Expenses()).commit();

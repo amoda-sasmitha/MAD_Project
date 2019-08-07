@@ -90,18 +90,19 @@
             android:inputType="textPersonName"
             android:padding="8dp"
             android:textSize="15sp" />
+
         <TextView
             android:id="@+id/category_description_text"
-            android:layout_below="@id/editText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
+            android:layout_below="@id/editText"
             android:layout_marginLeft="12dp"
-            android:textColor="#7E7C7C"
+            android:layout_marginTop="14dp"
             android:elevation="5dp"
             android:text="Add description"
-            android:textSize="16dp"
-            android:textStyle="bold"/>
+            android:textColor="#7E7C7C"
+            android:textSize="14dp"
+            android:textStyle="bold" />
         <EditText
             android:textSize="14sp"
            android:id="@+id/edit_description"
@@ -124,16 +125,16 @@
 
         <TextView
             android:id="@+id/category_type_text"
-            android:layout_below="@id/edit_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_below="@id/edit_description"
             android:layout_marginLeft="12dp"
-            android:textColor="#7E7C7C"
+            android:layout_marginTop="10dp"
             android:elevation="5dp"
             android:text="Category type"
-            android:textSize="16sp"
-            android:textStyle="bold"/>
+            android:textColor="#7E7C7C"
+            android:textSize="14sp"
+            android:textStyle="bold" />
 
         <RadioButton
             android:id="@+id/income_btn_radio"
@@ -176,7 +177,7 @@
             android:layout_marginLeft="12dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="12dp"
-            android:backgroundTint="#bdc3c7"
+            android:backgroundTint="@color/green"
             android:text="Save Category"
             android:textAllCaps="false"
             android:textColor="#ffffff"

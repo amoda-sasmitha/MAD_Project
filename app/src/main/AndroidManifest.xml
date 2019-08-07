@@ -9,8 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Edit_Category"></activity>
-        <activity android:name=".ViewCategoryDetails" />
+        <activity android:name=".ViewCategoryDetails"></activity>
         <activity android:name=".AddEditExpenses" />
         <activity
             android:name=".AddEditCategory"
