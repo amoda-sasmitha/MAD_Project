@@ -8,4 +8,7 @@
     <string name="title_savings">Savings</string>
     <string name="bank_account">Bank Account</string>
     <string name="expense">Expense</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

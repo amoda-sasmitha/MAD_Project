@@ -4,22 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddEditExpenses"
-    android:background="#d8d8d8"
-    >
-
+    tools:context=".ViewExpenseDetails">
 
 
     <FrameLayout
-
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-
+        android:layout_height="match_parent">
 
     </FrameLayout>
-
-
-
 </RelativeLayout>
