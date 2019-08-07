@@ -113,21 +113,21 @@
                 android:layout_marginLeft="14dp"
 
                 android:layout_marginTop="13dp"
-                android:elevation="5dp"
+
                 android:text="Food and Beverages"
-                android:textColor="#000"
-                android:textSize="18dp"
+                android:textColor="#424242"
+                android:textSize="16dp"
                 android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/categoryDetailIcon1"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:background="@drawable/circle"
                 android:layout_below="@+id/category_text"
                 android:backgroundTint="@color/green"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="15dp"
                 />
 
             <TextView
@@ -137,9 +137,9 @@
                 android:text="Main Category"
                 android:layout_toRightOf="@id/categoryDetailIcon1"
                 android:layout_below="@id/category_text"
-                android:layout_marginTop="22dp"
+                android:layout_marginTop="17dp"
                 android:layout_marginLeft="30dp"
-                android:textSize="17sp"
+                android:textSize="15sp"
                 android:textStyle="bold"/>
 
             <TextView
@@ -151,7 +151,7 @@
                 android:layout_below="@id/main_sub_type_view"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="30dp"
-                android:textSize="17sp"
+                android:textSize="15sp"
 
                 android:textStyle="bold"/>
 
@@ -165,14 +165,14 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="16dp"
-                android:textSize="15sp"
+                android:textSize="14sp"
                 android:justificationMode="inter_word"
                 />
 
             <ImageButton
                 android:id="@+id/edit_btn"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:background="@drawable/circle"
                 android:backgroundTint="@color/blue"
                 android:layout_below="@id/category_view_description"
@@ -183,8 +183,8 @@
                 />
             <ImageButton
 
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:background="@drawable/circle"
                 android:layout_below="@id/category_view_description"
                 android:layout_toRightOf="@+id/edit_btn"
