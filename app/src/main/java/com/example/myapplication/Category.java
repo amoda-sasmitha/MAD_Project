@@ -23,13 +23,14 @@ public class Category extends Fragment {
     private FloatingActionButton plusBtn;
     private RelativeLayout selectbtn;
     private TextView categoryText;
+    private Bundle bundle;
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_category ,container , false);
         addNewCategory(view);
         selectbtn = view.findViewById(R.id.category01);
 
-        Bundle bundle = getArguments();
+         bundle = getArguments();
         boolean fromExpenses = bundle.getBoolean("FromExpenses");
 
         if( fromExpenses == true  ){
@@ -40,10 +41,10 @@ public class Category extends Fragment {
 
                    String category = categoryText.getText().toString();
 
-                   Bundle dataBudle = new Bundle();
-                   dataBudle.putString("CategoryName" , category);
+
+                   bundle.putString("CategoryName" , category);
                    AddExpense expense = new AddExpense();
-                   expense.setArguments(dataBudle);
+                   expense.setArguments(bundle);
                    getFragmentManager().beginTransaction().replace(R.id.fragment_container , expense).commit();
 
 
