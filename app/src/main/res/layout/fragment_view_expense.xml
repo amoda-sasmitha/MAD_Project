@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#d8d8d8"
+    tools:context=".ViewExpense">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@drawable/shape"
+        android:gravity="center">
+
+    </View>
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Bank Account"
+        android:textColor="#ffffff"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView11"
+        android:layout_marginStart="16dp"
+        android:text="Rs 12450.00"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/category_date1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="16dp"
+        android:text="28 June 2019"
+        android:textColor="#ffffff"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        />
+    <RelativeLayout
+        android:layout_below="@+id/textView12"
+        android:layout_marginTop="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card"
+        android:paddingBottom="40dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:elevation="5dp"
+        >
+        <TextView
+            android:id="@+id/expenseNameView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Transaction Details"
+            android:textSize="20sp"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+
+            />
+        <View
+            android:id="@+id/line1"
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="5dp"
+            android:background="#d8d8d8"
+            android:layout_below="@id/expenseNameView"
+            ></View>
+
+            <ImageView
+                android:id="@+id/category_icon"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/circle"
+                android:layout_below="@id/line1"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="30dp"
+                android:backgroundTint="@color/green"
+
+                />
+
+        <TextView
+            android:id="@+id/category_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/line1"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/category_icon"
+            android:text="Food and Beverages"
+            android:textSize="16sp"
+            android:textStyle="bold"
+
+            />
+
+        <TextView
+            android:id="@+id/Amount_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/category_name"
+            android:layout_marginLeft="24dp"
+            android:layout_toRightOf="@id/category_icon"
+            android:text="Rs. 3000.00"
+            android:textColor="@color/red"
+            android:textSize="18sp"
+            android:textStyle="bold"
+
+            />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Amount_text"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/category_icon"
+            android:drawableLeft="@drawable/date_icon"
+            android:text=" Transaction date "
+            android:textSize="16sp"
+            android:textStyle="bold"
+
+            />
+
+        <TextView
+            android:id="@+id/date_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/date"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@id/category_icon"
+            android:text="Monday, 5 June 2019"
+            android:textSize="14sp"
+
+            />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/date_text"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/category_icon"
+            android:text=" Description"
+            android:textSize="16sp"
+            android:textStyle="bold"
+
+            />
+
+        <TextView
+            android:id="@+id/description_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/description"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="30dp"
+            android:layout_toRightOf="@id/category_icon"
+            android:justificationMode="inter_word"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidication.ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/account_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/description_text"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/category_icon"
+            android:text="Transaction Account "
+            android:textSize="16sp"
+            android:textStyle="bold"
+
+            />
+
+        <TextView
+            android:id="@+id/account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/account_text"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@id/category_icon"
+            android:text="Bank account"
+            android:textSize="14sp"
+
+            />
+        <ImageButton
+            android:id="@+id/edit_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="@color/blue"
+            android:layout_below="@id/account"
+            android:layout_toRightOf="@id/category_icon"
+            android:src="@drawable/edit_btn"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="15dp"
+            />
+        <ImageButton
+
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/circle"
+            android:layout_below="@id/account"
+            android:layout_toRightOf="@+id/edit_btn"
+            android:src="@drawable/delete_btn"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+
+            />
+    </RelativeLayout>
+
+</RelativeLayout>
