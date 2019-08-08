@@ -43,4 +43,12 @@
     <string name="main_category4">main category</string>
     <string name="main_category5">main category</string>
     <string name="food_and_beverages1">Food and Beverages</string>
+    <string name="write_a_brief_description_about_the_category">Write a brief description about the category</string>
+    <string name="category_name1">Category name</string>
+    <string name="add_description1">Add description</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="edit_categories">Edit Categories</string>
+    <string name="new_category1">New Category</string>
+    <string name="category_type1">Category type</string>
+    <string name="income2">Income</string>
 </resources>

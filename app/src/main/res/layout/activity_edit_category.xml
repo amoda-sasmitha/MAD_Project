@@ -23,9 +23,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginStart="8dp"
-        android:text="Edit Categories"
+        android:text="@string/edit_categories"
         android:textColor="#ffffff"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
 
         />
@@ -53,8 +53,8 @@
             android:background="@drawable/card"
             android:backgroundTint="#E8ECE8"
             android:elevation="5dp"
-            android:text="New Category"
-            android:textSize="16dp"
+            android:text="@string/new_category1"
+            android:textSize="16sp"
             android:textStyle="bold"
             />
 
@@ -81,7 +81,7 @@
             android:layout_marginRight="12dp"
             android:layout_toRightOf="@id/category_icon"
             android:background="@drawable/rounded_edit_text"
-            android:hint="Category name"
+            android:hint="@string/category_name1"
             android:inputType="textPersonName"
             android:padding="8dp"
             android:textSize="15sp" />
@@ -94,9 +94,9 @@
             android:layout_marginLeft="12dp"
             android:layout_marginTop="14dp"
             android:elevation="5dp"
-            android:text="Add description"
+            android:text="@string/add_description"
             android:textColor="#7E7C7C"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:textStyle="bold" />
         <EditText
             android:textSize="14sp"
@@ -106,7 +106,7 @@
             android:layout_marginLeft="12dp"
             android:layout_marginTop="8dp"
             android:lines="8"
-            android:hint="Write a brief description about the category"
+            android:hint="@string/write_a_brief_description_about_the_category"
             android:padding="8dp"
             android:background="@drawable/rounded_edit_text"
             android:layout_below="@id/category_description_text"
@@ -125,7 +125,7 @@
             android:layout_marginLeft="12dp"
             android:layout_marginTop="10dp"
             android:elevation="5dp"
-            android:text="Category type"
+            android:text="@string/category_type1"
             android:textColor="#7E7C7C"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -134,7 +134,7 @@
             android:id="@+id/income_btn_radio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Income"
+            android:text="@string/income2"
             android:layout_below="@id/category_type_text"
             android:layout_marginTop="8dp"
             android:textColor="#7E7C7C"
@@ -170,7 +170,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="12dp"
             android:backgroundTint="@color/green"
-            android:text="Save Changes"
+            android:text="@string/save_changes"
             android:textAllCaps="false"
             android:textColor="#ffffff"
             android:textSize="15sp"
