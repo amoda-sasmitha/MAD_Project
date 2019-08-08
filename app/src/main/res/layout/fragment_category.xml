@@ -39,9 +39,21 @@
         android:layout_marginStart="16dp"
         android:text="@string/rs_12450_00"
         android:textColor="#ffffff"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="bold"
        />
+    <TextView
+        android:id="@+id/date_view1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:text="28 June 2019"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="#ffffff"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="16dp"/>
+
 
 
 
@@ -52,9 +64,9 @@
         android:layout_centerHorizontal="true"
        android:layout_marginTop="55dp"
         android:layout_marginBottom="10dp"
-        android:text="Categories"
+        android:text="@string/categories1"
         android:textColor="#ffffff"
-        android:textSize="26dp"
+        android:textSize="26sp"
         android:textStyle="bold"
         />
 
@@ -90,7 +102,7 @@
                 android:layout_marginLeft="10dp"
 
                 android:elevation="5dp"
-                android:text="Expenses"
+                android:text="@string/expenses"
                 android:textSize="18dp"
                 android:textStyle="bold" />
 
@@ -138,7 +150,7 @@
                 android:layout_toRightOf="@id/category_icon"
                 android:elevation="5dp"
 
-                android:text="Food and Beverages"
+                android:text="@string/food_and_beverages2"
                 android:textSize="14dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="14dp"
@@ -151,7 +163,7 @@
                 android:layout_toRightOf="@id/category_icon"
                 android:elevation="5dp"
                 android:layout_below="@id/category_text"
-                android:text="main category"
+                android:text="@string/main_category5"
                 android:textSize="13dp"
                 android:layout_marginLeft="14dp"
                 />
@@ -179,7 +191,7 @@
                     android:layout_toRightOf="@id/category_icon2"
                     android:elevation="5dp"
 
-                    android:text="Bills and Utilities"
+                    android:text="@string/bills_and_utilities"
                     android:textSize="14dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="14dp"
@@ -192,7 +204,7 @@
                     android:layout_toRightOf="@id/category_icon2"
                     android:elevation="5dp"
                     android:layout_below="@id/category_text2"
-                    android:text="main category"
+                    android:text="@string/main_category6"
                     android:textSize="13dp"
                     android:layout_marginLeft="14dp"
                     />
@@ -219,7 +231,7 @@
                         android:layout_toRightOf="@id/category_icon3"
                         android:elevation="5dp"
 
-                        android:text="Bills and Utilities"
+                        android:text="@string/bills_and_utilities"
                         android:textSize="14dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="14dp"
@@ -232,7 +244,7 @@
                         android:layout_toRightOf="@id/category_icon3"
                         android:elevation="5dp"
                         android:layout_below="@id/category_text3"
-                        android:text="main category"
+                        android:text="@string/main_category8"
                         android:textSize="13dp"
                         android:layout_marginLeft="14dp"
                         />
@@ -260,7 +272,7 @@
                         android:layout_toRightOf="@id/category_icon5"
                         android:elevation="5dp"
 
-                        android:text="Electricity"
+                        android:text="@string/electricity"
                         android:textSize="14dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="14dp"
@@ -308,7 +320,7 @@
                 android:layout_marginLeft="10dp"
 
                 android:elevation="5dp"
-                android:text="Income"
+                android:text="@string/income"
                 android:textSize="18dp"
                 android:textStyle="bold" />
 
@@ -451,7 +463,7 @@
                         android:elevation="5dp"
                         android:layout_below="@id/category_text24"
                         android:text="@string/main_category4"
-                        android:textSize="13dp"
+                        android:textSize="13sp"
                         android:layout_marginLeft="14dp"
                         />
                 </RelativeLayout>
