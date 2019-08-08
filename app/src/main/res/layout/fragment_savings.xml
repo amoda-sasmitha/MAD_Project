@@ -112,6 +112,7 @@
             android:layout_marginTop="5dp"
             android:background="#d8d8d8"
             android:layout_below="@id/saving_type"
+
             ></View>
 
             <RelativeLayout
@@ -132,7 +133,9 @@
                     android:textSize="14sp"
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="14dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+
+                    />
 
                 <ProgressBar
                     android:layout_below="@id/saving_text"
@@ -353,7 +356,7 @@
     </LinearLayout>
     </ScrollView>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_category_btn"
+        android:id="@+id/add_saving_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
