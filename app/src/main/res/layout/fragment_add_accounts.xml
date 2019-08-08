@@ -32,8 +32,8 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
 
-            android:layout_marginStart="-2dp"
-            android:layout_marginTop="-1dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="0dp"
             android:background="@drawable/shape"
             android:gravity="center"></View>
 
@@ -46,9 +46,10 @@
             android:layout_above="@+id/add_category_btn"
             android:layout_below="@+id/category_name"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="-10dp"
-            android:layout_marginTop="69dp"
-            android:layout_marginBottom="63dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="102dp"
+            android:background="#d8d8d8"
             android:src="@mipmap/cards" />
 
         <EditText
@@ -84,6 +85,20 @@
             android:layout_marginStart="57dp"
             android:layout_marginTop="369dp"
             android:text="TextView" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="108dp"
+            android:layout_height="38dp"
+            android:layout_below="@+id/editText14"
+            android:layout_alignBottom="@+id/imageView"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="132dp"
+            android:layout_marginTop="37dp"
+            android:layout_marginEnd="171dp"
+            android:layout_marginBottom="23dp"
+            android:text="Button" />
 
         <TextView
             android:id="@+id/textView27"
@@ -128,19 +143,6 @@
             android:textColor="#ffffff"
             android:textSize="26dp"
             android:textStyle="bold" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/add_category_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_gravity="end|bottom"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"
-            android:src="@drawable/ic_add"
-
-            app:backgroundTint="@color/blue" />
 
         <TextView
             android:id="@+id/textView20"
