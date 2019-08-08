@@ -29,7 +29,7 @@
         tools:layout_editor_absoluteX="-26dp">
 
         <RelativeLayout
-            android:id="@+id/cardView"
+            android:id="@+id/cardViewAccount4"
             android:layout_width="match_parent"
             android:layout_height="127dp"
             android:layout_below="@id/category_name"
@@ -42,7 +42,7 @@
             android:paddingBottom="15dp">
 
             <TextView
-                android:id="@+id/category_type"
+                android:id="@+id/account_subTotaldd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/card"
@@ -59,7 +59,7 @@
                 android:id="@id/category_icon"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_below="@id/category_type"
+                android:layout_below="@id/account_subTotaldd"
                 android:layout_marginLeft="12dp"
                 android:layout_marginTop="15dp"
                 android:background="@mipmap/ic_launcher_foreground"
@@ -67,7 +67,7 @@
                 />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/textView15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -80,7 +80,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/cardView"
+            android:id="@+id/cardViewAccount5"
             android:layout_width="match_parent"
             android:layout_height="127dp"
             android:layout_below="@id/category_name"
@@ -93,7 +93,7 @@
             android:paddingBottom="15dp">
 
             <TextView
-                android:id="@+id/category_type"
+                android:id="@+id/account_subTotalqq"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/card"
@@ -110,7 +110,7 @@
                 android:id="@id/category_icon"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_below="@id/category_type"
+                android:layout_below="@id/account_subTotalqq"
                 android:layout_marginLeft="12dp"
                 android:layout_marginTop="15dp"
                 android:background="@mipmap/credite"
@@ -118,7 +118,7 @@
                 />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/textView18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -155,7 +155,7 @@
             />
 
         <RelativeLayout
-            android:id="@+id/cardView"
+            android:id="@+id/cardViewAccount3"
             android:layout_width="match_parent"
             android:layout_height="127dp"
             android:layout_below="@id/category_name"
@@ -168,7 +168,7 @@
             android:paddingBottom="15dp">
 
             <TextView
-                android:id="@+id/category_type"
+                android:id="@+id/account_subTotal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/card"
@@ -185,7 +185,7 @@
                 android:id="@id/category_icon"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_below="@id/category_type"
+                android:layout_below="@id/account_subTotal"
                 android:layout_marginLeft="12dp"
                 android:layout_marginTop="15dp"
                 android:background="@mipmap/bank"
