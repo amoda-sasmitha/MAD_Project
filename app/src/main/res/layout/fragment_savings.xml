@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#d8d8d8"
+    tools:context=".Savings">
+
+    <View
+
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@drawable/shape"
+        android:gravity="center"
+
+        > </View>
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/bank_account"
+        android:textColor="#ffffff"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView13"
+        android:layout_marginStart="16dp"
+        android:text="@string/rs_12450_00"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        />
+
+
+
+    <TextView
+        android:id="@+id/savings_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp"
+        android:layout_marginBottom="10dp"
+        android:text="Savings"
+        android:textColor="#ffffff"
+        android:textSize="26dp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/saving_date1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="16dp"
+        android:text="28 June 2019"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/savings_name"
+        >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <RelativeLayout
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/card"
+            android:elevation="5dp"
+            android:paddingBottom="20dp"
+            >
+
+        <TextView
+            android:id="@+id/saving_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="Current Savings"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/date_hr"
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="5dp"
+            android:background="#d8d8d8"
+            android:layout_below="@id/saving_type"
+
+            ></View>
+
+            <RelativeLayout
+                android:id="@+id/saving01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/date_hr"
+                android:paddingBottom="5dp"
+
+                >
+
+
+                <TextView
+                    android:id="@+id/saving_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Saving for Desk Setup"
+                    android:textSize="14sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="14dp"
+                    android:textStyle="bold"
+
+                    />
+
+                <ProgressBar
+                    android:layout_below="@id/saving_text"
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="false"
+                    android:max="100"
+                    android:layout_marginEnd="14dp"
+                    android:layout_marginStart="14dp"
+                    android:minHeight="10dp"
+                    android:minWidth="200dp"
+                    android:progress="50"
+
+                    android:progressTint="@color/green"
+                    android:background="#F8F8F8"
+                    android:layout_marginTop="6dp"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp"
+                    />
+                <TextView
+                    android:id="@+id/current_amount_text"
+                    android:layout_below="@id/progressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rs 34000.00"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginLeft="20dp"
+                    />
+
+                <TextView
+                    android:id="@+id/full_amount_text"
+                    android:layout_below="@id/progressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="Rs 45000.00"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginRight="20dp"
+                    />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/saving02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/saving01"
+                android:paddingBottom="5dp"
+
+
+                >
+
+
+                <TextView
+                    android:id="@+id/saving_text02"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Saving for Gopro"
+                    android:textSize="14sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="14dp"
+                    android:textStyle="bold"/>
+
+                <ProgressBar
+                    android:layout_below="@id/saving_text02"
+                    android:id="@+id/progressBar02"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="false"
+                    android:max="100"
+                    android:layout_marginEnd="14dp"
+                    android:layout_marginStart="14dp"
+                    android:minHeight="10dp"
+                    android:minWidth="200dp"
+                    android:progress="85"
+
+                    android:progressTint="@color/green"
+                    android:background="#F8F8F8"
+                    android:layout_marginTop="6dp"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp"
+                    />
+                <TextView
+                    android:id="@+id/current_amount_text02"
+                    android:layout_below="@id/progressBar02"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rs 44800.00"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginLeft="20dp"
+                    />
+
+                <TextView
+                    android:id="@+id/full_amount_text02"
+                    android:layout_below="@id/progressBar02"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="Rs 55000.00"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginRight="20dp"
+                    />
+
+            </RelativeLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/cardView02"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/card"
+            android:elevation="5dp"
+            android:paddingBottom="20dp"
+            >
+
+        <TextView
+            android:id="@+id/saving_type02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="Finished Savings"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/date_hr02"
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="5dp"
+            android:background="#d8d8d8"
+            android:layout_below="@id/saving_type02"
+            ></View>
+            <RelativeLayout
+                android:id="@+id/saving03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/date_hr02"
+                android:paddingBottom="5dp"
+
+
+                >
+
+
+                <TextView
+                    android:id="@+id/saving_text03"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Saving for DSLR Camera"
+                    android:textSize="14sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="14dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/saving_text04"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rs 68000.00"
+                    android:textSize="14sp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="14dp"
+                    android:textStyle="bold"/>
+
+                <ProgressBar
+                    android:layout_below="@id/saving_text03"
+                    android:id="@+id/progressBar03"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="false"
+                    android:max="100"
+                    android:layout_marginEnd="14dp"
+                    android:layout_marginStart="14dp"
+                    android:minHeight="10dp"
+                    android:minWidth="200dp"
+                    android:progress="100"
+
+                    android:progressTint="@color/yellow"
+                    android:background="#F8F8F8"
+                    android:layout_marginTop="6dp"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp"
+                    />
+                <TextView
+                    android:id="@+id/current_amount_text03"
+                    android:layout_below="@id/progressBar03"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Finished Date : 01/06/2019"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginLeft="20dp"
+                    />
+
+
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+    </LinearLayout>
+    </ScrollView>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_saving_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="end|bottom"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/ic_add"
+
+        app:backgroundTint="@color/blue" />
+</RelativeLayout>

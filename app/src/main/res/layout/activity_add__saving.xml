@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddEditCategory"
     android:background="#d8d8d8"
-    >
+    tools:context=".Add_Saving">
+
 
     <View
 
@@ -21,35 +21,22 @@
 
 
     <TextView
-        android:id="@+id/category_name"
+        android:id="@+id/savings_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-       android:layout_marginStart="8dp"
-        android:text="@string/add_categories"
+        android:layout_marginStart="8dp"
+        android:text="Add Saving"
         android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold"
 
         />
 
-    <TextView
-        android:id="@+id/date_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="16dp"
-        android:text="28 June 2019"
-        android:textColor="#ffffff"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        />
-
     <RelativeLayout
         android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_below="@id/category_name"
+        android:layout_below="@id/savings_name"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -61,7 +48,7 @@
         >
 
         <TextView
-            android:id="@+id/category_type"
+            android:id="@+id/saving_type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
@@ -69,21 +56,9 @@
             android:background="@drawable/card"
             android:backgroundTint="#E8ECE8"
             android:elevation="5dp"
-            android:text="@string/new_category"
+            android:text="New Saving"
             android:textSize="16sp"
             android:textStyle="bold"
-          />
-
-
-        <Button
-            android:id="@id/category_icon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_below="@id/category_type"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/circle"
-
             />
 
         <EditText
@@ -91,20 +66,20 @@
             android:id="@+id/editText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/category_type"
+            android:layout_below="@id/saving_type"
             android:layout_marginStart="8dp"
             android:layout_marginTop="17dp"
             android:layout_marginEnd="12dp"
-            android:layout_toEndOf="@id/category_icon"
+
             android:background="@drawable/rounded_edit_text"
-            android:hint="@string/category_name"
+            android:hint="Saving name"
             android:importantForAutofill="no"
             android:inputType="textPersonName"
             android:padding="8dp"
             android:textSize="15sp" />
 
         <TextView
-            android:id="@+id/category_description_text"
+            android:id="@+id/saving_description_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/editText"
@@ -120,79 +95,63 @@
             android:id="@+id/edit_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/category_description_text"
+            android:layout_below="@id/saving_description_text"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="12dp"
+            android:hint="write a brief description about saving"
             android:background="@drawable/rounded_edit_text"
             android:layout_marginStart="12dp"
-            android:hint="@string/description_hint"
+            android:importantForAutofill="no"
+            android:gravity="top|left"
             android:inputType="textMultiLine"
             android:lines="8"
-            android:importantForAutofill="no"
             android:maxLines="5"
-            android:minLines="5"
-            android:gravity="top|left"
-
+            android:minLines="3"
             android:padding="8dp"
             android:scrollbars="vertical"
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/category_type_text"
+            android:id="@+id/saving_type_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/edit_description"
             android:layout_marginStart="12dp"
             android:layout_marginTop="10dp"
             android:elevation="5dp"
-            android:text="@string/category_type"
+            android:text="Add Start Amount"
             android:textColor="#7E7C7C"
             android:textSize="14sp"
             android:textStyle="bold" />
 
-        <RadioButton
-            android:id="@+id/income_btn_radio"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/amount_Text"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/income"
-            android:layout_below="@id/category_type_text"
+            android:layout_below="@id/saving_type_text"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:textColor="#7E7C7C"
-            android:textStyle="bold"
-            android:layout_marginStart="45dp"
-            android:textSize="14sp"
+            android:layout_marginEnd="12dp"
+            android:inputType="numberDecimal"
+            android:background="@drawable/rounded_edit_text"
+            android:hint="0.00"
+            android:importantForAutofill="no"
+            android:padding="8dp"
+            android:textSize="15sp" />
 
-
-            />
-
-        <RadioButton
-            android:id="@+id/expenses_btn_radio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/expense"
-            android:layout_below="@id/category_type_text"
-            android:layout_marginTop="8dp"
-            android:layout_toEndOf="@id/income_btn_radio"
-            android:textColor="#7E7C7C"
-            android:textStyle="bold"
-            android:textSize="14sp"
-            android:layout_marginStart="20dp"
-
-
-            />
 
 
         <Button
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
-            android:layout_below="@id/income_btn_radio"
+            android:layout_below="@id/amount_Text"
             android:layout_alignParentEnd="true"
             android:layout_marginLeft="12dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="12dp"
             android:backgroundTint="@color/green"
-            android:text="@string/save_category"
+            android:text="Save "
             android:textAllCaps="false"
             android:textColor="#ffffff"
             android:textSize="15sp"
@@ -200,14 +159,4 @@
             android:textStyle="bold" />
 
     </RelativeLayout>
-
-    <!--<ImageView-->
-        <!--android:id="@+id/imageView"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_marginBottom="-2dp"-->
-        <!--android:scaleType="fitEnd"-->
-        <!--android:src="@drawable/back2" />-->
-
 </RelativeLayout>
