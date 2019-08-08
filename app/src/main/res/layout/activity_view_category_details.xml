@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Bank Account"
+        android:text="@string/bank_account"
         android:textColor="#ffffff"
         android:textSize="13sp"
         android:textStyle="bold"
@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView11"
         android:layout_marginStart="16dp"
-        android:text="Rs 12450.00"
+        android:text="@string/rs_12450_00"
         android:textColor="#ffffff"
         android:textSize="18sp"
         android:textStyle="bold"/>
@@ -44,10 +44,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="16dp"
-        android:text="28 June 2019"
+        android:layout_marginEnd="16dp"
+        android:text="@string/_28_june_2019"
         android:textColor="#ffffff"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="bold"
         />
 
@@ -60,7 +60,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
     <RelativeLayout
@@ -82,7 +82,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:elevation="5dp"
-        android:text="Category Details"
+        android:text="@string/category_details"
         android:textSize="20sp"
         android:layout_centerHorizontal="true"
         android:textStyle="bold"
@@ -114,9 +114,9 @@
 
                 android:layout_marginTop="13dp"
 
-                android:text="Food and Beverages"
+                android:text="@string/food_and_beverages"
                 android:textColor="#424242"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <ImageView
@@ -134,11 +134,11 @@
                 android:id="@+id/main_sub_type_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Main Category"
+                android:text="@string/main_category"
                 android:layout_toRightOf="@id/categoryDetailIcon1"
                 android:layout_below="@id/category_text"
                 android:layout_marginTop="17dp"
-                android:layout_marginLeft="30dp"
+                android:layout_marginStart="30dp"
                 android:textSize="15sp"
                 android:textStyle="bold"/>
 
@@ -146,8 +146,8 @@
                 android:id="@+id/categoryType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Income"
-                android:layout_toRightOf="@id/categoryDetailIcon1"
+                android:text="@string/income"
+                android:layout_toEndOf="@id/categoryDetailIcon1"
                 android:layout_below="@id/main_sub_type_view"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="30dp"
@@ -160,7 +160,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/categoryType"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidication.ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+                android:text="@string/lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_sed_do_eiusmod_tempor_incidication_ut_labore_et_dolore_magna_aliqua_ut_enim_ad_minim_veniam"
                 android:layout_toRightOf="@id/categoryDetailIcon1"
                 android:layout_marginTop="8dp"
                 android:layout_marginLeft="30dp"
@@ -180,7 +180,7 @@
                 android:src="@drawable/edit_btn"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="15dp"
-                />
+                android:contentDescription="@string/todo" />
             <ImageButton
 
                 android:layout_width="30dp"
@@ -192,7 +192,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
 
-                />
+                android:contentDescription="@string/todo" />
 
         </RelativeLayout>
     </RelativeLayout>
