@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:background="#d8d8d8"
         tools:context=".ViewExpense"
-        android:paddingTop=""
+
         >
 
         <View
