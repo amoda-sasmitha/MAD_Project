@@ -42,6 +42,10 @@ public class ViewCategoryDetails extends AppCompatActivity {
 
     }
 
+    public void onClick(View view){
+
+    }
+
 
 
 

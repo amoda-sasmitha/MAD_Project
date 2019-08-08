@@ -33,6 +33,19 @@
 
         />
 
+    <TextView
+        android:id="@+id/date_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="16dp"
+        android:text="28 June 2019"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        />
+
     <RelativeLayout
         android:id="@+id/cardView"
         android:layout_width="match_parent"

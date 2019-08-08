@@ -37,13 +37,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView13"
         android:layout_marginStart="16dp"
-        android:text="@string/rs_12450_00"
+        android:text="Rs 12450.00"
         android:textColor="#ffffff"
         android:textSize="18dp"
         android:textStyle="bold"
        />
 
-
+    c
 
     <TextView
         android:id="@+id/category_name"
@@ -356,7 +356,7 @@
                         android:layout_toRightOf="@id/category_icon21"
                         android:elevation="5dp"
 
-                        android:text="@string/food_and_beverages1"
+                        android:text="Food and Beverages"
                         android:textSize="14dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="14dp"
@@ -369,7 +369,7 @@
                         android:layout_toRightOf="@id/category_icon21"
                         android:elevation="5dp"
                         android:layout_below="@id/category_text21"
-                        android:text="@string/main_category5"
+                        android:text="main category"
                         android:textSize="13dp"
                         android:layout_marginLeft="14dp"
                         />
@@ -397,7 +397,7 @@
                         android:layout_toRightOf="@id/category_icon23"
                         android:elevation="5dp"
 
-                        android:text="@string/bills_and_utilities1"
+                        android:text="Bills and Utilities"
                         android:textSize="14dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="14dp"
@@ -410,7 +410,7 @@
                         android:layout_toRightOf="@id/category_icon23"
                         android:elevation="5dp"
                         android:layout_below="@id/category_text23"
-                        android:text="@string/main_category3"
+                        android:text="main category"
                         android:textSize="13dp"
                         android:layout_marginLeft="14dp"
                         />
@@ -437,7 +437,7 @@
                         android:layout_toRightOf="@id/category_icon24"
                         android:elevation="5dp"
 
-                        android:text="@string/bills_and_utilities3"
+                        android:text="Bills and Utilities"
                         android:textSize="14dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="14dp"
@@ -450,7 +450,7 @@
                         android:layout_toRightOf="@id/category_icon24"
                         android:elevation="5dp"
                         android:layout_below="@id/category_text24"
-                        android:text="@string/main_category4"
+                        android:text="main category"
                         android:textSize="13dp"
                         android:layout_marginLeft="14dp"
                         />
@@ -478,7 +478,7 @@
                         android:layout_toRightOf="@id/category_icon25"
                         android:elevation="5dp"
 
-                        android:text="@string/bills_and_utilities"
+                        android:text="Bills and Utilities"
                         android:textSize="14dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="14dp"
@@ -491,8 +491,8 @@
                         android:layout_toRightOf="@id/category_icon25"
                         android:elevation="5dp"
                         android:layout_below="@id/category_text25"
-                        android:text="@string/main_category1"
-                        android:textSize="13sp"
+                        android:text="main category"
+                        android:textSize="13dp"
                         android:layout_marginLeft="14dp"
                         />
                 </RelativeLayout>
