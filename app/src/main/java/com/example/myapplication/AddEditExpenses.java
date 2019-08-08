@@ -22,7 +22,7 @@ public class AddEditExpenses extends AppCompatActivity implements DatePickerDial
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit_expenses);
-       
+
         getSupportFragmentManager().beginTransaction().replace( R.id.fragment_container , new AddExpense()).commit();
 
 

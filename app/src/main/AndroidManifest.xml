@@ -10,6 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ViewCategoryDetails"></activity>
+        <activity android:name=".ViewSavingDetails" ></activity>
+        <activity android:name=".Add_Saving" ></activity>
         <activity android:name=".ViewExpenseDetails"></activity>
         <activity android:name=".Edit_Category"></activity>
         <activity android:name=".AddEditExpenses" />
