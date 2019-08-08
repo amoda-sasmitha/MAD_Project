@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">My Application</string>
+
+    <!-- Author: Amoda Sasmitha  -->
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
@@ -8,6 +10,16 @@
     <string name="title_savings">Savings</string>
     <string name="bank_account">Bank Account</string>
     <string name="expense">Expense</string>
+
+    <!-- Author: Vishvi Wathasha  -->
+    <string name="add_categories">Add Categories</string>
+    <string name="new_category">New Category</string>
+    <string name="category_name">Category name</string>
+    <string name="add_description">Add description</string>
+    <string name="description_hint">Write a brief description about the category</string>
+    <string name="category_type">Category type</string>
+    <string name="income">Income</string>
+    <string name="save_category">Save Category</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

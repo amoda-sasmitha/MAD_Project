@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container , new Expenses()).commit();
                     return true;
                 case R.id.nav_savings:
+                    getSupportFragmentManager().beginTransaction().replace( R.id.fragment_container , new Savings() ).commit();
                     return true;
             }
             return false;
