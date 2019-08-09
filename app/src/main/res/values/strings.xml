@@ -64,7 +64,7 @@
 
     <!-- Author: Padula Guruge  -->
 
-    <!--Add Account-->
+    <!--Add Accounts-->
 
     <string name="text_account_name">Account Name</string>
     <string name="text_account_type">Account TYpe</string>
@@ -80,6 +80,7 @@
     <string name="title_activity_splash_screen">SplashScreen</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="saving_details">Saving Details</string>
 
 
 </resources>

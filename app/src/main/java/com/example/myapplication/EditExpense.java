@@ -40,7 +40,7 @@ public class EditExpense extends Fragment {
             category_select.setText( ReceivedData.getString("CategoryName"));
             Description.setText( ReceivedData.getString("Description"));
             select_date.setText( ReceivedData.getString("Date"));
-            account.setText(ReceivedData.getString("Account"));
+            account.setText(ReceivedData.getString("Accounts"));
             updateDate(view);
             UpdateCategory();
         }
@@ -84,7 +84,7 @@ public class EditExpense extends Fragment {
             amount.setText( dataBundle.getString("Amount"));
             Description.setText( dataBundle.getString("Description"));
             select_date.setText( dataBundle.getString("Date"));
-            account.setText(dataBundle.getString("Account"));
+            account.setText(dataBundle.getString("Accounts"));
 
         }
 
@@ -98,7 +98,7 @@ public class EditExpense extends Fragment {
                 dataBundle.putString("CategoryName" , category_select.getText().toString() );
                 dataBundle.putString( "Amount" , amount.getText().toString() );
                 dataBundle.putString("Date" , select_date.getText().toString() );
-                dataBundle.putString( "Account" , account.getText().toString() );
+                dataBundle.putString( "Accounts" , account.getText().toString() );
                 dataBundle.putString("Description" , Description.getText().toString() );
                 category.setArguments( dataBundle);
 

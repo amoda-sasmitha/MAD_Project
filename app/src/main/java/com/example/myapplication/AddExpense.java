@@ -81,7 +81,7 @@ public class AddExpense extends Fragment {
               amount.setText( dataBundle.getString("Amount"));
               Description.setText( dataBundle.getString("Description"));
               select_date.setText( dataBundle.getString("Date"));
-              account.setText(dataBundle.getString("Account"));
+              account.setText(dataBundle.getString("Accounts"));
               categoryIcon.setImageResource(0);
           }
 
@@ -95,7 +95,7 @@ public class AddExpense extends Fragment {
                 dataBundle.putString("CategoryName" , category_select.getText().toString() );
                 dataBundle.putString( "Amount" , amount.getText().toString() );
                 dataBundle.putString("Date" , select_date.getText().toString() );
-                dataBundle.putString( "Account" , account.getText().toString() );
+                dataBundle.putString( "Accounts" , account.getText().toString() );
                 dataBundle.putString("Description" , Description.getText().toString() );
                 category.setArguments( dataBundle);
 

@@ -44,11 +44,12 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         layout = findViewById(R.id.fragment_container);
-        layout.setAlpha(0);
         navView.setAlpha(0);
+        layout.setAlpha(0);
+        navView.animate().alpha(1).setDuration(300);
         layout.setTranslationY(-200);
         layout.animate().translationY(0).setDuration(800);
-        navView.animate().alpha(1).setDuration(300);
+
         layout.animate().alpha(1).setDuration(1000);
 
 

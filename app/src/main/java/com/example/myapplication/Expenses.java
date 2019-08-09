@@ -19,13 +19,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class Expenses extends Fragment {
 
+    private TextView AccountBtn;
     private FloatingActionButton plusBtn;
     private TextView categoryText , amount, date ;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_expenses ,container , false);
-
+        AccountBtn = view.findViewById(R.id.Account);
         plusBtn = view.findViewById(R.id.add_expenses_btn);
         plusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +52,13 @@ public class Expenses extends Fragment {
 
                 intent.putExtras( bundle);
                 startActivity(intent);
+            }
+        });
+
+        AccountBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getFragmentManager().beginTransaction().replace(R.id.fragment_container , new Accounts() ).commit();
             }
         });
 

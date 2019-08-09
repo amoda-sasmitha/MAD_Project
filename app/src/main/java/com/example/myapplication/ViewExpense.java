@@ -43,7 +43,7 @@ public class ViewExpense extends Fragment {
                 dataBundle.putString("CategoryName" , CategoryName.getText().toString() );
                 dataBundle.putString( "Amount" , amount.getText().toString() );
                 dataBundle.putString("Date" , date.getText().toString() );
-                dataBundle.putString( "Account" , account.getText().toString() );
+                dataBundle.putString( "Accounts" , account.getText().toString() );
                 dataBundle.putString("Description" , description.getText().toString() );
 
                 editExpense.setArguments(dataBundle);

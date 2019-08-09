@@ -66,7 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Saving Details"
+            android:text="@string/saving_details"
             android:textSize="20sp"
             android:layout_centerHorizontal="true"
             android:textStyle="bold"
@@ -100,7 +100,7 @@
                 android:text="Saving for Desk Setup"
                 android:textSize="16sp"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
                 android:textStyle="bold"
 
                 />

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".edit_accounts">
+    tools:context=".Accounts">
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -84,7 +84,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="92dp"
                 android:layout_marginTop="71dp"
-                android:text="TextView" />
+                android:text="Rs3400.00" />
 
 
         </RelativeLayout>
@@ -155,15 +155,6 @@
 
 
         </RelativeLayout>
-
-        <!--<ImageView-->
-        <!--android:id="@+id/imageView"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_marginBottom="-2dp"-->
-        <!--android:scaleType="fitEnd"-->
-        <!--android:src="@drawable/back2" />-->
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
