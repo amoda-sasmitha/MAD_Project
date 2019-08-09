@@ -39,7 +39,7 @@
         tools:layout_editor_absoluteX="-26dp">
 
         <RelativeLayout
-            android:id="@+id/cv_total"
+            android:id="@+id/cv_total1"
             android:layout_width="match_parent"
             android:layout_height="127dp"
             android:layout_below="@id/category_name"
@@ -138,7 +138,7 @@
                 android:background="@mipmap/bank" />
 
             <TextView
-                android:id="@+id/tv_bank_new"
+                android:id="@+id/tv_bank_new1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
