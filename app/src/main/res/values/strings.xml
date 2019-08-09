@@ -39,10 +39,7 @@
     <string name="main_category1">main category</string>
     <string name="bills_and_utilities1">Bills and Utilities</string>
     <string name="main_category3">main category</string>
-    <string name="bills_and_utilities3">Interest Money</string>
-    <string name="main_category4">main category</string>
-    <string name="main_category5">main category</string>
-    <string name="food_and_beverages1">Salary</string>
+    
     <string name="write_a_brief_description_about_the_category">Write a brief description about the category</string>
     <string name="category_name1">Category name</string>
     <string name="add_description1">Add description</string>
@@ -56,11 +53,11 @@
     <string name="bills_and_utilities2">Bills and Utilities</string>
     <string name="expenses">Expenses</string>
     <string name="income1">Income</string>
-    <string name="main_category6">main category</string>
-    <string name="main_category7">main category</string>
-    <string name="main_category8">main category</string>
+
     <string name="electricity">Electricity</string>
-    <string name="bills_and_utilities4">Bills and Utilities</string>
+    <string name="categories">Categories</string>
+
+
 
     <!-- Author: Padula Guruge  -->
 
@@ -119,6 +116,11 @@
     <string name="MemoV2">for phone bill</string>
     <string name="IconV3">Icon</string>
     <string name="icon2">Icon2</string>
+
+
+    <string name="rentals">Rentals</string>
+    <string name="interest_money">Interest Money</string>
+
 
 
 </resources>
