@@ -36,30 +36,28 @@
     <RelativeLayout
         android:id="@+id/cardViewAccount3"
         android:layout_width="match_parent"
-        android:layout_below="@id/savings_name"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_height="wrap_content"
+        android:layout_below="@id/savings_name"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginRight="8dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/card"
         android:elevation="5dp"
-        android:paddingBottom="15dp"
-        >
+        android:paddingBottom="15dp">
 
         <TextView
             android:id="@+id/saving_type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:textColor="#706F6F"
             android:background="@drawable/card"
             android:backgroundTint="#E8ECE8"
             android:elevation="5dp"
+            android:padding="10dp"
             android:text="New Saving"
+            android:textColor="#706F6F"
             android:textSize="16sp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <EditText
 
@@ -68,8 +66,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/saving_type"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="17dp"
-            android:layout_marginEnd="12dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="8dp"
 
             android:background="@drawable/rounded_edit_text"
             android:hint="Saving name"
@@ -84,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/editText"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="10dp"
             android:elevation="5dp"
             android:text="@string/add_description"
             android:textColor="#7E7C7C"
@@ -96,13 +94,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/saving_description_text"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="12dp"
-            android:hint="write a brief description about saving"
+            android:layout_marginEnd="8dp"
             android:background="@drawable/rounded_edit_text"
-            android:layout_marginStart="12dp"
-            android:importantForAutofill="no"
             android:gravity="top|left"
+            android:hint="write a brief description about saving"
+            android:importantForAutofill="no"
             android:inputType="textMultiLine"
             android:lines="8"
             android:maxLines="5"
@@ -117,7 +116,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/edit_description"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="4dp"
             android:elevation="5dp"
             android:text="Add Start Amount"
             android:textColor="#7E7C7C"
@@ -126,19 +125,20 @@
 
         <EditText
             android:id="@+id/amount_Text"
-            android:layout_width="match_parent"
+            android:layout_width="370dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/saving_type_text"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="12dp"
-            android:inputType="numberDecimal"
+            android:layout_marginEnd="8dp"
             android:background="@drawable/rounded_edit_text"
             android:hint="0.00"
             android:importantForAutofill="no"
+            android:inputType="numberDecimal"
             android:padding="8dp"
             android:textSize="15sp" />
-
 
 
         <Button
