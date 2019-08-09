@@ -61,4 +61,18 @@
     <string name="main_category8">main category</string>
     <string name="electricity">Electricity</string>
     <string name="bills_and_utilities4">Bills and Utilities</string>
+
+    <!-- Author: Padula Guruge  -->
+
+    <!--Add Account-->
+
+    <string name="text_account_name">Account Name</string>
+    <string name="text_account_type">Account TYpe</string>
+    <string name="empty" />
+    <string name="title_add_account">Add Account</string>
+    <string name="account_ammount">Amount</string>
+    <string name="accont_number">Account Number</string>
+    <string name="add">Add</string>
+
+
 </resources>

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".add_accounts">
+    tools:context=".account_update">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -56,14 +55,13 @@
             android:id="@+id/txt_add_acc_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textAddAccountType"
+            android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="73dp"
-            android:layout_marginTop="17dp"
-            android:layout_marginEnd="38dp"
-            android:layout_toEndOf="@+id/lbl_amount"
+            android:layout_marginTop="354dp"
+            android:layout_marginEnd="42dp"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:text="Name" />
 
         <EditText
             android:id="@+id/account_no_txt"
@@ -71,10 +69,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="412dp"
-            android:layout_marginEnd="37dp"
+            android:layout_marginTop="421dp"
+            android:layout_marginEnd="44dp"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:text="Name" />
 
         <TextView
             android:id="@+id/lbl_amount"
@@ -82,9 +81,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="34dp"
-            android:layout_marginTop="368dp"
-            android:text="@string/account_ammount" />
+            android:layout_marginStart="57dp"
+            android:layout_marginTop="369dp"
+            android:text="TextView" />
 
         <Button
             android:id="@+id/btn_add_acc_add"
@@ -94,11 +93,11 @@
             android:layout_alignBottom="@+id/imageView"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="147dp"
-            android:layout_marginTop="55dp"
-            android:layout_marginEnd="156dp"
-            android:layout_marginBottom="20dp"
-            android:text="@string/add" />
+            android:layout_marginStart="132dp"
+            android:layout_marginTop="43dp"
+            android:layout_marginEnd="171dp"
+            android:layout_marginBottom="23dp"
+            android:text="Button" />
 
         <TextView
             android:id="@+id/lbl_account_number"
@@ -106,9 +105,21 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="34dp"
-            android:layout_marginTop="429dp"
-            android:text="@string/accont_number" />
+            android:layout_marginStart="57dp"
+            android:layout_marginTop="430dp"
+            android:text="TextView" />
+
+        <EditText
+            android:id="@+id/txt_account_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_account_name"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="42dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name" />
 
         <TextView
             android:id="@+id/lable_account_name"
@@ -116,9 +127,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="34dp"
-            android:layout_marginTop="304dp"
-            android:text="@string/text_account_type" />
+            android:layout_marginStart="57dp"
+            android:layout_marginTop="305dp"
+            android:text="TextView" />
 
         <TextView
             android:id="@+id/category_name"
@@ -127,9 +138,9 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="55dp"
             android:layout_marginBottom="10dp"
-            android:text="@string/title_add_account"
+            android:text="Update Account"
             android:textColor="#ffffff"
-            android:textSize="26sp"
+            android:textSize="26dp"
             android:textStyle="bold" />
 
         <TextView
@@ -138,37 +149,21 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="34dp"
-            android:layout_marginTop="237dp"
-            android:text="@string/text_account_name" />
+            android:layout_marginStart="57dp"
+            android:layout_marginTop="238dp"
+            android:text="TextView" />
 
         <EditText
-            android:id="@+id/textAddAcountName"
+            android:id="@+id/txt_account_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="225dp"
-            android:layout_marginEnd="38dp"
-            android:layout_toEndOf="@+id/lable_acount_type"
+            android:layout_marginTop="223dp"
+            android:layout_marginEnd="42dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@string/empty" />
-
-        <EditText
-            android:id="@+id/textAddAccountType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textAddAcountName"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="37dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginEnd="39dp"
-            android:layout_toEndOf="@+id/lable_account_name"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="@string/empty" />
+            android:text="Name" />
 
     </RelativeLayout>
 </FrameLayout>
