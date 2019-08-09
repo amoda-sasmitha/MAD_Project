@@ -81,6 +81,22 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="saving_details">Saving Details</string>
+    <string name="edit_saving">Edit Saving</string>
+    <string name="edit_start_amount">Edit Start Amount</string>
+    <string name="edit_description">Edit Description</string>
+    <string name="edit_saving">Edit Saving</string>
+    <string name="update">Update</string>
+    <string name="write_a_brief_description_about_saving">write a brief description about saving</string>
+    <string name="_0_00">0.00</string>
+    <string name="saving_name">Saving name</string>
+    <string name="update">Update</string>
+    <string name="new_saving">New Saving</string>
+    <string name="write_a_brief_description_about_saving">write a brief description about saving</string>
+    <string name="_0_00">0.00</string>
+    <string name="add_saving">Add Saving</string>
+    <string name="saving_name">Saving name</string>
+    <string name="add_start_amount">Add Start Amount</string>
+    <string name="save">Save</string>
 
 
 </resources>
