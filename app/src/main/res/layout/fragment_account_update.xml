@@ -60,8 +60,7 @@
             android:layout_marginTop="23dp"
             android:layout_marginEnd="42dp"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/account_no_txt"
@@ -72,8 +71,7 @@
             android:layout_marginTop="421dp"
             android:layout_marginEnd="44dp"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
+            android:inputType="textPersonName" />
 
         <TextView
             android:id="@+id/lbl_amount"
@@ -87,17 +85,15 @@
 
         <Button
             android:id="@+id/btn_add_acc_add"
-            android:layout_width="108dp"
+            android:layout_width="match_parent"
             android:layout_height="38dp"
             android:layout_below="@+id/account_no_txt"
             android:layout_alignBottom="@+id/imageView"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="132dp"
             android:layout_marginTop="43dp"
-            android:layout_marginEnd="171dp"
             android:layout_marginBottom="23dp"
-            android:text="Button" />
+            android:text="Button"
+            android:layout_marginHorizontal="16dp"
+            />
 
         <TextView
             android:id="@+id/lbl_account_number"
@@ -150,8 +146,7 @@
             android:layout_marginTop="223dp"
             android:layout_marginEnd="42dp"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/editText3"
@@ -162,8 +157,7 @@
             android:layout_marginStart="154dp"
             android:layout_marginTop="23dp"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
+            android:inputType="textPersonName" />
 
     </RelativeLayout>
 </FrameLayout>
