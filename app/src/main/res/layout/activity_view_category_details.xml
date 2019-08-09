@@ -181,18 +181,20 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="15dp"
                 android:contentDescription="@string/todo" />
+
             <ImageButton
 
+                android:id="@+id/delete_btn"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:background="@drawable/circle"
                 android:layout_below="@id/category_view_description"
-                android:layout_toRightOf="@+id/edit_btn"
-                android:src="@drawable/delete_btn"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
+                android:layout_toRightOf="@+id/edit_btn"
+                android:background="@drawable/circle"
 
-                android:contentDescription="@string/todo" />
+                android:contentDescription="@string/todo"
+                android:src="@drawable/delete_btn" />
 
         </RelativeLayout>
     </RelativeLayout>

@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".EditExpense"
     android:background="#d8d8d8">
 
@@ -14,17 +13,16 @@
         android:layout_height="120dp"
         android:background="@drawable/shape"
         android:gravity="center"
-        ></View>
-
+        />
     <TextView
         android:id="@+id/add_expenses"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="10dp"
-        android:text="Edit Expense / Income"
+        android:text="@string/edit_expense_income"
         android:textColor="#ffffff"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
 
         />
@@ -50,10 +48,11 @@
             android:background="@drawable/card"
             android:backgroundTint="#E8ECE8"
             android:elevation="5dp"
+            android:hint="@string/edit_expense_income"
             android:padding="10dp"
-            android:text="Edit Expense / Income"
+            android:text="@string/edit_expense_income"
             android:textColor="#706F6F"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
@@ -61,10 +60,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/expenses_name"
-            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="25dp"
-            android:layout_marginRight="10dp"
-            android:text="Amount"
+            android:layout_marginEnd="10dp"
+            android:hint="@string/account_ammount"
+            android:text="@string/amount"
             android:textColor="#7E7C7C"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -78,15 +78,16 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="17dp"
             android:layout_marginEnd="12dp"
-            android:layout_marginRight="12dp"
-            android:layout_toRightOf="@id/amount_text"
+            android:layout_toEndOf="@id/amount_text"
             android:background="@drawable/rounded_edit_text"
+            android:hint="@string/Amount_rs_12450_00"
+            android:importantForAutofill="no"
             android:inputType="numberDecimal"
             android:padding="8dp"
             android:textAlignment="textEnd"
             android:textColor="@color/green"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold" tools:targetApi="o" />
 
         <TextView
             android:id="@+id/add_category_text"
@@ -94,10 +95,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
             android:textColor="#7E7C7C"
-            android:text="Select Category"
-            android:textSize="14dp"
+            android:text="@string/select_category"
+            android:textSize="14sp"
             android:textStyle="bold"/>
 
         <ImageButton
@@ -105,11 +106,11 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_below="@id/add_category_text"
-            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
             android:layout_marginTop="6dp"
             android:background="@drawable/circle"
 
-            />
+            android:contentDescription="@string/todo" />
 
         <EditText
 
@@ -120,23 +121,24 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="12dp"
-            android:layout_marginRight="12dp"
-            android:layout_toRightOf="@id/category_icon"
+            android:layout_toEndOf="@id/category_icon"
             android:background="@drawable/rounded_edit_text"
             android:focusable="false"
+            android:hint="@string/CategoryV4"
             android:inputType="textPersonName"
             android:padding="8dp"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:importantForAutofill="no" tools:targetApi="o" />
 
         <TextView
             android:id="@+id/expense_description_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/category_icon"
-            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
             android:layout_marginTop="20dp"
             android:elevation="5dp"
-            android:text="Add description"
+            android:text="@string/add_description"
             android:textColor="#7E7C7C"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -150,14 +152,16 @@
             android:layout_marginTop="8dp"
             android:layout_marginRight="12dp"
             android:background="@drawable/rounded_edit_text"
-            android:gravity="top|left"
+            android:gravity="top|start"
+            android:hint="@string/DumyText"
             android:inputType="textMultiLine"
             android:lines="8"
             android:maxLines="5"
             android:minLines="5"
             android:padding="8dp"
             android:scrollbars="vertical"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:importantForAutofill="no" tools:targetApi="o" />
 
 
         <TextView
@@ -165,10 +169,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/edit_description"
-            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
             android:layout_marginTop="12dp"
             android:elevation="5dp"
-            android:text="Select Date"
+            android:text="@string/select_date"
             android:textColor="#7E7C7C"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -178,26 +182,28 @@
             android:id="@+id/select_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
             android:layout_below="@id/expense_account_select_text"
-            android:background="@drawable/rounded_edit_text"
-            android:padding="8dp"
-            android:textSize="15sp"
-            android:focusable="false"
-            android:textAlignment="center"
+            android:layout_marginLeft="12dp"
             android:layout_marginTop="8dp"
-            />
+            android:layout_marginRight="12dp"
+            android:background="@drawable/rounded_edit_text"
+            android:focusable="false"
+            android:hint="@string/DateV4"
+            android:importantForAutofill="no"
+            android:inputType="date"
+            android:padding="8dp"
+            android:textAlignment="center"
+            android:textSize="15sp" tools:targetApi="o" />
 
         <TextView
             android:id="@+id/expense_account_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/select_date"
-            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
             android:layout_marginTop="12dp"
             android:elevation="5dp"
-            android:text="Select Account"
+            android:text="@string/select_account"
             android:textColor="#7E7C7C"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -212,9 +218,12 @@
             android:layout_marginTop="8dp"
             android:layout_marginRight="12dp"
             android:background="@drawable/rounded_edit_text"
+            android:hint="@string/accountType"
+            android:inputType=""
             android:padding="8dp"
             android:textAlignment="center"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:importantForAutofill="no" tools:targetApi="o" />
         <Button
             android:layout_width="match_parent"
 
@@ -225,7 +234,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="12dp"
             android:backgroundTint="@color/green"
-            android:text="Save Changes"
+            android:text="@string/save_changes"
             android:textAllCaps="false"
             android:textColor="#ffffff"
             android:textSize="15sp"
