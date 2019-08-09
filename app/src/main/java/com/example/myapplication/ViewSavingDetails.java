@@ -10,5 +10,6 @@ public class ViewSavingDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_saving_details);
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container , new ViewSaving() ).commit();
     }
 }
