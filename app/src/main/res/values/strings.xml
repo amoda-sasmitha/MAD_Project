@@ -73,6 +73,9 @@
     <string name="account_ammount">Amount</string>
     <string name="accont_number">Account Number</string>
     <string name="add">Add</string>
+    <string name="tv_tetx_bank">Bank</string>
+    <string name="tv_credte">Cards</string>
+    <string name="tv_bank">Rs 2500.00</string>
 
 
 </resources>

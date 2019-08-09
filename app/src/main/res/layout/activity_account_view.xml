@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".accountView">
+    tools:context=".edit_accounts">
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_account_btn"
+        android:id="@+id/add_category_btn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -39,7 +39,7 @@
         tools:layout_editor_absoluteX="-26dp">
 
         <RelativeLayout
-            android:id="@+id/cardViewAccount2"
+            android:id="@+id/cv_total"
             android:layout_width="match_parent"
             android:layout_height="127dp"
             android:layout_below="@id/category_name"
@@ -52,7 +52,7 @@
             android:paddingBottom="15dp">
 
             <TextView
-                android:id="@+id/account_subTotalss"
+                android:id="@+id/category_type"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/card"
@@ -69,7 +69,7 @@
                 android:id="@id/category_icon"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_below="@id/account_subTotalss"
+                android:layout_below="@id/category_type"
                 android:layout_marginLeft="12dp"
                 android:layout_marginTop="15dp"
                 android:background="@mipmap/ic_launcher_foreground"
@@ -77,65 +77,14 @@
                 />
 
             <TextView
-                android:id="@+id/textView15"
+                android:id="@+id/tv_tot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="80dp"
-                android:layout_marginTop="62dp"
-                android:text="Rs 5000.00" />
-
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/cardViewAccount4"
-            android:layout_width="match_parent"
-            android:layout_height="127dp"
-            android:layout_below="@id/category_name"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="311dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/card"
-            android:elevation="5dp"
-            android:paddingBottom="15dp">
-
-            <TextView
-                android:id="@+id/account_subTotals"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/card"
-                android:backgroundTint="#E8ECE8"
-                android:elevation="5dp"
-                android:padding="10dp"
-                android:text="Cards"
-                android:textColor="#706F6F"
-                android:textSize="16dp"
-                android:textStyle="bold" />
-
-
-            <Button
-                android:id="@id/category_icon"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_below="@id/account_subTotals"
-                android:layout_marginLeft="12dp"
-                android:layout_marginTop="15dp"
-                android:background="@mipmap/cards"
-
-                />
-
-            <TextView
-                android:id="@+id/textView16"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="80dp"
-                android:layout_marginTop="62dp"
-                android:text="Rs 2500.00" />
+                android:layout_marginStart="92dp"
+                android:layout_marginTop="71dp"
+                android:text="TextView" />
 
 
         </RelativeLayout>
@@ -165,7 +114,7 @@
             />
 
         <RelativeLayout
-            android:id="@+id/cardViewAccount3"
+            android:id="@+id/cv_total"
             android:layout_width="match_parent"
             android:layout_height="127dp"
             android:layout_below="@id/category_name"
@@ -177,40 +126,32 @@
             android:elevation="5dp"
             android:paddingBottom="15dp">
 
-            <TextView
-                android:id="@+id/account_subTotal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/card"
-                android:backgroundTint="#E8ECE8"
-                android:elevation="5dp"
-                android:padding="10dp"
-                android:text="Bank Account"
-                android:textColor="#706F6F"
-                android:textSize="16dp"
-                android:textStyle="bold" />
-
 
             <Button
                 android:id="@id/category_icon"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_below="@id/account_subTotal"
-                android:layout_marginLeft="12dp"
-                android:layout_marginTop="15dp"
-                android:background="@mipmap/bank"
 
-                />
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="49dp"
+                android:background="@mipmap/bank" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/tv_bank_new"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="80dp"
-                android:layout_marginTop="62dp"
-                android:text="Rs 2500.00" />
+                android:layout_marginStart="93dp"
+                android:layout_marginTop="70dp"
+                android:text="@string/tv_bank" />
+
+            <TextView
+                android:id="@+id/tv_bank_new"
+                android:layout_width="match_parent"
+                android:layout_height="31dp"
+                android:text="@string/tv_tetx_bank" />
 
 
         </RelativeLayout>
