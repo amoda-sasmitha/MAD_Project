@@ -16,9 +16,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
-            android:layout_marginRight="0dp"
+            android:layout_marginEnd="0dp"
             android:orientation="vertical"
 
             android:paddingBottom="20dp"
@@ -32,7 +32,7 @@
 
         >
 
-        <View xmlns:app="http://schemas.android.com/apk/res-auto"
+        <View
             android:id="@+id/view"
             android:layout_width="wrap_content"
             android:layout_height="180dp"
@@ -49,9 +49,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
             android:elevation="12dp"
-            android:text="Yesterday"
+            android:text="@string/date"
             android:textColor="#ffffff"
-            android:textSize="26dp"
+            android:textSize="26sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/view"
             app:layout_constraintStart_toEndOf="@+id/view"
@@ -77,7 +77,7 @@
             android:layout_height="wrap_content"
             android:elevation="16dp"
             android:lineSpacingExtra="4dp"
-            android:text="28 July 2019"
+            android:text="@string/DateV2"
             android:textColor="#ffffff"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -93,10 +93,10 @@
             android:layout_marginEnd="64dp"
             android:background="@drawable/dailybtn"
             android:backgroundTint="#f4f4f4"
-            android:text="Monthly"
+            android:text="@string/monthly"
             android:textAllCaps="false"
             android:textColor="#9A9A9A"
-            android:textSize="12dp"
+            android:textSize="12sp"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="@+id/view"
             app:layout_constraintTop_toTopOf="parent" />
@@ -109,9 +109,9 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/monthlybtn"
-            android:text="Daily"
+            android:text="@string/daily"
             android:textAllCaps="false"
-            android:textSize="12dp"
+            android:textSize="12sp"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="@+id/view"
             app:layout_constraintHorizontal_bias="1.0"
@@ -125,9 +125,9 @@
 
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="Bank Account"
+            android:text="@string/accountType"
             android:textColor="#ffffff"
-            android:textSize="13dp"
+            android:textSize="13sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/view"
             app:layout_constraintTop_toTopOf="@+id/view" />
@@ -139,9 +139,9 @@
 
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="Rs 12450.00"
+            android:text="@string/AmountV3"
             android:textColor="#ffffff"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/view"
             app:layout_constraintTop_toTopOf="@+id/textView3" />
@@ -157,7 +157,7 @@
             android:elevation="5dp"
             app:layout_constraintEnd_toEndOf="@+id/view"
             app:layout_constraintStart_toStartOf="@+id/view"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"></View>
+            app:layout_constraintTop_toBottomOf="@+id/textView2"/>
 
         <TextView
             android:id="@+id/textView6"
@@ -166,9 +166,9 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="52dp"
             android:elevation="5dp"
-            android:text="Inflow"
+            android:text="@string/inflow"
 
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toTopOf="@+id/view2" />
@@ -181,8 +181,8 @@
             android:layout_marginEnd="24dp"
 
             android:elevation="5dp"
-            android:text="Rs 230.00"
-            android:textSize="14dp"
+            android:text="@string/AmountV4"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/view2" />
@@ -195,8 +195,8 @@
             android:layout_marginTop="4dp"
             android:layout_marginEnd="24dp"
             android:elevation="5dp"
-            android:text="Rs 230.00"
-            android:textSize="14dp"
+            android:text="@string/AmountV5"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView8" />
@@ -209,8 +209,8 @@
             android:layout_marginTop="4dp"
             android:elevation="5dp"
 
-            android:text="Outflow"
-            android:textSize="14dp"
+            android:text="@string/outflow"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -222,9 +222,9 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:elevation="5dp"
-            android:text="Overview"
+            android:text="@string/overview"
 
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toTopOf="@+id/view2" />
@@ -266,36 +266,36 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
 
                     android:elevation="5dp"
-                    android:text="29"
-                    android:textSize="35dp"
+                    android:text="@string/RandomNumber"
+                    android:textSize="35sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/day"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
                     android:elevation="5dp"
-                    android:text="Monday"
-                    android:textSize="14dp"
+                    android:text="@string/RandomDate"
+                    android:textSize="14sp"
                     android:textStyle="bold"
-                    android:layout_toRightOf="@id/text6"/>
+                    android:layout_toEndOf="@id/text6"/>
 
                 <TextView
                     android:id="@+id/date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:elevation="5dp"
-                    android:text="28 July 2019"
-                    android:textSize="14dp"
+                    android:text="@string/DateV6"
+                    android:textSize="14sp"
 
                     android:layout_below="@id/day"
-                    android:layout_toRightOf="@id/text6"
-                    android:layout_marginLeft="10dp"
+                    android:layout_toEndOf="@id/text6"
+                    android:layout_marginStart="10dp"
 
 
                     />
@@ -309,8 +309,7 @@
                     android:layout_marginTop="5dp"
                     android:background="#d8d8d8"
                     android:layout_below="@id/date"
-                    ></View>
-"
+                    />
                 <!-- Start of the component -->
                 <ImageView
                     android:id="@+id/category_icon"
@@ -318,33 +317,35 @@
                     android:layout_height="35dp"
                     android:background="@drawable/circle"
                     android:layout_below="@+id/date_hr"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     android:layout_marginTop="12dp"
+                    android:contentDescription="@string/IconV3"
+
                     />
 
                 <TextView
                     android:id="@+id/category_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/category_icon"
+                    android:layout_toEndOf="@id/category_icon"
                     android:elevation="5dp"
                     android:layout_below="@id/date_hr"
-                    android:text="Food and Beverages"
-                    android:textSize="14dp"
+                    android:text="@string/CategoryV4"
+                    android:textSize="14sp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/category_memo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/category_icon"
+                    android:layout_toEndOf="@id/category_icon"
                     android:elevation="5dp"
                     android:layout_below="@id/category_text"
-                    android:text="for Lunch"
-                    android:textSize="13dp"
-                    android:layout_marginLeft="10dp"
+                    android:text="@string/MemoV1"
+                    android:textSize="13sp"
+                    android:layout_marginStart="10dp"
                     />
 
                 <TextView
@@ -354,11 +355,11 @@
                     android:layout_alignParentEnd="true"
                     android:elevation="5dp"
                     android:layout_below="@id/date_hr"
-                    android:text="Rs 230.00"
-                    android:textSize="14dp"
+                    android:text="@string/AmountV7"
+                    android:textSize="14sp"
                     android:textColor="@color/red"
                     android:layout_marginTop="10dp"
-                    android:layout_marginRight="15dp"
+                    android:layout_marginEnd="15dp"
                     android:textStyle="bold"/>
                 <!-- End of the component -->
                 <!-- Start of the component -->
@@ -368,34 +369,34 @@
                     android:layout_height="35dp"
                     android:background="@drawable/circle"
                     android:layout_below="@+id/category_icon"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     android:layout_marginTop="12dp"
                     android:backgroundTint="@color/yellow"
-                    />
+                          android:contentDescription="@string/icon2"/>
 
                 <TextView
                     android:id="@+id/category_text2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/category_icon"
+                    android:layout_toEndOf="@id/category_icon"
                     android:elevation="5dp"
                     android:layout_below="@id/category_memo"
-                    android:text="Bills and Utilities"
-                    android:textSize="14dp"
+                    android:text="@string/CategoryV2"
+                    android:textSize="14sp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/category_memo2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/category_icon"
+                    android:layout_toEndOf="@id/category_icon"
                     android:elevation="5dp"
                     android:layout_below="@id/category_text2"
-                    android:text="for phone bill"
-                    android:textSize="13dp"
-                    android:layout_marginLeft="10dp"
+                    android:text="@string/MemoV2"
+                    android:textSize="13sp"
+                    android:layout_marginStart="10dp"
                     />
 
                 <TextView
@@ -405,11 +406,11 @@
                     android:layout_alignParentEnd="true"
                     android:elevation="5dp"
                     android:layout_below="@id/category_cost"
-                    android:text="Rs 1453.00"
-                    android:textSize="14dp"
+                    android:text="@string/sampleValue01"
+                    android:textSize="14sp"
                     android:textColor="@color/red"
                     android:layout_marginTop="25dp"
-                    android:layout_marginRight="15dp"
+                    android:layout_marginEnd="15dp"
                     android:textStyle="bold"/>
                 <!-- End of the component -->
 
@@ -427,7 +428,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="end|bottom"
-        android:layout_marginRight="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:src="@drawable/ic_add"
 

@@ -81,22 +81,44 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="saving_details">Saving Details</string>
-    <string name="edit_saving">Edit Saving</string>
     <string name="edit_start_amount">Edit Start Amount</string>
     <string name="edit_description">Edit Description</string>
     <string name="edit_saving">Edit Saving</string>
-    <string name="update">Update</string>
-    <string name="write_a_brief_description_about_saving">write a brief description about saving</string>
-    <string name="_0_00">0.00</string>
-    <string name="saving_name">Saving name</string>
+
+
+
     <string name="update">Update</string>
     <string name="new_saving">New Saving</string>
     <string name="write_a_brief_description_about_saving">write a brief description about saving</string>
     <string name="_0_00">0.00</string>
     <string name="add_saving">Add Saving</string>
-    <string name="saving_name">Saving name</string>
+
     <string name="add_start_amount">Add Start Amount</string>
     <string name="save">Save</string>
+
+
+    <string name="overview">Overview</string>
+    <string name="date">Yesterday</string>
+    <string name="sampleValue01">Rs 1453.00</string>
+    <string name="DateV2">28 July 2019</string>
+    <string name="monthly">Monthly</string>
+    <string name="daily">Daily</string>
+    <string name="accountType">Bank Account</string>
+    <string name="AmountV3">Rs 12450.00</string>
+    <string name="inflow">Inflow</string>
+    <string name="AmountV5">Rs 230.00</string>
+    <string name="AmountV4">Rs 230.00</string>
+    <string name="outflow">Outflow</string>
+    <string name="RandomNumber">29</string>
+    <string name="RandomDate">Monday</string>
+    <string name="DateV6">28 July 2019</string>
+    <string name="CategoryV4">Food and Beverages</string>
+    <string name="MemoV1">for Lunch</string>
+    <string name="AmountV7">Rs 230.00</string>
+    <string name="CategoryV2">Bills and Utilities</string>
+    <string name="MemoV2">for phone bill</string>
+    <string name="IconV3">Icon</string>
+    <string name="icon2">Icon2</string>
 
 
 </resources>
