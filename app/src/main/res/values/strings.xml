@@ -77,5 +77,9 @@
     <string name="tv_credte">Cards</string>
     <string name="tv_bank">Rs 2500.00</string>
 
+    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
 
 </resources>

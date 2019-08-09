@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#d8d8d8"
+    android:background="@android:color/transparent"
     tools:context=".Expenses">
 
 
@@ -13,7 +13,7 @@
         android:id="@+id/Topbar"
         android:layout_width="match_parent"
         android:layout_height="265dp"
-        android:background="#d8d8d8"
+        android:background="@android:color/transparent"
 
         >
 
