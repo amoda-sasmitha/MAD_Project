@@ -110,7 +110,7 @@
                 android:id="@+id/category_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="14dp"
+                android:layout_marginStart="14dp"
 
                 android:layout_marginTop="13dp"
 
@@ -126,7 +126,8 @@
                 android:background="@drawable/circle"
                 android:layout_below="@+id/category_text"
                 android:backgroundTint="@color/green"
-                android:layout_marginLeft="25dp"
+                android:layout_marginStart="25dp"
+
                 android:layout_marginTop="15dp"
                 />
 
@@ -135,7 +136,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/main_category"
-                android:layout_toRightOf="@id/categoryDetailIcon1"
+                android:layout_toEndOf="@id/categoryDetailIcon1"
                 android:layout_below="@id/category_text"
                 android:layout_marginTop="17dp"
                 android:layout_marginStart="30dp"
@@ -150,7 +151,7 @@
                 android:layout_toEndOf="@id/categoryDetailIcon1"
                 android:layout_below="@id/main_sub_type_view"
                 android:layout_marginTop="5dp"
-                android:layout_marginLeft="30dp"
+                android:layout_marginStart="30dp"
                 android:textSize="15sp"
 
                 android:textStyle="bold"/>
@@ -161,10 +162,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/categoryType"
                 android:text="@string/lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_sed_do_eiusmod_tempor_incidication_ut_labore_et_dolore_magna_aliqua_ut_enim_ad_minim_veniam"
-                android:layout_toRightOf="@id/categoryDetailIcon1"
+                android:layout_toEndOf="@id/categoryDetailIcon1"
                 android:layout_marginTop="8dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="16dp"
                 android:textSize="14sp"
                 android:justificationMode="inter_word"
                 />
@@ -176,9 +177,9 @@
                 android:background="@drawable/circle"
                 android:backgroundTint="@color/blue"
                 android:layout_below="@id/category_view_description"
-                android:layout_toRightOf="@id/categoryDetailIcon1"
+                android:layout_toEndOf="@id/categoryDetailIcon1"
                 android:src="@drawable/edit_btn"
-                android:layout_marginLeft="30dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="15dp"
                 android:contentDescription="@string/todo" />
             <ImageButton
@@ -187,9 +188,9 @@
                 android:layout_height="30dp"
                 android:background="@drawable/circle"
                 android:layout_below="@id/category_view_description"
-                android:layout_toRightOf="@+id/edit_btn"
+                android:layout_toEndOf="@+id/edit_btn"
                 android:src="@drawable/delete_btn"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="15dp"
 
                 android:contentDescription="@string/todo" />

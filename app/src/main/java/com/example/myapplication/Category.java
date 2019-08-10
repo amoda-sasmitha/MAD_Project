@@ -76,5 +76,7 @@ public class Category extends Fragment {
                 startActivity(intent);
             }
         });
+
+
     }
 }
