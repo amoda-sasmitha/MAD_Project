@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AddExpense"
-    android:background="#d8d8d8">
+    android:background="@color/gray">
 
 
     <View
@@ -22,7 +22,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginStart="8dp"
         android:text="@string/add_expense_income"
-        android:textColor="#ffffff"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
 
@@ -65,7 +65,7 @@
             android:layout_marginTop="25dp"
             android:layout_marginEnd="10dp"
             android:text="@string/account_ammount"
-            android:textColor="#7E7C7C"
+            android:textColor="@color/TextGray"
             android:textSize="18sp"
             android:textStyle="bold" />
         <EditText
@@ -95,7 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginStart="12dp"
-            android:textColor="#7E7C7C"
+            android:textColor="@color/TextGray"
             android:text="@string/des2"
             android:textSize="14sp"
             android:textStyle="bold"/>
@@ -139,7 +139,7 @@
             android:layout_marginTop="20dp"
             android:elevation="5dp"
             android:text="@string/add_description"
-            android:textColor="#7E7C7C"
+            android:textColor="@color/TextGray"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -173,7 +173,7 @@
             android:layout_marginTop="12dp"
             android:elevation="5dp"
             android:text="@string/select_date"
-            android:textColor="#7E7C7C"
+            android:textColor="@color/TextGray"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -205,7 +205,7 @@
             android:layout_marginTop="12dp"
             android:elevation="5dp"
             android:text="@string/select_account"
-            android:textColor="#7E7C7C"
+            android:textColor="@color/TextGray"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -226,9 +226,11 @@
             android:textAlignment="center"
             android:textSize="15sp"
             tools:targetApi="o" />
-        <Button
-            android:layout_width="match_parent"
 
+        <Button
+            android:id="@+id/save_btn"
+
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/select_account"
             android:layout_alignParentEnd="true"
@@ -238,7 +240,7 @@
             android:backgroundTint="@color/green"
             android:text="@string/save_expense_income"
             android:textAllCaps="false"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:textSize="15sp"
             android:textStyle="bold" />
 

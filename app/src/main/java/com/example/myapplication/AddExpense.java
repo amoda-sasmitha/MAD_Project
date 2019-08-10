@@ -3,13 +3,17 @@ package com.example.myapplication;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,18 +31,37 @@ import java.util.TimeZone;
 
 
 public class AddExpense extends Fragment {
-
+    private Button save_btn;
    private EditText select_date, category_select ,amount ,Description ,account;
    private ImageView categoryIcon;
 
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_add_expense ,container , false);
+
+        save_btn = view.findViewById(R.id.save_btn);
         amount = view.findViewById(R.id.editText);
         category_select = view.findViewById(R.id.category_select_Text);
         Description = view.findViewById( R.id.edit_description);
         select_date = view.findViewById(R.id.select_date);
         account = view.findViewById(R.id.select_account);
         categoryIcon = view.findViewById(R.id.category_icon);
+
+        save_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                View layout = inflater.inflate( R.layout.toast_message , (ViewGroup) view.findViewById(R.id.toastRoot) );
+                TextView text = layout.findViewById(R.id.textMsg);
+                text.setText("Expense Added Successfully");
+                Toast toast = new Toast(getContext() );
+                toast.setView(layout);
+                toast.setDuration(Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.BOTTOM|Gravity.CENTER , 0 , 230 );
+                Intent intent = new Intent(getActivity() , MainActivity.class);
+                startActivity(intent);
+                toast.show();
+            }
+        });
+
         updateDate(view);
         UpdateCategory();
 

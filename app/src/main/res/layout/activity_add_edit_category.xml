@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,7 +15,7 @@
         android:background="@drawable/shape"
         android:gravity="center"
 
-        > </View>
+        />
 
 
 
@@ -38,13 +37,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="16dp"
-        android:text="@string/v_28_june_2019"
-        android:textColor="#ffffff"
-        android:textStyle="bold"
+        android:layout_marginTop="12dp"
+        android:textAlignment="textEnd"
+        android:layout_marginEnd="16dp"
+        android:text="@string/DateV2"
+        android:layout_toEndOf="@id/category_name"
+        android:textColor="@color/white"
         android:textSize="18sp"
-        />
+        android:textStyle="bold" />
 
     <RelativeLayout
         android:id="@+id/cardViewAccount3"
@@ -65,7 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:textColor="#706F6F"
+            android:textColor="@color/TextGray"
             android:background="@drawable/card"
             android:backgroundTint="#E8ECE8"
             android:elevation="5dp"
@@ -101,7 +101,7 @@
             android:importantForAutofill="no"
             android:inputType="textPersonName"
             android:padding="8dp"
-            android:textSize="15sp" />
+            android:textSize="15sp" tools:targetApi="o"/>
 
         <TextView
             android:id="@+id/category_description_text"
@@ -112,7 +112,7 @@
             android:layout_marginTop="14dp"
             android:elevation="5dp"
             android:text="@string/add_description"
-            android:textColor="#7E7C7C"
+            android:textColor="@color/TextGray"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -131,11 +131,11 @@
             android:importantForAutofill="no"
             android:maxLines="5"
             android:minLines="5"
-            android:gravity="top|left"
+            android:gravity="top|start"
 
             android:padding="8dp"
             android:scrollbars="vertical"
-            android:textSize="14sp" />
+            android:textSize="14sp" tools:targetApi="o"/>
 
         <TextView
             android:id="@+id/category_type_text"
@@ -146,7 +146,7 @@
             android:layout_marginTop="10dp"
             android:elevation="5dp"
             android:text="@string/category_type"
-            android:textColor="#7E7C7C"
+            android:textColor="@color/TextGray"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -157,7 +157,7 @@
             android:text="@string/income"
             android:layout_below="@id/category_type_text"
             android:layout_marginTop="8dp"
-            android:textColor="#7E7C7C"
+            android:textColor="@color/TextGray"
             android:textStyle="bold"
             android:layout_marginStart="45dp"
             android:textSize="14sp"
@@ -194,7 +194,7 @@
             android:backgroundTint="@color/green"
             android:text="@string/save_category"
             android:textAllCaps="false"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:textSize="15sp"
 
             android:textStyle="bold" />

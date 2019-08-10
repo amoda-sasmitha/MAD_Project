@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Category"
-    android:background="#d8d8d8">
+    android:background="@color/gray">
 
 
     <View
@@ -26,7 +26,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/bank_account"
-        android:textColor="#ffffff"
+        android:textColor="@color/white"
         android:textSize="13sp"
         android:textStyle="bold"
         />
@@ -38,12 +38,10 @@
         android:layout_below="@+id/textView13"
         android:layout_marginStart="16dp"
         android:text="@string/rs_12450_00"
-        android:textColor="#ffffff"
+        android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
        />
-
-    c
 
     <TextView
         android:id="@+id/category_name"
@@ -52,8 +50,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="55dp"
         android:layout_marginBottom="10dp"
-        android:text="@string/vcategories1"
-        android:textColor="#ffffff"
+        android:text="@string/categories1"
+        android:textColor="@color/white"
         android:textSize="26sp"
         android:textStyle="bold" />
 
@@ -104,9 +102,9 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginTop="5dp"
-                android:background="#d8d8d8"
+                android:background="@color/gray"
                 android:layout_below="@id/account_subTotal"
-                ></View>
+                />
 
 
             <LinearLayout
@@ -119,16 +117,17 @@
                 android:id="@+id/category01"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/date_hr">
-            <ImageView
-                android:id="@+id/category_icon"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:background="@drawable/circle"
+                >
 
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="12dp"
-                />
+                <ImageView
+                    android:id="@+id/category_icon"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="16dp"
+
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/circle"
+                    android:contentDescription="@string/IconV3" />
 
             <TextView
                 android:id="@+id/category_text"
@@ -151,7 +150,7 @@
                     android:layout_marginStart="14dp"
                     android:layout_toEndOf="@id/category_icon"
                     android:elevation="5dp"
-                    android:text="@string/vmain_category9"
+                    android:text="@string/main_category"
                     android:textSize="13sp" />
             </RelativeLayout>
 
@@ -160,15 +159,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
              >
+
                 <ImageView
                     android:id="@+id/category_icon2"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
-                    android:background="@drawable/circle"
-                     android:backgroundTint="@color/yellow"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="12dp"
-                    />
+                    android:background="@drawable/circle"
+                    android:backgroundTint="@color/yellow"
+                    android:contentDescription="@string/IconV3" />
 
                 <TextView
                     android:id="@+id/category_text2"
@@ -191,7 +191,7 @@
                     android:layout_marginStart="14dp"
                     android:layout_toEndOf="@id/category_icon2"
                     android:elevation="5dp"
-                    android:text="@string/vmain_category8"
+                    android:text="@string/main_category"
                     android:textSize="13sp" />
             </RelativeLayout>
                 <RelativeLayout
@@ -199,15 +199,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     >
+
                     <ImageView
                         android:id="@+id/category_icon3"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:background="@drawable/circle"
-                        android:backgroundTint="@color/colorPrimaryDark"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="12dp"
-                        />
+                        android:background="@drawable/circle"
+                        android:backgroundTint="@color/colorPrimaryDark"
+                        android:contentDescription="@string/IconV3" />
 
                     <TextView
                         android:id="@+id/category_text3"
@@ -218,7 +219,7 @@
 
                         android:layout_toEndOf="@id/category_icon3"
                         android:elevation="5dp"
-                        android:text="@string/vrentals"
+                        android:text="@string/transportation"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
@@ -230,7 +231,7 @@
                         android:layout_marginStart="14dp"
                         android:layout_toEndOf="@id/category_icon3"
                         android:elevation="5dp"
-                        android:text="@string/vmain_category10"
+                        android:text="@string/main_category"
                         android:textSize="13sp" />
 
                 </RelativeLayout>
@@ -239,15 +240,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     >
+
                     <ImageView
                         android:id="@+id/category_icon5"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:background="@drawable/circle"
-                        android:backgroundTint="@color/blue"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="12dp"
-                        />
+                        android:background="@drawable/circle"
+                        android:backgroundTint="@color/blue"
+                        android:contentDescription="@string/IconV3" />
 
                     <TextView
                         android:id="@+id/category_text5"
@@ -258,7 +260,7 @@
 
                         android:layout_toEndOf="@id/category_icon5"
                         android:elevation="5dp"
-                        android:text="@string/velectricity"
+                        android:text="@string/ele"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
@@ -303,7 +305,7 @@
                 android:layout_marginTop="10dp"
 
                 android:elevation="5dp"
-                android:text="@string/v_income"
+                android:text="@string/income"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -318,9 +320,9 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginTop="5dp"
-                android:background="#d8d8d8"
+                android:background="@color/gray"
                 android:layout_below="@id/category_type2"
-                ></View>
+                />
 
 
             <LinearLayout
@@ -333,16 +335,17 @@
                     android:id="@+id/category21"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/date_hr">
+                    >
+
                     <ImageView
                         android:id="@+id/category_icon21"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:background="@drawable/circle"
-
                         android:layout_marginStart="16dp"
+
                         android:layout_marginTop="12dp"
-                        />
+                        android:background="@drawable/circle"
+                        android:contentDescription="@string/IconV3" />
 
                     <TextView
                         android:id="@+id/category_text21"
@@ -353,7 +356,7 @@
 
                         android:layout_toEndOf="@id/category_icon21"
                         android:elevation="5dp"
-                        android:text="@string/vinterest_money"
+                        android:text="@string/title_savings"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
@@ -374,15 +377,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     >
+
                     <ImageView
                         android:id="@+id/category_icon23"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:background="@drawable/circle"
-                        android:backgroundTint="@color/yellow"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="12dp"
-                        />
+                        android:background="@drawable/circle"
+                        android:backgroundTint="@color/yellow"
+                        android:contentDescription="@string/IconV3" />
 
                     <TextView
                         android:id="@+id/category_text23"
@@ -413,15 +417,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     >
+
                     <ImageView
                         android:id="@+id/category_icon24"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:background="@drawable/circle"
-                        android:backgroundTint="@color/blue"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="12dp"
-                        />
+                        android:background="@drawable/circle"
+                        android:backgroundTint="@color/blue"
+                        android:contentDescription="@string/IconV3" />
 
                     <TextView
                         android:id="@+id/category_text24"
@@ -433,7 +438,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_toEndOf="@id/category_icon24"
                         android:elevation="5dp"
-                        android:text="@string/vbills_and_utilities2"
+                        android:text="@string/bills_and_utilities3"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
@@ -461,7 +466,8 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="12dp"
                         android:background="@drawable/circle"
-                        android:backgroundTint="@color/cardview_dark_background"
+                        android:backgroundTint="@color/green"
+                        android:contentDescription="@string/IconV3"
                         android:tint="#7E49D1" />
 
                     <TextView

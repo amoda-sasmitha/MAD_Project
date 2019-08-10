@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ViewSaving"
-    android:background="#d8d8d8"
+    android:background="@color/gray"
     >
 
     <View
@@ -22,18 +22,17 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Bank Account"
+        android:text="@string/accountType"
         android:textColor="#ffffff"
         android:textSize="13sp"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView11"
         android:layout_marginStart="16dp"
-        android:text="Rs 12450.00"
+        android:text="@string/rs_12450_00"
         android:textColor="#ffffff"
         android:textSize="18sp"
         android:textStyle="bold"/>
@@ -43,13 +42,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/textView12"
+        android:textAlignment="textEnd"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="16dp"
-        android:text="28 June 2019"
+        android:layout_marginEnd="16dp"
+        android:text="@string/DateV2"
         android:textColor="#ffffff"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        />
+        android:textSize="18sp"
+        android:textStyle="bold" />
     <RelativeLayout
         android:layout_below="@+id/textView12"
         android:layout_marginTop="25dp"
@@ -97,7 +97,7 @@
                 android:id="@+id/saving_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Saving for Desk Setup"
+                android:text="@string/saving_for_desk_setup"
                 android:textSize="16sp"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="24dp"
@@ -123,17 +123,17 @@
                 android:layout_marginTop="6dp"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="5dp"
-                />
+                tools:targetApi="o" />
             <TextView
                 android:id="@+id/current_amount_text"
                 android:layout_below="@id/progressBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rs 34000.00"
+                android:text="@string/rs_34000_00"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 android:layout_marginTop="2dp"
-                android:layout_marginLeft="28dp"
+                android:layout_marginStart="28dp"
                 />
 
             <TextView
@@ -142,15 +142,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:text="Rs 45000.00"
+                android:text="@string/rs_45000_00"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 android:layout_marginTop="2dp"
-                android:layout_marginRight="28dp"
+                android:layout_marginEnd="28dp"
                 />
 
         </RelativeLayout>
-
 
 
         <TextView
@@ -158,9 +157,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/saving01"
-            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="15dp"
-            android:text="Description"
+            android:text="@string/description"
             android:textSize="16sp"
             android:textStyle="bold"
 
@@ -171,21 +170,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/description"
-            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="0dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginEnd="30dp"
             android:justificationMode="inter_word"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidication.ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-            android:textSize="14sp" />
+            android:text="@string/DumyText"
+            android:textSize="14sp"
+            tools:targetApi="o" />
 
         <TextView
             android:id="@+id/amount_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/description_text"
-            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="15dp"
-            android:text="Initial Amount"
+            android:text="@string/initial_amount"
             android:textSize="16sp"
             android:textStyle="bold"
 
@@ -196,9 +196,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/amount_text"
-            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="0dp"
-            android:text="Rs.2350.00"
+            android:text="@string/rs_2350_00"
             android:textSize="14sp"
 
             />
@@ -212,12 +212,26 @@
             android:textColor="#ffffff"
             android:background="@drawable/card"
             android:backgroundTint="@color/blue"
-            android:text="Add Transaction"
+            android:text="@string/add_transaction"
             android:textAllCaps="false"
             android:textSize="12sp"
             android:textStyle="bold"
-            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="15dp"
+            tools:targetApi="o" />
+
+        <ImageButton
+            android:id="@+id/edit_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="@color/blue"
+            android:layout_below="@id/account"
+            android:layout_toEndOf="@id/add_btn"
+            android:src="@drawable/edit_btn"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:contentDescription="@string/IconV3"
             />
 
         <ImageButton
@@ -226,11 +240,12 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_below="@id/account"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="15dp"
-            android:layout_toRightOf="@+id/add_btn"
+            android:layout_toEndOf="@+id/edit_btn"
             android:background="@drawable/circle"
 
+            android:contentDescription="@string/IconV3"
             android:src="@drawable/delete_btn" />
     </RelativeLayout>
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gray"
     tools:context=".EditSaving">
-
-
     <View
 
         android:id="@+id/view"
@@ -25,7 +25,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginStart="8dp"
         android:text="Edit Saving"
-        android:textColor="#ffffff"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
 
@@ -83,7 +83,7 @@
             android:layout_marginTop="10dp"
             android:elevation="5dp"
             android:text="@string/edit_description"
-            android:textColor="#7E7C7C"
+            android:textColor="@color/TextGray"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -117,7 +117,7 @@
             android:layout_marginTop="4dp"
             android:elevation="5dp"
             android:text="@string/edit_start_amount"
-            android:textColor="#7E7C7C"
+            android:textColor="@color/TextGray"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -140,8 +140,9 @@
 
 
         <Button
-            android:layout_width="match_parent"
+            android:id="@+id/save_btn"
 
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/amount_Text"
             android:layout_alignParentEnd="true"
@@ -151,10 +152,11 @@
             android:backgroundTint="@color/green"
             android:text="@string/update"
             android:textAllCaps="false"
-            android:textColor="#ffffff"
-            android:textSize="15sp"
+            android:textColor="@color/white"
 
+            android:textSize="15sp"
             android:textStyle="bold" />
 
     </RelativeLayout>
+
 </RelativeLayout>

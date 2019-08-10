@@ -20,13 +20,14 @@ import android.widget.TextView;
 
 public class ViewSaving extends Fragment {
     private Button addTransaction;
-    private ImageButton delete_btn;
+    private ImageButton delete_btn , edit_btn;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view =  inflater.inflate(R.layout.fragment_view_saving, container, false);
 
+        edit_btn = view.findViewById(R.id.edit_btn);
         delete_btn = view.findViewById(R.id.delete_btn);
         addTransaction = view.findViewById(R.id.add_btn);
         addTransaction.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +66,14 @@ public class ViewSaving extends Fragment {
 
                     }
                 });
+            }
+        });
+
+        edit_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent( getActivity() , EditSaving.class );
+                startActivity(intent);
             }
         });
 

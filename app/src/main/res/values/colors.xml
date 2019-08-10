@@ -8,6 +8,13 @@
     <color name="blue">#3E89BB</color>
     <color name="green">#2ecc71</color>
     <color name="gray">#d8d8d8</color>
+    <color name="lightGray">#f4f4f4</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="kindaGray">#E8ECE8</color>
+    <color name="darkGray">#706F6F</color>
+    <color name="TextGray">#7E7C7C</color>
+
 
     <color name="black_overlay">#66000000</color>
 </resources>

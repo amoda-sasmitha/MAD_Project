@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Monefy</string>
 
     <!-- Author: Amoda Sasmitha  -->
     <string name="title_home">Home</string>
@@ -88,7 +88,6 @@
     <string name="edit_saving">Edit Saving</string>
 
 
-
     <string name="update">Update</string>
     <string name="new_saving">New Saving</string>
     <string name="write_a_brief_description_about_saving">write a brief description about saving</string>
@@ -175,6 +174,19 @@
     <string name="account_indetail_todo">TODO</string>
     <string name="account_indetail_todo1">TODO</string>
     <string name="account_indetail_todo2">TODO</string>
+    <string name="transportation">Transportation</string>
+    <string name="ele">Electricity</string>
+    <string name="acc">Account Type</string>
+    <string name="rs_45000_00">Rs 45000.00</string>
+
+    <string name="add_transaction">Add Transaction</string>
+    <string name="saving_for_desk_setup">Saving for Desk Setup</string>
+    <string name="rs_34000_00">Rs 34000.00</string>
+    <string name="initial_amount">Initial Amount</string>
+    <string name="rs_2350_00">Rs.2350.00</string>
+
+    <string name="saving_name">Saving name</string>
+
 
     <!--Strings padula -->
 

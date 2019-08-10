@@ -80,7 +80,7 @@
             android:text="@string/amount_update_account" />
 
         <Button
-            android:id="@+id/btn_add_acc_add"
+            android:id="@+id/save_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/account_no_txt"
@@ -91,7 +91,7 @@
             android:background="@drawable/card"
             android:backgroundTint="@color/green"
             android:text="@string/btn_update_details"
-            android:textColor="#ffffff" tools:targetApi="o" />
+            android:textColor="@color/white" tools:targetApi="o" />
 
         <TextView
             android:id="@+id/lbl_account_number"
@@ -121,7 +121,7 @@
             android:layout_marginTop="55dp"
             android:layout_marginBottom="10dp"
             android:text="@string/update_update_account"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:textSize="26sp"
             android:textStyle="bold" />
 

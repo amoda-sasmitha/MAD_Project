@@ -39,7 +39,7 @@
             android:background="@drawable/shape"
 
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,7 +50,7 @@
             android:layout_marginTop="60dp"
             android:elevation="12dp"
             android:text="@string/date"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:textSize="26sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/view"
@@ -78,7 +78,7 @@
             android:elevation="16dp"
             android:lineSpacingExtra="4dp"
             android:text="@string/DateV2"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/view"
@@ -92,7 +92,7 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="64dp"
             android:background="@drawable/dailybtn"
-            android:backgroundTint="#f4f4f4"
+            android:backgroundTint="@color/lightGray"
             android:text="@string/monthly"
             android:textAllCaps="false"
             android:textColor="#9A9A9A"
@@ -126,7 +126,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/accountType"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:textSize="13sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/view"
@@ -140,7 +140,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/AmountV3"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/view"
@@ -235,11 +235,31 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:background="#d8d8d8"
+            android:background="@color/gray"
             android:elevation="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/view2"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/left_icon"
+            app:layout_constraintEnd_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/Account" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/right_icon"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/button" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -307,7 +327,7 @@
                     android:layout_marginStart="10dp"
                    android:layout_marginEnd="10dp"
                     android:layout_marginTop="5dp"
-                    android:background="#d8d8d8"
+                    android:background="@color/gray"
                     android:layout_below="@id/date"
                     />
                 <!-- Start of the component -->

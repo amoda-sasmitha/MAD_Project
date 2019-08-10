@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AddEditCategory"
-    android:background="#d8d8d8"
+    android:background="@color/gray"
     >
     <View
 
@@ -24,7 +23,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginStart="8dp"
         android:text="@string/edit_categories"
-        android:textColor="#ffffff"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
 
@@ -78,13 +77,13 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="17dp"
             android:layout_marginEnd="12dp"
-            android:layout_marginRight="12dp"
             android:layout_toEndOf="@id/category_icon"
             android:background="@drawable/rounded_edit_text"
             android:hint="@string/category_name1"
             android:inputType="textPersonName"
             android:padding="8dp"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:importantForAutofill="no" tools:targetApi="o" />
 
         <TextView
             android:id="@+id/category_description_text"
@@ -95,28 +94,30 @@
             android:layout_marginTop="14dp"
             android:elevation="5dp"
             android:text="@string/add_description"
-            android:textColor="#7E7C7C"
+            android:textColor="@color/TextGray"
             android:textSize="14sp"
             android:textStyle="bold" />
+
         <EditText
-            android:textSize="14sp"
             android:id="@+id/edit_description"
-            android:inputType="textMultiLine"
-            android:layout_marginRight="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/category_description_text"
             android:layout_marginLeft="12dp"
             android:layout_marginTop="8dp"
-            android:lines="8"
-            android:hint="@string/write_a_brief_description_about_the_category"
-            android:padding="8dp"
+            android:layout_marginRight="12dp"
             android:background="@drawable/rounded_edit_text"
-            android:layout_below="@id/category_description_text"
-            android:minLines="5"
-            android:gravity="top|left"
+            android:gravity="start|top"
+            android:hint="@string/write_a_brief_description_about_the_category"
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine"
+            android:lines="8"
             android:maxLines="5"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
+            android:minLines="5"
+            android:padding="8dp"
             android:scrollbars="vertical"
-            />
+            android:textSize="14sp"
+            tools:targetApi="o" />
         <TextView
             android:id="@+id/category_type_text"
             android:layout_width="match_parent"
@@ -137,7 +138,7 @@
             android:text="@string/income2"
             android:layout_below="@id/category_type_text"
             android:layout_marginTop="8dp"
-            android:textColor="#7E7C7C"
+            android:textColor="@color/TextGray"
             android:textStyle="bold"
             android:layout_marginStart="45dp"
             android:textSize="14sp"
@@ -153,7 +154,7 @@
             android:layout_below="@id/category_type_text"
             android:layout_marginTop="8dp"
             android:layout_toEndOf="@id/income_btn_radio"
-            android:textColor="#7E7C7C"
+            android:textColor="@color/TextGray"
             android:textStyle="bold"
             android:textSize="14sp"
             android:layout_marginStart="20dp"
@@ -161,8 +162,9 @@
             />
 
         <Button
-            android:layout_width="match_parent"
+            android:id="@+id/save_btn"
 
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/income_btn_radio"
             android:layout_alignParentEnd="true"
@@ -172,9 +174,9 @@
             android:backgroundTint="@color/green"
             android:text="@string/save_changes"
             android:textAllCaps="false"
-            android:textColor="#ffffff"
-            android:textSize="15sp"
+            android:textColor="@color/white"
 
+            android:textSize="15sp"
             android:textStyle="bold" />
 
 

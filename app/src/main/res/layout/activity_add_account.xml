@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -24,7 +23,7 @@
             android:layout_marginStart="1dp"
             android:layout_marginTop="0dp"
             android:background="@drawable/shape"
-            android:gravity="center" />
+            android:gravity="center"></View>
 
 
 
@@ -38,9 +37,8 @@
             android:layout_marginStart="1dp"
             android:layout_marginTop="35dp"
             android:layout_marginBottom="102dp"
-            android:background="#d8d8d8"
-            android:src="@drawable/card"
-            android:contentDescription="@string/todo_account" />
+            android:background="@color/gray"
+            android:src="@drawable/card" />
 
         <EditText
             android:id="@+id/txt_add_acc_amount"
@@ -52,10 +50,9 @@
             android:layout_marginTop="17dp"
             android:layout_marginEnd="38dp"
             android:layout_toEndOf="@+id/lbl_amount"
-
             android:ems="10"
-            android:hint="@string/empty"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:importantForAutofill="no" tools:targetApi="o" />
 
         <EditText
             android:id="@+id/account_no_txt"
@@ -66,8 +63,8 @@
             android:layout_marginTop="412dp"
             android:layout_marginEnd="37dp"
             android:ems="8"
-            android:hint="@string/empty"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:importantForAutofill="no" tools:targetApi="o" />
 
         <TextView
             android:id="@+id/lbl_amount"
@@ -80,20 +77,19 @@
             android:text="@string/account_ammount" />
 
         <Button
+            android:id="@+id/save_btn"
             android:layout_width="match_parent"
-            android:layout_marginHorizontal="20dp"
             android:layout_height="wrap_content"
+            android:layout_below="@id/account_no_txt"
+            android:layout_centerHorizontal="true"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/green"
             android:text="@string/add_btn_account"
             android:textAllCaps="false"
-            android:layout_below="@id/account_no_txt"
-            android:layout_marginTop="15dp"
-            android:layout_centerHorizontal="true"
-            android:background="@color/green"
-            android:textStyle="bold"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:textSize="16sp"
-
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/lbl_account_number"
@@ -123,7 +119,7 @@
             android:layout_marginTop="55dp"
             android:layout_marginBottom="10dp"
             android:text="@string/title_add_account"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:textSize="26sp"
             android:textStyle="bold" />
 
@@ -148,10 +144,9 @@
             android:layout_marginEnd="38dp"
             android:layout_toEndOf="@+id/lable_acount_type"
             android:ems="10"
-            android:hint="@string/empty"
             android:inputType="textPersonName"
             android:text="@string/empty"
-             />
+            android:importantForAutofill="no" tools:targetApi="o" />
 
         <EditText
             android:id="@+id/textAddAccountType"
@@ -164,9 +159,9 @@
             android:layout_marginEnd="39dp"
             android:layout_toEndOf="@+id/lable_account_name"
             android:ems="10"
-            android:hint="@string/empty"
             android:inputType="textPersonName"
-            android:text="@string/empty" />
+            android:text="@string/empty"
+            android:importantForAutofill="no" tools:targetApi="o" />
 
     </RelativeLayout>
 </FrameLayout>
