@@ -11,9 +11,55 @@
     <string name="bank_account">Bank Account</string>
     <string name="expense">Expense</string>
 
+    <!-- Author: Vishvi Wathasha  -->
+    <string name="add_categories">Add Categories</string>
+    <string name="new_category">New Category</string>
+    <string name="category_name">Category name</string>
+    <string name="add_description">Add description</string>
+    <string name="description_hint">Write a brief description about the category</string>
+    <string name="category_type">Category type</string>
+    <string name="income">Income</string>
+    <string name="save_category">Save Category</string>
 
 
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="bank_account1">Bank Account</string>
+    <string name="Amount_rs_12450_00">Rs 12450.00</string>
+    <string name="_28_june_2019">28 June 2019</string>
+    <string name="todo1">TODO</string>
+    <string name="lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_sed_do_eiusmod_tempor_incidication_ut_labore_et_dolore_magna_aliqua_ut_enim_ad_minim_veniam">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidication.ut labore et dolore magna aliqua. Ut enim ad minim veniam</string>
+
+    <string name="category_details">Category Details</string>
+    <string name="main_category">Main Category</string>
+    <string name="food_and_beverages">Food and Beverages</string>
+    <string name="rs_12450_00">Rs 12450.00</string>
+    <string name="bills_and_utilities">Bills and Utilities</string>
+    <string name="main_category1">main category</string>
+    <string name="bills_and_utilities1">Bills and Utilities</string>
+    <string name="main_category3">main category</string>
+    <string name="bills_and_utilities3">Interest Money</string>
+    <string name="main_category4">main category</string>
+    <string name="main_category5">main category</string>
+    <string name="food_and_beverages1">Salary</string>
+    <string name="write_a_brief_description_about_the_category">Write a brief description about the category</string>
+    <string name="category_name1">Category name</string>
+    <string name="add_description1">Add description</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="edit_categories">Edit Categories</string>
+    <string name="new_category1">New Category</string>
+    <string name="category_type1">Category type</string>
+    <string name="income2">Income</string>
+    <string name="categories1">Categories</string>
+    <string name="food_and_beverages2">Food and Beverages</string>
+    <string name="bills_and_utilities2">Bills and Utilities</string>
+    <string name="expenses">Expenses</string>
+    <string name="income1">Income</string>
+    <string name="main_category6">main category</string>
+    <string name="main_category7">main category</string>
+    <string name="main_category8">main category</string>
+    <string name="electricity">Electricity</string>
+    <string name="bills_and_utilities4">Bills and Utilities</string>
 
     <!-- Author: Padula Guruge  -->
 
@@ -72,67 +118,26 @@
     <string name="MemoV2">for phone bill</string>
     <string name="IconV3">Icon</string>
     <string name="icon2">Icon2</string>
+    <string name="transaction_details">Transaction Details</string>
+    <string name="transaction_date">Transaction date</string>
+    <string name="DateV4">Monday, 5 June 2019</string>
+    <string name="description">Description</string>
+    <string name="DumyText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidication.ut labore et dolore magna aliqua. Ut enim ad minim veniam</string>
+    <string name="transaction_account">Transaction Account</string>
+    <string name="edit_expense_income">Edit Expense / Income</string>
+    <string name="select_category">Select Category</string>
+    <string name="select_date">Select Date</string>
+    <string name="select_account">Select Account</string>
 
-
-
-    <!-- Author: Vishvi Wathasha  -->
-    <string name="add_categories">Add Categories</string>
-    <string name="new_category">New Category</string>
-    <string name="category_name">Category name</string>
-    <string name="add_description">Add description</string>
-    <string name="description_hint">Write a brief description about the category</string>
-    <string name="category_type">Category type</string>
-    <string name="income">Income</string>
-    <string name="save_category">Save Category</string>
-
-
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
-    <string name="bank_account1">Bank Account</string>
-    <string name="Amount_rs_12450_00">Rs 12450.00</string>
-    <string name="_28_june_2019">28 June 2019</string>
-    <string name="todo1">TODO</string>
-    <string name="lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_sed_do_eiusmod_tempor_incidication_ut_labore_et_dolore_magna_aliqua_ut_enim_ad_minim_veniam">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidication.ut labore et dolore magna aliqua. Ut enim ad minim veniam</string>
-
-    <string name="category_details">Category Details</string>
+    <string name="amount">Amount</string>
     <string name="todo">TODO</string>
-    <string name="main_category">Main Category</string>
-    <string name="food_and_beverages">Food and Beverages</string>
-    <string name="rs_12450_00">Rs 12450.00</string>
-    <string name="bills_and_utilities">Bills and Utilities</string>
-    <string name="main_category1">main category</string>
-    <string name="bills_and_utilities1">Bills and Utilities</string>
-    <string name="main_category3">main category</string>
+    <string name="add_expense_income">Add Expense / Income</string>
+    <string name="sAccount">click and select the account</string>
+    <string name="save_expense_income">Save Expense / Income</string>
+    <string name="des">Write a brief description about the expense</string>
+    <string name="zero">0.00</string>
+    <string name="new_expense_income">New Expense / Income</string>
+    <string name="des2">Select Category</string>
 
-    <string name="write_a_brief_description_about_the_category">Write a brief description about the category</string>
-    <string name="category_name1">Category name</string>
-    <string name="add_description1">Add description</string>
-    <string name="save_changes">Save Changes</string>
-    <string name="edit_categories">Edit Categories</string>
-    <string name="new_category1">New Category</string>
-    <string name="category_type1">Category type</string>
-    <string name="income2">Income</string>
-    <string name="categories1">Categories</string>
-    <string name="food_and_beverages2">Food and Beverages</string>
-    <string name="bills_and_utilities2">Bills and Utilities</string>
-    <string name="expenses">Expenses</string>
-    <string name="income1">Income</string>
-
-    <string name="velectricity">Electricity</string>
-    <string name="vcategories">Categories</string>
-    <string name="vrentals">Rentals</string>
-    <string name="vinterest_money">Interest Money</string>
-    <string name="vmain_category11">Main Category</string>
-    <string name="vmain_category4">Main Category</string>
-    <string name="vmain_category5">Main Category</string>
-    <string name="vmain_category6">Main Category</string>
-    <string name="vmain_category7">Main Category</string>
-    <string name="vmain_category8">Main Category</string>
-    <string name="vmain_category9">Main Category</string>
-    <string name="vbills_and_utilities2">Bills and Utilities</string>
-    <string name="v_income">Income</string>
-    <string name="vcategories1">Categories</string>
-    <string name="vmain_category10">Main Category</string>
-    <string name="v_28_june_2019">28 June 2019</string>
 
 </resources>

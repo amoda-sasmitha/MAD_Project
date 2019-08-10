@@ -161,7 +161,7 @@
             />
 
         <ImageButton
-            android:id="@+id/edit_btn"
+            android:id="@+id/edit_btn02"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_below="@id/account"
@@ -174,12 +174,13 @@
 
         <ImageButton
 
+            android:id="@+id/delete_btn"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_below="@id/account"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
-            android:layout_toRightOf="@+id/edit_btn"
+            android:layout_toRightOf="@+id/edit_btn02"
             android:background="@drawable/circle"
             android:src="@drawable/delete_btn"></ImageButton>
 

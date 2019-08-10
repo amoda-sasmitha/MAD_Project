@@ -2,15 +2,19 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class ViewCategoryDetails extends AppCompatActivity {
 
-    private ImageButton edit_categorybtn;
+    private ImageButton edit_categorybtn, delete_btn;
     private TextView categoryName , description, category_type;
 
     @Override
@@ -18,7 +22,7 @@ public class ViewCategoryDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_category_details);
 
-
+        delete_btn = findViewById(R.id.delete_btn);
         edit_categorybtn = (ImageButton) findViewById(R.id.edit_btn);
         edit_categorybtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,9 +44,35 @@ public class ViewCategoryDetails extends AppCompatActivity {
             }
         });
 
-    }
+        delete_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Dialog dialog = new Dialog( ViewCategoryDetails.this );
+                dialog.setContentView(R.layout.delete_message);
+                Button accept = dialog.findViewById(R.id.accept_btn);
+                TextView textView = dialog.findViewById(R.id.deleteText);
+                ImageButton close = dialog.findViewById(R.id.close_btn);
+                textView.setText("Are you sure , you want to delete this category ?");
+                dialog.show();
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
-    public void onClick(View view){
+                close.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+
+                accept.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent( ViewCategoryDetails.this , MainActivity.class);
+                        startActivity(intent);
+                    }
+                });
+            }
+        });
+
 
     }
 
