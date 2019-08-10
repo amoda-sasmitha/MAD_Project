@@ -63,7 +63,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_below="@id/account_subTotal"
-            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/circle"
 
@@ -79,7 +79,7 @@
             android:layout_marginTop="17dp"
             android:layout_marginEnd="12dp"
             android:layout_marginRight="12dp"
-            android:layout_toRightOf="@id/category_icon"
+            android:layout_toEndOf="@id/category_icon"
             android:background="@drawable/rounded_edit_text"
             android:hint="@string/category_name1"
             android:inputType="textPersonName"
@@ -91,7 +91,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/editText"
-            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
             android:layout_marginTop="14dp"
             android:elevation="5dp"
             android:text="@string/add_description"
@@ -122,7 +122,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/edit_description"
-            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
             android:layout_marginTop="10dp"
             android:elevation="5dp"
             android:text="@string/category_type1"
@@ -156,7 +156,7 @@
             android:textColor="#7E7C7C"
             android:textStyle="bold"
             android:textSize="14sp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
 
             />
 

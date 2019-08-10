@@ -16,7 +16,7 @@
         android:background="@drawable/shape"
         android:gravity="center"
 
-      > </View>
+     />
 
     <TextView
         android:id="@+id/textView13"
@@ -37,9 +37,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView13"
         android:layout_marginStart="16dp"
-        android:text="Rs 12450.00"
+        android:text="@string/rs_12450_00"
         android:textColor="#ffffff"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="bold"
        />
 
@@ -50,13 +50,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-       android:layout_marginTop="55dp"
+        android:layout_marginTop="55dp"
         android:layout_marginBottom="10dp"
-        android:text="Categories"
+        android:text="@string/vcategories1"
         android:textColor="#ffffff"
-        android:textSize="26dp"
-        android:textStyle="bold"
-        />
+        android:textSize="26sp"
+        android:textStyle="bold" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -66,7 +65,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         >
 
@@ -87,11 +86,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
 
                 android:elevation="5dp"
-                android:text="Expenses"
-                android:textSize="18dp"
+                android:text="@string/expenses"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
 
@@ -127,7 +126,7 @@
                 android:layout_height="35dp"
                 android:background="@drawable/circle"
 
-                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="12dp"
                 />
 
@@ -135,26 +134,25 @@
                 android:id="@+id/category_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/category_icon"
+                android:layout_toEndOf="@id/category_icon"
                 android:elevation="5dp"
 
-                android:text="Food and Beverages"
-                android:textSize="14dp"
+                android:text="@string/food_and_beverages"
+                android:textSize="14sp"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="14dp"
+                android:layout_marginStart="14dp"
                 android:textStyle="bold"/>
 
-            <TextView
-                android:id="@+id/category_memo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/category_icon"
-                android:elevation="5dp"
-                android:layout_below="@id/category_text"
-                android:text="main category"
-                android:textSize="13dp"
-                android:layout_marginLeft="14dp"
-                />
+                <TextView
+                    android:id="@+id/category_memo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/category_text"
+                    android:layout_marginStart="14dp"
+                    android:layout_toEndOf="@id/category_icon"
+                    android:elevation="5dp"
+                    android:text="@string/vmain_category9"
+                    android:textSize="13sp" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -168,7 +166,7 @@
                     android:layout_height="35dp"
                     android:background="@drawable/circle"
                      android:backgroundTint="@color/yellow"
-                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="12dp"
                     />
 
@@ -176,26 +174,25 @@
                     android:id="@+id/category_text2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/category_icon2"
+                    android:layout_toEndOf="@id/category_icon2"
                     android:elevation="5dp"
 
-                    android:text="Bills and Utilities"
-                    android:textSize="14dp"
+                    android:text="@string/bills_and_utilities"
+                    android:textSize="14sp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="14dp"
+                    android:layout_marginStart="14dp"
                     android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/category_memo2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/category_icon2"
-                    android:elevation="5dp"
                     android:layout_below="@id/category_text2"
-                    android:text="main category"
-                    android:textSize="13dp"
-                    android:layout_marginLeft="14dp"
-                    />
+                    android:layout_marginStart="14dp"
+                    android:layout_toEndOf="@id/category_icon2"
+                    android:elevation="5dp"
+                    android:text="@string/vmain_category8"
+                    android:textSize="13sp" />
             </RelativeLayout>
                 <RelativeLayout
                     android:id="@+id/category03"
@@ -208,7 +205,7 @@
                         android:layout_height="35dp"
                         android:background="@drawable/circle"
                         android:backgroundTint="@color/colorPrimaryDark"
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"
                         android:layout_marginTop="12dp"
                         />
 
@@ -216,26 +213,25 @@
                         android:id="@+id/category_text3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@id/category_icon3"
-                        android:elevation="5dp"
-
-                        android:text="Bills and Utilities"
-                        android:textSize="14dp"
+                        android:layout_marginStart="14dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="14dp"
-                        android:textStyle="bold"/>
+
+                        android:layout_toEndOf="@id/category_icon3"
+                        android:elevation="5dp"
+                        android:text="@string/vrentals"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/category_memo3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@id/category_icon3"
-                        android:elevation="5dp"
                         android:layout_below="@id/category_text3"
-                        android:text="main category"
-                        android:textSize="13dp"
-                        android:layout_marginLeft="14dp"
-                        />
+                        android:layout_marginStart="14dp"
+                        android:layout_toEndOf="@id/category_icon3"
+                        android:elevation="5dp"
+                        android:text="@string/vmain_category10"
+                        android:textSize="13sp" />
 
                 </RelativeLayout>
                 <RelativeLayout
@@ -249,7 +245,7 @@
                         android:layout_height="35dp"
                         android:background="@drawable/circle"
                         android:backgroundTint="@color/blue"
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"
                         android:layout_marginTop="12dp"
                         />
 
@@ -257,26 +253,25 @@
                         android:id="@+id/category_text5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@id/category_icon5"
-                        android:elevation="5dp"
-
-                        android:text="Electricity"
-                        android:textSize="14dp"
+                        android:layout_marginStart="14dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="14dp"
-                        android:textStyle="bold"/>
+
+                        android:layout_toEndOf="@id/category_icon5"
+                        android:elevation="5dp"
+                        android:text="@string/velectricity"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/category_memo5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@id/category_icon5"
-                        android:elevation="5dp"
                         android:layout_below="@id/category_text5"
-                        android:text="sub category"
-                        android:textSize="13dp"
-                        android:layout_marginLeft="14dp"
-                        />
+                        android:layout_marginStart="14dp"
+                        android:layout_toEndOf="@id/category_icon5"
+                        android:elevation="5dp"
+                        android:text="@string/main_category"
+                        android:textSize="13sp" />
 
                 </RelativeLayout>
 
@@ -304,12 +299,12 @@
                 android:id="@+id/category_type2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
 
                 android:elevation="5dp"
-                android:text="Income"
-                android:textSize="18dp"
+                android:text="@string/v_income"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
 
@@ -345,7 +340,7 @@
                         android:layout_height="35dp"
                         android:background="@drawable/circle"
 
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"
                         android:layout_marginTop="12dp"
                         />
 
@@ -353,26 +348,25 @@
                         android:id="@+id/category_text21"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@id/category_icon21"
-                        android:elevation="5dp"
-
-                        android:text="Food and Beverages"
-                        android:textSize="14dp"
+                        android:layout_marginStart="14dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="14dp"
-                        android:textStyle="bold"/>
+
+                        android:layout_toEndOf="@id/category_icon21"
+                        android:elevation="5dp"
+                        android:text="@string/vinterest_money"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/category_memo21"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@id/category_icon21"
-                        android:elevation="5dp"
                         android:layout_below="@id/category_text21"
-                        android:text="main category"
-                        android:textSize="13dp"
-                        android:layout_marginLeft="14dp"
-                        />
+                        android:layout_marginStart="14dp"
+                        android:layout_toEndOf="@id/category_icon21"
+                        android:elevation="5dp"
+                        android:text="@string/main_category"
+                        android:textSize="13sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -386,7 +380,7 @@
                         android:layout_height="35dp"
                         android:background="@drawable/circle"
                         android:backgroundTint="@color/yellow"
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"
                         android:layout_marginTop="12dp"
                         />
 
@@ -394,26 +388,25 @@
                         android:id="@+id/category_text23"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@id/category_icon23"
+                        android:layout_toEndOf="@id/category_icon23"
                         android:elevation="5dp"
 
-                        android:text="Bills and Utilities"
-                        android:textSize="14dp"
+                        android:text="@string/bills_and_utilities"
+                        android:textSize="14sp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="14dp"
+                        android:layout_marginStart="14dp"
                         android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/category_memo22"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@id/category_icon23"
-                        android:elevation="5dp"
                         android:layout_below="@id/category_text23"
-                        android:text="main category"
-                        android:textSize="13dp"
-                        android:layout_marginLeft="14dp"
-                        />
+                        android:layout_marginStart="14dp"
+                        android:layout_toEndOf="@id/category_icon23"
+                        android:elevation="5dp"
+                        android:text="@string/main_category"
+                        android:textSize="13sp" />
                 </RelativeLayout>
                 <RelativeLayout
                     android:id="@+id/category24"
@@ -426,7 +419,7 @@
                         android:layout_height="35dp"
                         android:background="@drawable/circle"
                         android:backgroundTint="@color/blue"
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"
                         android:layout_marginTop="12dp"
                         />
 
@@ -434,26 +427,26 @@
                         android:id="@+id/category_text24"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@id/category_icon24"
-                        android:elevation="5dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="14dp"
 
-                        android:text="Bills and Utilities"
-                        android:textSize="14dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="14dp"
-                        android:textStyle="bold"/>
+                        android:layout_toEndOf="@id/category_icon24"
+                        android:elevation="5dp"
+                        android:text="@string/vbills_and_utilities2"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/category_memo24"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@id/category_icon24"
-                        android:elevation="5dp"
                         android:layout_below="@id/category_text24"
-                        android:text="main category"
-                        android:textSize="13dp"
-                        android:layout_marginLeft="14dp"
-                        />
+                        android:layout_marginStart="14dp"
+                        android:layout_toEndOf="@id/category_icon24"
+                        android:elevation="5dp"
+                        android:text="@string/main_category"
+                        android:textSize="13sp" />
                 </RelativeLayout>
                 <RelativeLayout
                     android:id="@+id/category25"
@@ -465,7 +458,7 @@
                         android:id="@+id/category_icon25"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"
                         android:layout_marginTop="12dp"
                         android:background="@drawable/circle"
                         android:backgroundTint="@color/cardview_dark_background"
@@ -475,25 +468,25 @@
                         android:id="@+id/category_text25"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@id/category_icon25"
+                        android:layout_toEndOf="@id/category_icon25"
                         android:elevation="5dp"
 
-                        android:text="Bills and Utilities"
-                        android:textSize="14dp"
+                        android:text="@string/bills_and_utilities"
+                        android:textSize="14sp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="14dp"
+                        android:layout_marginStart="14dp"
                         android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/category_memo25"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@id/category_icon25"
+                        android:layout_toEndOf="@id/category_icon25"
                         android:elevation="5dp"
                         android:layout_below="@id/category_text25"
-                        android:text="main category"
-                        android:textSize="13dp"
-                        android:layout_marginLeft="14dp"
+                        android:text="@string/main_category1"
+                        android:textSize="13sp"
+                        android:layout_marginStart="14dp"
                         />
                 </RelativeLayout>
 
@@ -514,7 +507,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="end|bottom"
-        android:layout_marginRight="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:src="@drawable/ic_add"
 

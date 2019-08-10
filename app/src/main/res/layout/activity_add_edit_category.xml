@@ -40,7 +40,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="20dp"
         android:layout_marginRight="16dp"
-        android:text="28 June 2019"
+        android:text="@string/v_28_june_2019"
         android:textColor="#ffffff"
         android:textStyle="bold"
         android:textSize="18sp"
