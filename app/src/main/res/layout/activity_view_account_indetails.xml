@@ -26,10 +26,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="16dp"
-        android:text="28 June 2019"
+        android:layout_marginEnd="16dp"
+        android:text="@string/account_indetail__28_june_2019"
         android:textColor="#ffffff"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="bold"
         />
 
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:text="Account Delails"
+            android:text="@string/account_indetail_account_delails"
             android:textSize="20sp"
             android:textStyle="bold"
 
@@ -64,27 +64,27 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="10dp"
-            android:background="#d8d8d8"></View>
+            android:background="#d8d8d8" />
 
         <ImageView
             android:id="@+id/category_icon"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_below="@id/line1"
-            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
             android:background="@mipmap/bank"
 
-            />
+            android:contentDescription="@string/account_indetail_todo" />
 
         <TextView
             android:id="@+id/category_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/line1"
-            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="20dp"
-            android:layout_toRightOf="@id/category_icon"
+            android:layout_toEndOf="@id/category_icon"
             android:text="@string/bank_account"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -96,9 +96,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/category_name"
-            android:layout_marginLeft="24dp"
-            android:layout_toRightOf="@id/category_icon"
-            android:text="Rs. 25000.00"
+            android:layout_marginStart="24dp"
+            android:layout_toEndOf="@id/category_icon"
+            android:text="@string/account_indetail_rs_25000_00"
             android:textColor="@color/red"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -110,9 +110,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/Amount_text"
-            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="15dp"
-            android:layout_toRightOf="@id/category_icon"
+            android:layout_toEndOf="@id/category_icon"
             android:text="@string/text_account_type"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -124,9 +124,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/date"
-            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="15dp"
-            android:layout_toRightOf="@id/category_icon"
+            android:layout_toEndOf="@id/category_icon"
             android:text="@string/bank_account"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -138,10 +138,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/description"
-            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="15dp"
-            android:layout_toRightOf="@id/category_icon"
-            android:text="Account Number"
+            android:layout_toEndOf="@id/category_icon"
+            android:text="@string/account_indetail_account_number"
             android:textSize="16sp"
             android:textStyle="bold"
 
@@ -152,10 +152,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/account_text"
-            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="0dp"
-            android:layout_toRightOf="@id/category_icon"
-            android:text="32551844"
+            android:layout_toEndOf="@id/category_icon"
+            android:text="@string/account_indetail__32551844"
             android:textSize="14sp"
 
             />
@@ -165,12 +165,13 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_below="@id/account"
-            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="15dp"
-            android:layout_toRightOf="@id/category_icon"
+            android:layout_toEndOf="@id/category_icon"
             android:background="@drawable/circle"
             android:backgroundTint="@color/blue"
-            android:src="@drawable/edit_btn" />
+            android:src="@drawable/edit_btn"
+            android:contentDescription="@string/account_indetail_todo" />
 
         <ImageButton
 
@@ -178,11 +179,12 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_below="@id/account"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="15dp"
-            android:layout_toRightOf="@+id/edit_btn02"
+            android:layout_toEndOf="@+id/edit_btn02"
             android:background="@drawable/circle"
-            android:src="@drawable/delete_btn"></ImageButton>
+            android:src="@drawable/delete_btn"
+            android:contentDescription="@string/account_indetail_todo" />
 
     </RelativeLayout>
 

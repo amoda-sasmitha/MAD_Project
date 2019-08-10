@@ -72,10 +72,13 @@
     <string name="account_ammount">Amount</string>
     <string name="accont_number">Account Number</string>
     <string name="add">Add</string>
+
+
+
+
     <string name="tv_tetx_bank">Bank</string>
     <string name="tv_credte">Cards</string>
     <string name="tv_bank">Rs 2500.00</string>
-
     <string name="title_activity_splash_screen">SplashScreen</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
@@ -138,6 +141,43 @@
     <string name="zero">0.00</string>
     <string name="new_expense_income">New Expense / Income</string>
     <string name="des2">Select Category</string>
+
+
+
+
+
+
+
+    <!--Strings padula -->
+
+
+    <string name="add_btn_account">Add</string>
+    <string name="todo_account">TODO</string>
+    <string name="amount_update_account">Amount</string>
+    <string name="btn_update_details">Update Details</string>
+    <string name="update_account_no">Account No</string>
+    <string name="update_account_type">Account Type</string>
+    <string name="update_update_account">Update Account</string>
+    <string name="update_account_name">Account Name</string>
+    <string name="update_todo">TODO</string>
+    <string name="update_rs_4560_00">Rs 4560.00</string>
+    <string name="update__2345654">2345654</string>
+    <string name="update_hnb_bank">HNB Bank</string>
+    <string name="update_bank_account">Bank Account</string>
+    <string name="account_all_total">Total</string>
+    <string name="account_all_rs3400_00">Rs3400.00</string>
+    <string name="account_all_accounts">Accounts</string>
+    <string name="account_indetail_account_delails">Account Delails</string>
+    <string name="account_indetail__28_june_2019">28 June 2019</string>
+    <string name="account_indetail_rs_25000_00">Rs. 25000.00</string>
+    <string name="account_indetail_account_number">Account Number</string>
+    <string name="account_indetail__32551844">32551844</string>
+    <string name="account_indetail_todo">TODO</string>
+    <string name="account_indetail_todo1">TODO</string>
+    <string name="account_indetail_todo2">TODO</string>
+
+    <!--Strings padula -->
+
 
 
 </resources>

@@ -7,6 +7,7 @@
     tools:context=".EditAccount">
 
     <RelativeLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#d8d8d8"
@@ -25,8 +26,7 @@
             android:layout_marginStart="1dp"
             android:layout_marginTop="0dp"
             android:background="@drawable/shape"
-            android:gravity="center"></View>
-
+            android:gravity="center" />
 
 
         <ImageView
@@ -36,10 +36,11 @@
             android:layout_above="@+id/add_category_btn"
             android:layout_below="@+id/category_name"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="47dp"
             android:layout_marginBottom="102dp"
             android:background="#d8d8d8"
+            android:contentDescription="@string/update_todo"
             android:src="@drawable/card" />
 
         <EditText
@@ -52,7 +53,8 @@
             android:layout_marginEnd="42dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Rs 4560.00" />
+            android:text="@string/update_rs_4560_00"
+            />
 
         <EditText
             android:id="@+id/account_no_txt"
@@ -64,7 +66,8 @@
             android:layout_marginEnd="44dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="2345654" />
+            android:text="@string/update__2345654"
+             />
 
         <TextView
             android:id="@+id/lbl_amount"
@@ -74,7 +77,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="57dp"
             android:layout_marginTop="369dp"
-            android:text="Amount" />
+            android:text="@string/amount_update_account" />
 
         <Button
             android:id="@+id/btn_add_acc_add"
@@ -87,8 +90,8 @@
             android:layout_marginBottom="23dp"
             android:background="@drawable/card"
             android:backgroundTint="@color/green"
-            android:text="Update Details"
-            android:textColor="#ffffff" />
+            android:text="@string/btn_update_details"
+            android:textColor="#ffffff" tools:targetApi="o" />
 
         <TextView
             android:id="@+id/lbl_account_number"
@@ -98,7 +101,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="57dp"
             android:layout_marginTop="430dp"
-            android:text="Account No" />
+            android:text="@string/update_account_no" />
 
         <TextView
             android:id="@+id/lable_account_name"
@@ -108,7 +111,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="57dp"
             android:layout_marginTop="305dp"
-            android:text="Account Type" />
+            android:text="@string/update_account_type" />
 
         <TextView
             android:id="@+id/category_name"
@@ -117,9 +120,9 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="55dp"
             android:layout_marginBottom="10dp"
-            android:text="Update Account"
+            android:text="@string/update_update_account"
             android:textColor="#ffffff"
-            android:textSize="26dp"
+            android:textSize="26sp"
             android:textStyle="bold" />
 
         <TextView
@@ -130,7 +133,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="57dp"
             android:layout_marginTop="238dp"
-            android:text="Account Name" />
+            android:text="@string/update_account_name" />
 
         <EditText
             android:id="@+id/txt_account_name"
@@ -142,7 +145,8 @@
             android:layout_marginEnd="42dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="HNB Bank" />
+            android:text="@string/update_hnb_bank"
+           />
 
         <EditText
             android:id="@+id/editText3"
@@ -151,10 +155,11 @@
             android:layout_below="@+id/txt_account_name"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="23dp"
-            android:layout_marginRight="42dp"
+            android:layout_marginEnd="42dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Bank Account" />
+            android:text="@string/update_bank_account"
+             />
 
     </RelativeLayout>
 </RelativeLayout>

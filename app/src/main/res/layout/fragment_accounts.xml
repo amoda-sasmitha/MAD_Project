@@ -59,9 +59,9 @@
                 android:backgroundTint="#E8ECE8"
                 android:elevation="5dp"
                 android:padding="10dp"
-                android:text="Total"
+                android:text="@string/account_all_total"
                 android:textColor="#706F6F"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
 
@@ -70,7 +70,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_below="@id/category_type"
-                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
                 android:layout_marginTop="15dp"
                 android:background="@mipmap/ic_launcher_foreground"
 
@@ -84,7 +84,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="92dp"
                 android:layout_marginTop="71dp"
-                android:text="Rs3400.00" />
+                android:text="@string/account_all_rs3400_00" />
 
 
         </RelativeLayout>
@@ -97,7 +97,7 @@
             android:background="@drawable/shape"
             android:gravity="center"
 
-            ></View>
+            />
 
 
         <TextView
@@ -106,9 +106,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="10dp"
-            android:text="Accounts"
+            android:text="@string/account_all_accounts"
             android:textColor="#ffffff"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="bold"
 
             />
@@ -133,7 +133,7 @@
                 android:layout_height="40dp"
 
                 android:layout_alignParentTop="true"
-                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
                 android:layout_marginTop="49dp"
                 android:background="@mipmap/bank" />
 
@@ -157,7 +157,7 @@
                 android:elevation="5dp"
                 android:padding="10dp"
                 android:textColor="#706F6F"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textStyle="bold"
 
 
