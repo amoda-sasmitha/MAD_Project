@@ -10,9 +10,11 @@ import androidx.annotation.NonNull;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
+import Database.DBhelper;
+
 public class MainActivity extends AppCompatActivity {
 
-
+    DBhelper db;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -51,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
         layout.animate().translationY(0).setDuration(800);
 
         layout.animate().alpha(1).setDuration(1000);
+
+        db = new DBhelper(this);
 
 
 

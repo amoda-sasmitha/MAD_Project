@@ -1,13 +1,13 @@
 package com.example.myapplication;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,12 +16,21 @@ import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
+
+import Adapters.DailyExpensesAdapter;
+import Models.CategoryModel;
+import Models.DailyTransaction;
+import Models.Transaction;
+import Util.Util;
+
 
 public class Expenses extends Fragment {
 
     private TextView AccountBtn;
     private FloatingActionButton plusBtn;
     private TextView categoryText , amount, date ;
+    private RecyclerView dailyrv;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -36,31 +45,30 @@ public class Expenses extends Fragment {
             }
         });
 
-        categoryText = view.findViewById(R.id.category_text);
-        amount = view.findViewById( R.id.category_cost);
-        date = view.findViewById(R.id.date);
+        ArrayList<Transaction> dbdata = new ArrayList<Transaction>();
 
-        categoryText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent( getActivity() , ViewExpenseDetails.class );
+        dbdata.add( new Transaction(10 , 434,  new CategoryModel("Food and Bevarages" , "food") , "foo", "01-09-2019" , 1 )  );
+        dbdata.add( new Transaction(10 , 534, new CategoryModel("Food and Bevarages" , "food")  , "foo", "01-09-2019" , 1 )  );
+        dbdata.add( new Transaction(10 , 1434, new CategoryModel("Transportation" , "bus")  , "foo", "02-09-2019" , 1 )  );
+        dbdata.add( new Transaction(10 , 2434, new CategoryModel("Food and Bevarages" , "food")  , "foo", "02-09-2019" , 1 )  );
+        dbdata.add( new Transaction(10 , 3434, new CategoryModel("Food and Bevarages" , "food")  , "foo", "01-09-2019" , 1 )  );
+        dbdata.add( new Transaction(10 , 434, new CategoryModel("Transportation" , "bus")  , "foo", "12-09-2019" , 1 )  );
+        dbdata.add( new Transaction(10 , 654, new CategoryModel("Food and Bevarages" , "food")  , "foo", "13-09-2019" , 1 )  );
+        dbdata.add( new Transaction(10 , 784, new CategoryModel("Food and Bevarages" , "food")  , "foo", "14-09-2019" , 1 )  );
+        dbdata.add( new Transaction(10 , 324, new CategoryModel("Food and Bevarages" , "food")  , "foo", "14-09-2019" , 1 )  );
+        dbdata.add( new Transaction(10 , 654, new CategoryModel("Food and Bevarages" , "food")  , "foo", "30-09-2019" , 1 )  );
 
-                Bundle bundle = new Bundle();
-                bundle.putString("CategoryType", categoryText.getText().toString()  );
-                bundle.putString( "ExpenseDate" , date.getText().toString() );
-                bundle.putString( "Amount" , amount.getText().toString() );
 
-                intent.putExtras( bundle);
-                startActivity(intent);
-            }
-        });
+        ArrayList<DailyTransaction> db = Util.sortTransaction( "01-09-2019" , "30-09-2019" , dbdata );
+        dailyrv = view.findViewById( R.id.dailyRV );
+        dailyrv.setLayoutManager( new LinearLayoutManager(getContext() ));
 
-        AccountBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getFragmentManager().beginTransaction().replace(R.id.fragment_container , new Accounts() ).commit();
-            }
-        });
+        DailyExpensesAdapter adapter = new DailyExpensesAdapter( db , getContext() );
+        //dailyrv.setNestedScrollingEnabled(false);
+        dailyrv.setAdapter(adapter);
+
+
+
 
 
         return view;
