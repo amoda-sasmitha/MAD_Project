@@ -66,10 +66,10 @@
     <!--Add Accounts-->
 
     <string name="text_account_name">Account Name</string>
-    <string name="text_account_type">Account TYpe</string>
+    <string name="text_account_type">Account Type</string>
     <string name="empty" />
     <string name="title_add_account">Add Account</string>
-    <string name="account_ammount">Amount</string>
+    <string name="account_ammount">Initial  Amount</string>
     <string name="accont_number">Account Number</string>
     <string name="add">Add</string>
 
@@ -186,7 +186,26 @@
     <string name="rs_2350_00">Rs.2350.00</string>
 
     <string name="saving_name">Saving name</string>
+    <string name="add_account">Add Date</string>
+    <string name="add_date_txt">Add date</string>
+    <string name="lasttrans">Last Transaction Date</string>
+    <string name="lastamount" />
+    <string name="lamount">Last Transaction Amount</string>
+    <string name="view_account_indetails_name">Account Detail</string>
+    <string name="view_account_details_history">Transaction History</string>
+    <string name="add_account_hint">My Bank...</string>
+    <string name="add_account_hint_amount">25000.00</string>
+    <string name="add_account_hint_number" > 200XXXXXX3525 </string>
 
+
+    <string-array name="spinnerAccounts">
+            <item>Select Account Type</item>
+            <item>Wallet</item>
+            <item>Bank Account</item>
+            <item>Credit Card</item>
+            <item>Debit Card</item>
+
+        </string-array>
 
     <!--Strings padula -->
 

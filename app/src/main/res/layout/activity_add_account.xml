@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,8 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#d8d8d8"
-        tools:context=".Category">
+        android:background="#d8d8d8">
 
 
         <View
@@ -22,84 +22,109 @@
 
             android:layout_marginStart="1dp"
             android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
             android:background="@drawable/shape"
             android:gravity="center"></View>
 
 
-
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="421dp"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/add_category_btn"
+            android:layout_width="match_parent"
+            android:layout_height="531dp"
             android:layout_below="@+id/category_name"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="35dp"
-            android:layout_marginBottom="102dp"
-            android:background="@color/gray"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="83dp"
+            android:background="@drawable/card"
             android:src="@drawable/card" />
 
         <EditText
-            android:id="@+id/txt_add_acc_amount"
+            android:id="@+id/account_des"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textAddAccountType"
+            android:layout_below="@+id/account_no_txt2"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="73dp"
-            android:layout_marginTop="17dp"
-            android:layout_marginEnd="38dp"
-            android:layout_toEndOf="@+id/lbl_amount"
-            android:ems="10"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:layout_toEndOf="@+id/lbl_account_des"
+            android:ems="8"
+            android:hint="@string/add_account_hint_number"
+            android:importantForAutofill="no"
             android:inputType="textPersonName"
-            android:importantForAutofill="no" tools:targetApi="o" />
+            tools:targetApi="o" />
 
         <EditText
-            android:id="@+id/account_no_txt"
+            android:id="@+id/account_no_txt2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
+            android:layout_below="@+id/editText2"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="412dp"
-            android:layout_marginEnd="37dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:layout_toEndOf="@+id/lbl_account_number2"
             android:ems="8"
+            android:hint="@string/add_account_hint_number"
+            android:importantForAutofill="no"
             android:inputType="textPersonName"
-            android:importantForAutofill="no" tools:targetApi="o" />
+            tools:targetApi="o" />
 
         <TextView
             android:id="@+id/lbl_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/lable_account_name"
             android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="34dp"
-            android:layout_marginTop="368dp"
-            android:text="@string/account_ammount" />
-
-        <Button
-            android:id="@+id/save_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/account_no_txt"
-            android:layout_centerHorizontal="true"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="15dp"
-            android:background="@color/green"
-            android:text="@string/add_btn_account"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="50dp"
+            android:text="@string/account_ammount"
             android:textSize="16sp"
             android:textStyle="bold" />
 
+        <Button
+            android:id="@+id/save_btn"
+            android:layout_width="326dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/account_des"
+            android:layout_alignParentEnd="true"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginEnd="42dp"
+            android:background="@drawable/card"
+            android:backgroundTint="@color/green"
+            android:text="@string/add_btn_account"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
         <TextView
-            android:id="@+id/lbl_account_number"
+            android:id="@+id/lbl_account_des"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/lbl_account_number2"
             android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="34dp"
-            android:layout_marginTop="429dp"
-            android:text="@string/accont_number" />
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="50dp"
+            android:text="@string/accont_number"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lbl_account_number2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lbl_amount"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="50dp"
+            android:text="@string/accont_number"
+            android:textSize="16dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/lable_account_name"
@@ -107,9 +132,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="34dp"
-            android:layout_marginTop="304dp"
-            android:text="@string/text_account_type" />
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="233dp"
+            android:text="@string/text_account_type"
+            android:textSize="16dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/category_name"
@@ -129,9 +156,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="34dp"
-            android:layout_marginTop="237dp"
-            android:text="@string/text_account_name" />
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="163dp"
+            android:text="@string/text_account_name"
+            android:textSize="16dp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/textAddAcountName"
@@ -139,29 +168,45 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="225dp"
-            android:layout_marginEnd="38dp"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="150dp"
+            android:layout_marginEnd="19dp"
             android:layout_toEndOf="@+id/lable_acount_type"
             android:ems="10"
+            android:hint="@string/add_account_hint"
+            android:importantForAutofill="no"
             android:inputType="textPersonName"
             android:text="@string/empty"
-            android:importantForAutofill="no" tools:targetApi="o" />
+            android:textSize="16dp"
+            android:textStyle="italic"
+            tools:targetApi="o" />
 
-        <EditText
-            android:id="@+id/textAddAccountType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <Spinner
+            android:id="@+id/spinnerAccounts"
+            android:layout_width="200dp"
+            android:layout_height="41dp"
             android:layout_below="@+id/textAddAcountName"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="37dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginEnd="39dp"
-            android:layout_toEndOf="@+id/lable_account_name"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:layout_toEndOf="@+id/lable_account_name" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="231dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spinnerAccounts"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:layout_toEndOf="@+id/lbl_amount"
             android:ems="10"
+            android:hint="@string/add_account_hint_amount"
             android:inputType="textPersonName"
-            android:text="@string/empty"
-            android:importantForAutofill="no" tools:targetApi="o" />
+            android:textSize="16sp"
+            android:textStyle="italic" />
 
     </RelativeLayout>
-</FrameLayout>
+</RelativeLayout>
