@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/transparent"
-    tools:context=".Expenses">
+    tools:context=".Test">
 
 
 
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="180dp"
+        android:background="@drawable/shape"
 
-        <View
-            android:id="@+id/view"
-            android:layout_width="wrap_content"
-            android:layout_height="180dp"
-            android:background="@drawable/shape"
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView"
@@ -34,96 +32,96 @@
         android:textSize="26sp"
         android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="16dp"
-            android:lineSpacingExtra="4dp"
-            android:text="@string/DateV2"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_below="@+id/textView"
-            android:layout_centerHorizontal="true"
-            />
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="16dp"
+        android:lineSpacingExtra="4dp"
+        android:text="@string/DateV2"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        />
 
-        <Button
-            android:layout_alignParentEnd="false"
-            android:id="@+id/button"
-            android:layout_width="60dp"
-            android:layout_height="28dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="0dp"
-            android:background="@drawable/dailybtn"
-            android:backgroundTint="@color/lightGray"
-            android:layout_toLeftOf="@+id/button3"
-            android:text="@string/monthly"
-            android:textAllCaps="false"
-            android:textColor="#9A9A9A"
-            android:textSize="12sp"
-            android:textStyle="normal"
-            />
+    <Button
+        android:layout_alignParentEnd="false"
+        android:id="@+id/button"
+        android:layout_width="60dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="0dp"
+        android:background="@drawable/dailybtn"
+        android:backgroundTint="@color/lightGray"
+        android:layout_toLeftOf="@+id/button3"
+        android:text="@string/monthly"
+        android:textAllCaps="false"
+        android:textColor="#9A9A9A"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        />
 
-        <Button
-            android:layout_alignParentEnd="true"
-            android:id="@+id/button3"
-            android:layout_width="50dp"
-            android:layout_height="28dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/monthlybtn"
-            android:text="@string/daily"
-            android:textAllCaps="false"
-            android:textSize="12sp"
-            android:textStyle="normal"
-             />
+    <Button
+        android:layout_alignParentEnd="true"
+        android:id="@+id/button3"
+        android:layout_width="50dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/monthlybtn"
+        android:text="@string/daily"
+        android:textAllCaps="false"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        />
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/accountType"
-            android:textColor="@color/white"
-            android:textSize="13sp"
-            android:textStyle="bold"
-           />
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/accountType"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        />
 
-        <TextView
-            android:id="@+id/Account"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView3"
-            android:layout_marginStart="16dp"
-            android:text="@string/AmountV3"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/view"
-            app:layout_constraintTop_toTopOf="@+id/textView3" />
+    <TextView
+        android:id="@+id/Account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:layout_marginStart="16dp"
+        android:text="@string/AmountV3"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/textView3" />
 
 
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="62dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/left_icon"
-            android:layout_toLeftOf="@+id/textView"
-            />
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="62dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/left_icon"
+        android:layout_toLeftOf="@+id/textView"
+        />
 
-        <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="62dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/right_icon"
-            android:layout_toRightOf="@+id/textView"
-             />
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="62dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/right_icon"
+        android:layout_toRightOf="@+id/textView"
+        />
 
 
 
@@ -224,13 +222,13 @@
         </RelativeLayout>
 
 
-           <androidx.recyclerview.widget.RecyclerView
-               android:id="@+id/dailyRV"
-               android:layout_below="@+id/cardViewAccount3"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/dailyRV"
+            android:layout_below="@+id/cardViewAccount3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-           </androidx.recyclerview.widget.RecyclerView>
+        </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
 
 

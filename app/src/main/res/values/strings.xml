@@ -74,8 +74,6 @@
     <string name="add">Add</string>
 
 
-
-
     <string name="tv_tetx_bank">Bank</string>
     <string name="tv_credte">Cards</string>
     <string name="tv_bank">Rs 2500.00</string>
@@ -142,11 +140,6 @@
     <string name="des2">Select Category</string>
 
 
-
-
-
-
-
     <!--Strings padula -->
 
 
@@ -186,10 +179,11 @@
     <string name="rs_2350_00">Rs.2350.00</string>
 
     <string name="saving_name">Saving name</string>
+    <string name="in">Money Inflow</string>
+    <string name="out">Money Outflow</string>
 
 
     <!--Strings padula -->
-
 
 
 </resources>

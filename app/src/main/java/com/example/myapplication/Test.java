@@ -1,56 +1,37 @@
 package com.example.myapplication;
 
-import android.content.Intent;
-import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.os.Bundle;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
+import Adapters.CategoryAdapter;
 import Adapters.DailyExpensesAdapter;
+import Database.DBhelper;
 import Models.CategoryModel;
 import Models.DailyTransaction;
 import Models.Transaction;
 import Util.Util;
 
-
-public class Expenses extends Fragment {
+public class Test extends AppCompatActivity  {
 
     private TextView AccountBtn ;
     private FloatingActionButton plusBtn;
     private TextView categoryText , amount, date ;
     private RecyclerView dailyrv;
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_expenses ,container , false);
-        AccountBtn = view.findViewById(R.id.Account);
-        plusBtn = view.findViewById(R.id.add_expenses_btn);
-        plusBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity() , AddEditExpenses.class );
-                startActivity(intent);
-            }
-        });
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_test);
 
-        AccountBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               // getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container , new Accounts() ).commit();
-            }
-        });
 
         ArrayList<Transaction> dbdata = new ArrayList<Transaction>();
 
@@ -67,18 +48,16 @@ public class Expenses extends Fragment {
 
 
         ArrayList<DailyTransaction> db = Util.sortTransaction( "01-09-2019" , "14-09-2019" , dbdata );
-        dailyrv = view.findViewById( R.id.dailyRV );
-        dailyrv.setLayoutManager( new LinearLayoutManager( getActivity().getApplicationContext() ));
+        dailyrv = findViewById( R.id.dailyRV );
+        dailyrv.setLayoutManager( new LinearLayoutManager( this , LinearLayoutManager.VERTICAL , false  ));
 
 
-        dailyrv.setNestedScrollingEnabled(false);
-        DailyExpensesAdapter adapter = new DailyExpensesAdapter( db ,getActivity().getApplicationContext()  );
+        dailyrv.setHasFixedSize(true);
+        DailyExpensesAdapter adapter = new DailyExpensesAdapter( db ,this   );
         dailyrv.setAdapter(adapter);
+        dailyrv.setNestedScrollingEnabled(false);
 
-
-
-
-
-        return view;
     }
+
+
 }

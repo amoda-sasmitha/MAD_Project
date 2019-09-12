@@ -26,7 +26,7 @@ import Database.DBhelper;
 import Models.CategoryModel;
 
 
-public class Category extends Fragment {
+public class Category extends Fragment implements CategoryAdapter.OnCategoryClickListener {
 
     private FloatingActionButton plusBtn;
     private RelativeLayout selectbtn;
@@ -42,8 +42,6 @@ public class Category extends Fragment {
        // selectbtn = view.findViewById(R.id.category01);
 
 
-       Toast.makeText( getContext() , "Check" , Toast.LENGTH_LONG ).show();
-
         db = new DBhelper(getContext());
         ArrayList<CategoryModel>  arrayListExpense = db.readAllCategories("Expense");
         ArrayList<CategoryModel>  arrayListIncome = db.readAllCategories("Income");
@@ -51,14 +49,15 @@ public class Category extends Fragment {
         Erv = view.findViewById(R.id.expensesRV);
         Irv = view.findViewById(R.id.incomeRV );
 
-        Erv.setLayoutManager( new LinearLayoutManager( getContext()));
-        Irv.setLayoutManager( new LinearLayoutManager( getContext()));
+        Erv.setLayoutManager( new LinearLayoutManager( getActivity().getApplicationContext()  ));
+        Irv.setLayoutManager( new LinearLayoutManager(  getActivity().getApplicationContext()  ));
 
-        CategoryAdapter adapterExpense = new CategoryAdapter(arrayListExpense, getContext() );
-        CategoryAdapter adapterIncome = new CategoryAdapter(arrayListIncome, getContext() );
+        CategoryAdapter adapterExpense = new CategoryAdapter(arrayListExpense,   getActivity().getApplicationContext()  , this );
+       // CategoryAdapter adapterIncome = new CategoryAdapter(arrayListIncome, getContext() , this  );
+
 
         Erv.setAdapter( adapterExpense );
-        Irv.setAdapter( adapterIncome );
+        //Irv.setAdapter( adapterIncome );
 
 
 
@@ -106,6 +105,14 @@ public class Category extends Fragment {
 
         return view;
     }
+
+
+
+    @Override
+    public void onCategoryClick(int position) {
+        Toast.makeText( getActivity().getApplicationContext()  , "Position : "+ position , Toast.LENGTH_SHORT ).show();
+    }
+
 
 //    public void addNewCategory(View view){
 //        plusBtn = view.findViewById(R.id.add_category_btn);
