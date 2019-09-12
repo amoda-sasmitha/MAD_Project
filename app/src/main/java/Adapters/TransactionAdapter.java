@@ -1,6 +1,7 @@
 package Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,14 +12,16 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
+import com.example.myapplication.ViewExpenseDetails;
 
 import java.util.ArrayList;
 
 import Interface.IItemClickListener;
 import Models.Transaction;
 
-class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.TransactionViewHolder>  {
+public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.TransactionViewHolder>  {
 
     private ArrayList<Transaction> arrayList;
     private Context context;
@@ -33,13 +36,13 @@ class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.Transac
 
     @NonNull
     @Override
-    public TransactionAdapter.TransactionViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public TransactionViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate( R.layout.expense_row , parent , false);
         return new TransactionViewHolder(view  );
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TransactionAdapter.TransactionViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull TransactionViewHolder holder, int position) {
         Transaction t = arrayList.get(position);
         int resID =    context.getResources().getIdentifier( t.getCategoryModel().getIcon() , "drawable", context.getPackageName());
         holder.category.setText( t.getCategoryModel().getName() );
@@ -50,7 +53,10 @@ class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.Transac
         holder.setItem(new IItemClickListener() {
             @Override
             public void onItemClickListener(View view, int posistion) {
-                Toast.makeText( context , "Cliked" , Toast.LENGTH_SHORT).show();
+                Toast.makeText( context , arrayList.get(posistion).getId()+"" , Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent( context , ViewExpenseDetails.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
             }
         });
 
