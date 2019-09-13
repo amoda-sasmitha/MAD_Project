@@ -9,6 +9,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
+import Models.AccountModel;
 import Models.CategoryModel;
 import Models.Transaction;
 
@@ -45,7 +46,8 @@ public class DBhelper extends SQLiteOpenHelper {
                 DBConfig.Accounts.COLUMN_NAME_ID  + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL , "+
                 DBConfig.Accounts.COLUMN_NAME_ANAME + " TEXT , "+
                 DBConfig.Accounts.COLUMN_NAME_AMOUNT + " DOUBLE , " +
-                DBConfig.Accounts.COLUMN_NAME_TYPE + " TEXT  " + " );";
+                DBConfig.Accounts.COLUMN_NAME_TYPE + " TEXT , " +
+                DBConfig.Accounts.COLUMN_NAME_NUMBER + "TEXT, " +  DBConfig.Accounts.COLUMN_NAME_DESCRIPTION +"TEXT " +");";
 
 
         db.execSQL(sql_ct_categories);
@@ -175,7 +177,28 @@ public class DBhelper extends SQLiteOpenHelper {
         db.insert( DBConfig.Accounts.TABLE_NAME ,null, contentValues );
     }
 
+    //----------------------------------------------Padula Guruge ------------------------------------------------------
 
+    public boolean addAccount(AccountModel accountModel){
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put( DBConfig.Accounts.COLUMN_NAME_ANAME, accountModel.getAccountName());
+        contentValues.put( DBConfig.Accounts.COLUMN_NAME_TYPE, accountModel.getAccountType());
+        contentValues.put( DBConfig.Accounts.COLUMN_NAME_AMOUNT, accountModel.getAmount());
+        contentValues.put( DBConfig.Accounts.COLUMN_NAME_NUMBER, accountModel.getAccountNumber());
+        contentValues.put( DBConfig.Accounts.COLUMN_NAME_DESCRIPTION, accountModel.getAccountDescription());
+
+        long result = db.insert( DBConfig.Accounts.TABLE_NAME ,null, contentValues );
+
+        if (result > 0){
+
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
 
 }

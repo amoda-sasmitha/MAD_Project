@@ -32,6 +32,9 @@ public final class DBConfig {
         protected static final String COLUMN_NAME_ANAME = "name";
         protected static final String COLUMN_NAME_AMOUNT = "amount";
         protected static final String COLUMN_NAME_TYPE = "type";
+        protected static final String COLUMN_NAME_NUMBER = "number";
+        protected static final String COLUMN_NAME_DESCRIPTION = "description";
+
 
 
     }

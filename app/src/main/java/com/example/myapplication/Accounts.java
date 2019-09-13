@@ -24,7 +24,7 @@ public class Accounts extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_accounts ,container , false);
 
-        viewBtn = view.findViewById(R.id.cv_bank);
+       // viewBtn = view.findViewById(R.id.cv_bank);
         addbtn = view.findViewById(R.id.add_category_btn2);
         addbtn.setOnClickListener(new View.OnClickListener() {
             @Override
