@@ -27,7 +27,7 @@ import Util.Util;
 
 public class Expenses extends Fragment {
 
-    private TextView AccountBtn;
+    private TextView AccountBtn ;
     private FloatingActionButton plusBtn;
     private TextView categoryText , amount, date ;
     private RecyclerView dailyrv;
@@ -45,26 +45,34 @@ public class Expenses extends Fragment {
             }
         });
 
+        AccountBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               // getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container , new Accounts() ).commit();
+            }
+        });
+
         ArrayList<Transaction> dbdata = new ArrayList<Transaction>();
 
-        dbdata.add( new Transaction(10 , 434,  new CategoryModel("Food and Bevarages" , "food") , "foo", "01-09-2019" , 1 )  );
-        dbdata.add( new Transaction(10 , 534, new CategoryModel("Food and Bevarages" , "food")  , "foo", "01-09-2019" , 1 )  );
-        dbdata.add( new Transaction(10 , 1434, new CategoryModel("Transportation" , "bus")  , "foo", "02-09-2019" , 1 )  );
-        dbdata.add( new Transaction(10 , 2434, new CategoryModel("Food and Bevarages" , "food")  , "foo", "02-09-2019" , 1 )  );
-        dbdata.add( new Transaction(10 , 3434, new CategoryModel("Food and Bevarages" , "food")  , "foo", "01-09-2019" , 1 )  );
-        dbdata.add( new Transaction(10 , 434, new CategoryModel("Transportation" , "bus")  , "foo", "12-09-2019" , 1 )  );
-        dbdata.add( new Transaction(10 , 654, new CategoryModel("Food and Bevarages" , "food")  , "foo", "13-09-2019" , 1 )  );
-        dbdata.add( new Transaction(10 , 784, new CategoryModel("Food and Bevarages" , "food")  , "foo", "14-09-2019" , 1 )  );
-        dbdata.add( new Transaction(10 , 324, new CategoryModel("Food and Bevarages" , "food")  , "foo", "14-09-2019" , 1 )  );
-        dbdata.add( new Transaction(10 , 654, new CategoryModel("Food and Bevarages" , "food")  , "foo", "30-09-2019" , 1 )  );
+        dbdata.add( new Transaction(11 , 434,  new CategoryModel("Food and Bevarages" , "food") , "foo", "01-09-2019" , 1 )  );
+        dbdata.add( new Transaction(12 , 534, new CategoryModel("Food and Bevarages" , "food")  , "foo", "01-09-2019" , 1 )  );
+        dbdata.add( new Transaction(13 , 1434, new CategoryModel("Transportation" , "bus")  , "foo", "02-09-2019" , 1 )  );
+        dbdata.add( new Transaction(14 , 2434, new CategoryModel("Food and Bevarages" , "food")  , "foo", "02-09-2019" , 1 )  );
+        dbdata.add( new Transaction(15 , 3434, new CategoryModel("Food and Bevarages" , "food")  , "foo", "01-09-2019" , 1 )  );
+        dbdata.add( new Transaction(16 , 434, new CategoryModel("Transportation" , "bus")  , "foo", "12-09-2019" , 1 )  );
+        dbdata.add( new Transaction(17 , 654, new CategoryModel("Food and Bevarages" , "food")  , "foo", "13-09-2019" , 1 )  );
+        dbdata.add( new Transaction(18 , 784, new CategoryModel("Food and Bevarages" , "food")  , "foo", "14-09-2019" , 1 )  );
+        dbdata.add( new Transaction(19 , 324, new CategoryModel("Food and Bevarages" , "food")  , "foo", "14-09-2019" , 1 )  );
+        dbdata.add( new Transaction(20 , 654, new CategoryModel("Food and Bevarages" , "food")  , "foo", "30-09-2019" , 1 )  );
 
 
-        ArrayList<DailyTransaction> db = Util.sortTransaction( "01-09-2019" , "30-09-2019" , dbdata );
+        ArrayList<DailyTransaction> db = Util.sortTransaction( "01-09-2019" , "14-09-2019" , dbdata );
         dailyrv = view.findViewById( R.id.dailyRV );
-        dailyrv.setLayoutManager( new LinearLayoutManager(getContext() ));
+        dailyrv.setLayoutManager( new LinearLayoutManager( getActivity().getApplicationContext() ));
 
-        DailyExpensesAdapter adapter = new DailyExpensesAdapter( db , getContext() );
-        //dailyrv.setNestedScrollingEnabled(false);
+
+        dailyrv.setNestedScrollingEnabled(false);
+        DailyExpensesAdapter adapter = new DailyExpensesAdapter( db ,getActivity().getApplicationContext()  );
         dailyrv.setAdapter(adapter);
 
 

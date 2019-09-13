@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:elevation="5dp"
             android:text="@string/DateV6"
-            android:textSize="14sp"
+            android:textSize="12sp"
 
             android:layout_below="@id/day"
             android:layout_toEndOf="@id/dateNum"
