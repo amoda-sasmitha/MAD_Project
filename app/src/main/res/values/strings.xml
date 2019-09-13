@@ -204,12 +204,13 @@
             <item>Select Account Type</item>
             <item>Wallet</item>
             <item>Bank Account</item>
-            <item>Credit Card</item>
-            <item>Debit Card</item>
+            <item>Card</item>
+            <item>Online Wallet</item>
+
 
         </string-array>
 
-    <!--Strings padula -->
+ 
 
 
 

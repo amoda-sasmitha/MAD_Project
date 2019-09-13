@@ -1,6 +1,8 @@
 package Models;
 
-public class AccountModel {
+import androidx.recyclerview.widget.RecyclerView;
+
+public class AccountModel  {
     private int id;
     private String accountName;
     private  String accountType;
@@ -12,6 +14,7 @@ public class AccountModel {
 
     }
     public AccountModel(int id, String accountName, String accountType, double amount, String accountNumber, String accountDescription) {
+
         this.id = id;
         this.accountName = accountName;
         this.accountType = accountType;
@@ -21,6 +24,7 @@ public class AccountModel {
     }
 
     public AccountModel( String accountName, String accountType, double amount, String accountNumber, String accountDescription) {
+
         this.accountName = accountName;
         this.accountType = accountType;
         this.amount = amount;
