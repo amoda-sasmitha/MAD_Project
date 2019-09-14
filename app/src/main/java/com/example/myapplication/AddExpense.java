@@ -52,6 +52,7 @@ public class AddExpense extends Fragment {
                 View layout = inflater.inflate( R.layout.toast_message , (ViewGroup) view.findViewById(R.id.toastRoot) );
                 TextView text = layout.findViewById(R.id.textMsg);
                 text.setText("Expense Added Successfully");
+
                 Toast toast = new Toast(getContext() );
                 toast.setView(layout);
                 toast.setDuration(Toast.LENGTH_LONG);

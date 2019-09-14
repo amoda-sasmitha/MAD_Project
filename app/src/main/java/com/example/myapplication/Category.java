@@ -26,7 +26,7 @@ import Database.DBhelper;
 import Models.CategoryModel;
 
 
-public class Category extends Fragment implements CategoryAdapter.OnCategoryClickListener {
+public class Category extends Fragment {
 
     private FloatingActionButton plusBtn;
     private RelativeLayout selectbtn;
@@ -38,7 +38,14 @@ public class Category extends Fragment implements CategoryAdapter.OnCategoryClic
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_category ,container , false);
        // addNewCategory(view);
-
+        plusBtn = view.findViewById(R.id.add_category_btn);
+        plusBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity() , AddEditCategory.class );
+                startActivity(intent);
+            }
+        });
        // selectbtn = view.findViewById(R.id.category01);
 
 
@@ -52,20 +59,15 @@ public class Category extends Fragment implements CategoryAdapter.OnCategoryClic
         Erv.setLayoutManager( new LinearLayoutManager( getActivity().getApplicationContext()  ));
         Irv.setLayoutManager( new LinearLayoutManager(  getActivity().getApplicationContext()  ));
 
-        CategoryAdapter adapterExpense = new CategoryAdapter(arrayListExpense,   getActivity().getApplicationContext()  , this );
-       // CategoryAdapter adapterIncome = new CategoryAdapter(arrayListIncome, getContext() , this  );
+        Erv.setNestedScrollingEnabled(false);
+        Irv.setNestedScrollingEnabled(false);
+
+        CategoryAdapter adapterExpense = new CategoryAdapter(arrayListExpense,   getActivity().getApplicationContext()   );
+        CategoryAdapter adapterIncome = new CategoryAdapter(arrayListIncome,  getActivity().getApplicationContext() );
 
 
         Erv.setAdapter( adapterExpense );
-        //Irv.setAdapter( adapterIncome );
-
-
-
-//
-//        for( CategoryModel item : arrayList ){
-//            Log.i( "DB" , "Name : "+ item.getName() + " ID " + item.getID() );
-//        }
-
+        Irv.setAdapter( adapterIncome );
 
 
 
@@ -107,23 +109,19 @@ public class Category extends Fragment implements CategoryAdapter.OnCategoryClic
     }
 
 
-
     @Override
-    public void onCategoryClick(int position) {
-        Toast.makeText( getActivity().getApplicationContext()  , "Position : "+ position , Toast.LENGTH_SHORT ).show();
+    public void onStart() {
+        super.onStart();
+        ArrayList<CategoryModel>  arrayListExpense = db.readAllCategories("Expense");
+        ArrayList<CategoryModel>  arrayListIncome = db.readAllCategories("Income");
+        CategoryAdapter adapterExpense = new CategoryAdapter(arrayListExpense,   getActivity()  );
+        CategoryAdapter adapterIncome = new CategoryAdapter(arrayListIncome, getContext()  );
+        Erv.setAdapter( adapterExpense );
+        Irv.setAdapter( adapterIncome );
     }
 
 
-//    public void addNewCategory(View view){
-//        plusBtn = view.findViewById(R.id.add_category_btn);
-//        plusBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(getActivity() , AddEditCategory.class );
-//                startActivity(intent);
-//            }
-//        });
-//
-//
-//    }
+
+
+
 }

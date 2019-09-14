@@ -1,17 +1,20 @@
 package Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.ViewCategoryDetails;
 
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -24,10 +27,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     private OnCategoryClickListener onCategory;
     private Context context;
 
-    public CategoryAdapter(ArrayList<CategoryModel> arrayList  ,Context context ,  OnCategoryClickListener onCategory) {
+    public CategoryAdapter(ArrayList<CategoryModel> arrayList  ,Context context ) {
         this.arrayList = arrayList;
         this.context = context;
-        this.onCategory = onCategory;
+
 
 
     }
@@ -36,7 +39,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     @Override
     public CategoryAdapter.CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from( parent.getContext() ).inflate(R.layout.category_row , parent , false );
-        return new CategoryViewHolder(view , this.context , this.onCategory );
+        return new CategoryViewHolder(view , this.context );
     }
 
     @Override
@@ -60,11 +63,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         ImageView icon;
         TextView name , type;
         Context context;
-        OnCategoryClickListener onCategory;
 
-        public CategoryViewHolder(@NonNull View itemView  , Context context , OnCategoryClickListener onCategory) {
+
+        public CategoryViewHolder(@NonNull View itemView  , Context context ) {
             super(itemView);
-          this.onCategory = onCategory;
             itemView.setOnClickListener( this );
             this.context=context;
             name = itemView.findViewById(R.id.name);
@@ -75,7 +77,12 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
         @Override
         public void onClick(View view) {
-           onCategory.onCategoryClick(getAdapterPosition() );
+              CategoryModel c = arrayList.get( getAdapterPosition() );
+              Intent intent = new Intent( context , ViewCategoryDetails.class );
+              intent.putExtra("ID" ,  String.valueOf( c.getID() ) );
+              Toast.makeText( context , c.getID()+"" , Toast.LENGTH_SHORT ).show();
+              context.startActivity(intent);
+
         }
     }
 

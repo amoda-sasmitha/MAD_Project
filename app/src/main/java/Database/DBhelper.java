@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.example.myapplication.Category;
+
 import java.util.ArrayList;
 
 import Models.AccountModel;
@@ -97,6 +99,31 @@ public class DBhelper extends SQLiteOpenHelper {
         }
     }
 
+    public CategoryModel readSingleCategory( String ID ) {
+        SQLiteDatabase db = getReadableDatabase();
+        String[] projection = { DBConfig.Categories.COLUMN_NAME_ID , DBConfig.Categories.COLUMN_NAME_CNAME , DBConfig.Categories.COLUMN_NAME_DESCRIPTION ,
+                DBConfig.Categories.COLUMN_NAME_TYPE , DBConfig.Categories.COLUMN_NAME_ICON};
+
+        String Selection = DBConfig.Categories.COLUMN_NAME_ID + " = ? ";
+        String selectionArgs[]  = { ID };
+
+        Cursor values = db.query(DBConfig.Categories.TABLE_NAME ,projection,Selection ,selectionArgs ,null,null, null);
+        CategoryModel c = new CategoryModel();
+
+
+        while (values.moveToNext()){
+            String name = values.getString(values.getColumnIndexOrThrow(DBConfig.Categories.COLUMN_NAME_CNAME));
+            int id = values.getInt( values.getColumnIndexOrThrow( DBConfig.Categories.COLUMN_NAME_ID ));
+            c.setID(id);
+            c.setName(name);
+            c.setDescription( values.getString( values.getColumnIndexOrThrow( DBConfig.Categories.COLUMN_NAME_DESCRIPTION)));
+            c.setType( values.getString( values.getColumnIndexOrThrow( DBConfig.Categories.COLUMN_NAME_TYPE)));
+            c.setIcon( values.getString( values.getColumnIndexOrThrow( DBConfig.Categories.COLUMN_NAME_ICON )));
+
+        }
+        return c;
+    }
+
     public ArrayList<CategoryModel> readAllCategories(String type) {
         SQLiteDatabase db = getReadableDatabase();
         String[] projection = { DBConfig.Categories.COLUMN_NAME_ID , DBConfig.Categories.COLUMN_NAME_CNAME , DBConfig.Categories.COLUMN_NAME_DESCRIPTION ,
@@ -134,22 +161,22 @@ public class DBhelper extends SQLiteOpenHelper {
 
     public void setDefaultCategories(SQLiteDatabase db){
         ArrayList<CategoryModel> categories = new ArrayList<>();
-        categories.add( new CategoryModel( "Transportation" , "description" , "Expense" , "bus"    ));
-        categories.add( new CategoryModel( "Bills and Utilities" , "description" , "Expense" , "bill"    ));
-        categories.add( new CategoryModel( "Investments" , "description" , "Expense" , "invest"    ));
-        categories.add( new CategoryModel( "Food and Beverages" , "description" , "Expense" , "food"    ));
-        categories.add( new CategoryModel( "Health and Fitness" , "description" , "Expense" , "health"    ));
-        categories.add( new CategoryModel( "Family" , "description" , "Expense" , "family"    ));
-        categories.add( new CategoryModel( "Entertainment" , "description" , "Expense" , "entertainment"    ));
-        categories.add( new CategoryModel( "Gifts and Donations" , "description" , "Expense" , "gift"    ));
-        categories.add( new CategoryModel( "Education" , "description" , "Expense" , "education"    ));
-        categories.add( new CategoryModel( "Savings" , "description" , "Expense" , "savings"    ));
+        categories.add( new CategoryModel( "Transportation" , "Transportation expenses are specific costs incurred by an employee or self-employed taxpayer while traveling away from home for business purposes. Transportation expenses are a subset of travel expenses, which include all of the costs associated with business travel, such as taxi fare, fuel, parking fees, lodging, meals, tips, and cleaning." , "Expense" , "bus"    ));
+        categories.add( new CategoryModel( "Bills and Utilities" , "An expense or an expenditure is an amount owed to someone else, be it for services, products, or any other goods. For people who don’t run a business, expenses don’t mean anything more than that, at least in most cases. However, for business owners and self-employed people, some business spending impacts the amount of tax owed to the state." , "Expense" , "bill"    ));
+        categories.add( new CategoryModel( "Investments" , "Investment  is a component of your taxable expenses — it expenses added in with your income from employment and other sources, such as a pension. You can earn investment expenses from a variety of sources, including stocks, bonds and earnings on a life insurance policy." , "Expense" , "invest"    ));
+        categories.add( new CategoryModel( "Food and Beverages" , "Monthly food costs are determined by taking a monthly physical inventory of food stock, evaluating the inventory, and then adjusting the valuation to more accurately reflect the cost of food consumed." , "Expense" , "food"    ));
+        categories.add( new CategoryModel( "Health and Fitness" , "Medical expenses are any costs incurred in the prevention or treatment of injury or disease. Medical expenses include health and dental insurance premiums, doctor and hospital visits, co-pays, prescription" , "Expense" , "health"    ));
+        categories.add( new CategoryModel( "Family" , "Home expenses. In addition to the cost of the housing, whether it is rent, a mortgage payment, or real estate taxes, fees for utilities such as electricity and gas as well as insurance for the property are also part of household expenses." , "Expense" , "family"    ));
+        categories.add( new CategoryModel( "Entertainment" , "Home expenses. In addition to the cost of the housing, whether it is rent, a mortgage payment, or real estate taxes, fees for utilities such as electricity and gas as well as insurance for the property are also part of household expenses." , "Expense" , "entertainment"    ));
+        categories.add( new CategoryModel( "Gifts and Donations" , "Giving gifts is a great way to show your appreciation for special clients during the holidays, You can also give a gift that qualifies as an entertainment expense " , "Expense" , "gift"    ));
+        categories.add( new CategoryModel( "Education" , "Qualified expenses are amounts paid for tuition, fees and other related expense for an eligible student that are required for enrollment or attendance at an eligible educational institution." , "Expense" , "education"    ));
+        categories.add( new CategoryModel( "Savings" , "The definition of fixed expenses is any expense that does not change from period to period,such as mortgage or rent payments, utility bills, and loan payments. " , "Expense" , "savings"    ));
 
-        categories.add( new CategoryModel( "Awards" , "description" , "Income" , "award"    ));
-        categories.add( new CategoryModel( "Selling" , "description" , "Income" , "sell"    ));
-        categories.add( new CategoryModel( "Interest Money" , "description" , "Income" , "interest"    ));
-        categories.add( new CategoryModel( "Gifts" , "description" , "Income" , "get"    ));
-        categories.add( new CategoryModel( "Salary" , "description" , "Income" , "salary"    ));
+        categories.add( new CategoryModel( "Awards" , "The incomes for the wallet when receiving gifts and awards from relatives and friends especially the cash awards other than non cash awards, you can add those cash awards and calculate the expense." , "Income" , "award"    ));
+        categories.add( new CategoryModel( "Selling" , "Selling stuff on the internet or some where else might get an income, so adding them to the daily income lets you calculate the rest of the money left " , "Income" , "sell"    ));
+        categories.add( new CategoryModel( "Interest Money" , "With the interest money the amount is getting increased as the interest money being added to the expense amount,Interest money method is a huge method in increasing the income " , "Income" , "interest"    ));
+        categories.add( new CategoryModel( "Gifts" , "The incomes for the wallet when receiving gifts and awards from relatives and friends especially the cash awards and calculate the expense." , "Income" , "get"    ));
+        categories.add( new CategoryModel( "Salary" , "If you are paid an annual salary, the calculation is fairly easy. Since gross income refers to the total amount you earn before tax, and so does your annual salary, simply take the total amount of money (salary) you're paid for the year, and then divide this amount by 12.10" , "Income" , "salary"    ));
 
         db.beginTransaction();
         try {

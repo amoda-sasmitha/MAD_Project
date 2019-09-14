@@ -8,7 +8,7 @@
         android:id="@+id/category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:background="?android:attr/selectableItemBackground"
         android:paddingBottom="6dp">
 
         <ImageView
@@ -43,6 +43,7 @@
             android:layout_marginStart="14dp"
             android:layout_toEndOf="@id/icon"
             android:elevation="5dp"
+            android:paddingBottom="6dp"
             android:text="@string/main_category"
             android:textSize="14sp" />
 
@@ -52,12 +53,12 @@
             android:layout_height="wrap_content"
 
             android:layout_alignParentEnd="true"
-            android:textColor="@color/red"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="15dp"
             android:elevation="5dp"
-            android:textStyle="bold"
             android:text="@string/main_category"
-            android:textSize="14sp" />
+            android:textColor="@color/red"
+            android:textSize="14sp"
+            android:textStyle="bold" />
     </RelativeLayout>
 </LinearLayout>

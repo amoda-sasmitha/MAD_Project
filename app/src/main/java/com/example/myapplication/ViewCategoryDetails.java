@@ -10,28 +10,59 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import Database.DBhelper;
+import Models.CategoryModel;
 
 public class ViewCategoryDetails extends AppCompatActivity {
 
     private ImageButton edit_categorybtn, delete_btn;
-    private TextView categoryName , description, category_type;
+    private TextView categoryName , description, category_type , category_t;
+    private ImageView icon;
+    private String ID;
+    private DBhelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_category_details);
 
+        db = new DBhelper(this);
+        Intent intent = getIntent();
+        ID = intent.getStringExtra("ID");
+
+        categoryName = findViewById(R.id.category_text);
+        description = findViewById(R.id.category_view_description);
+        category_type = findViewById(R.id.categoryType);
+        icon = findViewById(R.id.categoryDetailIcon1);
+        category_t = findViewById( R.id.main_sub_type_view);
+        CategoryModel category = db.readSingleCategory( ID);
+
+        categoryName.setText( category.getName() );
+        category_type.setText(category.getType());
+        description.setText( category.getDescription() );
+        int resID = getResources().getIdentifier( category.getIcon() , "drawable", getPackageName());
+        icon.setImageResource(resID );
+
+        if( category.getID() > 15 ){
+            category_t.setText("User Category");
+        }else {
+            category_t.setText("Main Category");
+        }
+
+
+
         delete_btn = findViewById(R.id.delete_btn);
         edit_categorybtn = (ImageButton) findViewById(R.id.edit_btn);
+
         edit_categorybtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 edit_categorybtn= findViewById(R.id.edit_btn);
-                categoryName = findViewById(R.id.category_text);
-                description = findViewById(R.id.category_view_description);
-               category_type = findViewById(R.id.categoryType);
+
                 Intent intent = new Intent(ViewCategoryDetails.this , Edit_Category.class);
 
                 Bundle bundle = new Bundle();
