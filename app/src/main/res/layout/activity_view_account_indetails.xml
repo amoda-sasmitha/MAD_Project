@@ -51,7 +51,7 @@
             android:id="@+id/adddate5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txtadddate2"
+            android:layout_below="@+id/txtlasttransdate"
 
             android:layout_alignParentStart="true"
             android:layout_marginStart="16dp"
@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:text="@string/view_account_indetails_name"
+            android:text="Account Details"
             android:textSize="20sp"
             android:textStyle="bold"
 
@@ -101,9 +101,8 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="20dp"
             android:layout_toEndOf="@id/category_icon"
-            android:text="@string/bank_account"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            android:text="Current Amount"
+            android:textSize="14sp"
 
             />
 
@@ -113,11 +112,11 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/category_name"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="2dp"
             android:layout_toEndOf="@id/category_icon"
             android:text="@string/account_indetail_rs_25000_00"
             android:textColor="@color/blue"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="bold"
 
             />
@@ -131,8 +130,7 @@
             android:layout_marginTop="15dp"
             android:layout_toEndOf="@id/category_icon"
             android:text="@string/acc"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            android:textSize="14sp"
 
             />
 
@@ -142,11 +140,11 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/date"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="2dp"
             android:layout_toEndOf="@id/category_icon"
             android:text="@string/bank_account"
-            android:textSize="16sp"
-            android:textStyle=""
+            android:textSize="16dp"
+            android:textStyle="bold"
 
             />
 
@@ -154,12 +152,12 @@
             android:id="@+id/txtlasttransdate"
             android:layout_width="95dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/adddate"
+            android:layout_below="@+id/lasttranactionDate"
 
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="2dp"
             android:layout_marginBottom="164dp"
-            android:layout_toEndOf="@+id/txtadddate2"
+
             android:text="2019/02/10"
             android:textSize="12sp"
             android:textStyle="" />
@@ -168,29 +166,15 @@
             android:id="@+id/ltransamount"
             android:layout_width="81dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/adddate"
+            android:layout_below="@+id/adddate3"
 
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="85dp"
+            android:layout_marginTop="2dp"
             android:layout_marginEnd="0dp"
             android:layout_marginBottom="164dp"
             android:layout_toEndOf="@+id/txtlasttransdate"
             android:text="Rs.2500.00"
-            android:textSize="12sp"
-            android:textStyle="" />
-
-        <TextView
-            android:id="@+id/txtadddate2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/adddate"
-
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="164dp"
-            android:text="2018/02/25"
             android:textSize="12sp"
             android:textStyle="" />
 
@@ -203,33 +187,32 @@
             android:layout_marginTop="15dp"
             android:layout_toEndOf="@id/category_icon"
             android:text="@string/account_indetail_account_number"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            android:textSize="14sp"
 
             />
 
         <TextView
-            android:id="@+id/adddate"
-            android:layout_width="69dp"
+            android:id="@+id/account_text2"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/description"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="90dp"
-            android:text="@string/add_account"
+            android:layout_below="@id/account"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@id/category_icon"
+            android:text="Description"
             android:textSize="14sp"
 
-            android:textStyle="bold" />
+            />
 
         <TextView
             android:id="@+id/lasttranactionDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/description"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="90dp"
+            android:layout_below="@id/line2"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
 
-            android:layout_toEndOf="@+id/adddate"
+
             android:text="@string/lasttrans"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -238,11 +221,10 @@
             android:id="@+id/adddate3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/description"
+            android:layout_below="@id/line2"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="15dp"
-
-            android:layout_marginTop="90dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="9dp"
             android:layout_toEndOf="@+id/lasttranactionDate"
             android:text="Amount"
@@ -255,17 +237,40 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/account_text"
             android:layout_marginStart="23dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="2dp"
             android:layout_toEndOf="@id/category_icon"
             android:text="@string/account_indetail__32551844"
-            android:textSize="14sp"
+            android:textSize="16dp"
 
-            />
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/account2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/account_text2"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="2dp"
+            android:layout_toEndOf="@id/category_icon"
+            android:text="@string/account_indetail__32551844"
+            android:textSize="16dp"
+
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/line2"
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_below="@id/account2"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="10dp"
+            android:background="@color/gray" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycleview"
-            android:layout_width="378dp"
-            android:layout_height="221dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/adddate5"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="10dp"
@@ -279,13 +284,13 @@
             android:id="@+id/edit_btn02"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:layout_below="@id/line1"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="28dp"
             android:layout_toRightOf="@+id/category_name"
             android:background="@drawable/circle"
             android:backgroundTint="@color/blue"
             android:contentDescription="@string/account_indetail_todo"
-            android:layout_below="@id/line1"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="10dp"
             android:src="@drawable/edit_btn" />
 
         <ImageButton
@@ -294,8 +299,8 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_below="@id/line1"
-            android:layout_marginTop="20dp"
             android:layout_marginStart="6dp"
+            android:layout_marginTop="28dp"
             android:layout_toRightOf="@id/edit_btn02"
             android:background="@drawable/circle"
             android:contentDescription="@string/account_indetail_todo"

@@ -14,34 +14,47 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import Models.AccountModel;
+import Util.Util;
 
 public class view_account_indetails extends AppCompatActivity {
 
     private ImageView editBtn;
     private ImageButton delete_btn;
-    private TextView amount, type, name , AccNumber ;
+    private TextView amount, type, name , accNumber , description ;
     private ImageView icon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_account_indetails);
 
+        Intent intent = getIntent();
+        final AccountModel account = (AccountModel) intent.getSerializableExtra("Account");
+
+        icon = findViewById(R.id.category_icon);
         delete_btn = findViewById(R.id.delete_btn);
         editBtn = findViewById(R.id.edit_btn02);
-        //amount
+        amount = findViewById(R.id.Amount_text);
+        type = findViewById(R.id.description);
+        accNumber = findViewById(R.id.account);
+        description = findViewById(R.id.account2);
+        name = findViewById(R.id.accountName);
 
-        Intent intent = getIntent();
-        AccountModel account = (AccountModel) intent.getSerializableExtra("Account");
+        name.setText( account.getAccountName() );
+        description.setText( account.getAccountDescription() );
+        accNumber.setText( account.getAccountNumber() );
+        type.setText( account.getAccountType() );
+        amount.setText(  "Rs. "+ String.format("%.2f", account.getAmount() ) );
+        icon.setImageResource(Util.getAccountIcon( account.getAccountType() , this) );
 
+        editBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent( view_account_indetails.this , EditAccount.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
-//        editBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent( view_account_indetails.this , EditAccount.class);
-//                startActivity(intent);
-//            }
-//        });
-//
 //        delete_btn.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {

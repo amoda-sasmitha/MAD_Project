@@ -227,6 +227,30 @@ public class DBhelper extends SQLiteOpenHelper {
         }
     }
 
+    public boolean updateAccount(AccountModel accountModel){
+        SQLiteDatabase db = getReadableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put( DBConfig.Accounts.COLUMN_NAME_ANAME, accountModel.getAccountName());
+        contentValues.put( DBConfig.Accounts.COLUMN_NAME_TYPE, accountModel.getAccountType());
+        contentValues.put( DBConfig.Accounts.COLUMN_NAME_DESCRIPTION, accountModel.getAccountDescription());
+
+        String selection = DBConfig.Accounts.COLUMN_NAME_ID + " = ?";
+        String[] selectionArgs = { String.valueOf( accountModel.getId() ) };
+
+        long result = db.update( DBConfig.Accounts.TABLE_NAME , contentValues , selection , selectionArgs);
+
+        if (result > 0){
+
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+
+
     public ArrayList<AccountModel> readAllAccounts(){
         SQLiteDatabase db = getReadableDatabase();
 
