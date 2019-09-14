@@ -1,5 +1,7 @@
 package Util;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 
 import Models.DailyTransaction;
@@ -52,6 +54,20 @@ public class Util {
 
     public static int getDatefromString( String date) {
         return  Integer.parseInt( date.substring(0 ,2 ));
+    }
+
+    public static int getAccountIcon(String iconname , Context context){
+        int ID = 0 ;
+       if( iconname.equals("Card") ) {
+            ID = context.getResources().getIdentifier("creditcard", "drawable", context.getPackageName());
+       }else if( iconname.equals("Bank Account") ){
+            ID = context.getResources().getIdentifier("bank_account", "drawable", context.getPackageName());
+       }else if( iconname.equals("Online Wallet") ){
+            ID = context.getResources().getIdentifier("online_wallet", "drawable", context.getPackageName());
+       }else if( iconname.equals("Wallet") ){
+            ID = context.getResources().getIdentifier("wallet", "drawable", context.getPackageName());
+       }
+        return ID;
     }
 
 }

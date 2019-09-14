@@ -30,7 +30,7 @@ import Util.Util;
 
 public class Expenses extends Fragment {
 
-    private TextView AccountBtn, textView3 ;
+    private TextView AccountBtn, accountbtn;
     private FloatingActionButton plusBtn;
     private TextView categoryText , amount, date ;
     private RecyclerView dailyrv;
@@ -39,6 +39,7 @@ public class Expenses extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_expenses, container, false);
         AccountBtn = view.findViewById(R.id.Account);
+        accountbtn = view.findViewById(R.id.textView3);
         plusBtn = view.findViewById(R.id.add_expenses_btn);
 
 
@@ -50,19 +51,7 @@ public class Expenses extends Fragment {
             }
         });
 
-
-        AccountBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-
-                getFragmentManager().beginTransaction().replace(R.id.fragment_container, new Accounts()).commit();
-
-//               getFragmentManager().beginTransaction().replace(R.id.fragment_container , new Accounts()).commit();
-
-            }
-        });
+        setAccountClick();
 
         ArrayList<Transaction> dbdata = new ArrayList<Transaction>();
 
@@ -92,6 +81,21 @@ public class Expenses extends Fragment {
 
 
         return view;
+    }
+
+    public void setAccountClick(){
+        accountbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getFragmentManager().beginTransaction().replace(R.id.fragment_container, new Accounts()).commit();
+            }
+        });
+        AccountBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getFragmentManager().beginTransaction().replace(R.id.fragment_container, new Accounts()).commit();
+            }
+        });
     }
 
 

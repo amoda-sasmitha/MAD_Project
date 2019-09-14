@@ -54,7 +54,7 @@
             android:layout_below="@+id/txtadddate2"
 
             android:layout_alignParentStart="true"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="-150dp"
             android:text="@string/view_account_details_history"
             android:textSize="14sp"
@@ -116,7 +116,7 @@
             android:layout_marginTop="8dp"
             android:layout_toEndOf="@id/category_icon"
             android:text="@string/account_indetail_rs_25000_00"
-            android:textColor="@color/red"
+            android:textColor="@color/blue"
             android:textSize="18sp"
             android:textStyle="bold"
 
@@ -157,7 +157,7 @@
             android:layout_below="@+id/adddate"
 
             android:layout_marginStart="15dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="164dp"
             android:layout_toEndOf="@+id/txtadddate2"
             android:text="2019/02/10"
@@ -172,8 +172,8 @@
 
             android:layout_alignParentEnd="true"
             android:layout_marginStart="60dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="39dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="0dp"
             android:layout_marginBottom="164dp"
             android:layout_toEndOf="@+id/txtlasttransdate"
             android:text="Rs.2500.00"
@@ -187,8 +187,8 @@
             android:layout_below="@+id/adddate"
 
             android:layout_alignParentStart="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="164dp"
             android:text="2018/02/25"
             android:textSize="12sp"
@@ -214,7 +214,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/description"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="90dp"
             android:text="@string/add_account"
             android:textSize="14sp"
@@ -245,7 +245,7 @@
             android:layout_marginTop="90dp"
             android:layout_marginEnd="9dp"
             android:layout_toEndOf="@+id/lasttranactionDate"
-            android:text="@string/lamount"
+            android:text="Amount"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -279,17 +279,13 @@
             android:id="@+id/edit_btn02"
             android:layout_width="30dp"
             android:layout_height="30dp"
-
-            android:layout_below="@+id/Amount_text"
-            android:layout_alignEnd="@+id/category_name"
-
-            android:layout_marginStart="64dp"
-            android:layout_marginTop="-61dp"
-            android:layout_marginEnd="-94dp"
-            android:layout_toEndOf="@+id/category_name"
+            android:layout_toRightOf="@+id/category_name"
             android:background="@drawable/circle"
             android:backgroundTint="@color/blue"
             android:contentDescription="@string/account_indetail_todo"
+            android:layout_below="@id/line1"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
             android:src="@drawable/edit_btn" />
 
         <ImageButton
@@ -297,10 +293,10 @@
             android:id="@+id/delete_btn"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_alignBottom="@+id/edit_btn02"
-            android:layout_marginStart="118dp"
-            android:layout_marginBottom="0dp"
-            android:layout_toEndOf="@+id/category_name"
+            android:layout_below="@id/line1"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="6dp"
+            android:layout_toRightOf="@id/edit_btn02"
             android:background="@drawable/circle"
             android:contentDescription="@string/account_indetail_todo"
             android:src="@drawable/delete_btn" />

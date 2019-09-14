@@ -49,7 +49,8 @@ public class DBhelper extends SQLiteOpenHelper {
                 DBConfig.Accounts.COLUMN_NAME_ANAME + " TEXT , "+
                 DBConfig.Accounts.COLUMN_NAME_AMOUNT + " DOUBLE , " +
                 DBConfig.Accounts.COLUMN_NAME_TYPE + " TEXT , " +
-                DBConfig.Accounts.COLUMN_NAME_NUMBER + "TEXT, " +  DBConfig.Accounts.COLUMN_NAME_DESCRIPTION +"TEXT " +");";
+                DBConfig.Accounts.COLUMN_NAME_NUMBER + " TEXT, " +
+                DBConfig.Accounts.COLUMN_NAME_DESCRIPTION +" TEXT " +");";
 
 
         db.execSQL(sql_ct_categories);
@@ -215,7 +216,6 @@ public class DBhelper extends SQLiteOpenHelper {
         contentValues.put( DBConfig.Accounts.COLUMN_NAME_AMOUNT, accountModel.getAmount());
         contentValues.put( DBConfig.Accounts.COLUMN_NAME_NUMBER, accountModel.getAccountNumber());
         contentValues.put( DBConfig.Accounts.COLUMN_NAME_DESCRIPTION, accountModel.getAccountDescription());
-
         long result = db.insert( DBConfig.Accounts.TABLE_NAME ,null, contentValues );
 
         if (result > 0){
@@ -227,5 +227,37 @@ public class DBhelper extends SQLiteOpenHelper {
         }
     }
 
+    public ArrayList<AccountModel> readAllAccounts(){
+        SQLiteDatabase db = getReadableDatabase();
+
+        String[] projection = { DBConfig.Accounts.COLUMN_NAME_ID , DBConfig.Accounts.COLUMN_NAME_ANAME , DBConfig.Accounts.COLUMN_NAME_DESCRIPTION
+        , DBConfig.Accounts.COLUMN_NAME_AMOUNT , DBConfig.Accounts.COLUMN_NAME_NUMBER , DBConfig.Accounts.COLUMN_NAME_TYPE };
+
+        ArrayList<AccountModel> arrayList = new ArrayList<>();
+
+        Cursor values = db.query(DBConfig.Accounts.TABLE_NAME , projection , null, null , null ,null , null  );
+        while(values.moveToNext() ){
+
+            AccountModel account = new AccountModel();
+                account.setId( values.getInt( values.getColumnIndexOrThrow(DBConfig.Accounts.COLUMN_NAME_ID )));
+                account.setAccountName( values.getString( values.getColumnIndexOrThrow( DBConfig.Accounts.COLUMN_NAME_ANAME )));
+                account.setAccountDescription( values.getString( values.getColumnIndexOrThrow(DBConfig.Accounts.COLUMN_NAME_DESCRIPTION )));
+                account.setAccountType( values.getString( values.getColumnIndexOrThrow(DBConfig.Accounts.COLUMN_NAME_TYPE )));
+                account.setAccountNumber( values.getString( values.getColumnIndexOrThrow( DBConfig.Accounts.COLUMN_NAME_NUMBER )));
+                account.setAmount( values.getDouble( values.getColumnIndexOrThrow(DBConfig.Accounts.COLUMN_NAME_AMOUNT )));
+
+            arrayList.add(account);
+                Log.i( "DB" , "-----------------------------------------------------  " );
+                Log.i( "DB" , account.getId()+"" );
+                Log.i( "DB" , account.getAccountName() );
+                Log.i( "DB" , account.getAccountDescription()+"" );
+                Log.i( "DB" , account.getAccountType()+"" );
+                Log.i( "DB" , account.getAccountNumber()+"" );
+                Log.i( "DB" , account.getAmount()+"" );
+
+        }
+
+        return arrayList;
+    }
 
 }

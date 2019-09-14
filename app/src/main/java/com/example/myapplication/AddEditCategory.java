@@ -75,7 +75,6 @@ public class AddEditCategory extends AppCompatActivity {
             background.setCardBackgroundColor( getResources().getColor(R.color.red));
             text.setTextColor( getResources().getColor( R.color.white ));
             toast.setView(layout);
-
             toast.show();
 
 

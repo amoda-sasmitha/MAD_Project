@@ -2,7 +2,9 @@ package Models;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-public class AccountModel  {
+import java.io.Serializable;
+
+public class AccountModel implements Serializable {
     private int id;
     private String accountName;
     private  String accountType;

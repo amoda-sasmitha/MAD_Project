@@ -47,13 +47,13 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         int resID =    context.getResources().getIdentifier( t.getCategoryModel().getIcon() , "drawable", context.getPackageName());
         holder.category.setText( t.getCategoryModel().getName() );
         holder.description.setText( t.getDescription() );
-        holder.amount.setText( "Rs. "+ String.valueOf(t.getAmount() )  );
+        holder.amount.setText( "Rs. "+ String.format("%.2f", t.getAmount() )  );
         holder.icon.setImageResource(resID);
 
         holder.setItem(new IItemClickListener() {
             @Override
             public void onItemClickListener(View view, int posistion) {
-                Toast.makeText( context , arrayList.get(posistion).getId()+"" , Toast.LENGTH_SHORT).show();
+
                 Intent intent = new Intent( context , ViewExpenseDetails.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);

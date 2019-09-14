@@ -205,7 +205,6 @@
 
     <string-array name="spinnerAccounts">
             <item>Select Account Type</item>
-            <item>Wallet</item>
             <item>Bank Account</item>
             <item>Card</item>
             <item>Online Wallet</item>
