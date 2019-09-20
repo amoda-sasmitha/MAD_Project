@@ -9,7 +9,7 @@ public final class DBConfig {
         protected static final String COLUMN_NAME_ID = "TID";
         protected static final String Column_NAME_AMOUNT = "Amount";
         protected static final String Column_NAME_CATEGORY_ID = "CID";
-        protected static final String Column_NAME_DESCRIPTION = "Description";
+        protected static final String Column_NAME_DESCRIPTION = "TDescription";
         protected static final String Column_NAME_DATE = "Date";
         protected static final String Column_NAME_ACCOUNT_ID = "AID";
 

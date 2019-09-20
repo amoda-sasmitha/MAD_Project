@@ -9,7 +9,10 @@ import android.util.Log;
 
 import com.example.myapplication.Category;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import Models.AccountModel;
 import Models.CategoryModel;
@@ -154,56 +157,78 @@ public class DBhelper extends SQLiteOpenHelper {
 
     //-----------------------------------------------Amoda Sasmitha-------------------------------------------------------
 
-    public ArrayList<Transaction> readAllTransactions( String from , String to , String accout ){
+    public boolean insertTransaction(Transaction transaction ){
 
-
-        return null;
-    }
-
-    public void setDefaultCategories(SQLiteDatabase db){
-        ArrayList<CategoryModel> categories = new ArrayList<>();
-        categories.add( new CategoryModel( "Transportation" , "Transportation expenses are specific costs incurred by an employee or self-employed taxpayer while traveling away from home for business purposes. Transportation expenses are a subset of travel expenses, which include all of the costs associated with business travel, such as taxi fare, fuel, parking fees, lodging, meals, tips, and cleaning." , "Expense" , "bus"    ));
-        categories.add( new CategoryModel( "Bills and Utilities" , "An expense or an expenditure is an amount owed to someone else, be it for services, products, or any other goods. For people who don’t run a business, expenses don’t mean anything more than that, at least in most cases. However, for business owners and self-employed people, some business spending impacts the amount of tax owed to the state." , "Expense" , "bill"    ));
-        categories.add( new CategoryModel( "Investments" , "Investment  is a component of your taxable expenses — it expenses added in with your income from employment and other sources, such as a pension. You can earn investment expenses from a variety of sources, including stocks, bonds and earnings on a life insurance policy." , "Expense" , "invest"    ));
-        categories.add( new CategoryModel( "Food and Beverages" , "Monthly food costs are determined by taking a monthly physical inventory of food stock, evaluating the inventory, and then adjusting the valuation to more accurately reflect the cost of food consumed." , "Expense" , "food"    ));
-        categories.add( new CategoryModel( "Health and Fitness" , "Medical expenses are any costs incurred in the prevention or treatment of injury or disease. Medical expenses include health and dental insurance premiums, doctor and hospital visits, co-pays, prescription" , "Expense" , "health"    ));
-        categories.add( new CategoryModel( "Family" , "Home expenses. In addition to the cost of the housing, whether it is rent, a mortgage payment, or real estate taxes, fees for utilities such as electricity and gas as well as insurance for the property are also part of household expenses." , "Expense" , "family"    ));
-        categories.add( new CategoryModel( "Entertainment" , "Home expenses. In addition to the cost of the housing, whether it is rent, a mortgage payment, or real estate taxes, fees for utilities such as electricity and gas as well as insurance for the property are also part of household expenses." , "Expense" , "entertainment"    ));
-        categories.add( new CategoryModel( "Gifts and Donations" , "Giving gifts is a great way to show your appreciation for special clients during the holidays, You can also give a gift that qualifies as an entertainment expense " , "Expense" , "gift"    ));
-        categories.add( new CategoryModel( "Education" , "Qualified expenses are amounts paid for tuition, fees and other related expense for an eligible student that are required for enrollment or attendance at an eligible educational institution." , "Expense" , "education"    ));
-        categories.add( new CategoryModel( "Savings" , "The definition of fixed expenses is any expense that does not change from period to period,such as mortgage or rent payments, utility bills, and loan payments. " , "Expense" , "savings"    ));
-
-        categories.add( new CategoryModel( "Awards" , "The incomes for the wallet when receiving gifts and awards from relatives and friends especially the cash awards other than non cash awards, you can add those cash awards and calculate the expense." , "Income" , "award"    ));
-        categories.add( new CategoryModel( "Selling" , "Selling stuff on the internet or some where else might get an income, so adding them to the daily income lets you calculate the rest of the money left " , "Income" , "sell"    ));
-        categories.add( new CategoryModel( "Interest Money" , "With the interest money the amount is getting increased as the interest money being added to the expense amount,Interest money method is a huge method in increasing the income " , "Income" , "interest"    ));
-        categories.add( new CategoryModel( "Gifts" , "The incomes for the wallet when receiving gifts and awards from relatives and friends especially the cash awards and calculate the expense." , "Income" , "get"    ));
-        categories.add( new CategoryModel( "Salary" , "If you are paid an annual salary, the calculation is fairly easy. Since gross income refers to the total amount you earn before tax, and so does your annual salary, simply take the total amount of money (salary) you're paid for the year, and then divide this amount by 12.10" , "Income" , "salary"    ));
-
-        db.beginTransaction();
+        Date date = null;
         try {
-            for (CategoryModel item : categories) {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put( DBConfig.Categories.COLUMN_NAME_CNAME , item.getName() );
-                contentValues.put( DBConfig.Categories.COLUMN_NAME_DESCRIPTION , item.getDescription() );
-                contentValues.put( DBConfig.Categories.COLUMN_NAME_TYPE , item.getType() );
-                contentValues.put( DBConfig.Categories.COLUMN_NAME_ICON , item.getIcon() );
-                db.insert( DBConfig.Categories.TABLE_NAME ,null, contentValues );
-            }
-            db.setTransactionSuccessful();
-        } finally {
-            db.endTransaction();
+             date = new SimpleDateFormat("EEEE , dd MMMM yyyy").parse(transaction.getDate());
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
-        Log.i( "DB" , "Default Categories Created" );
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put( DBConfig.Transactions.Column_NAME_AMOUNT , transaction.getAmount() );
+        values.put( DBConfig.Transactions.Column_NAME_DESCRIPTION , transaction.getDescription());
+        values.put( DBConfig.Transactions.Column_NAME_DATE , new SimpleDateFormat("dd-MM-yyyy").format(date) );
+        values.put( DBConfig.Transactions.Column_NAME_CATEGORY_ID , transaction.getCategoryModel().getID() );
+        values.put( DBConfig.Transactions.Column_NAME_ACCOUNT_ID , transaction.getAccountId() );
+
+
+        long result = db.insert( DBConfig.Transactions.TABLE_NAME , null , values );
+        if( result > 0){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+    public ArrayList<Transaction> readAllTransactions( String from , String to ){
+        SQLiteDatabase db = getReadableDatabase();
+
+        String sql = "SELECT * FROM " + DBConfig.Transactions.TABLE_NAME + " , " + DBConfig.Categories.TABLE_NAME +
+                     " WHERE " + DBConfig.Transactions.TABLE_NAME + ".CID = " + DBConfig.Categories.TABLE_NAME + ".CID AND "+
+                     DBConfig.Transactions.TABLE_NAME+"."+DBConfig.Transactions.Column_NAME_DATE + " >= ? AND " +
+                     DBConfig.Transactions.TABLE_NAME+"."+DBConfig.Transactions.Column_NAME_DATE + " <= ? ";
+        String Args[] = { from , to };
+        Cursor values = db.rawQuery( sql , Args );
+
+        ArrayList<Transaction> arrayList = new ArrayList<>();
+
+        while (values.moveToNext()){
+            Transaction transaction = new Transaction();
+            CategoryModel category = new CategoryModel();
+
+            transaction.setId( values.getInt( values.getColumnIndexOrThrow( DBConfig.Transactions.COLUMN_NAME_ID ) ) );
+            transaction.setAmount( values.getDouble( values.getColumnIndexOrThrow( DBConfig.Transactions.Column_NAME_AMOUNT )));
+            transaction.setDescription( values.getString( values.getColumnIndexOrThrow( DBConfig.Transactions.Column_NAME_DESCRIPTION )));
+            transaction.setDate( values.getString( values.getColumnIndexOrThrow( DBConfig.Transactions.Column_NAME_DATE )));
+            transaction.setAccountId( values.getInt( values.getColumnIndexOrThrow( DBConfig.Transactions.Column_NAME_ACCOUNT_ID )));
+
+            category.setID( values.getInt( values.getColumnIndexOrThrow( DBConfig.Categories.COLUMN_NAME_ID )));
+            category.setName( values.getString( values.getColumnIndexOrThrow( DBConfig.Categories.COLUMN_NAME_CNAME )));
+            category.setType( values.getString( values.getColumnIndexOrThrow( DBConfig.Categories.COLUMN_NAME_TYPE )));
+            category.setIcon( values.getString( values.getColumnIndexOrThrow( DBConfig.Categories.COLUMN_NAME_ICON )));
+
+            transaction.setCategoryModel(category);
+            arrayList.add(transaction);
+                  Log.i( "DB" , "-----------------------------------------------------  " );
+                Log.i( "DB" , transaction.getId() +"" );
+                Log.i( "DB" , transaction.getAmount()+"" );
+                Log.i( "DB" , transaction.getDescription() );
+                Log.i( "DB" , transaction.getDate() );
+                Log.i( "DB" , transaction.getAccountId()+"" );
+                Log.i( "DB" , transaction.getCategoryModel().getID() + "" );
+                Log.i( "DB" , transaction.getCategoryModel().getName() );
+                Log.i( "DB" , transaction.getCategoryModel().getIcon() );
+                Log.i( "DB" , transaction.getCategoryModel().getType() );
+
+
+        }
+        Log.i( "DB" , sql);
+        return arrayList;
     }
 
-    public void setDefaultAccount( SQLiteDatabase db){
-        ContentValues contentValues = new ContentValues();
-        contentValues.put( DBConfig.Accounts.COLUMN_NAME_ANAME , "Wallet"  );
-        contentValues.put( DBConfig.Accounts.COLUMN_NAME_TYPE , "Wallet" );
-        contentValues.put( DBConfig.Accounts.COLUMN_NAME_AMOUNT , 0 );
 
-        db.insert( DBConfig.Accounts.TABLE_NAME ,null, contentValues );
-    }
 
     //----------------------------------------------Padula Guruge ------------------------------------------------------
 
@@ -271,17 +296,62 @@ public class DBhelper extends SQLiteOpenHelper {
                 account.setAmount( values.getDouble( values.getColumnIndexOrThrow(DBConfig.Accounts.COLUMN_NAME_AMOUNT )));
 
             arrayList.add(account);
-                Log.i( "DB" , "-----------------------------------------------------  " );
-                Log.i( "DB" , account.getId()+"" );
-                Log.i( "DB" , account.getAccountName() );
-                Log.i( "DB" , account.getAccountDescription()+"" );
-                Log.i( "DB" , account.getAccountType()+"" );
-                Log.i( "DB" , account.getAccountNumber()+"" );
-                Log.i( "DB" , account.getAmount()+"" );
+//                Log.i( "DB" , "-----------------------------------------------------  " );
+//                Log.i( "DB" , account.getId()+"" );
+//                Log.i( "DB" , account.getAccountName() );
+//                Log.i( "DB" , account.getAccountDescription()+"" );
+//                Log.i( "DB" , account.getAccountType()+"" );
+//                Log.i( "DB" , account.getAccountNumber()+"" );
+//                Log.i( "DB" , account.getAmount()+"" );
 
         }
 
         return arrayList;
+    }
+    //-------------------------------default values---------------------------------------------------------------
+    public void setDefaultCategories(SQLiteDatabase db){
+        ArrayList<CategoryModel> categories = new ArrayList<>();
+        categories.add( new CategoryModel( "Transportation" , "Transportation expenses are specific costs incurred by an employee or self-employed taxpayer while traveling away from home for business purposes. Transportation expenses are a subset of travel expenses, which include all of the costs associated with business travel, such as taxi fare, fuel, parking fees, lodging, meals, tips, and cleaning." , "Expense" , "bus"    ));
+        categories.add( new CategoryModel( "Bills and Utilities" , "An expense or an expenditure is an amount owed to someone else, be it for services, products, or any other goods. For people who don’t run a business, expenses don’t mean anything more than that, at least in most cases. However, for business owners and self-employed people, some business spending impacts the amount of tax owed to the state." , "Expense" , "bill"    ));
+        categories.add( new CategoryModel( "Investments" , "Investment  is a component of your taxable expenses — it expenses added in with your income from employment and other sources, such as a pension. You can earn investment expenses from a variety of sources, including stocks, bonds and earnings on a life insurance policy." , "Expense" , "invest"    ));
+        categories.add( new CategoryModel( "Food and Beverages" , "Monthly food costs are determined by taking a monthly physical inventory of food stock, evaluating the inventory, and then adjusting the valuation to more accurately reflect the cost of food consumed." , "Expense" , "food"    ));
+        categories.add( new CategoryModel( "Health and Fitness" , "Medical expenses are any costs incurred in the prevention or treatment of injury or disease. Medical expenses include health and dental insurance premiums, doctor and hospital visits, co-pays, prescription" , "Expense" , "health"    ));
+        categories.add( new CategoryModel( "Family" , "Home expenses. In addition to the cost of the housing, whether it is rent, a mortgage payment, or real estate taxes, fees for utilities such as electricity and gas as well as insurance for the property are also part of household expenses." , "Expense" , "family"    ));
+        categories.add( new CategoryModel( "Entertainment" , "Home expenses. In addition to the cost of the housing, whether it is rent, a mortgage payment, or real estate taxes, fees for utilities such as electricity and gas as well as insurance for the property are also part of household expenses." , "Expense" , "entertainment"    ));
+        categories.add( new CategoryModel( "Gifts and Donations" , "Giving gifts is a great way to show your appreciation for special clients during the holidays, You can also give a gift that qualifies as an entertainment expense " , "Expense" , "gift"    ));
+        categories.add( new CategoryModel( "Education" , "Qualified expenses are amounts paid for tuition, fees and other related expense for an eligible student that are required for enrollment or attendance at an eligible educational institution." , "Expense" , "education"    ));
+        categories.add( new CategoryModel( "Savings" , "The definition of fixed expenses is any expense that does not change from period to period,such as mortgage or rent payments, utility bills, and loan payments. " , "Expense" , "savings"    ));
+
+        categories.add( new CategoryModel( "Awards" , "The incomes for the wallet when receiving gifts and awards from relatives and friends especially the cash awards other than non cash awards, you can add those cash awards and calculate the expense." , "Income" , "award"    ));
+        categories.add( new CategoryModel( "Selling" , "Selling stuff on the internet or some where else might get an income, so adding them to the daily income lets you calculate the rest of the money left " , "Income" , "sell"    ));
+        categories.add( new CategoryModel( "Interest Money" , "With the interest money the amount is getting increased as the interest money being added to the expense amount,Interest money method is a huge method in increasing the income " , "Income" , "interest"    ));
+        categories.add( new CategoryModel( "Gifts" , "The incomes for the wallet when receiving gifts and awards from relatives and friends especially the cash awards and calculate the expense." , "Income" , "get"    ));
+        categories.add( new CategoryModel( "Salary" , "If you are paid an annual salary, the calculation is fairly easy. Since gross income refers to the total amount you earn before tax, and so does your annual salary, simply take the total amount of money (salary) you're paid for the year, and then divide this amount by 12.10" , "Income" , "salary"    ));
+
+        db.beginTransaction();
+        try {
+            for (CategoryModel item : categories) {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put( DBConfig.Categories.COLUMN_NAME_CNAME , item.getName() );
+                contentValues.put( DBConfig.Categories.COLUMN_NAME_DESCRIPTION , item.getDescription() );
+                contentValues.put( DBConfig.Categories.COLUMN_NAME_TYPE , item.getType() );
+                contentValues.put( DBConfig.Categories.COLUMN_NAME_ICON , item.getIcon() );
+                db.insert( DBConfig.Categories.TABLE_NAME ,null, contentValues );
+            }
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+        Log.i( "DB" , "Default Categories Created" );
+    }
+
+    public void setDefaultAccount( SQLiteDatabase db){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put( DBConfig.Accounts.COLUMN_NAME_ANAME , "Wallet"  );
+        contentValues.put( DBConfig.Accounts.COLUMN_NAME_TYPE , "Wallet" );
+        contentValues.put( DBConfig.Accounts.COLUMN_NAME_AMOUNT , 0 );
+
+        db.insert( DBConfig.Accounts.TABLE_NAME ,null, contentValues );
     }
 
 }

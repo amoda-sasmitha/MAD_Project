@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -34,6 +35,7 @@ import java.util.TimeZone;
 import Adapters.Account_SpinnerAdapter;
 import Database.DBhelper;
 import Models.AccountModel;
+import Models.CategoryModel;
 import Models.Transaction;
 
 
@@ -43,6 +45,7 @@ public class AddExpense extends Fragment {
    private ImageView categoryIcon;
    private Spinner spinner;
     ArrayList<AccountModel> Acc_arrayList;
+    CategoryModel currentCategory;
    DBhelper db;
 
     public View onCreateView(@NonNull final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -63,6 +66,49 @@ public class AddExpense extends Fragment {
 
         updateDate(view);
         UpdateCategory();
+
+        save_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String amounttemp =   amount.getText().toString().trim();
+                double amountx  = (amounttemp.length() > 0 ) ? Double.valueOf(amounttemp) : 0;
+
+                Transaction current = new Transaction();
+                current.setAmount(amountx );
+                current.setCategoryModel(currentCategory );
+                current.setDescription( Description.getText().toString().trim() );
+                current.setDate( select_date.getText().toString().trim() );
+                current.setAccountId( Acc_arrayList.get( spinner.getSelectedItemPosition() ).getId() );
+                boolean result = db.insertTransaction(current);
+
+                //inflate layout
+                View layout = getLayoutInflater().inflate( R.layout.toast_message , (ViewGroup) view.findViewById(R.id.toastRoot) );
+                TextView text = layout.findViewById(R.id.textMsg);
+                CardView background = layout.findViewById(R.id.back);
+                Toast toast = new Toast( getContext() );
+                toast.setDuration(Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.BOTTOM|Gravity.CENTER , 0 , 230 );
+
+
+                if( result == false ){
+                    text.setText("Transaction Added Unsuccessfully");
+                    background.setCardBackgroundColor( getResources().getColor(R.color.red));
+                    text.setTextColor( getResources().getColor( R.color.white ));
+                    toast.setView(layout);
+                    toast.show();
+
+
+                }else{
+                    background.setCardBackgroundColor( getResources().getColor(R.color.green));
+                    text.setTextColor( getResources().getColor( R.color.white ));
+                    text.setText("Transaction Added Successfully");
+                    toast.setView(layout);
+
+                    toast.show();
+
+                }
+            }
+        });
 
         return view;
     }
@@ -100,11 +146,13 @@ public class AddExpense extends Fragment {
 
         if( getArguments() != null ){
             Bundle bundle = getArguments();
+
             Transaction current = (Transaction) bundle.getSerializable( "expenseData");
             amount.setText( String.valueOf( current.getAmount() ) );
             category_select.setText( current.getCategoryModel().getName() );
             Description.setText( current.getDescription() );
             select_date.setText(current.getDate() );
+            currentCategory =  current.getCategoryModel();
             categoryIcon.setImageResource(  getContext().getResources().getIdentifier( current.getCategoryModel().getIcon() ,
                     "drawable",
                      getContext().getPackageName()));
