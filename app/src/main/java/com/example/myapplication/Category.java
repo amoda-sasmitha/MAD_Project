@@ -37,7 +37,7 @@ public class Category extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_category ,container , false);
-       // addNewCategory(view);
+
         plusBtn = view.findViewById(R.id.add_category_btn);
         plusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,8 +46,10 @@ public class Category extends Fragment {
                 startActivity(intent);
             }
         });
-       // selectbtn = view.findViewById(R.id.category01);
 
+        if( getArguments() != null ) {
+            bundle = getArguments();
+        }
 
         db = new DBhelper(getContext());
         ArrayList<CategoryModel>  arrayListExpense = db.readAllCategories("Expense");
@@ -62,48 +64,13 @@ public class Category extends Fragment {
         Erv.setNestedScrollingEnabled(false);
         Irv.setNestedScrollingEnabled(false);
 
-        CategoryAdapter adapterExpense = new CategoryAdapter(arrayListExpense,   getActivity().getApplicationContext()   );
-        CategoryAdapter adapterIncome = new CategoryAdapter(arrayListIncome,  getActivity().getApplicationContext() );
+        CategoryAdapter adapterExpense = new CategoryAdapter(arrayListExpense,   getActivity().getApplicationContext()  , bundle );
+        CategoryAdapter adapterIncome = new CategoryAdapter(arrayListIncome,  getActivity().getApplicationContext() , bundle );
 
 
         Erv.setAdapter( adapterExpense );
         Irv.setAdapter( adapterIncome );
 
-
-
-//         bundle = getArguments();
-//        boolean fromExpenses = bundle.getBoolean("FromExpenses");
-//
-//        if( fromExpenses == true  ){
-//           selectbtn.setOnClickListener(new View.OnClickListener() {
-//               @Override
-//               public void onClick(View view) {
-//                   categoryText = view.findViewById(R.id.category_text);
-//
-//                   String category = categoryText.getText().toString();
-//
-//
-//                   bundle.putString("CategoryName" , category);
-//                   AddExpense expense = new AddExpense();
-//                   expense.setArguments(bundle);
-//                   getFragmentManager().beginTransaction().replace(R.id.fragment_container , expense).commit();
-//
-//
-//               }
-//           });
-//
-//
-//        }else{
-//
-//            selectbtn.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Intent intend = new Intent(getActivity(), ViewCategoryDetails.class);
-//                    startActivity(intend);
-//                }
-//            });
-//
-//        }
 
         return view;
     }
@@ -114,8 +81,8 @@ public class Category extends Fragment {
         super.onStart();
         ArrayList<CategoryModel>  arrayListExpense = db.readAllCategories("Expense");
         ArrayList<CategoryModel>  arrayListIncome = db.readAllCategories("Income");
-        CategoryAdapter adapterExpense = new CategoryAdapter(arrayListExpense,   getActivity()  );
-        CategoryAdapter adapterIncome = new CategoryAdapter(arrayListIncome, getContext()  );
+        CategoryAdapter adapterExpense = new CategoryAdapter(arrayListExpense,   getActivity() , bundle  );
+        CategoryAdapter adapterIncome = new CategoryAdapter(arrayListIncome, getContext()  , bundle );
         Erv.setAdapter( adapterExpense );
         Irv.setAdapter( adapterIncome );
     }

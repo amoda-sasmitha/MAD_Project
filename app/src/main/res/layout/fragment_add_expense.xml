@@ -100,14 +100,14 @@
             android:textSize="14sp"
             android:textStyle="bold"/>
 
-        <ImageButton
+        <ImageView
             android:id="@id/category_icon"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_below="@id/add_category_text"
             android:layout_marginStart="12dp"
             android:layout_marginTop="6dp"
-            android:background="@drawable/circle"
+
             android:contentDescription="@string/todo"
 
             android:src="@drawable/not_selected_btn" />
@@ -156,7 +156,7 @@
             android:background="@drawable/rounded_edit_text"
             android:layout_below="@id/expense_description_text"
             android:minLines="5"
-            android:gravity="top|end"
+            android:gravity="top|start"
             android:maxLines="5"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
@@ -210,7 +210,7 @@
             android:textStyle="bold" />
 
 
-        <EditText
+        <Spinner
             android:id="@+id/select_account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -218,18 +218,14 @@
             android:layout_marginLeft="12dp"
             android:layout_marginTop="8dp"
             android:layout_marginRight="12dp"
+
             android:background="@drawable/rounded_edit_text"
-            android:hint="@string/sAccount"
-            android:importantForAutofill="no"
-            android:inputType="textLongMessage"
-            android:padding="8dp"
-            android:textAlignment="center"
-            android:textSize="15sp"
-            tools:targetApi="o" />
+            />
+
+
 
         <Button
             android:id="@+id/save_btn"
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/select_account"

@@ -12,6 +12,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,15 +26,24 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
+import Adapters.Account_SpinnerAdapter;
+import Database.DBhelper;
+import Models.AccountModel;
+import Models.Transaction;
+
 
 public class AddExpense extends Fragment {
     private Button save_btn;
-   private EditText select_date, category_select ,amount ,Description ,account;
+   private EditText select_date, category_select ,amount ,Description ;
    private ImageView categoryIcon;
+   private Spinner spinner;
+    ArrayList<AccountModel> Acc_arrayList;
+   DBhelper db;
 
     public View onCreateView(@NonNull final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_add_expense ,container , false);
@@ -43,25 +53,13 @@ public class AddExpense extends Fragment {
         category_select = view.findViewById(R.id.category_select_Text);
         Description = view.findViewById( R.id.edit_description);
         select_date = view.findViewById(R.id.select_date);
-        account = view.findViewById(R.id.select_account);
         categoryIcon = view.findViewById(R.id.category_icon);
+         spinner = view.findViewById(R.id.select_account);
 
-        save_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                View layout = inflater.inflate( R.layout.toast_message , (ViewGroup) view.findViewById(R.id.toastRoot) );
-                TextView text = layout.findViewById(R.id.textMsg);
-                text.setText("Expense Added Successfully");
-
-                Toast toast = new Toast(getContext() );
-                toast.setView(layout);
-                toast.setDuration(Toast.LENGTH_LONG);
-                toast.setGravity(Gravity.BOTTOM|Gravity.CENTER , 0 , 230 );
-                Intent intent = new Intent(getActivity() , MainActivity.class);
-                startActivity(intent);
-                toast.show();
-            }
-        });
+         db = new DBhelper(getContext());
+        Acc_arrayList =  db.readAllAccounts();
+        Account_SpinnerAdapter Spinner_adapter  = new Account_SpinnerAdapter( getContext() , Acc_arrayList );
+        spinner.setAdapter(Spinner_adapter);
 
         updateDate(view);
         UpdateCategory();
@@ -98,31 +96,45 @@ public class AddExpense extends Fragment {
     }
 
     public void UpdateCategory( ){
-          if( getArguments() != null ){
 
-              Bundle dataBundle = getArguments();
-              category_select.setText( dataBundle.getString( "CategoryName"  )  );
-              amount.setText( dataBundle.getString("Amount"));
-              Description.setText( dataBundle.getString("Description"));
-              select_date.setText( dataBundle.getString("Date"));
-              account.setText(dataBundle.getString("Accounts"));
-              categoryIcon.setImageResource(0);
-          }
 
+        if( getArguments() != null ){
+            Bundle bundle = getArguments();
+            Transaction current = (Transaction) bundle.getSerializable( "expenseData");
+            amount.setText( String.valueOf( current.getAmount() ) );
+            category_select.setText( current.getCategoryModel().getName() );
+            Description.setText( current.getDescription() );
+            select_date.setText(current.getDate() );
+            categoryIcon.setImageResource(  getContext().getResources().getIdentifier( current.getCategoryModel().getIcon() ,
+                    "drawable",
+                     getContext().getPackageName()));
+
+            for (int position = 0; position < Acc_arrayList.size() ; position++) {
+                if (Acc_arrayList.get(position).getId() == current.getAccountId()) {
+                    spinner.setSelection(position);
+                    break;
+                }
+            }
+
+        }
         category_select.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                String amounttemp =   amount.getText().toString().trim();
+                double amountx  = (amounttemp.length() > 0 ) ? Double.valueOf(amounttemp) : 0;
+
                 Category category = new Category();
                 Bundle dataBundle = new Bundle();
-                dataBundle.putBoolean( "FromExpenses" , true);
-                dataBundle.putString("CategoryName" , category_select.getText().toString() );
-                dataBundle.putString( "Amount" , amount.getText().toString() );
-                dataBundle.putString("Date" , select_date.getText().toString() );
-                dataBundle.putString( "Accounts" , account.getText().toString() );
-                dataBundle.putString("Description" , Description.getText().toString() );
-                category.setArguments( dataBundle);
+                Transaction current = new Transaction();
 
+                current.setAmount(amountx );
+                current.setDescription( Description.getText().toString().trim() );
+                current.setDate( select_date.getText().toString().trim() );
+                current.setAccountId( Acc_arrayList.get( spinner.getSelectedItemPosition() ).getId() );
+                dataBundle.putSerializable( "expenseData" , current );
+
+                category.setArguments( dataBundle );
                 getFragmentManager().beginTransaction().replace(R.id.fragment_container , category).commit();
 
             }

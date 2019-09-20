@@ -65,7 +65,7 @@ public class Util {
        }else if( iconname.equals("Online Wallet") ){
             ID = context.getResources().getIdentifier("online_wallet", "drawable", context.getPackageName());
        }else if( iconname.equals("Wallet") ){
-            ID = context.getResources().getIdentifier("wallet", "drawable", context.getPackageName());
+            ID = context.getResources().getIdentifier("money", "drawable", context.getPackageName());
        }
         return ID;
     }

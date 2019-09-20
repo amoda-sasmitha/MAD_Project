@@ -1,7 +1,9 @@
 package Adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +13,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myapplication.AddExpense;
+import com.example.myapplication.Expenses;
 import com.example.myapplication.R;
 import com.example.myapplication.ViewCategoryDetails;
 
@@ -20,17 +26,19 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import Models.CategoryModel;
+import Models.Transaction;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder> {
 
     private ArrayList<CategoryModel> arrayList;
     private OnCategoryClickListener onCategory;
     private Context context;
+    private Bundle bundle;
 
-    public CategoryAdapter(ArrayList<CategoryModel> arrayList  ,Context context ) {
+    public CategoryAdapter(ArrayList<CategoryModel> arrayList  ,Context context , Bundle bundle ) {
         this.arrayList = arrayList;
         this.context = context;
-
+        this.bundle = bundle;
 
 
     }
@@ -77,11 +85,25 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
         @Override
         public void onClick(View view) {
+
               CategoryModel c = arrayList.get( getAdapterPosition() );
-              Intent intent = new Intent( context , ViewCategoryDetails.class );
-              intent.putExtra("ID" ,  String.valueOf( c.getID() ) );
-              Toast.makeText( context , c.getID()+"" , Toast.LENGTH_SHORT ).show();
-              context.startActivity(intent);
+              if( bundle.getSerializable( "expenseData") != null ){
+
+                  FragmentManager manager = ((AppCompatActivity)context).getSupportFragmentManager();
+                  Transaction current = (Transaction) bundle.getSerializable("expenseData");
+                  current.setCategoryModel(c);
+                  bundle.putSerializable( "expenseData" , current );
+                  AddExpense expense = new AddExpense();
+                  expense.setArguments(bundle);
+                  manager.beginTransaction().replace(R.id.fragment_container,expense).commit();
+
+              }else{
+                  Intent intent = new Intent( context , ViewCategoryDetails.class );
+                  intent.putExtra("ID" ,  String.valueOf( c.getID() ) );
+                  context.startActivity(intent);
+              }
+
+
 
         }
     }
