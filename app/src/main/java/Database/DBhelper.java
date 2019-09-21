@@ -272,6 +272,30 @@ public class DBhelper extends SQLiteOpenHelper {
         }
     }
 
+    public boolean deleteAllTransactionInAccount( int AID ){
+        SQLiteDatabase db = getReadableDatabase();
+        String selection = DBConfig.Transactions.Column_NAME_ACCOUNT_ID + " = ?";
+        String Args[] = { String.valueOf( AID ) };
+        long result = db.delete( DBConfig.Transactions.TABLE_NAME , selection , Args );
+        if( result > 0 ){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public boolean deleteAllTransactionInCategory( int CID ){
+        SQLiteDatabase db = getReadableDatabase();
+        String selection = DBConfig.Transactions.Column_NAME_CATEGORY_ID + " = ?";
+        String Args[] = { String.valueOf( CID ) };
+        long result = db.delete( DBConfig.Transactions.TABLE_NAME , selection , Args );
+        if( result > 0 ){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 
 
     //----------------------------------------------Padula Guruge ------------------------------------------------------
@@ -377,6 +401,18 @@ public class DBhelper extends SQLiteOpenHelper {
         }
 
         return arrayList;
+    }
+
+    public boolean deleteAccount( int id ){
+        SQLiteDatabase db = getReadableDatabase();
+        String selection = DBConfig.Accounts.COLUMN_NAME_ID + " = ?";
+        String Args[] = { String.valueOf( id ) };
+        long result = db.delete( DBConfig.Accounts.TABLE_NAME , selection , Args );
+        if( result > 0 ){
+            return true;
+        }else{
+            return false;
+        }
     }
     //-------------------------------default values---------------------------------------------------------------
     public void setDefaultCategories(SQLiteDatabase db){

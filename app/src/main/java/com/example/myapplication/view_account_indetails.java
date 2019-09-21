@@ -1,18 +1,23 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import Database.DBhelper;
 import Models.AccountModel;
 import Util.Util;
 
@@ -22,6 +27,8 @@ public class view_account_indetails extends AppCompatActivity {
     private ImageButton delete_btn;
     private TextView amount, type, name , accNumber , description ;
     private ImageView icon;
+    int AccountID;
+    DBhelper db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +45,8 @@ public class view_account_indetails extends AppCompatActivity {
         accNumber = findViewById(R.id.account);
         description = findViewById(R.id.account2);
         name = findViewById(R.id.accountName);
+        
+        db = new DBhelper(this);
 
         name.setText( account.getAccountName() );
         description.setText( account.getAccountDescription() );
@@ -45,6 +54,7 @@ public class view_account_indetails extends AppCompatActivity {
         type.setText( account.getAccountType() );
         amount.setText(  "Rs. "+ String.format("%.2f", account.getAmount() ) );
         icon.setImageResource(Util.getAccountIcon( account.getAccountType() , this) );
+        AccountID = account.getId();
 
         editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,33 +66,55 @@ public class view_account_indetails extends AppCompatActivity {
             }
         });
 
-//        delete_btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                final Dialog dialog = new Dialog( view_account_indetails.this );
-//                dialog.setContentView(R.layout.delete_message);
-//                Button accept = dialog.findViewById(R.id.accept_btn);
-//                TextView textView = dialog.findViewById(R.id.deleteText);
-//                ImageButton close = dialog.findViewById(R.id.close_btn);
-//                textView.setText("Are you sure you want to delete this account ?");
-//                dialog.show();
-//                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-//
-//                close.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        dialog.dismiss();
-//                    }
-//                });
-//
-//                accept.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        Intent intent = new Intent( view_account_indetails.this , MainActivity.class);
-//                        startActivity(intent);
-//                    }
-//                });
-//            }
-//        });
+        delete_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Dialog dialog = new Dialog( view_account_indetails.this );
+                dialog.setContentView(R.layout.delete_message);
+                Button accept = dialog.findViewById(R.id.accept_btn);
+                TextView textView = dialog.findViewById(R.id.deleteText);
+                ImageButton close = dialog.findViewById(R.id.close_btn);
+                textView.setText("Are you sure you want to delete this account ?");
+                dialog.show();
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+                close.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+
+                accept.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        boolean lastResult = false;
+                        boolean result = db.deleteAllTransactionInAccount( AccountID );
+                        if( result == true ){
+                             lastResult = db.deleteAccount(AccountID);
+                        }
+                        View layout = getLayoutInflater().inflate( R.layout.toast_message , (ViewGroup) view.findViewById(R.id.toastRoot) );
+                        TextView text = layout.findViewById(R.id.textMsg);
+                        CardView background = layout.findViewById(R.id.back);
+                        Toast toast = new Toast( view_account_indetails.this);
+                        toast.setDuration(Toast.LENGTH_LONG);
+                        toast.setGravity(Gravity.BOTTOM|Gravity.CENTER , 0 , 230 );
+
+                        if( lastResult == true ){
+                            Intent intent = new Intent( view_account_indetails.this , MainActivity.class);
+                            startActivity(intent);
+                            text.setText("Transaction Delete Successfully");
+                            toast.setView(layout);
+                            finish();
+                            toast.show();
+                        }else{
+                            text.setText("Something wrong happened, Transaction not deleted ! ");
+                            toast.setView(layout);
+                            toast.show();
+                        }
+                    }
+                });
+            }
+        });
     }
 }
