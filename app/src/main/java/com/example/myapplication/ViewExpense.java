@@ -80,8 +80,8 @@ public class ViewExpense extends Fragment {
                 TextView textView = dialog.findViewById(R.id.deleteText);
                 ImageButton close = dialog.findViewById(R.id.close_btn);
 
-                dialog.show();
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
 
                 close.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -93,7 +93,7 @@ public class ViewExpense extends Fragment {
                 accept.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        getActivity().finish();
+
                         boolean result = db.deleteTransaction( transaction.getId() );
 
                         View layout = getLayoutInflater().inflate( R.layout.toast_message , (ViewGroup) view.findViewById(R.id.toastRoot) );
@@ -108,6 +108,7 @@ public class ViewExpense extends Fragment {
                             startActivity(intent);
                             text.setText("Transaction Delete Successfully");
                             toast.setView(layout);
+                            getActivity().finish();
                             toast.show();
                         }else{
                             text.setText("Something wrong happened, Transaction not deleted ! ");

@@ -18,6 +18,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.AddExpense;
+import com.example.myapplication.EditExpense;
 import com.example.myapplication.Expenses;
 import com.example.myapplication.R;
 import com.example.myapplication.ViewCategoryDetails;
@@ -94,6 +95,16 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
                   current.setCategoryModel(c);
                   bundle.putSerializable( "expenseData" , current );
                   AddExpense expense = new AddExpense();
+                  expense.setArguments(bundle);
+                  manager.beginTransaction().replace(R.id.fragment_container,expense).commit();
+
+              }else if( bundle.getSerializable( "expenseDataUpdate") != null ) {
+
+                  FragmentManager manager = ((AppCompatActivity)context).getSupportFragmentManager();
+                  Transaction current = (Transaction) bundle.getSerializable("expenseDataUpdate");
+                  current.setCategoryModel(c);
+                  bundle.putSerializable( "expensedatareturn" , current );
+                  EditExpense expense = new  EditExpense();
                   expense.setArguments(bundle);
                   manager.beginTransaction().replace(R.id.fragment_container,expense).commit();
 

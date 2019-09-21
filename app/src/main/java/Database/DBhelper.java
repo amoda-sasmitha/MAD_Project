@@ -234,6 +234,32 @@ public class DBhelper extends SQLiteOpenHelper {
         return arrayList;
     }
 
+    public boolean updateTransaction(Transaction transaction ){
+
+        Date date = null;
+        try {
+            date = new SimpleDateFormat("EEEE , dd MMMM yyyy").parse(transaction.getDate());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        SQLiteDatabase db = getReadableDatabase();
+        ContentValues values = new ContentValues();
+        values.put( DBConfig.Transactions.Column_NAME_AMOUNT , transaction.getAmount() );
+        values.put( DBConfig.Transactions.Column_NAME_DESCRIPTION , transaction.getDescription());
+        values.put( DBConfig.Transactions.Column_NAME_DATE , new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date) );
+        values.put( DBConfig.Transactions.Column_NAME_CATEGORY_ID , transaction.getCategoryModel().getID() );
+        values.put( DBConfig.Transactions.Column_NAME_ACCOUNT_ID , transaction.getAccountId() );
+
+        String selection = DBConfig.Transactions.COLUMN_NAME_ID + " = ? ";
+        String args[] = { String.valueOf( transaction.getId() ) };
+
+        long result =  db.update( DBConfig.Transactions.TABLE_NAME , values , selection , args);
+        if( result > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
     public boolean deleteTransaction( int id ){
         SQLiteDatabase db = getReadableDatabase();
         String selection = DBConfig.Transactions.COLUMN_NAME_ID + " = ?";

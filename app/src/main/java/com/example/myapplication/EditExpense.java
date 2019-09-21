@@ -1,12 +1,15 @@
 package com.example.myapplication;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +18,8 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -39,6 +44,7 @@ public class EditExpense extends Fragment {
     private Spinner spinner;
     private Button saveBtn;
     DBhelper db;
+    int transactionID;
     @Nullable
     @Override
     public View onCreateView( LayoutInflater inflater,ViewGroup container, Bundle savedInstanceState) {
@@ -60,13 +66,15 @@ public class EditExpense extends Fragment {
         updateDate(view);
         UpdateCategory();
 
-        if( getArguments() != null ){
+        if( getArguments() != null && getArguments().getSerializable( "expenseedit") != null ){
             Bundle ReceivedData = getArguments();
             Transaction transaction = (Transaction) ReceivedData.getSerializable("expenseedit");
             currentCategory = transaction.getCategoryModel();
             amount.setText(  String.format("%.2f", transaction.getAmount() ) );
             category_select.setText(transaction .getCategoryModel().getName());
             Description.setText(transaction .getDescription());
+            transactionID = transaction.getId();
+
             try {
                 select_date.setText( new SimpleDateFormat("EEEE , dd MMMM yyyy").format( new SimpleDateFormat("dd-MM-yyyy").parse(transaction.getDate())) );
             } catch (ParseException e) {
@@ -92,16 +100,40 @@ public class EditExpense extends Fragment {
                 double amountx  = (amounttemp.length() > 0 ) ? Double.valueOf(amounttemp) : 0;
 
                 Transaction current = new Transaction();
+                current.setId(transactionID);
                 current.setAmount(amountx );
                 current.setCategoryModel(currentCategory );
                 current.setDescription( Description.getText().toString().trim() );
                 current.setDate( select_date.getText().toString().trim() );
                 current.setAccountId( Acc_arrayList.get( spinner.getSelectedItemPosition() ).getId() );
 
+                //inflate layout
+                View layout = getLayoutInflater().inflate( R.layout.toast_message , (ViewGroup) view.findViewById(R.id.toastRoot) );
+                TextView text = layout.findViewById(R.id.textMsg);
+                CardView background = layout.findViewById(R.id.back);
+                Toast toast = new Toast( getContext() );
+                toast.setDuration(Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.BOTTOM|Gravity.CENTER , 0 , 230 );
 
+                boolean result = db.updateTransaction( current);
+                if( result == false ){
+                    text.setText("Transaction Update Unsuccessfully");
+                    background.setCardBackgroundColor( getResources().getColor(R.color.red));
+                    text.setTextColor( getResources().getColor( R.color.white ));
+                    toast.setView(layout);
+                    toast.show();
+                }else{
+                    background.setCardBackgroundColor( getResources().getColor(R.color.green));
+                    text.setTextColor( getResources().getColor( R.color.white ));
+                    text.setText("Transaction Update Successfully");
+                    toast.setView(layout);
+                    getActivity().finish();
+                    Intent intent = new Intent( getContext() , MainActivity.class);
+                    startActivity(intent);
+                    toast.show();
+                }
             }
         });
-
 
         return view;
     }
@@ -139,8 +171,9 @@ public class EditExpense extends Fragment {
         if( getArguments() != null ){
             Bundle bundle = getArguments();
 
-            Transaction current = (Transaction) bundle.getSerializable( "expenseData");
+            Transaction current = (Transaction) bundle.getSerializable( "expensedatareturn");
             if(current != null ) {
+                transactionID = current.getId();
                 amount.setText(String.valueOf(current.getAmount()));
                 category_select.setText(current.getCategoryModel().getName());
                 Description.setText(current.getDescription());
@@ -170,11 +203,12 @@ public class EditExpense extends Fragment {
                 Bundle dataBundle = new Bundle();
                 Transaction current = new Transaction();
 
+                current.setId(transactionID);
                 current.setAmount(amountx );
                 current.setDescription( Description.getText().toString().trim() );
                 current.setDate( select_date.getText().toString().trim() );
                 current.setAccountId( Acc_arrayList.get( spinner.getSelectedItemPosition() ).getId() );
-                dataBundle.putSerializable( "expenseData" , current );
+                dataBundle.putSerializable( "expenseDataUpdate" , current );
 
                 category.setArguments( dataBundle );
                 getFragmentManager().beginTransaction().replace(R.id.fragment_container , category).commit();

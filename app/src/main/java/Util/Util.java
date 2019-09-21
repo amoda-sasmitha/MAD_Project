@@ -27,8 +27,6 @@ public class Util {
         double inflow = 0;
         double outflow = 0;
 
-
-
         while( start <= end  ) {
 
             if( start < 10 )
@@ -39,7 +37,6 @@ public class Util {
             DailyTransaction dt = new DailyTransaction( dateX );
             ArrayList<Transaction> tr = new ArrayList<Transaction>();
             count = 0;
-
             for( Transaction item : data ) {
 
                 if( start ==  getDatefromString( item.getDate() )   ) {
@@ -51,18 +48,12 @@ public class Util {
                     count++;
                 }
             }
-
             if( count > 0 ) {
                 dt.setTransactions(tr);
                 arraylist.add(dt);
             }
-
             start++;
-
         }
-
-
-
         return arraylist;
     }
 

@@ -50,6 +50,7 @@ public class view_account_indetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent( view_account_indetails.this , EditAccount.class);
+               intent.putExtra( "Account" , account);
                 startActivity(intent);
                 finish();
             }
