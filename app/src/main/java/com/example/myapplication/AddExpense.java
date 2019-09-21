@@ -103,7 +103,8 @@ public class AddExpense extends Fragment {
                     text.setTextColor( getResources().getColor( R.color.white ));
                     text.setText("Transaction Added Successfully");
                     toast.setView(layout);
-
+                    Intent intent = new Intent( getContext() , MainActivity.class);
+                    startActivity(intent);
                     toast.show();
 
                 }

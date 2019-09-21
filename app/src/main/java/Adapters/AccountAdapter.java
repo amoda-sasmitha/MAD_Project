@@ -46,7 +46,7 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.AccountA
     public void onBindViewHolder(@NonNull AccountAdapter.AccountAdapterViewHolder holder, int position) {
         AccountModel account = arrayList.get(position);
         holder.name.setText( account.getAccountName() );
-        holder.amount.setText( "Rs. " + String.format("%.2f", account.getAmount() ) );
+        holder.amount.setText( "Rs. " + String.format("%.2f", account.getBalance() ) );
         holder.type.setText( account.getAccountType() );
         holder.icon.setImageResource(Util.getAccountIcon( account.getAccountType(), context ) );
 

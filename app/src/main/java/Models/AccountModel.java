@@ -11,6 +11,7 @@ public class AccountModel implements Serializable {
     private double amount;
     private String accountNumber;
     private String accountDescription;
+    private double balance;
 
     public AccountModel() {
 
@@ -24,6 +25,7 @@ public class AccountModel implements Serializable {
         this.accountNumber = accountNumber;
         this.accountDescription = accountDescription;
     }
+
 
     public AccountModel( String accountName, String accountType, double amount, String accountNumber, String accountDescription) {
 
@@ -96,4 +98,11 @@ public class AccountModel implements Serializable {
         this.accountDescription = accountDescription;
     }
 
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
 }

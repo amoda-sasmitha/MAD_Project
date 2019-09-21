@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
 
         android:background="@drawable/card"
-        android:backgroundTint="@color/red"
+        android:backgroundTint="#f4f4f4"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:paddingBottom="20dp"
@@ -35,7 +35,7 @@
             expense?"
             android:layout_centerHorizontal="true"
             android:textSize="14sp"
-            android:textColor="#ffffff"
+            android:textColor="@color/red"
             android:textStyle="bold"
             android:textAlignment="center"
             />
@@ -57,11 +57,12 @@
             android:text="Yes I'm Sure !"
             android:textAllCaps="false"
             android:background="@drawable/card"
+            android:backgroundTint="@color/red"
             android:paddingHorizontal="20dp"
             android:paddingVertical="0dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:textColor="#757474"
+            android:textColor="@color/white"
             />
 
     </RelativeLayout>

@@ -15,6 +15,9 @@
     <color name="darkGray">#706F6F</color>
     <color name="TextGray">#7E7C7C</color>
     <color name="whateverColor" >#d4d8d6</color>
+    <color name="kindaRed" >#ee5253</color>
+
 
     <color name="black_overlay">#66000000</color>
+    <color name="btnGray">#9A9A9A</color>
 </resources>

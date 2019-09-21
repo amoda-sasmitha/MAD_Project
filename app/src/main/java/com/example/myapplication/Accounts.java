@@ -45,10 +45,9 @@ public class Accounts extends Fragment  {
         ARV.setLayoutManager( new LinearLayoutManager( getContext() , LinearLayoutManager.VERTICAL , false));
         db = new DBhelper( getContext() );
 
-        ArrayList<AccountModel> data = db.readAllAccounts();
+        ArrayList<AccountModel> data = db.readAllAccountsWithBalance();
         AccountAdapter adapter = new AccountAdapter( getActivity().getApplicationContext() , data );
         ARV.setAdapter( adapter);
-
 
 
         addbtn.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +73,7 @@ public class Accounts extends Fragment  {
     @Override
     public void onStart() {
         super.onStart();
-        ArrayList<AccountModel> data = db.readAllAccounts();
+        ArrayList<AccountModel> data = db.readAllAccountsWithBalance();
         AccountAdapter adapter = new AccountAdapter( getActivity().getApplicationContext() , data );
         ARV.setAdapter( adapter);
     }

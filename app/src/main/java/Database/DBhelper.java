@@ -17,6 +17,7 @@ import java.util.Date;
 import Models.AccountModel;
 import Models.CategoryModel;
 import Models.Transaction;
+import Util.Util;
 
 public class DBhelper extends SQLiteOpenHelper {
 
@@ -169,7 +170,7 @@ public class DBhelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put( DBConfig.Transactions.Column_NAME_AMOUNT , transaction.getAmount() );
         values.put( DBConfig.Transactions.Column_NAME_DESCRIPTION , transaction.getDescription());
-        values.put( DBConfig.Transactions.Column_NAME_DATE , new SimpleDateFormat("dd-MM-yyyy").format(date) );
+        values.put( DBConfig.Transactions.Column_NAME_DATE , new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date) );
         values.put( DBConfig.Transactions.Column_NAME_CATEGORY_ID , transaction.getCategoryModel().getID() );
         values.put( DBConfig.Transactions.Column_NAME_ACCOUNT_ID , transaction.getAccountId() );
 
@@ -184,13 +185,19 @@ public class DBhelper extends SQLiteOpenHelper {
     }
     public ArrayList<Transaction> readAllTransactions( String from , String to ){
         SQLiteDatabase db = getReadableDatabase();
+        to = Util.addDays( to , 1);
+        try {
+            from = new SimpleDateFormat("yyyy-MM-dd").format( new SimpleDateFormat("dd-MM-yyyy").parse(from) );
+            to = new SimpleDateFormat("yyyy-MM-dd").format( new SimpleDateFormat("dd-MM-yyyy").parse(to) );
 
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         String sql = "SELECT * FROM " + DBConfig.Transactions.TABLE_NAME + " , " + DBConfig.Categories.TABLE_NAME +
                      " WHERE " + DBConfig.Transactions.TABLE_NAME + ".CID = " + DBConfig.Categories.TABLE_NAME + ".CID AND "+
-                     DBConfig.Transactions.TABLE_NAME+"."+DBConfig.Transactions.Column_NAME_DATE + " >= ? AND " +
-                     DBConfig.Transactions.TABLE_NAME+"."+DBConfig.Transactions.Column_NAME_DATE + " <= ? ";
-        String Args[] = { from , to };
-        Cursor values = db.rawQuery( sql , Args );
+                " transactions.Date BETWEEN '"+from+"' AND  '"+to+"' ";
+
+        Cursor values = db.rawQuery( sql , null );
 
         ArrayList<Transaction> arrayList = new ArrayList<>();
 
@@ -201,8 +208,18 @@ public class DBhelper extends SQLiteOpenHelper {
             transaction.setId( values.getInt( values.getColumnIndexOrThrow( DBConfig.Transactions.COLUMN_NAME_ID ) ) );
             transaction.setAmount( values.getDouble( values.getColumnIndexOrThrow( DBConfig.Transactions.Column_NAME_AMOUNT )));
             transaction.setDescription( values.getString( values.getColumnIndexOrThrow( DBConfig.Transactions.Column_NAME_DESCRIPTION )));
-            transaction.setDate( values.getString( values.getColumnIndexOrThrow( DBConfig.Transactions.Column_NAME_DATE )));
             transaction.setAccountId( values.getInt( values.getColumnIndexOrThrow( DBConfig.Transactions.Column_NAME_ACCOUNT_ID )));
+
+            Date datex = null;
+            String date = values.getString( values.getColumnIndexOrThrow( DBConfig.Transactions.Column_NAME_DATE ));
+            SimpleDateFormat formatter =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            try {
+                datex = formatter.parse(date);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            transaction.setDate( new SimpleDateFormat("dd-MM-yyyy").format(datex ));
 
             category.setID( values.getInt( values.getColumnIndexOrThrow( DBConfig.Categories.COLUMN_NAME_ID )));
             category.setName( values.getString( values.getColumnIndexOrThrow( DBConfig.Categories.COLUMN_NAME_CNAME )));
@@ -211,21 +228,22 @@ public class DBhelper extends SQLiteOpenHelper {
 
             transaction.setCategoryModel(category);
             arrayList.add(transaction);
-                  Log.i( "DB" , "-----------------------------------------------------  " );
-                Log.i( "DB" , transaction.getId() +"" );
-                Log.i( "DB" , transaction.getAmount()+"" );
-                Log.i( "DB" , transaction.getDescription() );
-                Log.i( "DB" , transaction.getDate() );
-                Log.i( "DB" , transaction.getAccountId()+"" );
-                Log.i( "DB" , transaction.getCategoryModel().getID() + "" );
-                Log.i( "DB" , transaction.getCategoryModel().getName() );
-                Log.i( "DB" , transaction.getCategoryModel().getIcon() );
-                Log.i( "DB" , transaction.getCategoryModel().getType() );
-
 
         }
-        Log.i( "DB" , sql);
+
         return arrayList;
+    }
+
+    public boolean deleteTransaction( int id ){
+        SQLiteDatabase db = getReadableDatabase();
+        String selection = DBConfig.Transactions.COLUMN_NAME_ID + " = ?";
+        String Args[] = { String.valueOf( id ) };
+        long result = db.delete( DBConfig.Transactions.TABLE_NAME , selection , Args );
+        if( result > 0 ){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 
@@ -296,13 +314,36 @@ public class DBhelper extends SQLiteOpenHelper {
                 account.setAmount( values.getDouble( values.getColumnIndexOrThrow(DBConfig.Accounts.COLUMN_NAME_AMOUNT )));
 
             arrayList.add(account);
-//                Log.i( "DB" , "-----------------------------------------------------  " );
-//                Log.i( "DB" , account.getId()+"" );
-//                Log.i( "DB" , account.getAccountName() );
-//                Log.i( "DB" , account.getAccountDescription()+"" );
-//                Log.i( "DB" , account.getAccountType()+"" );
-//                Log.i( "DB" , account.getAccountNumber()+"" );
-//                Log.i( "DB" , account.getAmount()+"" );
+
+        }
+
+        return arrayList;
+    }
+
+    public ArrayList<AccountModel> readAllAccountsWithBalance(){
+        SQLiteDatabase db = getReadableDatabase();
+
+        String sql = "SELECT A." + DBConfig.Accounts.COLUMN_NAME_ID + " , A." + DBConfig.Accounts.COLUMN_NAME_ANAME + " , A." +
+                     DBConfig.Accounts.COLUMN_NAME_TYPE + " , A." + DBConfig.Accounts.COLUMN_NAME_AMOUNT + " , A." +
+                     DBConfig.Accounts.COLUMN_NAME_DESCRIPTION + " , A." + DBConfig.Accounts.COLUMN_NAME_NUMBER + " , " +
+                     " SUM( CASE WHEN C.type = 'Income' THEN T.Amount ELSE -1 * T.Amount END) AS balance " +
+                     "FROM transactions T , categories C , accounts A WHERE A.AID = T.AID AND T.CID = C.CID GROUP BY A.AID";
+        Log.i( "DB" , sql);
+        ArrayList<AccountModel> arrayList = new ArrayList<>();
+
+        Cursor values = db.rawQuery( sql , null );
+        while(values.moveToNext() ){
+
+            AccountModel account = new AccountModel();
+            account.setId( values.getInt( values.getColumnIndexOrThrow(DBConfig.Accounts.COLUMN_NAME_ID )));
+            account.setAccountName( values.getString( values.getColumnIndexOrThrow( DBConfig.Accounts.COLUMN_NAME_ANAME )));
+            account.setAccountDescription( values.getString( values.getColumnIndexOrThrow(DBConfig.Accounts.COLUMN_NAME_DESCRIPTION )));
+            account.setAccountType( values.getString( values.getColumnIndexOrThrow(DBConfig.Accounts.COLUMN_NAME_TYPE )));
+            account.setAccountNumber( values.getString( values.getColumnIndexOrThrow( DBConfig.Accounts.COLUMN_NAME_NUMBER )));
+            account.setAmount( values.getDouble( values.getColumnIndexOrThrow(DBConfig.Accounts.COLUMN_NAME_AMOUNT )));
+            account.setBalance( values.getDouble( values.getColumnIndexOrThrow(DBConfig.Accounts.COLUMN_NAME_AMOUNT )) + values.getDouble( values.getColumnIndexOrThrow( "balance")) );
+
+            arrayList.add(account);
 
         }
 

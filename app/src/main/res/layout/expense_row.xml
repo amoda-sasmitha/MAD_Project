@@ -45,6 +45,7 @@
             android:elevation="5dp"
             android:paddingBottom="6dp"
             android:text="@string/main_category"
+            android:maxLines="1"
             android:textSize="14sp" />
 
         <TextView

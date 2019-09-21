@@ -13,6 +13,10 @@ public class Transaction implements Serializable {
 
     public Transaction() { }
 
+    public Transaction(double amount) {
+        Amount = amount;
+    }
+
     public Transaction(int id, double amount, CategoryModel categoryModel, String description, String date, int accountId) {
         Id = id;
         Amount = amount;

@@ -8,15 +8,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/card"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:elevation="5dp"
-        android:paddingBottom="20dp"
+        android:paddingBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="10dp"
 
         >
-
-
 
 
         <TextView

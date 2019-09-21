@@ -42,12 +42,15 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TransactionViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull TransactionViewHolder holder, final int position) {
         Transaction t = arrayList.get(position);
         int resID =    context.getResources().getIdentifier( t.getCategoryModel().getIcon() , "drawable", context.getPackageName());
         holder.category.setText( t.getCategoryModel().getName() );
         holder.description.setText( t.getDescription() );
         holder.amount.setText( "Rs. "+ String.format("%.2f", t.getAmount() )  );
+        if( t.getCategoryModel().getType().equals("Income")) {
+            holder.amount.setTextColor(context.getResources().getColor(R.color.green));
+        }
         holder.icon.setImageResource(resID);
 
         holder.setItem(new IItemClickListener() {
@@ -56,6 +59,8 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
 
                 Intent intent = new Intent( context , ViewExpenseDetails.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                Transaction t = arrayList.get(position);
+                intent.putExtra( "Transaction" , t );
                 context.startActivity(intent);
             }
         });

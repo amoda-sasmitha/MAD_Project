@@ -2,7 +2,12 @@ package Util;
 
 import android.content.Context;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import Models.DailyTransaction;
 import Models.Transaction;
@@ -18,6 +23,12 @@ public class Util {
         String prefx = from.substring(2);
         String dateX;
         int count = 0;
+
+        double inflow = 0;
+        double outflow = 0;
+
+
+
         while( start <= end  ) {
 
             if( start < 10 )
@@ -33,6 +44,10 @@ public class Util {
 
                 if( start ==  getDatefromString( item.getDate() )   ) {
                     tr.add(item);
+                    if(item.getCategoryModel().getType().equals("Income"))
+                        inflow += item.getAmount();
+                    else
+                        outflow += item.getAmount();
                     count++;
                 }
             }
@@ -68,6 +83,120 @@ public class Util {
             ID = context.getResources().getIdentifier("money", "drawable", context.getPackageName());
        }
         return ID;
+    }
+
+
+
+    public static String addDays(String date, int days)
+    {
+        Date myDate = null;
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        try {
+            myDate = format.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(myDate);
+        cal.add(Calendar.DATE, days); //minus number would decrement the days
+
+
+        return format.format(cal.getTime() ) ;
+    }
+
+    public static String addMonths(String month, int months)
+    {
+        Date myDate = null;
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        try {
+            myDate = format.parse(month);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(myDate);
+        cal.add(Calendar.MONTH, months ); //minus number would decrement the days
+        return format.format(cal.getTime() ) ;
+    }
+
+    public static String DateFormatter(String date)
+    {
+        String formattedDate;
+        Date today = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        if ( format.format(today).equals( date) ){
+            formattedDate = "  Today  ";
+        }else if( addDays(format.format(today), -1 ).equals( date)   ){
+            formattedDate = "Yesterday";
+        }else{
+            Date dd = null;
+            try {
+              dd  = format.parse(date);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            formattedDate = new SimpleDateFormat("EEEE").format(dd);
+        }
+
+        return formattedDate ;
+    }
+
+    public static String MonthFormatter(String date)
+    {
+        String formattedDate;
+        Date today = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+
+        if (  getFirsttDate(format.format(today)).equals( getFirsttDate(date))  ){
+            formattedDate = "This Month";
+        }else if( getFirsttDate( addMonths( format.format(today) , -1)).equals( getFirsttDate(date))   ){
+            formattedDate = "Last Month";
+        }else{
+            Date dd = null;
+            try {
+                dd  = format.parse(date);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            formattedDate = new SimpleDateFormat("MMMM").format(dd);
+        }
+
+        return formattedDate ;
+    }
+
+    public static String getFirsttDate(String date)
+    {
+        Date myDate = null;
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        try {
+            myDate = format.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(myDate);
+        cal.set(Calendar.DAY_OF_MONTH, 1);
+        return  dateFormat.format(cal.getTime());
+    }
+
+    public static String getLastDate(String date)
+    {
+        Date myDate = null;
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        try {
+            myDate = format.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(myDate);
+        cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
+
+        return  dateFormat.format(cal.getTime());
     }
 
 }
