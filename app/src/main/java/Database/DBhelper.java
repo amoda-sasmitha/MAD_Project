@@ -352,9 +352,11 @@ public class DBhelper extends SQLiteOpenHelper {
         String sql = "SELECT A." + DBConfig.Accounts.COLUMN_NAME_ID + " , A." + DBConfig.Accounts.COLUMN_NAME_ANAME + " , A." +
                      DBConfig.Accounts.COLUMN_NAME_TYPE + " , A." + DBConfig.Accounts.COLUMN_NAME_AMOUNT + " , A." +
                      DBConfig.Accounts.COLUMN_NAME_DESCRIPTION + " , A." + DBConfig.Accounts.COLUMN_NAME_NUMBER + " , " +
-                     " SUM( CASE WHEN C.type = 'Income' THEN T.Amount ELSE -1 * T.Amount END) AS balance " +
-                     "FROM transactions T , categories C , accounts A WHERE A.AID = T.AID AND T.CID = C.CID GROUP BY A.AID";
-        Log.i( "DB" , sql);
+                    " SUM( CASE WHEN C.type = 'Income' THEN T.Amount ELSE -1 * T.Amount END) AS balance " +
+                     "FROM  accounts A LEFT OUTER JOIN transactions T  ON  A.AID = T.AID  LEFT OUTER JOIN categories C ON C.CID = T.CID " +
+                     " GROUP BY A.AID";
+
+
         ArrayList<AccountModel> arrayList = new ArrayList<>();
 
         Cursor values = db.rawQuery( sql , null );
@@ -370,6 +372,7 @@ public class DBhelper extends SQLiteOpenHelper {
             account.setBalance( values.getDouble( values.getColumnIndexOrThrow(DBConfig.Accounts.COLUMN_NAME_AMOUNT )) + values.getDouble( values.getColumnIndexOrThrow( "balance")) );
 
             arrayList.add(account);
+
 
         }
 
