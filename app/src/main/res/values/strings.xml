@@ -208,9 +208,25 @@
             <item>Bank Account</item>
             <item>Card</item>
             <item>Online Wallet</item>
-
-
         </string-array>
+
+    <string-array name="category_Icons">
+        <item>bus</item>
+        <item>bill</item>
+        <item>invest</item>
+        <item>food</item>
+        <item>health</item>
+        <item>family</item>
+        <item>entertainment</item>
+        <item>gift</item>
+        <item>education</item>
+        <item>award</item>
+        <item>sell</item>
+        <item>interest</item>
+        <item>get</item>
+        <item>salary</item>
+
+    </string-array>
 
 
 

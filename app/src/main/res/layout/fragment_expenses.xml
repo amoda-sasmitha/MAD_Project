@@ -228,9 +228,6 @@
 
         >
 
-
-
-
            <androidx.recyclerview.widget.RecyclerView
                android:id="@+id/dailyRV"
                android:layout_below="@+id/cardViewAccount3"

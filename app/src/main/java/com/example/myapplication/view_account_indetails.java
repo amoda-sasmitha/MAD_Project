@@ -88,11 +88,10 @@ public class view_account_indetails extends AppCompatActivity {
                 accept.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        boolean lastResult = false;
-                        boolean result = db.deleteAllTransactionInAccount( AccountID );
-                        if( result == true ){
-                             lastResult = db.deleteAccount(AccountID);
-                        }
+
+                        db.deleteAllTransactionInAccount( AccountID );
+                        boolean lastResult = db.deleteAccount(AccountID);
+
                         View layout = getLayoutInflater().inflate( R.layout.toast_message , (ViewGroup) view.findViewById(R.id.toastRoot) );
                         TextView text = layout.findViewById(R.id.textMsg);
                         CardView background = layout.findViewById(R.id.back);
@@ -103,12 +102,12 @@ public class view_account_indetails extends AppCompatActivity {
                         if( lastResult == true ){
                             Intent intent = new Intent( view_account_indetails.this , MainActivity.class);
                             startActivity(intent);
-                            text.setText("Transaction Delete Successfully");
+                            text.setText("Account Delete Successfully");
                             toast.setView(layout);
                             finish();
                             toast.show();
                         }else{
-                            text.setText("Something wrong happened, Transaction not deleted ! ");
+                            text.setText("Something wrong happened, Account not deleted ! ");
                             toast.setView(layout);
                             toast.show();
                         }

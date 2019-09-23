@@ -34,19 +34,21 @@ import Adapters.DailyExpensesAdapter;
 import Database.DBhelper;
 import Models.CategoryModel;
 import Models.DailyTransaction;
+import Models.Overview;
 import Models.Transaction;
 import Util.Util;
 
 
 public class Expenses extends Fragment {
 
-    private TextView AccountBtn, accountbtn , PeriodText , DateIn;
+    private TextView AccountBtn, accountbtn , PeriodText , DateIn , TotalAmount , inflow , outflow;
     private FloatingActionButton plusBtn;
     private TextView categoryText , amount, date ;
     private RecyclerView dailyrv;
     private ImageButton prev , next;
     private Button monthly , daily;
     boolean ismonthly;
+
     DBhelper db;
     String period;
 
@@ -65,6 +67,9 @@ public class Expenses extends Fragment {
         dailyrv = view.findViewById( R.id.dailyRV );
         PeriodText = view.findViewById( R.id.textView);
         DateIn = view.findViewById(R.id.textView2);
+        TotalAmount = view.findViewById(R.id.Account);
+        inflow = view.findViewById(R.id.inflow);
+        outflow = view.findViewById(R.id.outflow);
 
         if( getArguments() != null ){
             period = getArguments().getString("period");
@@ -181,8 +186,10 @@ public class Expenses extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        TotalAmount.setText( "Rs. "+ String.format("%.2f", Util.getTotalBalance(getContext()) )  );
         ArrayList<Transaction> dbdata = null;
         ArrayList<DailyTransaction> dbx = null;
+
         if( ismonthly == true){
             PeriodText.setText( Util.MonthFormatter( period) );
             DateIn.setText( "      "+period.substring(6 ,10 )+"      " );
@@ -190,7 +197,11 @@ public class Expenses extends Fragment {
             dbx = Util.sortTransaction( Util.getFirsttDate(period) , Util.getLastDate(period) , dbdata );
 
         }else{
-            DateIn.setText( period );
+            try {
+                DateIn.setText( new SimpleDateFormat("dd-MMMM-yyyy").format(new SimpleDateFormat("dd-MM-yyyy").parse(period) ) );
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
             PeriodText.setText( Util.DateFormatter(period));
             dbdata = db.readAllTransactions( period ,period);
             dbx = Util.sortTransaction( period , period , dbdata );
@@ -200,6 +211,10 @@ public class Expenses extends Fragment {
         dailyrv.setNestedScrollingEnabled(false);
         DailyExpensesAdapter adapter = new DailyExpensesAdapter( dbx ,getActivity().getApplicationContext()  );
         dailyrv.setAdapter(adapter);
+
+        Overview overview = Util.getOverview( dbdata , period , ismonthly);
+        inflow.setText( "Rs. "+ String.format("%.2f", overview.getInflow() ) );
+        outflow.setText( "Rs. "+ String.format("%.2f", overview.getOutflow() ) );
 
     }
 

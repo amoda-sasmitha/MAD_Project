@@ -156,6 +156,19 @@ public class DBhelper extends SQLiteOpenHelper {
         return categoryModels;
     }
 
+    public boolean deleteCategory(String id) {
+
+        SQLiteDatabase db = getReadableDatabase();
+        String selection = DBConfig.Categories.COLUMN_NAME_ID +" = ? ";
+        String args[] = { id };
+        long result = db.delete( DBConfig.Categories.TABLE_NAME , selection, args);
+        if (result > 0){
+            return true;
+        }else {
+            return false;
+        }
+     }
+
     //-----------------------------------------------Amoda Sasmitha-------------------------------------------------------
 
     public boolean insertTransaction(Transaction transaction ){
@@ -234,6 +247,8 @@ public class DBhelper extends SQLiteOpenHelper {
         return arrayList;
     }
 
+
+
     public boolean updateTransaction(Transaction transaction ){
 
         Date date = null;
@@ -284,10 +299,10 @@ public class DBhelper extends SQLiteOpenHelper {
         }
     }
 
-    public boolean deleteAllTransactionInCategory( int CID ){
+    public boolean deleteAllTransactionInCategory( String CID ){
         SQLiteDatabase db = getReadableDatabase();
         String selection = DBConfig.Transactions.Column_NAME_CATEGORY_ID + " = ?";
-        String Args[] = { String.valueOf( CID ) };
+        String Args[] = { CID  };
         long result = db.delete( DBConfig.Transactions.TABLE_NAME , selection , Args );
         if( result > 0 ){
             return true;
@@ -459,5 +474,6 @@ public class DBhelper extends SQLiteOpenHelper {
 
         db.insert( DBConfig.Accounts.TABLE_NAME ,null, contentValues );
     }
+
 
 }

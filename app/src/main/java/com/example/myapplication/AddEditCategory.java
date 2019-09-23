@@ -3,12 +3,19 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -18,6 +25,7 @@ import android.widget.Toast;
 
 import java.util.zip.Inflater;
 
+import Adapters.CategoryIconAdapter;
 import Database.DBhelper;
 import Models.CategoryModel;
 
@@ -28,7 +36,7 @@ public class AddEditCategory extends AppCompatActivity {
     RadioGroup radioGroup;
     ImageView icon;
     DBhelper db;
-
+    String [] icons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +49,40 @@ public class AddEditCategory extends AppCompatActivity {
         radioGroup = findViewById(R.id.radio);
 
         db = new DBhelper(this);
+        icons =  getResources().getStringArray(R.array.category_Icons);
 
+        icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                final Dialog dialog = new Dialog( AddEditCategory.this );
+                dialog.setContentView(R.layout.icon_select_dialog);
+
+                GridView gridView = dialog.findViewById(R.id.gridview);
+                ImageButton close = dialog.findViewById(R.id.close_btn);
+                CategoryIconAdapter categoryIconAdapter = new CategoryIconAdapter(AddEditCategory.this);
+                gridView.setAdapter(categoryIconAdapter);
+                dialog.show();
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+                gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        icon.setImageResource( getResources().getIdentifier( icons[i] , "drawable", getPackageName()));
+                        icon.setTag(icons[i] );
+                        dialog.dismiss();
+                    }
+                });
+
+                close.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+
+            }
+        });
 
     }
 

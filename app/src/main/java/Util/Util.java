@@ -9,7 +9,11 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+import Database.DBConfig;
+import Database.DBhelper;
+import Models.AccountModel;
 import Models.DailyTransaction;
+import Models.Overview;
 import Models.Transaction;
 
 public class Util {
@@ -188,6 +192,36 @@ public class Util {
         cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
 
         return  dateFormat.format(cal.getTime());
+    }
+
+    public static double getTotalBalance(Context context){
+        DBhelper db = new DBhelper(context);
+        double total = 0;
+        ArrayList<AccountModel> accounts = db.readAllAccountsWithBalance();
+        for( AccountModel account : accounts){
+            total += account.getBalance();
+        }
+        return total;
+    }
+
+    public static  Overview getOverview(ArrayList<Transaction> arrayList , String period , boolean ismonthly ){
+        Overview overview = new Overview();
+        for ( Transaction transaction : arrayList){
+            if( transaction.getCategoryModel().getType().equals("Income"))
+                overview.setInflow(  overview.getInflow()+transaction.getAmount()  );
+            else
+                overview.setOutflow(  overview.getOutflow()+transaction.getAmount()  );
+        }
+
+        if( ismonthly == true ){
+            overview.setStartDate( getFirsttDate(period));
+            overview.setEndDate( getLastDate(period) );
+        }else{
+            overview.setStartDate( period);
+            overview.setEndDate( period );
+        }
+
+        return overview;
     }
 
 }

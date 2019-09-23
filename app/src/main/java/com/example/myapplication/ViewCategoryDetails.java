@@ -1,17 +1,21 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import Database.DBhelper;
 import Models.CategoryModel;
@@ -38,6 +42,7 @@ public class ViewCategoryDetails extends AppCompatActivity {
         category_type = findViewById(R.id.categoryType);
         icon = findViewById(R.id.categoryDetailIcon1);
         category_t = findViewById( R.id.main_sub_type_view);
+
         CategoryModel category = db.readSingleCategory( ID);
 
         categoryName.setText( category.getName() );
@@ -97,8 +102,30 @@ public class ViewCategoryDetails extends AppCompatActivity {
                 accept.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent( ViewCategoryDetails.this , MainActivity.class);
-                        startActivity(intent);
+
+                        db.deleteAllTransactionInCategory( ID );
+                        boolean lastResult = db.deleteCategory(ID);
+
+                        View layout = getLayoutInflater().inflate( R.layout.toast_message , (ViewGroup) view.findViewById(R.id.toastRoot) );
+                        TextView text = layout.findViewById(R.id.textMsg);
+                        CardView background = layout.findViewById(R.id.back);
+                        Toast toast = new Toast( ViewCategoryDetails.this);
+                        toast.setDuration(Toast.LENGTH_LONG);
+                        toast.setGravity(Gravity.BOTTOM|Gravity.CENTER , 0 , 230 );
+
+                        if( lastResult == false ){
+                            text.setText("Category Deleted Unsuccessfully");
+                            toast.setView(layout);
+                            toast.show();
+                        }else{
+                            Intent intent = new Intent( ViewCategoryDetails.this , MainActivity.class);
+                            startActivity(intent);
+                            text.setText("Category Deleted Successfully");
+                            toast.setView(layout);
+                            finish();
+                            toast.show();
+                        }
+
                     }
                 });
             }
