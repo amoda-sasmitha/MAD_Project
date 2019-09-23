@@ -46,13 +46,13 @@ public class AddAccount extends AppCompatActivity {
 
     }
     public void addAccountDetails(View view){
-        AccountModel am = new AccountModel();
+        AccountModel am = new AccountModel();  //get new account modal
         am.setAccountName( accountName.getText().toString().trim() );
         am.setAccountType( accountType.getItemAtPosition( accountType.getSelectedItemPosition()  ).toString().trim() );
         am.setAmount( Double.valueOf( accountIniAmount.getText().toString().trim() ) );
         am.setAccountNumber( accountNumber.getText().toString().trim() );
         am.setAccountDescription( accountDescription.getText().toString().trim() );
-
+        //set booleadn result
         boolean result = db.addAccount( am);
 
         //inflate layout

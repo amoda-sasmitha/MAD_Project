@@ -35,6 +35,7 @@ public class Accounts extends Fragment  {
 
     DBhelper db;
 
+    @SuppressLint("WrongConstant")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -49,7 +50,7 @@ public class Accounts extends Fragment  {
         AccountAdapter adapter = new AccountAdapter( getActivity().getApplicationContext() , data );
         ARV.setAdapter( adapter);
 
-
+//    call add btn
         addbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,21 +59,13 @@ public class Accounts extends Fragment  {
 
             }
         });
-////
-//        viewBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(getActivity() , view_account_indetails.class);
-//                startActivity(intent);
-//            }
-//        });
 
         return view;
     }
 
     @Override
     public void onStart() {
-        super.onStart();
+        super.onStart();  //in onstart get all account details from db
         ArrayList<AccountModel> data = db.readAllAccountsWithBalance();
         AccountAdapter adapter = new AccountAdapter( getActivity().getApplicationContext() , data );
         ARV.setAdapter( adapter);
