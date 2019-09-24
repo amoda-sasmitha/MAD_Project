@@ -177,6 +177,32 @@ public class DBhelper extends SQLiteOpenHelper {
         }
      }
 
+    public boolean updateCategory(CategoryModel newCategory) {
+        SQLiteDatabase db = getReadableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put( DBConfig.Categories.COLUMN_NAME_CNAME , newCategory.getName());
+        contentValues.put(DBConfig.Categories.COLUMN_NAME_DESCRIPTION, newCategory.getDescription());
+        contentValues.put(DBConfig.Categories.COLUMN_NAME_TYPE, newCategory.getType());
+        //contentValues.put(DBConfig.Categories.COLUMN_NAME_ICON, newCategory.getIcon());
+
+        String selection = DBConfig.Categories.COLUMN_NAME_ID + " = ?";
+        String[] selectionArgs = { String.valueOf( newCategory.getID() ) };
+
+        long result = db.update( DBConfig.Categories.TABLE_NAME , contentValues , selection , selectionArgs);
+
+        if (result > 0){
+
+            return true;
+        }
+        else{
+            return false;
+        }
+
+    }
+
+
+
     //-----------------------------------------------Amoda Sasmitha-------------------------------------------------------
 
     public boolean insertTransaction(Transaction transaction ){
@@ -487,6 +513,7 @@ public class DBhelper extends SQLiteOpenHelper {
 
         db.insert( DBConfig.Accounts.TABLE_NAME ,null, contentValues );
     }
+
 
 
 }
