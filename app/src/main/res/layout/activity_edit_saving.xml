@@ -59,7 +59,7 @@
 
         <EditText
 
-            android:id="@+id/editText"
+            android:id="@+id/editText1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/saving_type"
@@ -75,10 +75,10 @@
             android:textSize="15sp" />
 
         <TextView
-            android:id="@+id/saving_description_text"
+            android:id="@+id/saving_description_text1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/editText"
+            android:layout_below="@id/editText1"
             android:layout_marginStart="12dp"
             android:layout_marginTop="10dp"
             android:elevation="5dp"
@@ -88,10 +88,10 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/edit_description"
+            android:id="@+id/edit_description1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/saving_description_text"
+            android:layout_below="@id/saving_description_text1"
             android:layout_alignParentStart="true"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
@@ -109,10 +109,10 @@
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/saving_type_text"
+            android:id="@+id/saving_type_text1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/edit_description"
+            android:layout_below="@id/edit_description1"
             android:layout_marginStart="12dp"
             android:layout_marginTop="4dp"
             android:elevation="5dp"
@@ -122,10 +122,10 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/amount_Text"
+            android:id="@+id/amount_Text1"
             android:layout_width="370dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/saving_type_text"
+            android:layout_below="@id/saving_type_text1"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="8dp"
@@ -140,11 +140,11 @@
 
 
         <Button
-            android:id="@+id/save_btn"
+            android:id="@+id/save_btn1"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/amount_Text"
+            android:layout_below="@id/amount_Text1"
             android:layout_alignParentEnd="true"
             android:layout_marginLeft="12dp"
             android:layout_marginTop="10dp"
