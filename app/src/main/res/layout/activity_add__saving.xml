@@ -110,10 +110,40 @@
             android:textSize="14sp" tools:targetApi="o" />
 
         <TextView
-            android:id="@+id/saving_type_text"
+            android:id="@+id/addTargetAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/edit_description"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
+            android:elevation="5dp"
+            android:text="@string/add_target_amount"
+            android:textColor="@color/TextGray"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/addTargetAmountTypeText"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/addTargetAmount"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/rounded_edit_text"
+            android:hint="@string/zero"
+            android:importantForAutofill="no"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:textSize="15sp" tools:targetApi="o" />
+
+        <TextView
+            android:id="@+id/startvlue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/addTargetAmountTypeText"
             android:layout_marginStart="12dp"
             android:layout_marginTop="4dp"
             android:elevation="5dp"
@@ -123,10 +153,10 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/amount_Text"
-            android:layout_width="370dp"
+            android:id="@+id/addStartAmountText"
+            android:layout_width="500dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/saving_type_text"
+            android:layout_below="@id/startvlue"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="8dp"
@@ -145,7 +175,7 @@
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/amount_Text"
+            android:layout_below="@id/addStartAmountText"
             android:layout_alignParentEnd="true"
             android:layout_marginLeft="12dp"
             android:layout_marginTop="10dp"

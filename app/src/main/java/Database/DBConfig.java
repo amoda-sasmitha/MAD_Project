@@ -38,4 +38,13 @@ public final class DBConfig {
 
 
     }
+
+    protected static class Savings implements BaseColumns{
+        protected static final String TABLE_NAME = "savings";
+        protected static final String COLUMN_NAME_ID = "SID";
+        protected static final String COLUMN_NAME_SAVINGNAME = "name";
+        protected static final String COLUMN_NAME_SAVINGDISCRIPTION = "description";
+        protected static final String COLUMN_NAME_TARGETAMOUNT = "tAmount";
+        protected static final String COLUMN_NAME_STARTAMOUNT = "sAmount";
+    }
 }

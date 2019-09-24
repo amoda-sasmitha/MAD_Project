@@ -56,7 +56,15 @@ public class DBhelper extends SQLiteOpenHelper {
                 DBConfig.Accounts.COLUMN_NAME_NUMBER + " TEXT, " +
                 DBConfig.Accounts.COLUMN_NAME_DESCRIPTION +" TEXT " +");";
 
+        String sql_ct_savings = "CREATE TABLE " + DBConfig.Savings.TABLE_NAME + " ( " +
+                DBConfig.Savings.COLUMN_NAME_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL , "+
+                DBConfig.Savings.COLUMN_NAME_SAVINGNAME + " TEXT , "+
+                DBConfig.Savings.COLUMN_NAME_SAVINGDISCRIPTION + " TEXT , "+
+                DBConfig.Savings.COLUMN_NAME_TARGETAMOUNT + " DOUBLE ,"+
+                DBConfig.Savings.COLUMN_NAME_STARTAMOUNT + " DOUBLE "+ " );";
 
+
+        db.execSQL(sql_ct_savings);
         db.execSQL(sql_ct_categories);
         db.execSQL(sql_ct_accounts);
         db.execSQL(sql_ct_transaction);
@@ -429,6 +437,11 @@ public class DBhelper extends SQLiteOpenHelper {
             return false;
         }
     }
+
+    //-------------------------------Pubudu Arosha----------------------------------------------------------------
+
+
+
     //-------------------------------default values---------------------------------------------------------------
     public void setDefaultCategories(SQLiteDatabase db){
         ArrayList<CategoryModel> categories = new ArrayList<>();
