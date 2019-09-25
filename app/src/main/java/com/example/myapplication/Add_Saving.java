@@ -35,24 +35,24 @@ public class Add_Saving extends AppCompatActivity {
                     sName.setError("Enter Saving Name");
                 }
 
-                if (sDiscription.length()== 0){
+                else if (sDiscription.length()== 0){
                     sDiscription.setError("Enter Description");
                 }
 
-                if (sTarget.length()== 0){
+                else if (sTarget.length()== 0){
                     sTarget.setError("Enter Target Amount");
                 }
 
-                if (sStart.length()== 0){
+                else if (sStart.length()== 0){
                     sStart.setError("Enter Start Amount");
                 }
 
-                if (sTarget.length() < sStart.length() ){
+                else if (sTarget.length() < sStart.length() ){
                     sStart.setError("Enter Correct Start Amount");
                 }
 
                 else {
-                    Toast.makeText(Add_Saving.this,"Saving Successfully! :)",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Add_Saving.this,"Saving Successfully!",Toast.LENGTH_SHORT).show();
                 }
 
             }
