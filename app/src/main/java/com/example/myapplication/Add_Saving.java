@@ -47,6 +47,10 @@ public class Add_Saving extends AppCompatActivity {
                     sStart.setError("Enter Start Amount");
                 }
 
+                if (sTarget.length() < sStart.length() ){
+                    sStart.setError("Enter Correct Start Amount");
+                }
+
                 else {
                     Toast.makeText(Add_Saving.this,"Saving Successfully! :)",Toast.LENGTH_SHORT).show();
                 }
