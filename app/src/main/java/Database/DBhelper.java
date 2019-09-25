@@ -56,7 +56,15 @@ public class DBhelper extends SQLiteOpenHelper {
                 DBConfig.Accounts.COLUMN_NAME_NUMBER + " TEXT, " +
                 DBConfig.Accounts.COLUMN_NAME_DESCRIPTION +" TEXT " +");";
 
+        String sql_ct_savings = "CREATE TABLE " + DBConfig.Savings.TABLE_NAME + " ( " +
+                DBConfig.Savings.COLUMN_NAME_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL , "+
+                DBConfig.Savings.COLUMN_NAME_SAVINGNAME + " TEXT , "+
+                DBConfig.Savings.COLUMN_NAME_SAVINGDISCRIPTION + " TEXT , "+
+                DBConfig.Savings.COLUMN_NAME_TARGETAMOUNT + " DOUBLE ,"+
+                DBConfig.Savings.COLUMN_NAME_STARTAMOUNT + " DOUBLE "+ " );";
 
+
+        db.execSQL(sql_ct_savings);
         db.execSQL(sql_ct_categories);
         db.execSQL(sql_ct_accounts);
         db.execSQL(sql_ct_transaction);
@@ -168,6 +176,32 @@ public class DBhelper extends SQLiteOpenHelper {
             return false;
         }
      }
+
+    public boolean updateCategory(CategoryModel newCategory) {
+        SQLiteDatabase db = getReadableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put( DBConfig.Categories.COLUMN_NAME_CNAME , newCategory.getName());
+        contentValues.put(DBConfig.Categories.COLUMN_NAME_DESCRIPTION, newCategory.getDescription());
+        contentValues.put(DBConfig.Categories.COLUMN_NAME_TYPE, newCategory.getType());
+        //contentValues.put(DBConfig.Categories.COLUMN_NAME_ICON, newCategory.getIcon());
+
+        String selection = DBConfig.Categories.COLUMN_NAME_ID + " = ?";
+        String[] selectionArgs = { String.valueOf( newCategory.getID() ) };
+
+        long result = db.update( DBConfig.Categories.TABLE_NAME , contentValues , selection , selectionArgs);
+
+        if (result > 0){
+
+            return true;
+        }
+        else{
+            return false;
+        }
+
+    }
+
+
 
     //-----------------------------------------------Amoda Sasmitha-------------------------------------------------------
 
@@ -468,6 +502,11 @@ public class DBhelper extends SQLiteOpenHelper {
             return false;
         }
     }
+
+    //-------------------------------Pubudu Arosha----------------------------------------------------------------
+
+
+
     //-------------------------------default values---------------------------------------------------------------
     public void setDefaultCategories(SQLiteDatabase db){
         ArrayList<CategoryModel> categories = new ArrayList<>();
@@ -513,6 +552,7 @@ public class DBhelper extends SQLiteOpenHelper {
 
         db.insert( DBConfig.Accounts.TABLE_NAME ,null, contentValues );
     }
+
 
 
 }

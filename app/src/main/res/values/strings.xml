@@ -15,7 +15,6 @@
     <string name="add_categories">Add Categories</string>
     <string name="new_category">New Category</string>
     <string name="category_name">Category name</string>
-    <string name="add_description">Add description</string>
     <string name="description_hint">Write a brief description about the categoryModel</string>
     <string name="category_type">Category type</string>
     <string name="income">Income</string>
@@ -89,13 +88,7 @@
 
 
     <string name="update">Update</string>
-    <string name="new_saving">New Saving</string>
-    <string name="write_a_brief_description_about_saving">write a brief description about saving</string>
     <string name="_0_00">0.00</string>
-    <string name="add_saving">Add Saving</string>
-
-    <string name="add_start_amount">Add Start Amount</string>
-    <string name="save">Save</string>
 
 
     <string name="overview">Overview</string>
@@ -137,7 +130,6 @@
     <string name="sAccount">click and select the account</string>
     <string name="save_expense_income">Save Expense / Income</string>
     <string name="des">Write a brief description about the expense</string>
-    <string name="zero">0.00</string>
     <string name="new_expense_income">New Expense / Income</string>
     <string name="des2">Select Category</string>
 
@@ -184,8 +176,6 @@
     <string name="rs_34000_00">Rs 34000.00</string>
     <string name="initial_amount">Initial Amount</string>
     <string name="rs_2350_00">Rs.2350.00</string>
-
-    <string name="saving_name">Saving name</string>
     <string name="add_account">Add Date</string>
     <string name="add_date_txt">Add date</string>
     <string name="lasttrans">Last Transaction Date</string>
@@ -201,6 +191,7 @@
     <string name="txt_edit_account_des">Description</string>
     <string name="account_edit_desc" />
     <string name="account_edite_description">Description</string>
+    <string name="edit_target_amount">Edit Target Amount</string>
 
 
     <string-array name="spinnerAccounts">
@@ -209,6 +200,7 @@
             <item>Card</item>
             <item>Online Wallet</item>
         </string-array>
+
 
     <string-array name="category_Icons">
         <item>bus</item>
@@ -228,8 +220,17 @@
 
     </string-array>
 
+    <!-- Author: Pubudu Arosha  -->
 
-
+    <string name="new_saving">New Saving</string>
+    <string name="add_saving">Add Saving</string>
+    <string name="saving_name">Saving name</string>
+    <string name="add_description">Add description</string>
+    <string name="write_a_brief_description_about_saving">write a brief description about saving</string>
+    <string name="add_target_amount">Add Target Amount</string>
+    <string name="zero">0.00</string>
+    <string name="add_start_amount">Add Start Amount</string>
+    <string name="save">Save</string>
 
 
 </resources>
