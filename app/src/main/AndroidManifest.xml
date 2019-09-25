@@ -8,10 +8,10 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/logosm"
         android:supportsRtl="true"
-        android:allowBackup="false"
+        android:allowBackup="true"
         android:fullBackupOnly="false"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
+        tools:ignore="GoogleAppIndexingWarning" >
         <activity android:name=".Test">
 
         </activity>

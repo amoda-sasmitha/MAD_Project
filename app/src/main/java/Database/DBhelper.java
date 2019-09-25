@@ -248,6 +248,45 @@ public class DBhelper extends SQLiteOpenHelper {
     }
 
 
+    public ArrayList<Transaction> transactionGroupByCategories( String from , String to ){
+        SQLiteDatabase db = getReadableDatabase();
+        to = Util.addDays( to , 1);
+        try {
+            from = new SimpleDateFormat("yyyy-MM-dd").format( new SimpleDateFormat("dd-MM-yyyy").parse(from) );
+            to = new SimpleDateFormat("yyyy-MM-dd").format( new SimpleDateFormat("dd-MM-yyyy").parse(to) );
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        String sql = "SELECT "+DBConfig.Categories.TABLE_NAME+".* , SUM(transactions.Amount) AS total FROM " + DBConfig.Transactions.TABLE_NAME + " , " + DBConfig.Categories.TABLE_NAME +
+                " WHERE " + DBConfig.Transactions.TABLE_NAME + ".CID = " + DBConfig.Categories.TABLE_NAME + ".CID AND "+
+                " transactions.Date BETWEEN '"+from+"' AND  '"+to+"' GROUP BY " + DBConfig.Categories.TABLE_NAME + ".CID";
+
+        Cursor values = db.rawQuery( sql , null );
+
+        ArrayList<Transaction> arrayList = new ArrayList<>();
+
+        while (values.moveToNext()){
+            Transaction transaction = new Transaction();
+            CategoryModel category = new CategoryModel();
+
+            transaction.setAmount( values.getDouble( values.getColumnIndexOrThrow( "total" )));
+
+            category.setID( values.getInt( values.getColumnIndexOrThrow( DBConfig.Categories.COLUMN_NAME_ID )));
+            category.setName( values.getString( values.getColumnIndexOrThrow( DBConfig.Categories.COLUMN_NAME_CNAME )));
+            category.setType( values.getString( values.getColumnIndexOrThrow( DBConfig.Categories.COLUMN_NAME_TYPE )));
+            category.setIcon( values.getString( values.getColumnIndexOrThrow( DBConfig.Categories.COLUMN_NAME_ICON )));
+
+
+            transaction.setCategoryModel(category);
+            arrayList.add(transaction);
+
+        }
+
+        return arrayList;
+    }
+
+
 
     public boolean updateTransaction(Transaction transaction ){
 

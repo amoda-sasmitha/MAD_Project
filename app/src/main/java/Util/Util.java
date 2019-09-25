@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-import Database.DBConfig;
+
 import Database.DBhelper;
 import Models.AccountModel;
 import Models.DailyTransaction;
@@ -20,7 +20,7 @@ public class Util {
 
     public static ArrayList<DailyTransaction> sortTransaction( String from ,String to , ArrayList<Transaction> data ){
 
-        ArrayList<DailyTransaction> arraylist = new ArrayList<DailyTransaction>();
+        ArrayList<DailyTransaction> arraylist = new ArrayList<>();
 
         int start = Integer.parseInt( from.substring(0 ,2 ));
         int end = Integer.parseInt( to.substring(0 ,2 ));

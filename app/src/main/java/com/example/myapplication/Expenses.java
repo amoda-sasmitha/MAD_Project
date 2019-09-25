@@ -1,7 +1,5 @@
 package com.example.myapplication;
 
-import android.accounts.Account;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
@@ -9,19 +7,17 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -32,7 +28,6 @@ import java.util.Date;
 
 import Adapters.DailyExpensesAdapter;
 import Database.DBhelper;
-import Models.CategoryModel;
 import Models.DailyTransaction;
 import Models.Overview;
 import Models.Transaction;
@@ -47,10 +42,12 @@ public class Expenses extends Fragment {
     private RecyclerView dailyrv;
     private ImageButton prev , next;
     private Button monthly , daily;
+    private RelativeLayout overviewbtn;
     boolean ismonthly;
 
     DBhelper db;
     String period;
+    Overview overview;
 
     @Nullable
     @Override
@@ -70,6 +67,7 @@ public class Expenses extends Fragment {
         TotalAmount = view.findViewById(R.id.Account);
         inflow = view.findViewById(R.id.inflow);
         outflow = view.findViewById(R.id.outflow);
+        overviewbtn = view.findViewById(R.id.cardViewAccount3);
 
         if( getArguments() != null ){
             period = getArguments().getString("period");
@@ -212,9 +210,20 @@ public class Expenses extends Fragment {
         DailyExpensesAdapter adapter = new DailyExpensesAdapter( dbx ,getActivity().getApplicationContext()  );
         dailyrv.setAdapter(adapter);
 
-        Overview overview = Util.getOverview( dbdata , period , ismonthly);
+        overview = Util.getOverview( dbdata , period , ismonthly);
         inflow.setText( "Rs. "+ String.format("%.2f", overview.getInflow() ) );
         outflow.setText( "Rs. "+ String.format("%.2f", overview.getOutflow() ) );
+
+        overviewbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                OverviewX overviewX = new OverviewX();
+                Bundle data = new Bundle();
+                data.putSerializable("Overview" , overview);
+                overviewX.setArguments(data);
+                getFragmentManager().beginTransaction().replace(R.id.fragment_container,  overviewX ).commit();
+            }
+        });
 
     }
 
