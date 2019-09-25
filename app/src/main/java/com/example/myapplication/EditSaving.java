@@ -30,15 +30,15 @@ public class EditSaving extends AppCompatActivity {
                     eSName.setError("Enter Saving Name");
                 }
 
-                if (eSDescription.length()== 0){
+                else if (eSDescription.length()== 0){
                     eSDescription.setError("Enter Description");
                 }
 
-                if (eSAmount.length()== 0){
+                else if (eSAmount.length()== 0){
                     eSAmount.setError("Enter Target Amount");
                 }
                 else {
-                    Toast.makeText(EditSaving.this,"Update Successfully! :)",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditSaving.this,"Update Successfully!",Toast.LENGTH_SHORT).show();
                 }
 
             }
