@@ -26,6 +26,7 @@ public class ViewCategoryDetails extends AppCompatActivity {
     private TextView categoryName , description, category_type , category_t;
     private ImageView icon;
     private String ID;
+    private CategoryModel category;
     private DBhelper db;
 
     @Override
@@ -43,7 +44,7 @@ public class ViewCategoryDetails extends AppCompatActivity {
         icon = findViewById(R.id.categoryDetailIcon1);
         category_t = findViewById( R.id.main_sub_type_view);
 
-        CategoryModel category = db.readSingleCategory( ID);
+         category = db.readSingleCategory( ID);
 
         categoryName.setText( category.getName() );
         category_type.setText(category.getType());
@@ -71,9 +72,8 @@ public class ViewCategoryDetails extends AppCompatActivity {
                 Intent intent = new Intent(ViewCategoryDetails.this , Edit_Category.class);
 
                 Bundle bundle = new Bundle();
-               bundle.putString("CategoryType",category_type.getText().toString());
-                bundle.putString("category_name",categoryName.getText().toString());
-               bundle.putString("categoryDescription",description.getText().toString());
+               bundle.putSerializable("Category" , category);
+
 
                 intent.putExtras(bundle);
                 startActivity(intent);

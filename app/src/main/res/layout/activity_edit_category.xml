@@ -57,14 +57,13 @@
             android:textStyle="bold"
             />
 
-        <Button
+        <ImageView
             android:id="@id/category_icon"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_below="@id/account_subTotal"
             android:layout_marginStart="12dp"
             android:layout_marginTop="15dp"
-            android:background="@drawable/circle"
 
             />
 
@@ -131,42 +130,53 @@
             android:textSize="14sp"
             android:textStyle="bold" />
 
-        <RadioButton
-            android:id="@+id/income_btn_radio"
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/radio"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/income2"
             android:layout_below="@id/category_type_text"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/TextGray"
-            android:textStyle="bold"
-            android:layout_marginStart="45dp"
-            android:textSize="14sp"
+            android:orientation="horizontal"
 
 
-            />
+            >
 
-        <RadioButton
-            android:id="@+id/expenses_btn_radio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/expense"
-            android:layout_below="@id/category_type_text"
-            android:layout_marginTop="8dp"
-            android:layout_toEndOf="@id/income_btn_radio"
-            android:textColor="@color/TextGray"
-            android:textStyle="bold"
-            android:textSize="14sp"
-            android:layout_marginStart="20dp"
+            <RadioButton
+                android:id="@+id/expenses_btn_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/expense"
+                android:textColor="#7E7C7C"
+                android:textSize="14sp"
+                android:textStyle="bold"
 
-            />
+
+                />
+
+            <RadioButton
+                android:id="@+id/income_btn_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+
+                android:layout_marginTop="8dp"
+                android:text="@string/income"
+                android:textColor="@color/TextGray"
+                android:textSize="14sp"
+                android:textStyle="bold"
+
+
+                />
+
+        </RadioGroup>
 
         <Button
             android:id="@+id/save_btn"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/income_btn_radio"
+            android:layout_below="@id/radio"
             android:layout_alignParentEnd="true"
             android:layout_marginLeft="12dp"
             android:layout_marginTop="10dp"
