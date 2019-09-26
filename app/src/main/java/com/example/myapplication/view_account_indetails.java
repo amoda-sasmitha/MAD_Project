@@ -88,7 +88,7 @@ public class view_account_indetails extends AppCompatActivity {
                 accept.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
+ //detele btn call
                         db.deleteAllTransactionInAccount( AccountID );
                         boolean lastResult = db.deleteAccount(AccountID);
 

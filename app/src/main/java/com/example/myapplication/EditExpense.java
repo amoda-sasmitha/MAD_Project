@@ -96,6 +96,17 @@ public class EditExpense extends Fragment {
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (Description.length() == 0) {
+                    Description.setError("Enter Description");
+                } else   if(category_select.length() == 0){
+                    category_select.setError("Select Category");
+                }
+                else   if(amount.length() == 0){
+                    amount.setError("Enter Amount");
+                }
+                else {
+
+
                 String amounttemp =   amount.getText().toString().trim();
                 double amountx  = (amounttemp.length() > 0 ) ? Double.valueOf(amounttemp) : 0;
 
@@ -132,6 +143,7 @@ public class EditExpense extends Fragment {
                     startActivity(intent);
                     toast.show();
                 }
+            }
             }
         });
 
