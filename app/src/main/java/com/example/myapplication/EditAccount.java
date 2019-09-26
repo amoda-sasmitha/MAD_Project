@@ -82,7 +82,7 @@ public class EditAccount extends AppCompatActivity {
             Toast toast = new Toast( getApplicationContext() );
             toast.setDuration(Toast.LENGTH_LONG);
             toast.setGravity(Gravity.BOTTOM|Gravity.CENTER , 0 , 230 );
-
+    //set text for
             if( result == false ){
                 text.setText("Account Update Unsuccessfully");
                 background.setCardBackgroundColor( getResources().getColor(R.color.red));

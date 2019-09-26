@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,48 +41,69 @@ public class AddAccount extends AppCompatActivity {
         accountIniAmount = (EditText) findViewById(R.id.add_account_initial_account_txt);
         accountNumber = (EditText) findViewById(R.id.account_no_txt2);
         accountDescription = (EditText) findViewById(R.id.account_des);
+        accountIniAmount.setInputType(InputType.TYPE_CLASS_NUMBER);
 
     db = new DBhelper(this);
 
 
     }
     public void addAccountDetails(View view){
-        AccountModel am = new AccountModel();  //get new account modal
-        am.setAccountName( accountName.getText().toString().trim() );
-        am.setAccountType( accountType.getItemAtPosition( accountType.getSelectedItemPosition()  ).toString().trim() );
-        am.setAmount( Double.valueOf( accountIniAmount.getText().toString().trim() ) );
-        am.setAccountNumber( accountNumber.getText().toString().trim() );
-        am.setAccountDescription( accountDescription.getText().toString().trim() );
-        //set booleadn result
-        boolean result = db.addAccount( am);
-
-        //inflate layout
-        View layout = getLayoutInflater().inflate( R.layout.toast_message , (ViewGroup) view.findViewById(R.id.toastRoot) );
-        TextView text = layout.findViewById(R.id.textMsg);
-        CardView background = layout.findViewById(R.id.back);
-
-        //creat toast
-        Toast toast = new Toast( this );
-        toast.setDuration(Toast.LENGTH_LONG);
-        toast.setGravity(Gravity.BOTTOM|Gravity.CENTER , 0 , 230 );
-
-
-        if( result == false ){
-            text.setText("Account Added Unsuccessfully");
-            background.setCardBackgroundColor( getResources().getColor(R.color.red));
-            text.setTextColor( getResources().getColor( R.color.white ));
-            toast.setView(layout);
-            toast.show();
-
-        }else{
-            background.setCardBackgroundColor( getResources().getColor(R.color.green));
-            text.setTextColor( getResources().getColor( R.color.white ));
-            text.setText("Account Added Successfully");
-            toast.setView(layout);
-            this.finish();
-            toast.show();
-
+        //validate user input
+       if(accountName.length() == 0){
+           accountName.setError("Enter Account Name");
+       }
+      else  if(accountType.getSelectedItem().toString().equals("Select Account Type")){
+           ((TextView)accountType.getSelectedView()).setError("Select Account Type");
+       }
+      else   if(accountIniAmount.length() == 0){
+           accountIniAmount.setError("Enter Initial Amount");
+       }
+      else   if(accountNumber.length() == 0){
+           accountNumber.setError("Enter Account NUmber");
         }
+        else if(accountDescription.length() == 0){
+           accountDescription.setError("Enter Description");
+        }
+
+       else {
+
+           AccountModel am = new AccountModel();  //get new account modal
+           am.setAccountName(accountName.getText().toString().trim());
+           am.setAccountType(accountType.getItemAtPosition(accountType.getSelectedItemPosition()).toString().trim());
+           am.setAmount(Double.valueOf(accountIniAmount.getText().toString().trim()));
+           am.setAccountNumber(accountNumber.getText().toString().trim());
+           am.setAccountDescription(accountDescription.getText().toString().trim());
+           //set booleadn result
+           boolean result = db.addAccount(am);
+
+           //inflate layout
+           View layout = getLayoutInflater().inflate(R.layout.toast_message, (ViewGroup) view.findViewById(R.id.toastRoot));
+           TextView text = layout.findViewById(R.id.textMsg);
+           CardView background = layout.findViewById(R.id.back);
+
+           //creat toast
+           Toast toast = new Toast(this);
+           toast.setDuration(Toast.LENGTH_LONG);
+           toast.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 230);
+
+
+           if (result == false) {
+               text.setText("Account Added Unsuccessfully");
+               background.setCardBackgroundColor(getResources().getColor(R.color.red));
+               text.setTextColor(getResources().getColor(R.color.white));
+               toast.setView(layout);
+               toast.show();
+
+           } else {
+               background.setCardBackgroundColor(getResources().getColor(R.color.green));
+               text.setTextColor(getResources().getColor(R.color.white));
+               text.setText("Account Added Successfully");
+               toast.setView(layout);
+               this.finish();
+               toast.show();
+
+           }
+       }
 
     }
 }
