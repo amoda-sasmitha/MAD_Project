@@ -12,8 +12,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import Database.DBhelper;
+
 public class Add_Saving extends AppCompatActivity {
 
+    DBhelper sDb;
     Button save;
     EditText sName, sDiscription, sTarget, sStart;
 
@@ -21,6 +24,8 @@ public class Add_Saving extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add__saving);
+
+        sDb = new DBhelper(this);
 
         sName = (EditText) findViewById(R.id.editText);
         sDiscription = (EditText) findViewById(R.id.edit_description);
