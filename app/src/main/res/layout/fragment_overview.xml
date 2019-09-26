@@ -16,7 +16,63 @@
             android:background="@drawable/shape"
 
              />
+    <TextView
+        android:id="@+id/mainheading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Overview"
+        android:textSize="24dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        />
 
+    <TextView
+        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_below="@+id/mainheading"
+        android:id="@+id/daterange"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="8dp"
+        android:background="@drawable/rounded_edit_text"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:elevation="12dp"
+        android:text="2019 Feb 12 - 2019 Mar 05"
+        android:focusable="false"
+        android:paddingHorizontal="10dp"
+        android:textAlignment="center"
+        android:paddingVertical="6dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/darkGray"
+        android:textSize="14sp"
+        android:textAllCaps="false"
+        android:drawableRight="@drawable/date_icon"
+        android:drawableTint="@color/darkGray"
+        android:textStyle="bold" />
+
+
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/daterange"
+        android:fillViewport="true"
+        >
+
+
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_below="@+id/cardViewAccount3"
+
+            >
     <RelativeLayout
         android:id="@+id/cardViewAccount3"
         android:layout_width="match_parent"
@@ -29,32 +85,12 @@
         android:elevation="6dp"
         android:paddingBottom="14dp">
 
-        <TextView
-            android:id="@+id/dateNum"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="3dp"
-            android:elevation="5dp"
-            android:text="@string/overview"
-            android:textSize="20sp"
-            android:textStyle="bold" />
 
-        <View
-            android:id="@+id/date_hr"
-            android:layout_width="wrap_content"
-            android:layout_height="2dp"
-            android:layout_below="@id/dateNum"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
-            android:background="@color/gray" />
 
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/date_hr"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:elevation="5dp"
@@ -102,56 +138,47 @@
 
 
     </RelativeLayout>
-    <TextView
-        android:id="@+id/mainheading"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="Overview"
-        android:textSize="24dp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        />
 
-    <TextView
-        android:layout_below="@+id/mainheading"
-        android:id="@+id/daterange"
-        android:layout_width="match_parent"
-        android:layout_marginHorizontal="8dp"
-        android:background="@drawable/rounded_edit_text"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="12dp"
-        android:elevation="12dp"
-        android:text="2019 Feb 12 - 2019 Mar 05"
-        android:focusable="false"
-        android:paddingHorizontal="10dp"
-        android:textAlignment="center"
-        android:paddingVertical="6dp"
-        android:layout_marginBottom="10dp"
-        android:textColor="@color/darkGray"
-        android:textSize="14sp"
-        android:textAllCaps="false"
-        android:drawableRight="@drawable/date_icon"
-        android:drawableTint="@color/darkGray"
-        android:textStyle="bold" />
-
-
-
-
-
-
-    <LinearLayout
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@+id/cardViewAccount3"
-
-        >
         <RelativeLayout
             android:id="@+id/cardViewAccount4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/daterange"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/card"
+            android:elevation="6dp"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:id="@+id/dateNum1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="4dp"
+                android:elevation="5dp"
+                android:text="Expense Categories"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+           <com.github.mikephil.charting.charts.PieChart
+               android:id="@+id/piechartExpense"
+               android:layout_below="@+id/dateNum1"
+               android:layout_width="match_parent"
+               android:layout_height="290dp"
+               />
+            <ListView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/piechartLegend1"
+                android:layout_below="@id/piechartExpense"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/cardViewAccount5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/daterange"
@@ -163,29 +190,35 @@
             android:paddingBottom="14dp">
 
             <TextView
-                android:id="@+id/dateNum1"
+                android:id="@+id/dateNum2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="4dp"
                 android:elevation="5dp"
-                android:text="Category Description"
+                android:text="Income Categories"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-           <com.github.mikephil.charting.charts.PieChart
-               android:id="@+id/piechartExpense"
-               android:layout_below="@+id/dateNum1"
-               android:layout_width="match_parent"
-               android:layout_height="400dp"
-               ></com.github.mikephil.charting.charts.PieChart>
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/piechartIncome"
+                android:layout_below="@+id/dateNum2"
+                android:layout_width="match_parent"
+                android:layout_height="290dp"
+                ></com.github.mikephil.charting.charts.PieChart>
 
-
+            <ListView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/piechartLegend2"
+                android:layout_below="@id/piechartIncome"
+                />
 
         </RelativeLayout>
 
     </LinearLayout>
-
+</ScrollView>
 
 
 </RelativeLayout>

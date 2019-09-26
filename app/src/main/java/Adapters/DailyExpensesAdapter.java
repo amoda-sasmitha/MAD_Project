@@ -65,7 +65,7 @@ public class DailyExpensesAdapter extends RecyclerView.Adapter<RecyclerView.View
             ((DailyExpensesViewHolder) holder).day.setText(dayf.format(date));
             ((DailyExpensesViewHolder) holder).date.setText(datef.format(date));
 
-            TransactionAdapter adapter = new TransactionAdapter(d.getTransactions(), context);
+            TransactionAdapter adapter = new TransactionAdapter(d.getTransactions(), context  );
             ((DailyExpensesViewHolder) holder).rv.setHasFixedSize(true);
             ((DailyExpensesViewHolder) holder).rv.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
 
