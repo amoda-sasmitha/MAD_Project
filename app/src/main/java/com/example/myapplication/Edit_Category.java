@@ -58,6 +58,13 @@ public class Edit_Category extends AppCompatActivity {
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if (categoryName.length() == 0) {
+                    categoryName.setError("Enter Category");
+                } else   if(categoryDescription.length() == 0){
+                    categoryDescription.setError("Enter Description");
+                }
+                else{
                 CategoryModel newCategory = new CategoryModel();
                 newCategory.setID(category.getID());
                 newCategory.setName(categoryName.getText().toString().trim());
@@ -96,6 +103,7 @@ public class Edit_Category extends AppCompatActivity {
                 finish();
             }
 
+            }
             }
         });
 
