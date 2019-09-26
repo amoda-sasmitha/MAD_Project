@@ -432,8 +432,9 @@ public class DBhelper extends SQLiteOpenHelper {
 
     //----------------------------------------------Padula Guruge ------------------------------------------------------
 
+    //add account
     public boolean addAccount(AccountModel accountModel){
-        SQLiteDatabase db = getWritableDatabase();
+        SQLiteDatabase db = getWritableDatabase();   //get writable db
         ContentValues contentValues = new ContentValues();
 
         contentValues.put( DBConfig.Accounts.COLUMN_NAME_ANAME, accountModel.getAccountName());
@@ -451,9 +452,10 @@ public class DBhelper extends SQLiteOpenHelper {
             return false;
         }
     }
+    //edit account
 
     public boolean updateAccount(AccountModel accountModel){
-        SQLiteDatabase db = getReadableDatabase();
+        SQLiteDatabase db = getReadableDatabase();  //get readable db for update
         ContentValues contentValues = new ContentValues();
 
         contentValues.put( DBConfig.Accounts.COLUMN_NAME_ANAME, accountModel.getAccountName());
@@ -475,6 +477,7 @@ public class DBhelper extends SQLiteOpenHelper {
     }
 
 
+    //view all
 
     public ArrayList<AccountModel> readAllAccounts(){
         SQLiteDatabase db = getReadableDatabase();

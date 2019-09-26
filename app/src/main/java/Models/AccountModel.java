@@ -13,7 +13,7 @@ public class AccountModel implements Serializable {
     private String accountNumber;
     private String accountDescription;
     private double balance;
-
+ //constructors
     public AccountModel() {
 
     }
@@ -51,6 +51,7 @@ public class AccountModel implements Serializable {
         this.accountNumber = accountNumber;
 
     }
+    //getters and setters
     public int getId() {
         return id;
     }

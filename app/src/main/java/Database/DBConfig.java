@@ -3,7 +3,7 @@ package Database;
 import android.provider.BaseColumns;
 
 public final class DBConfig {
-
+//tables
     protected static class Transactions implements BaseColumns {
         protected static final String TABLE_NAME = "transactions";
         protected static final String COLUMN_NAME_ID = "TID";
