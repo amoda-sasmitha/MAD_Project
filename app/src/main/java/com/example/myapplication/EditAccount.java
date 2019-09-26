@@ -40,7 +40,6 @@ public class EditAccount extends AppCompatActivity {
         name = findViewById(R.id.txt_account_name);
         amount = findViewById(R.id.txt_add_acc_amount);
         description = findViewById( R.id.txt_add_acc_edit_des );
-
         accNumber.setText( account.getAccountNumber() );
         name.setText( account.getAccountName() );
         amount.setText( account.getAmount()+"0");

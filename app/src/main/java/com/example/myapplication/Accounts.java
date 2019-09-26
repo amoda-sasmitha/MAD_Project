@@ -46,7 +46,7 @@ public class Accounts extends Fragment  {
         ARV.setLayoutManager( new LinearLayoutManager( getContext() , LinearLayoutManager.VERTICAL , false));
         db = new DBhelper( getContext() );
 
-        ArrayList<AccountModel> data = db.readAllAccountsWithBalance();
+        ArrayList<AccountModel> data = db.readAllAccountsWithBalance();  //get all acounts details in open page from using array list
         AccountAdapter adapter = new AccountAdapter( getActivity().getApplicationContext() , data );
         ARV.setAdapter( adapter);
 
@@ -64,7 +64,7 @@ public class Accounts extends Fragment  {
     }
 
     @Override
-    public void onStart() {
+    public void onStart() { //get all acounts details in open page from using array list
         super.onStart();  //in onstart get all account details from db
         ArrayList<AccountModel> data = db.readAllAccountsWithBalance();
         AccountAdapter adapter = new AccountAdapter( getActivity().getApplicationContext() , data );

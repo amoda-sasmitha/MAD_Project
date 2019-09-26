@@ -70,8 +70,21 @@ public class AddExpense extends Fragment {
         save_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String amounttemp =   amount.getText().toString().trim();
-                double amountx  = (amounttemp.length() > 0 ) ? Double.valueOf(amounttemp) : 0;
+
+
+                if (Description.length() == 0) {
+                    Description.setError("Enter Description");
+                } else   if(category_select.length() == 0){
+                    category_select.setError("Select Category");
+                }
+                else   if(amount.length() == 0){
+                    amount.setError("Enter Amount");
+                }
+                else{
+
+
+                    String amounttemp =   amount.getText().toString().trim();
+                    double amountx  = (amounttemp.length() > 0 ) ? Double.valueOf(amounttemp) : 0;
 
                 Transaction current = new Transaction();
                 current.setAmount(amountx );
@@ -108,6 +121,7 @@ public class AddExpense extends Fragment {
                     toast.show();
 
                 }
+              }
             }
         });
 

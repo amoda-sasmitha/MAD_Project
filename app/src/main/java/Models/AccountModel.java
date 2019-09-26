@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.io.Serializable;
 
 public class AccountModel implements Serializable {
+    //to send data
     private int id;
     private String accountName;
     private  String accountType;

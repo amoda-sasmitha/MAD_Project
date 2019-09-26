@@ -89,48 +89,53 @@ public class AddEditCategory extends AppCompatActivity {
     public void addCategory(View view) {
 
         int selectedId = radioGroup.getCheckedRadioButtonId();
-        SelectedBtn = findViewById( selectedId );
+        SelectedBtn = findViewById(selectedId);
 
         CategoryModel category = new CategoryModel();
-        category.setName( name.getText().toString().trim() );
-        category.setDescription( description.getText().toString().trim() );
-        category.setIcon( (String) icon.getTag() );
-        category.setType( SelectedBtn.getText().toString().trim() );
+        category.setName(name.getText().toString().trim());
+        category.setDescription(description.getText().toString().trim());
+        category.setIcon((String) icon.getTag());
+        category.setType(SelectedBtn.getText().toString().trim());
+        if (name.length() == 0) {
+            name.setError("Enter Category Name");
+        } else if (description.length() == 0) {
+            description.setError("Enter Description");
+        } else {
 
 
-        boolean result = db.insertCategory( category);
+            boolean result = db.insertCategory(category);
 
-        //inflate layout
-        View layout = getLayoutInflater().inflate( R.layout.toast_message , (ViewGroup) view.findViewById(R.id.toastRoot) );
-        TextView text = layout.findViewById(R.id.textMsg);
-        CardView background = layout.findViewById(R.id.back);
+            //inflate layout
+            View layout = getLayoutInflater().inflate(R.layout.toast_message, (ViewGroup) view.findViewById(R.id.toastRoot));
+            TextView text = layout.findViewById(R.id.textMsg);
+            CardView background = layout.findViewById(R.id.back);
 
-        //creat toast
-        Toast toast = new Toast( this );
-        toast.setDuration(Toast.LENGTH_LONG);
-        toast.setGravity(Gravity.BOTTOM|Gravity.CENTER , 0 , 230 );
-
-
-        if( result == false ){
-            text.setText("Category Added Unsuccessfully");
-            background.setCardBackgroundColor( getResources().getColor(R.color.red));
-            text.setTextColor( getResources().getColor( R.color.white ));
-            toast.setView(layout);
-            toast.show();
+            //creat toast
+            Toast toast = new Toast(this);
+            toast.setDuration(Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 230);
 
 
-        }else{
-            background.setCardBackgroundColor( getResources().getColor(R.color.green));
-            text.setTextColor( getResources().getColor( R.color.white ));
-            text.setText("Category Added Successfully");
-            toast.setView(layout);
-            this.finish();
-            toast.show();
+            if (result == false) {
+                text.setText("Category Added Unsuccessfully");
+                background.setCardBackgroundColor(getResources().getColor(R.color.red));
+                text.setTextColor(getResources().getColor(R.color.white));
+                toast.setView(layout);
+                toast.show();
+
+
+            } else {
+                background.setCardBackgroundColor(getResources().getColor(R.color.green));
+                text.setTextColor(getResources().getColor(R.color.white));
+                text.setText("Category Added Successfully");
+                toast.setView(layout);
+                this.finish();
+                toast.show();
+
+            }
+
 
         }
-
-
-
     }
 
 }
