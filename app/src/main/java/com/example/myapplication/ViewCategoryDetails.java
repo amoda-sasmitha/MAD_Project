@@ -2,6 +2,8 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -17,8 +19,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
+import Adapters.DailyExpensesAdapter;
+import Adapters.TransactionAdapter;
 import Database.DBhelper;
 import Models.CategoryModel;
+import Models.Transaction;
 
 public class ViewCategoryDetails extends AppCompatActivity {
 
@@ -26,6 +33,7 @@ public class ViewCategoryDetails extends AppCompatActivity {
     private TextView categoryName , description, category_type , category_t;
     private ImageView icon;
     private String ID;
+    private RecyclerView latestTransactions;
     private CategoryModel category;
     private DBhelper db;
 
@@ -43,8 +51,9 @@ public class ViewCategoryDetails extends AppCompatActivity {
         category_type = findViewById(R.id.categoryType);
         icon = findViewById(R.id.categoryDetailIcon1);
         category_t = findViewById( R.id.main_sub_type_view);
+        latestTransactions = findViewById(R.id.latestT);
 
-         category = db.readSingleCategory( ID);
+        category = db.readSingleCategory( ID);
 
         categoryName.setText( category.getName() );
         category_type.setText(category.getType());
@@ -130,6 +139,13 @@ public class ViewCategoryDetails extends AppCompatActivity {
                 });
             }
         });
+
+        ArrayList<Transaction> latest = db.latestTransactions(ID);
+        TransactionAdapter Tadapter = new TransactionAdapter( latest , this , true);
+        latestTransactions.setHasFixedSize(true);
+        latestTransactions.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false) );
+        latestTransactions.setAdapter(Tadapter);
+        latestTransactions.setNestedScrollingEnabled(false);
 
 
     }

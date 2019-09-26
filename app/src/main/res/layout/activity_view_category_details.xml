@@ -67,7 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="15dp"
             android:layout_marginRight="12dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/card"
@@ -192,6 +192,48 @@
                     android:src="@drawable/delete_btn" />
 
             </RelativeLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/cardViewAccount2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/daterange"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/card"
+            android:elevation="6dp"
+            android:paddingBottom="14dp">
+
+            <TextView
+                android:id="@+id/dateNum1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="4dp"
+                android:elevation="5dp"
+                android:text="Latest Transactions"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/line2"
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_below="@id/dateNum1"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/gray"></View>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/latestT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/line2"/>
+
+
+
         </RelativeLayout>
     </LinearLayout>
     </ScrollView>

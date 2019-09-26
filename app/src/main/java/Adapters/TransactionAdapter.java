@@ -25,12 +25,18 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
 
     private ArrayList<Transaction> arrayList;
     private Context context;
+    private boolean fromCategory;
 
-
+    public TransactionAdapter(ArrayList<Transaction> arrayList, Context context, boolean fromCategory) {
+        this.arrayList = arrayList;
+        this.context = context;
+        this.fromCategory = fromCategory;
+    }
 
     public TransactionAdapter(ArrayList<Transaction> arrayList , Context context  ) {
         this.context = context;
         this.arrayList = arrayList;
+        this.fromCategory = false;
 
     }
 
@@ -45,7 +51,13 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
     public void onBindViewHolder(@NonNull TransactionViewHolder holder, final int position) {
         Transaction t = arrayList.get(position);
         int resID =    context.getResources().getIdentifier( t.getCategoryModel().getIcon() , "drawable", context.getPackageName());
+
+        if( fromCategory ){
+            holder.category.setText( t.getDate() );
+        }else{
         holder.category.setText( t.getCategoryModel().getName() );
+        }
+
         holder.description.setText( t.getDescription() );
         holder.amount.setText( "Rs. "+ String.format("%.2f", t.getAmount() )  );
         if( t.getCategoryModel().getType().equals("Income")) {

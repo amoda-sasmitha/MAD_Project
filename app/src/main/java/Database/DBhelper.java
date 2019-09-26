@@ -201,6 +201,51 @@ public class DBhelper extends SQLiteOpenHelper {
 
     }
 
+    public ArrayList<Transaction>  latestTransactions( String CID ){
+        SQLiteDatabase db = getReadableDatabase();
+
+        String sql = "SELECT * FROM " + DBConfig.Transactions.TABLE_NAME + " , " + DBConfig.Categories.TABLE_NAME +
+                " WHERE " + DBConfig.Transactions.TABLE_NAME + ".CID = " + DBConfig.Categories.TABLE_NAME + ".CID AND "+
+                DBConfig.Categories.TABLE_NAME + ".CID = " + CID + " ORDER BY "+ DBConfig.Transactions.TABLE_NAME
+                +"."+DBConfig.Transactions.Column_NAME_DATE +" DESC LIMIT 10";
+
+        Cursor values = db.rawQuery( sql , null );
+
+        ArrayList<Transaction> arrayList = new ArrayList<>();
+
+        while (values.moveToNext()){
+            try {
+            Transaction transaction = new Transaction();
+            CategoryModel category = new CategoryModel();
+
+            transaction.setId( values.getInt( values.getColumnIndexOrThrow( DBConfig.Transactions.COLUMN_NAME_ID ) ) );
+            transaction.setAmount( values.getDouble( values.getColumnIndexOrThrow( DBConfig.Transactions.Column_NAME_AMOUNT )));
+            transaction.setDescription( values.getString( values.getColumnIndexOrThrow( DBConfig.Transactions.Column_NAME_DESCRIPTION )));
+            transaction.setAccountId( values.getInt( values.getColumnIndexOrThrow( DBConfig.Transactions.Column_NAME_ACCOUNT_ID )));
+
+            Date datex = null;
+            String date = values.getString( values.getColumnIndexOrThrow( DBConfig.Transactions.Column_NAME_DATE ));
+            SimpleDateFormat formatter =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+                datex = formatter.parse(date);
+
+
+            transaction.setDate( new SimpleDateFormat("dd-MM-yyyy").format(datex ));
+            category.setID( values.getInt( values.getColumnIndexOrThrow( DBConfig.Categories.COLUMN_NAME_ID )));
+            category.setName( values.getString( values.getColumnIndexOrThrow( DBConfig.Categories.COLUMN_NAME_CNAME )));
+            category.setType( values.getString( values.getColumnIndexOrThrow( DBConfig.Categories.COLUMN_NAME_TYPE )));
+            category.setIcon( values.getString( values.getColumnIndexOrThrow( DBConfig.Categories.COLUMN_NAME_ICON )));
+
+            transaction.setCategoryModel(category);
+            arrayList.add(transaction);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return arrayList;
+    }
+
 
 
     //-----------------------------------------------Amoda Sasmitha-------------------------------------------------------
@@ -319,7 +364,6 @@ public class DBhelper extends SQLiteOpenHelper {
 
         return arrayList;
     }
-
 
 
     public boolean updateTransaction(Transaction transaction ){
