@@ -5,6 +5,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -19,7 +20,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import Adapters.TransactionAdapter;
 import Database.DBhelper;
@@ -31,11 +34,14 @@ public class view_account_indetails extends AppCompatActivity {
 
     private ImageView editBtn;
     private ImageButton delete_btn;
-    private TextView amount, type, name , accNumber , description ;
+    private TextView amount, type, name , accNumber , description,date ;
     private ImageView icon;
     private RecyclerView LatestT;
     int AccountID;
     DBhelper db;
+
+
+    @SuppressLint("WrongConstant")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,8 +59,10 @@ public class view_account_indetails extends AppCompatActivity {
         description = findViewById(R.id.account2);
         name = findViewById(R.id.accountName);
         LatestT = findViewById(R.id.latestT);
-        
+        date = findViewById(R.id.category_date1);
+
         db = new DBhelper(this);
+        date.setText(new SimpleDateFormat("dd MMMM yyyy").format(new Date()));
 
         name.setText( account.getAccountName() );
         description.setText( account.getAccountDescription() );
@@ -97,7 +105,7 @@ public class view_account_indetails extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
  //detele btn call
-                        db.deleteAllTransactionInAccount( AccountID );
+                        db.deleteAllTransactionInAccount( AccountID ); //delete all transactions which are in want to delete  account
                         boolean lastResult = db.deleteAccount(AccountID);
 
                         View layout = getLayoutInflater().inflate( R.layout.toast_message , (ViewGroup) view.findViewById(R.id.toastRoot) );

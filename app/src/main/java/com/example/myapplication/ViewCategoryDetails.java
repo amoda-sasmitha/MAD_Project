@@ -5,6 +5,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -19,24 +20,28 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import Adapters.DailyExpensesAdapter;
 import Adapters.TransactionAdapter;
 import Database.DBhelper;
 import Models.CategoryModel;
 import Models.Transaction;
+import Util.Util;
 
 public class ViewCategoryDetails extends AppCompatActivity {
 
     private ImageButton edit_categorybtn, delete_btn;
-    private TextView categoryName , description, category_type , category_t;
+    private TextView categoryName , description, category_type , category_t, date, totamount;
     private ImageView icon;
     private String ID;
     private RecyclerView latestTransactions;
     private CategoryModel category;
     private DBhelper db;
 
+    @SuppressLint("WrongConstant")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,9 +57,9 @@ public class ViewCategoryDetails extends AppCompatActivity {
         icon = findViewById(R.id.categoryDetailIcon1);
         category_t = findViewById( R.id.main_sub_type_view);
         latestTransactions = findViewById(R.id.latestT);
-
+        date = findViewById(R.id.category_date1);
         category = db.readSingleCategory( ID);
-
+        totamount = findViewById(R.id.textView12);
         categoryName.setText( category.getName() );
         category_type.setText(category.getType());
         description.setText( category.getDescription() );
@@ -67,8 +72,8 @@ public class ViewCategoryDetails extends AppCompatActivity {
             category_t.setText("Main Category");
         }
 
-
-
+        date.setText(new SimpleDateFormat("dd MMMM yyyy").format(new Date()));
+        totamount.setText( "Rs. "+ String.format("%.2f", Util.getTotalBalance(ViewCategoryDetails.this ))  );
         delete_btn = findViewById(R.id.delete_btn);
         edit_categorybtn = (ImageButton) findViewById(R.id.edit_btn);
 

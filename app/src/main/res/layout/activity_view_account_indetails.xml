@@ -56,26 +56,12 @@
         >
 
         <TextView
-            android:id="@+id/adddate5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txtlasttransdate"
-            android:layout_marginBottom="15dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="16dp"
-
-            android:layout_marginTop="10dp"
-            android:text="@string/view_account_details_history"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-
-        <TextView
             android:id="@+id/accountName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:text="Account Details"
+            android:text="@string/account_details5"
             android:textSize="20sp"
             android:textStyle="bold"
 
@@ -110,7 +96,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="20dp"
             android:layout_toEndOf="@id/category_icon"
-            android:text="Current Amount"
+            android:text="@string/current_amount5"
             android:textSize="14sp"
 
             />
@@ -152,37 +138,10 @@
             android:layout_marginTop="2dp"
             android:layout_toEndOf="@id/category_icon"
             android:text="@string/bank_account"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:textStyle="bold"
 
             />
-
-        <TextView
-            android:id="@+id/txtlasttransdate"
-            android:layout_width="95dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/lasttranactionDate"
-
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="2dp"
-            android:text="2019/02/10"
-            android:textSize="12sp"
-            android:textStyle="" />
-
-        <TextView
-            android:id="@+id/ltransamount"
-            android:layout_width="81dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/adddate3"
-
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="85dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="0dp"
-            android:layout_toEndOf="@+id/txtlasttransdate"
-            android:text="Rs.2500.00"
-            android:textSize="12sp"
-            android:textStyle="" />
 
         <TextView
             android:id="@+id/account_text"
@@ -205,37 +164,10 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="15dp"
             android:layout_toEndOf="@id/category_icon"
-            android:text="Description"
+            android:text="@string/description5"
             android:textSize="14sp"
 
             />
-
-        <TextView
-            android:id="@+id/lasttranactionDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/line2"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
-
-
-            android:text="@string/lasttrans"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/adddate3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/line2"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="9dp"
-            android:layout_toEndOf="@+id/lasttranactionDate"
-            android:text="Amount"
-            android:textSize="14sp"
-            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/account"
@@ -246,7 +178,7 @@
             android:layout_marginTop="2dp"
             android:layout_toEndOf="@id/category_icon"
             android:text="@string/account_indetail__32551844"
-            android:textSize="16dp"
+            android:textSize="16sp"
 
             android:textStyle="bold" />
 
@@ -259,7 +191,7 @@
             android:layout_marginTop="2dp"
             android:layout_toEndOf="@id/category_icon"
             android:text="@string/account_indetail__32551844"
-            android:textSize="16dp"
+            android:textSize="16sp"
 
             android:textStyle="bold" />
 
@@ -282,7 +214,7 @@
             android:layout_below="@id/line1"
             android:layout_marginStart="25dp"
             android:layout_marginTop="28dp"
-            android:layout_toRightOf="@+id/category_name"
+            android:layout_toEndOf="@+id/category_name"
             android:background="@drawable/circle"
             android:backgroundTint="@color/blue"
             android:contentDescription="@string/account_indetail_todo"
@@ -296,54 +228,54 @@
             android:layout_below="@id/line1"
             android:layout_marginStart="6dp"
             android:layout_marginTop="28dp"
-            android:layout_toRightOf="@id/edit_btn02"
+            android:layout_toEndOf="@id/edit_btn02"
             android:background="@drawable/circle"
             android:contentDescription="@string/account_indetail_todo"
             android:src="@drawable/delete_btn" />
 
     </RelativeLayout>
-    <RelativeLayout
-        android:id="@+id/cardViewAccount2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/card"
-        android:elevation="6dp"
-        android:paddingBottom="14dp">
 
-        <TextView
-            android:id="@+id/dateNum1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="4dp"
-            android:elevation="5dp"
-            android:text="Latest Transactions"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            <RelativeLayout
+                android:id="@+id/cardViewAccount2"
+                android:layout_width="wrap_content"
+                android:layout_height="316dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/card"
+                android:elevation="6dp"
+                android:paddingBottom="14dp">
 
-        <View
-            android:id="@+id/line3"
-            android:layout_width="wrap_content"
-            android:layout_height="2dp"
-            android:layout_below="@id/dateNum1"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
-            android:background="@color/gray"></View>
+                <TextView
+                    android:id="@+id/dateNum1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="4dp"
+                    android:elevation="5dp"
+                    android:text="@string/latest_transactions"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/latestT"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/line3"/>
+                <View
+                    android:id="@+id/line3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="2dp"
+                    android:layout_below="@id/dateNum1"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@color/gray"></View>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/latestT"
+                    android:layout_width="match_parent"
+                    android:layout_height="187dp"
+                    android:layout_below="@+id/line3" />
 
 
-
-    </RelativeLayout>
+            </RelativeLayout>
 
 </LinearLayout>
     </ScrollView>

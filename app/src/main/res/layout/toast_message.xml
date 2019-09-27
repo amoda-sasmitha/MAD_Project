@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:textAlignment="center"
             android:layout_height="wrap_content"
-            android:text=" asd"
+            android:text="@string/asd8534"
             android:textSize="14sp"
             android:layout_marginVertical="8dp"
             android:layout_marginHorizontal="16dp"

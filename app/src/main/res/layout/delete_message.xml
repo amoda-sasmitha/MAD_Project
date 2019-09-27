@@ -25,14 +25,13 @@
             android:src="@drawable/ic_close_black_24dp"
             android:background="@android:color/transparent"
             android:layout_alignParentEnd="true"
-            />
+            android:contentDescription="@string/todo9" />
         <TextView
             android:layout_below="@+id/close_btn"
             android:id="@+id/deleteText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Are you sure you want to delete this
-            expense?"
+            android:text="@string/are_you_sure_you_want_to_delete_this_expense5"
             android:layout_centerHorizontal="true"
             android:textSize="14sp"
             android:textColor="@color/red"
@@ -48,13 +47,13 @@
             android:layout_marginTop="12dp"
             android:src="@drawable/error_icon"
             android:layout_centerHorizontal="true"
-            />
+            android:contentDescription="@string/todo22" />
         <Button
             android:id="@+id/accept_btn"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_below="@+id/delete_icon"
-            android:text="Yes I'm Sure !"
+            android:text="@string/yes_i_m_sure55"
             android:textAllCaps="false"
             android:background="@drawable/card"
             android:backgroundTint="@color/red"

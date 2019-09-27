@@ -53,7 +53,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="54dp"
             android:text="@string/amount_update_account"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <EditText
@@ -102,7 +102,8 @@
             android:enabled="false"
             android:inputType="textPersonName"
             android:text="@string/update__2345654"
-            android:textSize="17dp" />
+            android:textSize="17sp"
+            android:autofillHints="" />
 
         <TextView
             android:id="@+id/lbl_amount"
@@ -113,7 +114,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="45dp"
             android:text="@string/txt_edit_account_des"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <Button
@@ -131,7 +132,7 @@
             android:backgroundTint="@color/green"
             android:text="@string/btn_update_details"
             android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="bold"
             tools:targetApi="o" />
 
@@ -146,7 +147,7 @@
             android:layout_marginTop="36dp"
             android:layout_marginBottom="11dp"
             android:text="@string/update_account_no"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
@@ -158,7 +159,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="46dp"
             android:text="@string/update_account_type"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
@@ -198,7 +199,8 @@
             android:layout_toEndOf="@+id/lable_acount_type"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@string/update_hnb_bank" />
+            android:text="@string/update_hnb_bank"
+            android:autofillHints="" />
 
         <Spinner
             android:id="@+id/editText3"

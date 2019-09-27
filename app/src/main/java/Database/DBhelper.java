@@ -480,7 +480,7 @@ public class DBhelper extends SQLiteOpenHelper {
     }
 
 
-    //view all
+    //view all accounts
 
     public ArrayList<AccountModel> readAllAccounts(){
         SQLiteDatabase db = getReadableDatabase();
@@ -507,7 +507,7 @@ public class DBhelper extends SQLiteOpenHelper {
 
         return arrayList;
     }
-
+// view all account with balance
     public ArrayList<AccountModel> readAllAccountsWithBalance(){
         SQLiteDatabase db = getReadableDatabase();
 
@@ -540,7 +540,7 @@ public class DBhelper extends SQLiteOpenHelper {
 
         return arrayList;
     }
-
+//delete account
     public boolean deleteAccount( int id ){
         SQLiteDatabase db = getReadableDatabase();
         String selection = DBConfig.Accounts.COLUMN_NAME_ID + " = ?";

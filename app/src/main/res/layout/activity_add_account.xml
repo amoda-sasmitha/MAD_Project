@@ -39,7 +39,8 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="34dp"
             android:background="@drawable/card"
-            android:src="@drawable/card" />
+            android:src="@drawable/card"
+            android:contentDescription="@string/todooo" />
 
         <EditText
             android:id="@+id/account_des"
@@ -102,7 +103,7 @@
             android:text="@string/add_btn_account"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
@@ -114,7 +115,7 @@
             android:layout_marginStart="27dp"
             android:layout_marginTop="50dp"
             android:text="@string/add_account_description"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
@@ -126,7 +127,7 @@
             android:layout_marginStart="27dp"
             android:layout_marginTop="50dp"
             android:text="@string/accont_number"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
@@ -138,7 +139,7 @@
             android:layout_marginStart="27dp"
             android:layout_marginTop="233dp"
             android:text="@string/text_account_type"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
@@ -162,7 +163,7 @@
             android:layout_marginStart="27dp"
             android:layout_marginTop="163dp"
             android:text="@string/text_account_name"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <EditText
@@ -180,7 +181,7 @@
             android:importantForAutofill="no"
             android:inputType="textPersonName"
             android:text="@string/empty"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:textStyle="normal"
             tools:targetApi="o" />
 
@@ -209,7 +210,8 @@
             android:hint="@string/add_account_hint_amount"
             android:inputType="textPersonName"
             android:textSize="16sp"
-            android:textStyle="normal" />
+            android:textStyle="normal"
+            android:autofillHints="" />
 
     </RelativeLayout>
 </RelativeLayout>

@@ -51,9 +51,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="55dp"
         android:layout_marginBottom="10dp"
-        android:text="Savings"
+        android:text="@string/savings754"
         android:textColor="#ffffff"
-        android:textSize="26dp"
+        android:textSize="26sp"
         android:textStyle="bold"
         />
 
@@ -63,8 +63,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="16dp"
-        android:text="28 June 2019"
+        android:layout_marginEnd="16dp"
+        android:text="@string/_28_june_201952"
         android:textColor="#ffffff"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -99,8 +99,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
-            android:text="Current Savings"
-            android:textSize="18dp"
+            android:text="@string/current_savings34"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <View
@@ -139,8 +139,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
-            android:text="Finished Savings"
-            android:textSize="18dp"
+            android:text="@string/finished_savings34"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <View
@@ -168,7 +168,7 @@
                     android:id="@+id/saving_text03"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Saving for DSLR Camera"
+                    android:text="@string/saving_for_dslr_camera434"
                     android:textSize="14sp"
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="14dp"
@@ -178,7 +178,7 @@
                     android:id="@+id/saving_text04"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rs 68000.00"
+                    android:text="@string/rs_68000_00345"
                     android:textSize="14sp"
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="10dp"
@@ -210,7 +210,7 @@
                     android:layout_below="@id/progressBar03"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Finished Date : 01/06/2019"
+                    android:text="@string/finished_date_fnisha"
                     android:textSize="10sp"
                     android:textStyle="bold"
                     android:layout_marginTop="2dp"

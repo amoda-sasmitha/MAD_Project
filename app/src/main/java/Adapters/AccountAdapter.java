@@ -29,6 +29,7 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.AccountA
 
     Context context;
     ArrayList<AccountModel> arrayList;
+    ArrayList<AccountModel> arrayListSearch;
 
     public AccountAdapter(Context context, ArrayList<AccountModel> arrayList) {
         this.context = context;
@@ -38,7 +39,7 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.AccountA
     @NonNull
     @Override
     public AccountAdapter.AccountAdapterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = (View) LayoutInflater.from(parent.getContext() ).inflate( R.layout.account_row , parent , false);
+        View view = (View) LayoutInflater.from(parent.getContext() ).inflate( R.layout.account_row , parent , false);//get predefine design in recycle view
         return new AccountAdapterViewHolder(view);
     }
 

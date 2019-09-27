@@ -44,7 +44,7 @@
             android:layout_marginStart="12dp"
             android:background="@mipmap/ic_launcher_foreground"
 
-            />
+            android:contentDescription="@string/todoss" />
 
         <TextView
             android:id="@+id/AccountType"
@@ -53,8 +53,8 @@
             android:layout_alignParentStart="true"
             android:layout_marginStart="80dp"
             android:layout_marginTop="55dp"
-            android:text="Bank Account"
-            android:textSize="12dp"
+            android:text="@string/bank_account"
+            android:textSize="12sp"
             android:textStyle="bold"
             />
         <TextView
@@ -66,7 +66,7 @@
             android:layout_marginStart="80dp"
             android:layout_marginTop="72dp"
             android:text="@string/account_all_rs3400_00"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:layout_marginBottom="10dp"
             android:textStyle="bold"
             />

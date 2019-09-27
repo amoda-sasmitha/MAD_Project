@@ -43,6 +43,8 @@ public class AddAccount extends AppCompatActivity {
         accountDescription = (EditText) findViewById(R.id.account_des);
         accountIniAmount.setInputType(InputType.TYPE_CLASS_NUMBER);
 
+        accountName.hasFocus();
+
     db = new DBhelper(this);
 
 

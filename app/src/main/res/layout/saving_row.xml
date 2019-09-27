@@ -18,10 +18,10 @@
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Saving for Desk Setup"
+            android:text="@string/saving_for_desk_setup8534"
             android:textSize="14sp"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="14dp"
+            android:layout_marginStart="14dp"
             android:textStyle="bold"
 
             />
@@ -51,11 +51,11 @@
             android:layout_below="@id/progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rs 34000.00"
+            android:text="@string/rs_34000_008534"
             android:textSize="10sp"
             android:textStyle="bold"
             android:layout_marginTop="2dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             />
 
         <TextView
@@ -64,11 +64,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:text="Rs 45000.00"
+            android:text="@string/rs_45000_008534"
             android:textSize="10sp"
             android:textStyle="bold"
             android:layout_marginTop="2dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
             />
 
     </RelativeLayout>

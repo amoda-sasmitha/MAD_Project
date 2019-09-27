@@ -8,7 +8,7 @@
     <string name="title_categories">Categories</string>
     <string name="title_expenses">Expenses</string>
     <string name="title_savings">Savings</string>
-    <string name="bank_account">Bank Account</string>
+    <!--<string name="bank_account">Bank Account</string>-->
     <string name="expense">Expense</string>
 
     <!-- Author: Vishvi Wathasha  -->
@@ -231,6 +231,52 @@
     <string name="zero">0.00</string>
     <string name="add_start_amount">Add Start Amount</string>
     <string name="save">Save</string>
+    <string name="bank_account">Bank Account</string>
+    <string name="todoss">TODO</string>
+    <string name="todooo">TODO</string>
+    <string name="edit_savings">Edit Saving</string>
+    <string name="_0_000">0.00</string>
+    <string name="write_a_brief_description_about_savings">write a brief description about saving</string>
+    <string name="saving_names">Saving name</string>
+    <string name="_2019_02_100">2019/02/10</string>
+    <string name="account_details5">Account Details</string>
+    <string name="current_amount5">Current Amount</string>
+    <string name="rs_2500_005">Rs.2500.00</string>
+    <string name="description5">Description</string>
+    <string name="latest_transactions">Latest Transactions</string>
+    <!--<string name="latest_transactions">Latest Transactions</string>-->
+    <string name="hello_world">Hello World</string>
+    <string name="ok9">OK</string>
+    <string name="cancel9">cancel</string>
+    <string name="are_you_sure_you_want_to_delete_this_expense5">Are you sure you want to delete this expense?</string>
+    <string name="yes_i_m_sure55">Yes I\'m Sure !</string>
+    <string name="todo9">TODO</string>
+    <string name="todo22">TODO</string>
+    <string name="_09_03_201988">09-03-2019</string>
+    <string name="total_amount8">Total Amount</string>
+    <string name="rs_12453_00asd">Rs. 12453.00</string>
+    <string name="todo88">TODO</string>
+    <string name="this_month2">This Month</string>
+    <string name="september_2019ex">September 2019</string>
+    <string name="ttoam">Total Amount</string>
+    <string name="_2019_feb_12_2019_mar_0565">2019 Feb 12 - 2019 Mar 05</string>
+    <string name="expense_categories889">Expense Categories</string>
+    <string name="income_categories98">Income Categories</string>
+    <string name="overview658">Overview</string>
+    <string name="current_savings34">Current Savings</string>
+    <string name="finished_savings34">Finished Savings</string>
+    <string name="saving_for_dslr_camera434">Saving for DSLR Camera</string>
+    <string name="rs_68000_00345">Rs 68000.00</string>
+    <string name="savings754">Savings</string>
+    <string name="_28_june_201952">28 June 2019</string>
+    <string name="finished_date_fnisha">Finished Date : 01/06/2019</string>
+    <string name="todo8566">TODO</string>
+    <string name="food_and_beverages_rs_300_0085">Food and Beverages - Rs.300.00</string>
+    <string name="todo852">TODO</string>
+    <string name="saving_for_desk_setup8534">Saving for Desk Setup</string>
+    <string name="rs_34000_008534">Rs 34000.00</string>
+    <string name="rs_45000_008534">Rs 45000.00</string>
+    <string name="asd8534">asd</string>
 
 
 </resources>

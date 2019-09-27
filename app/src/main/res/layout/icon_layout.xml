@@ -16,7 +16,7 @@
         android:src="@drawable/bus"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        ></ImageView>
+        android:contentDescription="@string/todo8566"></ImageView>
 
     </RelativeLayout>
 </LinearLayout>
