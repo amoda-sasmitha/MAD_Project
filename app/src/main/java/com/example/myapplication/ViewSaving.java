@@ -57,6 +57,7 @@ public class ViewSaving extends Fragment {
         delete_btn = view.findViewById(R.id.delete_btn);
         addTransaction = view.findViewById(R.id.add_btn);
 
+
         addTransaction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -96,6 +97,57 @@ public class ViewSaving extends Fragment {
                 });
             }
         });
+
+        /*delete_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Dialog dialog = new Dialog( ViewSavingDetails.this );
+                dialog.setContentView(R.layout.delete_message);
+                Button accept = dialog.findViewById(R.id.accept_btn);
+                TextView textView = dialog.findViewById(R.id.deleteText);
+                ImageButton close = dialog.findViewById(R.id.close_btn);
+                textView.setText("Are you sure , you want to delete this saving ?");
+                dialog.show();
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+                close.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+
+                accept.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        db.deleteAllTransactionInSaving( ID );
+                        boolean lastResult = db.deleteCategory(ID);
+
+                        View layout = getLayoutInflater().inflate( R.layout.toast_message , (ViewGroup) view.findViewById(R.id.toastRoot) );
+                        TextView text = layout.findViewById(R.id.textMsg);
+                        CardView background = layout.findViewById(R.id.back);
+                        Toast toast = new Toast( ViewSavingDetails.this);
+                        toast.setDuration(Toast.LENGTH_LONG);
+                        toast.setGravity(Gravity.BOTTOM|Gravity.CENTER , 0 , 230 );
+
+                        if( lastResult == false ){
+                            text.setText("Saving Deleted Unsuccessfully");
+                            toast.setView(layout);
+                            toast.show();
+                        }else{
+                            Intent intent = new Intent( ViewSavingDetails.this , MainActivity.class);
+                            startActivity(intent);
+                            text.setText("Saving Deleted Successfully");
+                            toast.setView(layout);
+                            finish();
+                            toast.show();
+                        }
+
+                    }
+                });
+            }
+        });*/
 
         edit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
