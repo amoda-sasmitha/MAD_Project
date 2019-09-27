@@ -31,6 +31,7 @@ public class Accounts extends Fragment  {
     private EditText search;
     private TextView totAmount;
     private AccountAdapter adapter;
+
     DBhelper db;
     @SuppressLint("WrongConstant")
     @Nullable

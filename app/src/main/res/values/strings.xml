@@ -278,6 +278,8 @@
     <string name="rs_45000_008534">Rs 45000.00</string>
     <string name="asd8534">asd</string>
     <string name="todo85664">TODO</string>
+    <string name="categoryhintserch">Search Category</string>
+    <string name="searchAcconts">Search  Accounts</string>
 
 
 </resources>
