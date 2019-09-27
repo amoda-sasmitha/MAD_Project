@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,16 +54,6 @@ public class Savings extends Fragment {
                  startActivity(intent);
              }
          });
-
-        /*del.setOnClickListener(new View.OnClickListener() {
-            @Override
-                public void onClick(View v) {
-            //db.deleteSaving(ID);
-                System.out.println("bla");
-
-            }
-        });*/
-
 
 
         return view;

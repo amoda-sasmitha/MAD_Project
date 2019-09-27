@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -39,12 +41,13 @@ public class MainActivity extends AppCompatActivity {
         }
     };
     private FrameLayout layout;
+    BottomNavigationView navView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        BottomNavigationView navView = findViewById(R.id.nav_view);
+         navView = findViewById(R.id.nav_view);
         layout = findViewById(R.id.fragment_container);
         navView.setAlpha(0);
         layout.setAlpha(0);
@@ -62,5 +65,7 @@ public class MainActivity extends AppCompatActivity {
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container , new Expenses()).commit();
     }
+
+
 
 }
