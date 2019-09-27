@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -34,6 +35,7 @@ public class Expenses extends Fragment {
     private ImageButton prev , next;
     private Button monthly , daily;
     private RelativeLayout overviewbtn;
+    private ImageView background;
     boolean ismonthly;
     DBhelper db;
     String period;
@@ -42,6 +44,8 @@ public class Expenses extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_expenses, container, false);
+
+        background = view.findViewById(R.id.back);
         monthly = view.findViewById(R.id.button);
         daily = view.findViewById(R.id.button3);
         AccountBtn = view.findViewById(R.id.Account);
@@ -56,6 +60,7 @@ public class Expenses extends Fragment {
         inflow = view.findViewById(R.id.inflow);
         outflow = view.findViewById(R.id.outflow);
         overviewbtn = view.findViewById(R.id.cardViewAccount3);
+
         if( getArguments() != null ){
             period = getArguments().getString("period");
             ismonthly = getArguments().getBoolean("ismonthly");
@@ -75,8 +80,11 @@ public class Expenses extends Fragment {
                 startActivity(intent);
             }
         });
+
         setAccountClick();
+
         db = new DBhelper(getContext());
+
         prev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -179,6 +187,13 @@ public class Expenses extends Fragment {
         dailyrv.setNestedScrollingEnabled(false);
         DailyExpensesAdapter adapter = new DailyExpensesAdapter( dbx ,getActivity().getApplicationContext()  );
         dailyrv.setAdapter(adapter);
+
+        if(dbx.size() == 0 ){
+            background.setVisibility( View.VISIBLE);
+        }else{
+            background.setVisibility( View.GONE);
+        }
+
         overview = Util.getOverview( dbdata , period , ismonthly);
         inflow.setText( "Rs. "+ String.format("%.2f", overview.getInflow() ) );
         outflow.setText( "Rs. "+ String.format("%.2f", overview.getOutflow() ) );

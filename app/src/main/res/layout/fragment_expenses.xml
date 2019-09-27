@@ -229,13 +229,21 @@
         android:layout_below="@+id/cardViewAccount3"
 
         >
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/dailyRV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-           <androidx.recyclerview.widget.RecyclerView
-               android:id="@+id/dailyRV"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
+        </androidx.recyclerview.widget.RecyclerView>
 
-           </androidx.recyclerview.widget.RecyclerView>
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/back"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/back"
+                />
     </LinearLayout>
 
 
