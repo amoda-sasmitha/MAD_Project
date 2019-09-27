@@ -28,7 +28,7 @@ import Util.Util;
 public class view_account_indetails extends AppCompatActivity {
     private ImageView editBtn;
     private ImageButton delete_btn;
-    private TextView amount, type, name , accNumber , description,date ;
+    private TextView amount, type, name , accNumber , description,date;
     private ImageView icon;
     private RecyclerView LatestT;
     int AccountID;
@@ -40,6 +40,7 @@ public class view_account_indetails extends AppCompatActivity {
         setContentView(R.layout.activity_view_account_indetails);
         Intent intent = getIntent();
         final AccountModel account = (AccountModel) intent.getSerializableExtra("Account");
+
         icon = findViewById(R.id.category_icon);
         delete_btn = findViewById(R.id.delete_btn);
         editBtn = findViewById(R.id.edit_btn02);
@@ -59,6 +60,8 @@ public class view_account_indetails extends AppCompatActivity {
         amount.setText(  "Rs. "+ String.format("%.2f", account.getBalance() ) );
         icon.setImageResource(Util.getAccountIcon( account.getAccountType() , this) );
         AccountID = account.getId();
+
+
         editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,6 +71,7 @@ public class view_account_indetails extends AppCompatActivity {
                 finish();
             }
         });
+
         delete_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -113,6 +117,13 @@ public class view_account_indetails extends AppCompatActivity {
                 });
             }
         });
+
+        if( AccountID == 1 ){
+            editBtn.setVisibility(View.GONE);
+        }else{
+            editBtn.setVisibility(View.VISIBLE);
+        }
+
         ArrayList<Transaction> latest = db.AccountlatestTransactions(String.valueOf( AccountID ));
         TransactionAdapter Tadapter = new TransactionAdapter( latest , this , false , true);
         LatestT.setHasFixedSize(true);
