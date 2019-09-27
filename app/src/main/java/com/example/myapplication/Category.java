@@ -84,7 +84,7 @@ public class Category extends Fragment {
 
          adapterExpense = new CategoryAdapter(arrayListExpense,   getActivity() , bundle  );
          adapterIncome = new CategoryAdapter(arrayListIncome, getContext()  , bundle );
-         
+
          Erv.setAdapter( adapterExpense );
          Irv.setAdapter( adapterIncome );
 
