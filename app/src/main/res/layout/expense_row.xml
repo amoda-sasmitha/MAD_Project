@@ -61,5 +61,18 @@
             android:textColor="@color/red"
             android:textSize="14sp"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="09-03-2019"
+            android:layout_below="@+id/amount"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="15dp"
+            android:elevation="5dp"
+            android:textSize="12sp"
+
+            />
     </RelativeLayout>
 </LinearLayout>

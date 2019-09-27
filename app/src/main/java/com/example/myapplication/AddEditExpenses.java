@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -23,7 +24,12 @@ public class AddEditExpenses extends AppCompatActivity implements DatePickerDial
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit_expenses);
 
-        getSupportFragmentManager().beginTransaction().replace( R.id.fragment_container , new AddExpense()).commit();
+        Intent intent = getIntent();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable( "Saving" , intent.getSerializableExtra("Saving"));
+        AddExpense expense = new AddExpense();
+        expense.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction().replace( R.id.fragment_container , expense ).commit();
 
 
     }

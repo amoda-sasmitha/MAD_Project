@@ -47,4 +47,11 @@ public final class DBConfig {
         protected static final String COLUMN_NAME_TARGETAMOUNT = "tAmount";
         protected static final String COLUMN_NAME_STARTAMOUNT = "sAmount";
     }
+
+    protected static class SavingsTransaction implements BaseColumns{
+        protected static final String TABLE_NAME = "savingsTrans";
+        protected static final String COLUMN_NAME_SID = "SID";
+        protected static final String COLUMN_NAME_TID = "TID";
+
+    }
 }

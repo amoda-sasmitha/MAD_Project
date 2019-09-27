@@ -7,6 +7,8 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,17 +18,29 @@ import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
+
+import Adapters.CategoryAdapter;
+import Adapters.SavingAdapter;
+import Database.DBhelper;
+import Models.CategoryModel;
+import Models.SavingModel;
+
 
 public class Savings extends Fragment {
+
     private FloatingActionButton plusBtn;
-    private RelativeLayout viewDetailsBtn;
+    private RecyclerView savingList;
+    DBhelper db;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_savings, container, false);
-         viewDetailsBtn = view.findViewById(R.id.saving01);
+
          plusBtn = view.findViewById(R.id.add_saving_btn);
+         savingList = view.findViewById(R.id.savingRE);
+         db = new DBhelper(getContext() );
 
          plusBtn.setOnClickListener(new View.OnClickListener() {
              @Override
@@ -36,16 +50,20 @@ public class Savings extends Fragment {
              }
          });
 
-         viewDetailsBtn.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View view) {
-                 Intent intent = new Intent( getActivity(), ViewSavingDetails.class);
-                 startActivity(intent);
-             }
-         });
-
         return view;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        savingList.setLayoutManager( new LinearLayoutManager( getActivity().getApplicationContext()  ));
+        savingList.setNestedScrollingEnabled(false);
+        ArrayList<SavingModel> arrayList =  db.readAllSavingsWithAmount();
 
+        SavingAdapter adapter = new SavingAdapter(arrayList , getContext() , null);
+        savingList.setAdapter( adapter );
+
+        db.readAllSavingsWithAmount();
+
+    }
 }

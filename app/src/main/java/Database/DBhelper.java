@@ -16,6 +16,7 @@ import java.util.Date;
 
 import Models.AccountModel;
 import Models.CategoryModel;
+import Models.SavingModel;
 import Models.Transaction;
 import Util.Util;
 
@@ -63,11 +64,17 @@ public class DBhelper extends SQLiteOpenHelper {
                 DBConfig.Savings.COLUMN_NAME_TARGETAMOUNT + " DOUBLE ,"+
                 DBConfig.Savings.COLUMN_NAME_STARTAMOUNT + " DOUBLE "+ " );";
 
+        String sql_ct_savings_trans = "CREATE TABLE " + DBConfig.SavingsTransaction.TABLE_NAME + " ( " +
+                DBConfig.SavingsTransaction.COLUMN_NAME_SID + " INTEGER NOT NULL , "+
+                DBConfig.SavingsTransaction.COLUMN_NAME_TID + " INTEGER  NOT NULL ,"+
+                "PRIMARY KEY ( "+DBConfig.SavingsTransaction.COLUMN_NAME_TID+" , "+ DBConfig.SavingsTransaction.COLUMN_NAME_SID+" ) "+ " );";
+
 
         db.execSQL(sql_ct_savings);
         db.execSQL(sql_ct_categories);
         db.execSQL(sql_ct_accounts);
         db.execSQL(sql_ct_transaction);
+        db.execSQL(sql_ct_savings_trans );
         setDefaultCategories(db);
         setDefaultAccount(db);
     }
@@ -250,7 +257,7 @@ public class DBhelper extends SQLiteOpenHelper {
 
     //-----------------------------------------------Amoda Sasmitha-------------------------------------------------------
 
-    public boolean insertTransaction(Transaction transaction ){
+    public long insertTransaction(Transaction transaction ){
 
         Date date = null;
         try {
@@ -268,11 +275,7 @@ public class DBhelper extends SQLiteOpenHelper {
 
 
         long result = db.insert( DBConfig.Transactions.TABLE_NAME , null , values );
-        if( result > 0){
-            return true;
-        }else{
-            return false;
-        }
+       return result;
 
     }
     public ArrayList<Transaction> readAllTransactions( String from , String to ){
@@ -550,7 +553,143 @@ public class DBhelper extends SQLiteOpenHelper {
         }
     }
 
+    public ArrayList<Transaction>  AccountlatestTransactions( String AID ){
+        SQLiteDatabase db = getReadableDatabase();
+
+        String sql = "SELECT * FROM " + DBConfig.Transactions.TABLE_NAME + " , " + DBConfig.Categories.TABLE_NAME +
+                " WHERE " + DBConfig.Transactions.TABLE_NAME + ".CID = " + DBConfig.Categories.TABLE_NAME + ".CID AND "+
+                DBConfig.Transactions.TABLE_NAME + ".AID = " + AID + " ORDER BY "+ DBConfig.Transactions.TABLE_NAME
+                +"."+DBConfig.Transactions.Column_NAME_DATE +" DESC LIMIT 5";
+
+        Cursor values = db.rawQuery( sql , null );
+
+        ArrayList<Transaction> arrayList = new ArrayList<>();
+
+        while (values.moveToNext()){
+            try {
+                Transaction transaction = new Transaction();
+                CategoryModel category = new CategoryModel();
+
+                transaction.setId( values.getInt( values.getColumnIndexOrThrow( DBConfig.Transactions.COLUMN_NAME_ID ) ) );
+                transaction.setAmount( values.getDouble( values.getColumnIndexOrThrow( DBConfig.Transactions.Column_NAME_AMOUNT )));
+                transaction.setDescription( values.getString( values.getColumnIndexOrThrow( DBConfig.Transactions.Column_NAME_DESCRIPTION )));
+                transaction.setAccountId( values.getInt( values.getColumnIndexOrThrow( DBConfig.Transactions.Column_NAME_ACCOUNT_ID )));
+
+                Date datex = null;
+                String date = values.getString( values.getColumnIndexOrThrow( DBConfig.Transactions.Column_NAME_DATE ));
+                SimpleDateFormat formatter =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+                datex = formatter.parse(date);
+
+
+                transaction.setDate( new SimpleDateFormat("dd-MM-yyyy").format(datex ));
+                category.setID( values.getInt( values.getColumnIndexOrThrow( DBConfig.Categories.COLUMN_NAME_ID )));
+                category.setName( values.getString( values.getColumnIndexOrThrow( DBConfig.Categories.COLUMN_NAME_CNAME )));
+                category.setType( values.getString( values.getColumnIndexOrThrow( DBConfig.Categories.COLUMN_NAME_TYPE )));
+                category.setIcon( values.getString( values.getColumnIndexOrThrow( DBConfig.Categories.COLUMN_NAME_ICON )));
+
+                transaction.setCategoryModel(category);
+                arrayList.add(transaction);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return arrayList;
+    }
     //-------------------------------Pubudu Arosha----------------------------------------------------------------
+    //add account
+    public boolean addSaving(SavingModel savingModel ){
+        SQLiteDatabase db = getWritableDatabase();   //get writable db
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put( DBConfig.Savings.COLUMN_NAME_SAVINGNAME  , savingModel.getSavingName()  );
+        contentValues.put( DBConfig.Savings.COLUMN_NAME_SAVINGDISCRIPTION , savingModel.getSavingDescription()  );
+        contentValues.put( DBConfig.Savings.COLUMN_NAME_STARTAMOUNT , savingModel.getStartAmount()  );
+        contentValues.put( DBConfig.Savings.COLUMN_NAME_TARGETAMOUNT , savingModel.getTargetAmount()  );
+
+        long result = db.insert( DBConfig.Savings.TABLE_NAME ,null, contentValues );
+
+        if (result > 0){
+
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public boolean addSavingTransaction( int SID , int TID ){
+        SQLiteDatabase db = getWritableDatabase();   //get writable db
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put( DBConfig.SavingsTransaction.COLUMN_NAME_SID  ,  SID  );
+        contentValues.put( DBConfig.SavingsTransaction.COLUMN_NAME_TID , TID  );
+
+        long result = db.insert( DBConfig.SavingsTransaction.TABLE_NAME  ,null, contentValues );
+
+        if (result > 0){
+
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public ArrayList<SavingModel> readAllSavings(){
+        SQLiteDatabase db = getReadableDatabase();
+
+        String[] projection = { DBConfig.Savings.COLUMN_NAME_ID , DBConfig.Savings.COLUMN_NAME_SAVINGNAME , DBConfig.Savings.COLUMN_NAME_SAVINGDISCRIPTION,
+            DBConfig.Savings.COLUMN_NAME_STARTAMOUNT , DBConfig.Savings.COLUMN_NAME_TARGETAMOUNT };
+
+        ArrayList<SavingModel> arrayList = new ArrayList<>();
+
+        Cursor values = db.query(DBConfig.Savings.TABLE_NAME , projection , null, null , null ,null , null  );
+        while(values.moveToNext() ){
+                SavingModel saving = new SavingModel();
+                saving.setID( values.getInt( values.getColumnIndexOrThrow( DBConfig.Savings.COLUMN_NAME_ID )));
+                saving.setSavingName( values.getString( values.getColumnIndexOrThrow( DBConfig.Savings.COLUMN_NAME_SAVINGNAME )));
+                saving.setSavingDescription( values.getString( values.getColumnIndexOrThrow( DBConfig.Savings.COLUMN_NAME_SAVINGDISCRIPTION )));
+                saving.setTargetAmount( values.getDouble( values.getColumnIndexOrThrow( DBConfig.Savings.COLUMN_NAME_TARGETAMOUNT )));
+                saving.setStartAmount( values.getDouble( values.getColumnIndexOrThrow( DBConfig.Savings.COLUMN_NAME_STARTAMOUNT )));
+
+                arrayList.add(saving);
+
+        }
+
+        return arrayList;
+    }
+
+    public ArrayList<SavingModel>  readAllSavingsWithAmount(){
+        SQLiteDatabase db = getReadableDatabase();
+
+        String sql = "SELECT ST." +  DBConfig.Savings.COLUMN_NAME_ID  + " , ST." + DBConfig.Savings.COLUMN_NAME_SAVINGNAME + " , ST." +
+                DBConfig.Savings.COLUMN_NAME_SAVINGDISCRIPTION + " , ST." + DBConfig.Savings.COLUMN_NAME_TARGETAMOUNT + " , ST." +
+                DBConfig.Savings.COLUMN_NAME_STARTAMOUNT + " , " +
+                " SUM( T.Amount ) AS balance " +
+                "FROM savings ST LEFT OUTER JOIN  savingsTrans S ON  ST.SID = S.SID  LEFT OUTER JOIN transactions T ON S.TID = T.TID " +
+                " GROUP BY S.SID";
+
+
+        ArrayList<SavingModel> arrayList = new ArrayList<>();
+        Cursor values = db.rawQuery( sql , null );
+
+        while(values.moveToNext() ){
+            SavingModel saving = new SavingModel();
+            saving.setID( values.getInt( values.getColumnIndexOrThrow( DBConfig.Savings.COLUMN_NAME_ID )));
+            saving.setSavingName( values.getString( values.getColumnIndexOrThrow( DBConfig.Savings.COLUMN_NAME_SAVINGNAME )));
+            saving.setSavingDescription( values.getString( values.getColumnIndexOrThrow( DBConfig.Savings.COLUMN_NAME_SAVINGDISCRIPTION )));
+            saving.setTargetAmount( values.getDouble( values.getColumnIndexOrThrow( DBConfig.Savings.COLUMN_NAME_TARGETAMOUNT )));
+            saving.setStartAmount( values.getDouble( values.getColumnIndexOrThrow( DBConfig.Savings.COLUMN_NAME_STARTAMOUNT )));
+            saving.setCurrentAmount( values.getDouble( values.getColumnIndexOrThrow("balance")));
+
+            arrayList.add(saving);
+
+        }
+
+        return arrayList;
+    }
 
 
 

@@ -26,17 +26,27 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
     private ArrayList<Transaction> arrayList;
     private Context context;
     private boolean fromCategory;
+    private boolean fromAccount;
+
+    public TransactionAdapter(ArrayList<Transaction> arrayList, Context context, boolean fromCategory, boolean fromAccount) {
+        this.arrayList = arrayList;
+        this.context = context;
+        this.fromCategory = fromCategory;
+        this.fromAccount = fromAccount;
+    }
 
     public TransactionAdapter(ArrayList<Transaction> arrayList, Context context, boolean fromCategory) {
         this.arrayList = arrayList;
         this.context = context;
         this.fromCategory = fromCategory;
+        this.fromAccount = false;
     }
 
     public TransactionAdapter(ArrayList<Transaction> arrayList , Context context  ) {
         this.context = context;
         this.arrayList = arrayList;
         this.fromCategory = false;
+        this.fromAccount = false;
 
     }
 
@@ -56,6 +66,12 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
             holder.category.setText( t.getDate() );
         }else{
         holder.category.setText( t.getCategoryModel().getName() );
+        }
+
+        if( fromAccount){
+            holder.date.setText( t.getDate() );
+        }else{
+            holder.date.setText( "" );
         }
 
         holder.description.setText( t.getDescription() );
@@ -86,7 +102,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
 
     public class TransactionViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        TextView category , description , amount ;
+        TextView category , description , amount ,date ;
         ImageView icon;
         IItemClickListener item;
 
@@ -102,6 +118,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
             description = itemView.findViewById(R.id.type);
             amount = itemView.findViewById(R.id.amount);
             icon = itemView.findViewById(R.id.icon);
+            date = itemView.findViewById(R.id.date);
             itemView.setOnClickListener( this);
         }
 

@@ -3,6 +3,7 @@ package com.example.myapplication;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +37,7 @@ import Adapters.Account_SpinnerAdapter;
 import Database.DBhelper;
 import Models.AccountModel;
 import Models.CategoryModel;
+import Models.SavingModel;
 import Models.Transaction;
 
 
@@ -43,6 +45,8 @@ public class AddExpense extends Fragment {
     private Button save_btn;
    private EditText select_date, category_select ,amount ,Description ;
    private ImageView categoryIcon;
+   private Boolean fromSaving;
+   private SavingModel saving;
    private Spinner spinner;
     ArrayList<AccountModel> Acc_arrayList;
     CategoryModel currentCategory;
@@ -51,6 +55,7 @@ public class AddExpense extends Fragment {
     public View onCreateView(@NonNull final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_add_expense ,container , false);
 
+        fromSaving = false;
         save_btn = view.findViewById(R.id.save_btn);
         amount = view.findViewById(R.id.editText);
         category_select = view.findViewById(R.id.category_select_Text);
@@ -58,6 +63,17 @@ public class AddExpense extends Fragment {
         select_date = view.findViewById(R.id.select_date);
         categoryIcon = view.findViewById(R.id.category_icon);
          spinner = view.findViewById(R.id.select_account);
+
+         //if request coming from saving
+        if( getArguments() != null ){
+            Bundle savingBundle = getArguments();
+            if( savingBundle.getSerializable("Saving") != null ){
+                Log.i("DB" , "fromSaving : " + fromSaving);
+                saving = (SavingModel) savingBundle.getSerializable("Saving");
+                fromSaving = true;
+                Log.i("DB" , "fromSaving : " + fromSaving);
+            }
+        }
 
          db = new DBhelper(getContext());
         Acc_arrayList =  db.readAllAccounts();
@@ -82,7 +98,6 @@ public class AddExpense extends Fragment {
                 }
                 else{
 
-
                     String amounttemp =   amount.getText().toString().trim();
                     double amountx  = (amounttemp.length() > 0 ) ? Double.valueOf(amounttemp) : 0;
 
@@ -92,7 +107,18 @@ public class AddExpense extends Fragment {
                 current.setDescription( Description.getText().toString().trim() );
                 current.setDate( select_date.getText().toString().trim() );
                 current.setAccountId( Acc_arrayList.get( spinner.getSelectedItemPosition() ).getId() );
-                boolean result = db.insertTransaction(current);
+                long id = db.insertTransaction(current);
+                boolean result;
+
+                    if(id > 0){
+                        result = true;
+                    }else{
+                        result = false;
+                    }
+
+                    if( fromSaving ){
+                        db.addSavingTransaction( saving.getID() , (int) id );
+                    }
 
                 //inflate layout
                 View layout = getLayoutInflater().inflate( R.layout.toast_message , (ViewGroup) view.findViewById(R.id.toastRoot) );
@@ -159,49 +185,64 @@ public class AddExpense extends Fragment {
     public void UpdateCategory( ){
 
 
-        if( getArguments() != null ){
-            Bundle bundle = getArguments();
-
-            Transaction current = (Transaction) bundle.getSerializable( "expenseData");
-            amount.setText( String.valueOf( current.getAmount() ) );
-            category_select.setText( current.getCategoryModel().getName() );
-            Description.setText( current.getDescription() );
-            select_date.setText(current.getDate() );
-            currentCategory =  current.getCategoryModel();
-            categoryIcon.setImageResource(  getContext().getResources().getIdentifier( current.getCategoryModel().getIcon() ,
+        if( fromSaving ){
+            currentCategory = new CategoryModel();
+            currentCategory.setIcon("savings");
+            currentCategory.setID(10);
+            currentCategory.setName("Savings");
+            category_select.setText( currentCategory.getName());
+            categoryIcon.setImageResource(getContext().getResources().getIdentifier( currentCategory.getIcon(),
                     "drawable",
-                     getContext().getPackageName()));
+                    getContext().getPackageName()));
 
-            for (int position = 0; position < Acc_arrayList.size() ; position++) {
-                if (Acc_arrayList.get(position).getId() == current.getAccountId()) {
-                    spinner.setSelection(position);
-                    break;
+            Description.setText( saving.getSavingName() );
+
+
+        }else {
+
+            if (getArguments() != null &&  getArguments().getSerializable("expenseData") != null ) {
+                Bundle bundle = getArguments();
+
+                Transaction current = (Transaction) bundle.getSerializable("expenseData");
+                amount.setText(String.valueOf(current.getAmount()));
+                category_select.setText(current.getCategoryModel().getName());
+                Description.setText(current.getDescription());
+                select_date.setText(current.getDate());
+                currentCategory = current.getCategoryModel();
+                categoryIcon.setImageResource(getContext().getResources().getIdentifier(current.getCategoryModel().getIcon(),
+                        "drawable",
+                        getContext().getPackageName()));
+
+                for (int position = 0; position < Acc_arrayList.size(); position++) {
+                    if (Acc_arrayList.get(position).getId() == current.getAccountId()) {
+                        spinner.setSelection(position);
+                        break;
+                    }
                 }
-            }
 
+            }
+            category_select.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    String amounttemp = amount.getText().toString().trim();
+                    double amountx = (amounttemp.length() > 0) ? Double.valueOf(amounttemp) : 0;
+
+                    Category category = new Category();
+                    Bundle dataBundle = new Bundle();
+                    Transaction current = new Transaction();
+
+                    current.setAmount(amountx);
+                    current.setDescription(Description.getText().toString().trim());
+                    current.setDate(select_date.getText().toString().trim());
+                    current.setAccountId(Acc_arrayList.get(spinner.getSelectedItemPosition()).getId());
+                    dataBundle.putSerializable("expenseData", current);
+
+                    category.setArguments(dataBundle);
+                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, category).commit();
+
+                }
+            });
         }
-        category_select.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                String amounttemp =   amount.getText().toString().trim();
-                double amountx  = (amounttemp.length() > 0 ) ? Double.valueOf(amounttemp) : 0;
-
-                Category category = new Category();
-                Bundle dataBundle = new Bundle();
-                Transaction current = new Transaction();
-
-                current.setAmount(amountx );
-                current.setDescription( Description.getText().toString().trim() );
-                current.setDate( select_date.getText().toString().trim() );
-                current.setAccountId( Acc_arrayList.get( spinner.getSelectedItemPosition() ).getId() );
-                dataBundle.putSerializable( "expenseData" , current );
-
-                category.setArguments( dataBundle );
-                getFragmentManager().beginTransaction().replace(R.id.fragment_container , category).commit();
-
-            }
-        });
-
     }
 }

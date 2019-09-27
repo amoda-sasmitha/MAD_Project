@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,10 +14,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import Database.DBhelper;
+import Models.SavingModel;
 
 public class Add_Saving extends AppCompatActivity {
 
-    DBhelper sDb;
+    DBhelper db;
     Button save;
     EditText sName, sDiscription, sTarget, sStart;
 
@@ -25,7 +27,7 @@ public class Add_Saving extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add__saving);
 
-        sDb = new DBhelper(this);
+        db = new DBhelper(this);
 
         sName = (EditText) findViewById(R.id.editText);
         sDiscription = (EditText) findViewById(R.id.edit_description);
@@ -57,7 +59,43 @@ public class Add_Saving extends AppCompatActivity {
                 }
 
                 else {
-                    Toast.makeText(Add_Saving.this,"Saving Successfully!",Toast.LENGTH_SHORT).show();
+
+                    SavingModel saving = new SavingModel();
+                    saving.setSavingName( sName.getText().toString().trim() );
+                    saving.setSavingDescription( sDiscription.getText().toString().trim() );
+                    saving.setStartAmount( Double.valueOf( sStart.getText().toString().trim() ) );
+                    saving.setTargetAmount( Double.valueOf( sTarget.getText().toString().trim() ));
+                    boolean result = db.addSaving( saving );
+
+                    //inflate layout
+                    View layout = getLayoutInflater().inflate(R.layout.toast_message, (ViewGroup) findViewById(R.id.toastRoot));
+                    TextView text = layout.findViewById(R.id.textMsg);
+                    CardView background = layout.findViewById(R.id.back);
+
+                    //creat toast
+                    Toast toast = new Toast(Add_Saving.this);
+                    toast.setDuration(Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 230);
+
+
+                    if (result == false) {
+                        text.setText("Saving Added Unsuccessfully");
+                        background.setCardBackgroundColor(getResources().getColor(R.color.red));
+                        text.setTextColor(getResources().getColor(R.color.white));
+                        toast.setView(layout);
+                        toast.show();
+
+
+                    } else {
+                        background.setCardBackgroundColor(getResources().getColor(R.color.green));
+                        text.setTextColor(getResources().getColor(R.color.white));
+                        text.setText("Saving Added Successfully");
+                        toast.setView(layout);
+                        finish();
+                        toast.show();
+
+                    }
+
                 }
 
             }

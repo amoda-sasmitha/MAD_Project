@@ -88,20 +88,21 @@ public class AddEditCategory extends AppCompatActivity {
 
     public void addCategory(View view) {
 
-        int selectedId = radioGroup.getCheckedRadioButtonId();
-        SelectedBtn = findViewById(selectedId);
-
-        CategoryModel category = new CategoryModel();
-        category.setName(name.getText().toString().trim());
-        category.setDescription(description.getText().toString().trim());
-        category.setIcon((String) icon.getTag());
-        category.setType(SelectedBtn.getText().toString().trim());
         if (name.length() == 0) {
             name.setError("Enter Category Name");
+
         } else if (description.length() == 0) {
             description.setError("Enter Description");
         } else {
 
+            int selectedId = radioGroup.getCheckedRadioButtonId();
+            SelectedBtn = findViewById(selectedId);
+
+            CategoryModel category = new CategoryModel();
+            category.setName(name.getText().toString().trim());
+            category.setDescription(description.getText().toString().trim());
+            category.setIcon((String) icon.getTag());
+            category.setType(SelectedBtn.getText().toString().trim());
 
             boolean result = db.insertCategory(category);
 

@@ -2,6 +2,8 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -17,8 +19,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
+import Adapters.TransactionAdapter;
 import Database.DBhelper;
 import Models.AccountModel;
+import Models.Transaction;
 import Util.Util;
 
 public class view_account_indetails extends AppCompatActivity {
@@ -27,6 +33,7 @@ public class view_account_indetails extends AppCompatActivity {
     private ImageButton delete_btn;
     private TextView amount, type, name , accNumber , description ;
     private ImageView icon;
+    private RecyclerView LatestT;
     int AccountID;
     DBhelper db;
     @Override
@@ -45,6 +52,7 @@ public class view_account_indetails extends AppCompatActivity {
         accNumber = findViewById(R.id.account);
         description = findViewById(R.id.account2);
         name = findViewById(R.id.accountName);
+        LatestT = findViewById(R.id.latestT);
         
         db = new DBhelper(this);
 
@@ -115,5 +123,13 @@ public class view_account_indetails extends AppCompatActivity {
                 });
             }
         });
+
+        ArrayList<Transaction> latest = db.AccountlatestTransactions(String.valueOf( AccountID ));
+        TransactionAdapter Tadapter = new TransactionAdapter( latest , this , false , true);
+        LatestT.setHasFixedSize(true);
+        LatestT.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false) );
+        LatestT.setAdapter(Tadapter);
+        LatestT.setNestedScrollingEnabled(false);
+
     }
 }
