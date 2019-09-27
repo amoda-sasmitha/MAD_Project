@@ -25,6 +25,7 @@ import Adapters.AccountAdapter;
 import Database.DBhelper;
 import Models.AccountModel;
 import Models.Transaction;
+import Util.Util;
 
 
 public class Accounts extends Fragment  {
@@ -32,7 +33,7 @@ public class Accounts extends Fragment  {
     private RelativeLayout viewBtn;
     private FloatingActionButton addbtn;
     private RecyclerView ARV;
-
+    private TextView totAmount;
     DBhelper db;
 
     @SuppressLint("WrongConstant")
@@ -45,10 +46,11 @@ public class Accounts extends Fragment  {
         ARV = view.findViewById(R.id.recycleviewAccounts);
         ARV.setLayoutManager( new LinearLayoutManager( getContext() , LinearLayoutManager.VERTICAL , false));
         db = new DBhelper( getContext() );
-
+        totAmount = view.findViewById(R.id.AccountAmount);
         ArrayList<AccountModel> data = db.readAllAccountsWithBalance();  //get all acounts details in open page from using array list
         AccountAdapter adapter = new AccountAdapter( getActivity().getApplicationContext() , data );
         ARV.setAdapter( adapter);
+        totAmount.setText( "Rs. "+ String.format("%.2f", Util.getTotalBalance(getContext()) )  );
 
 //    call add btn
         addbtn.setOnClickListener(new View.OnClickListener() {
