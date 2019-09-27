@@ -27,14 +27,16 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import Database.DBhelper;
 import Models.Transaction;
+import Util.Util;
 
 
 public class ViewExpense extends Fragment {
 
-    private TextView data ,CategoryName , date , amount , description , account;
+    private TextView data ,CategoryName , date , amount , description , account, todya, totAmount;
     private ImageButton edit_btn ,delete_btn;
     ImageView categoryIcon;
     Transaction transaction;
@@ -52,9 +54,13 @@ public class ViewExpense extends Fragment {
         account  = view.findViewById(R.id.account);
         description = view.findViewById(R.id.description_text);
         categoryIcon = view.findViewById(R.id.category_icon);
+        todya = view.findViewById(R.id.category_date1);
+        totAmount = view.findViewById(R.id.textView12);
         db  = new DBhelper(getContext() );
+        todya.setText(new SimpleDateFormat("dd MMMM yyyy").format(new Date()));
+        totAmount.setText( "Rs. "+ String.format("%.2f", Util.getTotalBalance(getContext()) )  );
 
-         Bundle dataBundle = getArguments();
+        Bundle dataBundle = getArguments();
          transaction = (Transaction) dataBundle.getSerializable("Transaction");
          setExpenseData();
 

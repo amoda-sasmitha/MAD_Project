@@ -68,7 +68,7 @@ public class view_account_indetails extends AppCompatActivity {
         description.setText( account.getAccountDescription() );
         accNumber.setText( account.getAccountNumber() );
         type.setText( account.getAccountType() );
-        amount.setText(  "Rs. "+ String.format("%.2f", account.getAmount() ) );
+        amount.setText(  "Rs. "+ String.format("%.2f", account.getBalance() ) );
         icon.setImageResource(Util.getAccountIcon( account.getAccountType() , this) );
         AccountID = account.getId();
 

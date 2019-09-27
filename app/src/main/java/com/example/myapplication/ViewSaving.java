@@ -20,13 +20,17 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import Models.SavingModel;
+import Util.Util;
 
 public class ViewSaving extends Fragment {
     private SavingModel saving;
     private Button addTransaction;
     private ImageButton delete_btn , edit_btn;
-    private  TextView name , total, current , start , description;
+    private  TextView name , total, current , start , description, totAmount, today;
     private ProgressBar progress;
     @Nullable
     @Override
@@ -43,16 +47,18 @@ public class ViewSaving extends Fragment {
         start = view.findViewById(R.id.account);
         description = view.findViewById(R.id.description_text);
         progress = view.findViewById(R.id.progressBar);
-
+        today = view.findViewById(R.id.text02);
+        totAmount = view.findViewById(R.id.textView12);
         name.setText( saving.getSavingName() );
         total.setText( "Rs. "+ String.format("%.2f", saving.getTargetAmount() ));
         current.setText( "Rs. "+ String.format("%.2f", ( saving.getCurrentAmount()  +  saving.getStartAmount() ) ));
         start.setText( "Rs. "+ String.format("%.2f", saving.getStartAmount() ));
         description.setText( saving.getSavingDescription());
 
+        today.setText(new SimpleDateFormat("dd MMMM yyyy").format(new Date()));
+        totAmount.setText( "Rs. "+ String.format("%.2f", Util.getTotalBalance(getContext()) )  );
         double progressvalue = ( saving.getCurrentAmount()  +  saving.getStartAmount() )  /  saving.getTargetAmount()  * 100;
         progress.setProgress((int) progressvalue );
-
         edit_btn = view.findViewById(R.id.edit_btn);
         delete_btn = view.findViewById(R.id.delete_btn);
         addTransaction = view.findViewById(R.id.add_btn);

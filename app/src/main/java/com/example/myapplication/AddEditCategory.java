@@ -23,6 +23,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.zip.Inflater;
 
 import Adapters.CategoryIconAdapter;
@@ -37,6 +39,7 @@ public class AddEditCategory extends AppCompatActivity {
     ImageView icon;
     DBhelper db;
     String [] icons;
+    TextView date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,10 +50,10 @@ public class AddEditCategory extends AppCompatActivity {
         description = findViewById(R.id.edit_description);
         icon = findViewById(R.id.category_icon);
         radioGroup = findViewById(R.id.radio);
-
+        date = findViewById(R.id.date_view);
         db = new DBhelper(this);
         icons =  getResources().getStringArray(R.array.category_Icons);
-
+        date.setText(new SimpleDateFormat("dd MMMM yyyy").format(new Date()));
         icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

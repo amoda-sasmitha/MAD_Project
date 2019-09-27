@@ -24,7 +24,7 @@
 
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="@string/bank_account"
+        android:text="@string/total_amount8"
         android:textColor="#ffffff"
         android:textSize="13sp"
         android:textStyle="bold"
@@ -114,6 +114,7 @@
             android:layout_below="@id/saving_type"
 
             ></View>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="wrap_content"
                 android:id="@+id/savingRE"

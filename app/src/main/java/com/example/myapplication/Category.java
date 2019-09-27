@@ -24,21 +24,25 @@ import java.util.ArrayList;
 import Adapters.CategoryAdapter;
 import Database.DBhelper;
 import Models.CategoryModel;
+import Util.Util;
 
 
 public class Category extends Fragment {
 
     private FloatingActionButton plusBtn;
     private RelativeLayout selectbtn;
-    private TextView categoryText;
+    private TextView categoryText, amount;
     private Bundle bundle;
     private RecyclerView Erv, Irv;
+
     DBhelper db;
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_category ,container , false);
-
+        amount = view.findViewById(R.id.textView4);
         plusBtn = view.findViewById(R.id.add_category_btn);
+        amount.setText( "Rs. "+ String.format("%.2f", Util.getTotalBalance(getContext()) )  );
+
         plusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -85,6 +89,7 @@ public class Category extends Fragment {
         CategoryAdapter adapterIncome = new CategoryAdapter(arrayListIncome, getContext()  , bundle );
         Erv.setAdapter( adapterExpense );
         Irv.setAdapter( adapterIncome );
+
     }
 
 

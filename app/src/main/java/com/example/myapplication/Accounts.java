@@ -50,7 +50,6 @@ public class Accounts extends Fragment  {
         ArrayList<AccountModel> data = db.readAllAccountsWithBalance();  //get all acounts details in open page from using array list
         AccountAdapter adapter = new AccountAdapter( getActivity().getApplicationContext() , data );
         ARV.setAdapter( adapter);
-        totAmount.setText( "Rs. "+ String.format("%.2f", Util.getTotalBalance(getContext()) )  );
 
 //    call add btn
         addbtn.setOnClickListener(new View.OnClickListener() {
@@ -71,5 +70,7 @@ public class Accounts extends Fragment  {
         ArrayList<AccountModel> data = db.readAllAccountsWithBalance();
         AccountAdapter adapter = new AccountAdapter( getActivity().getApplicationContext() , data );
         ARV.setAdapter( adapter);
+        totAmount.setText( "Rs. "+ String.format("%.2f", Util.getTotalBalance(getContext()) )  );
+
     }
 }

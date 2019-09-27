@@ -20,13 +20,16 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import Adapters.CategoryAdapter;
 import Adapters.SavingAdapter;
 import Database.DBhelper;
 import Models.CategoryModel;
 import Models.SavingModel;
+import Util.Util;
 
 
 public class Savings extends Fragment {
@@ -35,6 +38,7 @@ public class Savings extends Fragment {
     private RecyclerView savingList;
     Button del;
     DBhelper db;
+    private TextView date, amount;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -45,6 +49,11 @@ public class Savings extends Fragment {
          del =  view.findViewById(R.id.delete_btn);
          savingList = view.findViewById(R.id.savingRE);
          db = new DBhelper(getContext() );
+         date = view.findViewById(R.id.saving_date1);
+         amount = view.findViewById(R.id.textView4);
+        amount.setText( "Rs. "+ String.format("%.2f", Util.getTotalBalance(getContext()) )  );
+
+        date.setText(new SimpleDateFormat("dd MMMM yyyy").format(new Date()));
 
          plusBtn.setOnClickListener(new View.OnClickListener() {
              @Override
