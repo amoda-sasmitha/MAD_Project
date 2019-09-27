@@ -8,10 +8,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import Database.DBhelper;
+import Models.SavingModel;
+
 public class EditSaving extends AppCompatActivity {
 
     Button update;
     EditText eSName, eSDescription, eSAmount;
+    DBhelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,7 @@ public class EditSaving extends AppCompatActivity {
                     eSAmount.setError("Enter Target Amount");
                 }
                 else {
+                    //db.updateSaving();
                     Toast.makeText(EditSaving.this,"Update Successfully!",Toast.LENGTH_SHORT).show();
                 }
 

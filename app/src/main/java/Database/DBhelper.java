@@ -691,6 +691,43 @@ public class DBhelper extends SQLiteOpenHelper {
         return arrayList;
     }
 
+    public boolean updateSaving(SavingModel savingModel){
+        SQLiteDatabase db = getReadableDatabase();  //get readable db for update
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put( DBConfig.Savings.COLUMN_NAME_SAVINGNAME, savingModel.getSavingName());
+        contentValues.put( DBConfig.Savings.COLUMN_NAME_SAVINGDISCRIPTION, savingModel.getSavingName());
+        contentValues.put( DBConfig.Savings.COLUMN_NAME_TARGETAMOUNT, savingModel.getSavingName());
+
+
+        String selection = DBConfig.Savings.COLUMN_NAME_ID + " = ?";
+        String[] selectionArgs = { String.valueOf( savingModel.getID() ) };
+
+        long result = db.update( DBConfig.Savings.TABLE_NAME , contentValues , selection , selectionArgs);
+
+        if (result > 0){
+
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public boolean deleteSaving( int id ){
+        SQLiteDatabase db = getReadableDatabase();
+
+        String selection = DBConfig.Savings.COLUMN_NAME_ID + " = ?";
+
+        String Args[] = { String.valueOf( id ) };
+        long result = db.delete( DBConfig.Savings.TABLE_NAME , selection , Args );
+        if( result > 0 ){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 
 
     //-------------------------------default values---------------------------------------------------------------

@@ -67,6 +67,7 @@ public class Add_Saving extends AppCompatActivity {
                     saving.setTargetAmount( Double.valueOf( sTarget.getText().toString().trim() ));
                     boolean result = db.addSaving( saving );
 
+
                     //inflate layout
                     View layout = getLayoutInflater().inflate(R.layout.toast_message, (ViewGroup) findViewById(R.id.toastRoot));
                     TextView text = layout.findViewById(R.id.textMsg);
