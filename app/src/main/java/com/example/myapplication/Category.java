@@ -9,10 +9,13 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,15 +32,19 @@ import Models.CategoryModel;
 public class Category extends Fragment {
 
     private FloatingActionButton plusBtn;
+    private EditText search;
     private RelativeLayout selectbtn;
     private TextView categoryText;
     private Bundle bundle;
+    CategoryAdapter adapterExpense , adapterIncome;
+    ArrayList<CategoryModel>  arrayListExpense = null, arrayListIncome = null ;
     private RecyclerView Erv, Irv;
     DBhelper db;
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_category ,container , false);
 
+        search = view.findViewById(R.id.search);
         plusBtn = view.findViewById(R.id.add_category_btn);
         plusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,8 +59,8 @@ public class Category extends Fragment {
         }
 
         db = new DBhelper(getContext());
-        ArrayList<CategoryModel>  arrayListExpense = db.readAllCategories("Expense");
-        ArrayList<CategoryModel>  arrayListIncome = db.readAllCategories("Income");
+        arrayListExpense = db.readAllCategories("Expense");
+        arrayListIncome = db.readAllCategories("Income");
 
         Erv = view.findViewById(R.id.expensesRV);
         Irv = view.findViewById(R.id.incomeRV );
@@ -64,12 +71,13 @@ public class Category extends Fragment {
         Erv.setNestedScrollingEnabled(false);
         Irv.setNestedScrollingEnabled(false);
 
-        CategoryAdapter adapterExpense = new CategoryAdapter(arrayListExpense,   getActivity().getApplicationContext()  , bundle );
-        CategoryAdapter adapterIncome = new CategoryAdapter(arrayListIncome,  getActivity().getApplicationContext() , bundle );
+         adapterExpense = new CategoryAdapter(arrayListExpense,   getActivity().getApplicationContext()  , bundle );
+         adapterIncome = new CategoryAdapter(arrayListIncome,  getActivity().getApplicationContext() , bundle );
 
 
         Erv.setAdapter( adapterExpense );
         Irv.setAdapter( adapterIncome );
+
 
 
         return view;
@@ -79,15 +87,34 @@ public class Category extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        ArrayList<CategoryModel>  arrayListExpense = db.readAllCategories("Expense");
-        ArrayList<CategoryModel>  arrayListIncome = db.readAllCategories("Income");
-        CategoryAdapter adapterExpense = new CategoryAdapter(arrayListExpense,   getActivity() , bundle  );
-        CategoryAdapter adapterIncome = new CategoryAdapter(arrayListIncome, getContext()  , bundle );
+         arrayListExpense = db.readAllCategories("Expense");
+          arrayListIncome = db.readAllCategories("Income");
+         adapterExpense = new CategoryAdapter(arrayListExpense,   getActivity() , bundle  );
+         adapterIncome = new CategoryAdapter(arrayListIncome, getContext()  , bundle );
         Erv.setAdapter( adapterExpense );
         Irv.setAdapter( adapterIncome );
+
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+                adapterExpense.getFilter().filter(editable.toString() );
+                adapterIncome.getFilter().filter(editable.toString());
+
+
+            }
+        });
     }
-
-
 
 
 

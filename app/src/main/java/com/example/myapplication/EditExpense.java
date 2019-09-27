@@ -106,43 +106,59 @@ public class EditExpense extends Fragment {
                 }
                 else {
 
+                    //inflate layout
+                    View layout = getLayoutInflater().inflate( R.layout.toast_message , (ViewGroup) view.findViewById(R.id.toastRoot) );
+                    TextView text = layout.findViewById(R.id.textMsg);
+                    CardView background = layout.findViewById(R.id.back);
+                    Toast toast = new Toast( getContext() );
+                    toast.setDuration(Toast.LENGTH_LONG);
 
                 String amounttemp =   amount.getText().toString().trim();
                 double amountx  = (amounttemp.length() > 0 ) ? Double.valueOf(amounttemp) : 0;
+                    double balance = 0;
+                    ArrayList<AccountModel> accountlist = db.readAllAccountsWithBalance();
+                    for (AccountModel model : accountlist) {
+                        if(model.getId() == Acc_arrayList.get( spinner.getSelectedItemPosition() ).getId()){
+                            balance = model.getBalance();
+                            break;
+                        }
+                    }
+                    if(  ( balance >= amountx && currentCategory.getType().equals("Expense")  ) || currentCategory.getType().equals("Income")  ) {
 
-                Transaction current = new Transaction();
-                current.setId(transactionID);
-                current.setAmount(amountx );
-                current.setCategoryModel(currentCategory );
-                current.setDescription( Description.getText().toString().trim() );
-                current.setDate( select_date.getText().toString().trim() );
-                current.setAccountId( Acc_arrayList.get( spinner.getSelectedItemPosition() ).getId() );
+                        Transaction current = new Transaction();
+                        current.setId(transactionID);
+                        current.setAmount(amountx);
+                        current.setCategoryModel(currentCategory);
+                        current.setDescription(Description.getText().toString().trim());
+                        current.setDate(select_date.getText().toString().trim());
+                        current.setAccountId(Acc_arrayList.get(spinner.getSelectedItemPosition()).getId());
+                        toast.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 230);
 
-                //inflate layout
-                View layout = getLayoutInflater().inflate( R.layout.toast_message , (ViewGroup) view.findViewById(R.id.toastRoot) );
-                TextView text = layout.findViewById(R.id.textMsg);
-                CardView background = layout.findViewById(R.id.back);
-                Toast toast = new Toast( getContext() );
-                toast.setDuration(Toast.LENGTH_LONG);
-                toast.setGravity(Gravity.BOTTOM|Gravity.CENTER , 0 , 230 );
-
-                boolean result = db.updateTransaction( current);
-                if( result == false ){
-                    text.setText("Transaction Update Unsuccessfully");
-                    background.setCardBackgroundColor( getResources().getColor(R.color.red));
-                    text.setTextColor( getResources().getColor( R.color.white ));
-                    toast.setView(layout);
-                    toast.show();
-                }else{
-                    background.setCardBackgroundColor( getResources().getColor(R.color.green));
-                    text.setTextColor( getResources().getColor( R.color.white ));
-                    text.setText("Transaction Update Successfully");
-                    toast.setView(layout);
-                    getActivity().finish();
-                    Intent intent = new Intent( getContext() , MainActivity.class);
-                    startActivity(intent);
-                    toast.show();
-                }
+                        boolean result = db.updateTransaction(current);
+                        if (result == false) {
+                            text.setText("Transaction Update Unsuccessfully");
+                            background.setCardBackgroundColor(getResources().getColor(R.color.red));
+                            text.setTextColor(getResources().getColor(R.color.white));
+                            toast.setView(layout);
+                            toast.show();
+                        } else {
+                            background.setCardBackgroundColor(getResources().getColor(R.color.green));
+                            text.setTextColor(getResources().getColor(R.color.white));
+                            text.setText("Transaction Update Successfully");
+                            toast.setView(layout);
+                            getActivity().finish();
+                            Intent intent = new Intent(getContext(), MainActivity.class);
+                            startActivity(intent);
+                            toast.show();
+                        }
+                    }else{
+                        text.setText("Transaction must be less or equal than Account balance, Current balance = " + balance );
+                        background.setCardBackgroundColor(getResources().getColor(R.color.red));
+                        text.setTextColor(getResources().getColor(R.color.white));
+                        toast.setView(layout);
+                        toast.setGravity(Gravity.TOP | Gravity.CENTER, 0, 120);
+                        toast.show();
+                    }
             }
             }
         });

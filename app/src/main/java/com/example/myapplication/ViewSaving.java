@@ -9,9 +9,11 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +21,9 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import Database.DBhelper;
 import Models.SavingModel;
 
 public class ViewSaving extends Fragment {
@@ -28,6 +32,7 @@ public class ViewSaving extends Fragment {
     private ImageButton delete_btn , edit_btn;
     private  TextView name , total, current , start , description;
     private ProgressBar progress;
+    DBhelper db;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -44,6 +49,7 @@ public class ViewSaving extends Fragment {
         description = view.findViewById(R.id.description_text);
         progress = view.findViewById(R.id.progressBar);
 
+        db = new DBhelper(getContext() );
         name.setText( saving.getSavingName() );
         total.setText( "Rs. "+ String.format("%.2f", saving.getTargetAmount() ));
         current.setText( "Rs. "+ String.format("%.2f", ( saving.getCurrentAmount()  +  saving.getStartAmount() ) ));
@@ -68,40 +74,11 @@ public class ViewSaving extends Fragment {
             }
         });
 
+
         delete_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Dialog dialog = new Dialog(getActivity() );
-                dialog.setContentView(R.layout.delete_message);
-                Button accept = dialog.findViewById(R.id.accept_btn);
-                TextView textView = dialog.findViewById(R.id.deleteText);
-                ImageButton close = dialog.findViewById(R.id.close_btn);
-                textView.setText("Are you sure , you want to delete this saving ?");
-                dialog.show();
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-                close.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        dialog.dismiss();
-                    }
-                });
-
-                accept.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent(getActivity() , MainActivity.class);
-                        startActivity(intent);
-
-                    }
-                });
-            }
-        });
-
-        /*delete_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final Dialog dialog = new Dialog( ViewSavingDetails.this );
+                final Dialog dialog = new Dialog( getContext() );
                 dialog.setContentView(R.layout.delete_message);
                 Button accept = dialog.findViewById(R.id.accept_btn);
                 TextView textView = dialog.findViewById(R.id.deleteText);
@@ -121,13 +98,12 @@ public class ViewSaving extends Fragment {
                     @Override
                     public void onClick(View view) {
 
-                        db.deleteAllTransactionInSaving( ID );
-                        boolean lastResult = db.deleteCategory(ID);
+                         boolean lastResult = db. deleteSaving( saving.getID() );
 
                         View layout = getLayoutInflater().inflate( R.layout.toast_message , (ViewGroup) view.findViewById(R.id.toastRoot) );
                         TextView text = layout.findViewById(R.id.textMsg);
                         CardView background = layout.findViewById(R.id.back);
-                        Toast toast = new Toast( ViewSavingDetails.this);
+                        Toast toast = new Toast( getContext() );
                         toast.setDuration(Toast.LENGTH_LONG);
                         toast.setGravity(Gravity.BOTTOM|Gravity.CENTER , 0 , 230 );
 
@@ -136,18 +112,16 @@ public class ViewSaving extends Fragment {
                             toast.setView(layout);
                             toast.show();
                         }else{
-                            Intent intent = new Intent( ViewSavingDetails.this , MainActivity.class);
-                            startActivity(intent);
                             text.setText("Saving Deleted Successfully");
                             toast.setView(layout);
-                            finish();
+                            getActivity().finish();
                             toast.show();
                         }
 
                     }
                 });
             }
-        });*/
+        });
 
         edit_btn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.accounts.Account;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -100,50 +101,72 @@ public class AddExpense extends Fragment {
 
                     String amounttemp =   amount.getText().toString().trim();
                     double amountx  = (amounttemp.length() > 0 ) ? Double.valueOf(amounttemp) : 0;
+                    double balance = 0;
+                 ArrayList<AccountModel> accountlist = db.readAllAccountsWithBalance();
+                    for (AccountModel model : accountlist) {
+                        if(model.getId() == Acc_arrayList.get( spinner.getSelectedItemPosition() ).getId()){
+                            balance = model.getBalance();
+                            break;
+                        }
+                    }
+                    //inflate layout
+                    View layout = getLayoutInflater().inflate(R.layout.toast_message, (ViewGroup) view.findViewById(R.id.toastRoot));
+                    TextView text = layout.findViewById(R.id.textMsg);
+                    CardView background = layout.findViewById(R.id.back);
+                    Toast toast = new Toast(getContext());
+                    toast.setDuration(Toast.LENGTH_LONG);
 
-                Transaction current = new Transaction();
-                current.setAmount(amountx );
-                current.setCategoryModel(currentCategory );
-                current.setDescription( Description.getText().toString().trim() );
-                current.setDate( select_date.getText().toString().trim() );
-                current.setAccountId( Acc_arrayList.get( spinner.getSelectedItemPosition() ).getId() );
-                long id = db.insertTransaction(current);
-                boolean result;
 
-                    if(id > 0){
+                if(  ( balance >= amountx && currentCategory.getType().equals("Expense")  ) || currentCategory.getType().equals("Income")  ) {
+
+                    Transaction current = new Transaction();
+                    current.setAmount(amountx);
+                    current.setCategoryModel(currentCategory);
+                    current.setDescription(Description.getText().toString().trim());
+                    current.setDate(select_date.getText().toString().trim());
+                    current.setAccountId(Acc_arrayList.get(spinner.getSelectedItemPosition()).getId());
+                    long id = db.insertTransaction(current);
+                    boolean result;
+
+                    if (id > 0) {
                         result = true;
-                    }else{
+                    } else {
                         result = false;
                     }
 
-                    if( fromSaving ){
-                        db.addSavingTransaction( saving.getID() , (int) id );
+                    if (fromSaving) {
+                        db.addSavingTransaction(saving.getID(), (int) id);
                     }
 
-                //inflate layout
-                View layout = getLayoutInflater().inflate( R.layout.toast_message , (ViewGroup) view.findViewById(R.id.toastRoot) );
-                TextView text = layout.findViewById(R.id.textMsg);
-                CardView background = layout.findViewById(R.id.back);
-                Toast toast = new Toast( getContext() );
-                toast.setDuration(Toast.LENGTH_LONG);
-                toast.setGravity(Gravity.BOTTOM|Gravity.CENTER , 0 , 230 );
 
 
-                if( result == false ){
-                    text.setText("Transaction Added Unsuccessfully");
-                    background.setCardBackgroundColor( getResources().getColor(R.color.red));
-                    text.setTextColor( getResources().getColor( R.color.white ));
-                    toast.setView(layout);
-                    toast.show();
+
+                    if (result == false) {
+                        text.setText("Transaction Added Unsuccessfully");
+                        background.setCardBackgroundColor(getResources().getColor(R.color.red));
+                        text.setTextColor(getResources().getColor(R.color.white));
+                        toast.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 230);
+                        toast.setView(layout);
+                        toast.show();
 
 
+                    } else {
+                        background.setCardBackgroundColor(getResources().getColor(R.color.green));
+                        text.setTextColor(getResources().getColor(R.color.white));
+                        text.setText("Transaction Added Successfully");
+                        toast.setView(layout);
+                        toast.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 230);
+                        Intent intent = new Intent(getContext(), MainActivity.class);
+                        startActivity(intent);
+                        toast.show();
+
+                    }
                 }else{
-                    background.setCardBackgroundColor( getResources().getColor(R.color.green));
-                    text.setTextColor( getResources().getColor( R.color.white ));
-                    text.setText("Transaction Added Successfully");
+                    text.setText("Transaction must be less or equal than Account balance, Current balance = " + balance );
+                    background.setCardBackgroundColor(getResources().getColor(R.color.red));
+                    text.setTextColor(getResources().getColor(R.color.white));
                     toast.setView(layout);
-                    Intent intent = new Intent( getContext() , MainActivity.class);
-                    startActivity(intent);
+                    toast.setGravity(Gravity.TOP | Gravity.CENTER, 0, 120);
                     toast.show();
 
                 }
@@ -157,6 +180,7 @@ public class AddExpense extends Fragment {
 
     public void updateDate( View view){
         select_date = view.findViewById(R.id.select_date);
+
         select_date.setText(  new SimpleDateFormat("EEEE , dd MMMM yyyy").format( new Date())  );
         select_date.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -177,6 +201,7 @@ public class AddExpense extends Fragment {
                     }
                 },calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
                         calendar.get(Calendar.DAY_OF_MONTH) );
+                dialog.getDatePicker().setMaxDate(System.currentTimeMillis());
                 dialog.show();
             }
         });
