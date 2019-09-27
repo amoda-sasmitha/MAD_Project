@@ -8,6 +8,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -110,6 +111,22 @@ public class OverviewX extends Fragment {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
+        view.setFocusableInTouchMode(true);
+        view.requestFocus();
+        view.setOnKeyListener( new View.OnKeyListener()
+        {
+            @Override
+            public boolean onKey( View v, int keyCode, KeyEvent event )
+            {
+                if( keyCode == KeyEvent.KEYCODE_BACK )
+                {
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container , new Expenses()).commit();
+                    return true;
+                }
+                return false;
+            }
+        } );
         return view;
     }
     @SuppressLint("DefaultLocale")

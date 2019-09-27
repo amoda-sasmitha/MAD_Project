@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +37,7 @@ public class Expenses extends Fragment {
     private ImageButton prev , next;
     private Button monthly , daily;
     private RelativeLayout overviewbtn;
-    private ImageView background;
+    private RelativeLayout background;
     boolean ismonthly;
     DBhelper db;
     String period;
@@ -104,18 +106,22 @@ public class Expenses extends Fragment {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                Bundle bundle = new Bundle();
-                if(ismonthly){
 
-                    bundle.putString( "period" , Util.addMonths( period , 1 ) );
-                }else{
-                    bundle.putString( "period" , Util.addDays( period, 1) );
+                String today = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+
+                if(  !today.equals(period) ) {
+                    FragmentTransaction ft = getFragmentManager().beginTransaction();
+                    Bundle bundle = new Bundle();
+                    if (ismonthly) {
+
+                        bundle.putString("period", Util.addMonths(period, 1));
+                    } else {
+                        bundle.putString("period", Util.addDays(period, 1));
+                    }
+                    bundle.putBoolean("ismonthly", ismonthly);
+                    Expenses.this.setArguments(bundle);
+                    ft.detach(Expenses.this).attach(Expenses.this).commit();
                 }
-                bundle.putBoolean( "ismonthly" , ismonthly );
-                Expenses.this.setArguments( bundle );
-                ft.detach( Expenses.this).attach( Expenses.this ).commit();
-
             }
         });
         monthly.setOnClickListener(new View.OnClickListener() {

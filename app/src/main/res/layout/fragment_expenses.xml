@@ -236,14 +236,30 @@
 
         </androidx.recyclerview.widget.RecyclerView>
 
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:id="@+id/back"
+            >
             <ImageView
-                android:visibility="gone"
-                android:id="@+id/back"
+               android:id="@+id/back2"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="280dp"
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/back"
                 />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="16dp"
+                android:textColor="@color/darkGray"
+                android:textStyle="bold"
+                android:text="No Transactions Available !"
+                android:layout_below="@+id/back2"
+                />
+        </RelativeLayout>
     </LinearLayout>
 
 
