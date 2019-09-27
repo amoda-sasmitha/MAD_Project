@@ -13,8 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -31,6 +33,7 @@ public class Savings extends Fragment {
 
     private FloatingActionButton plusBtn;
     private RecyclerView savingList;
+    Button del;
     DBhelper db;
     @Nullable
     @Override
@@ -39,6 +42,7 @@ public class Savings extends Fragment {
         View view = inflater.inflate(R.layout.fragment_savings, container, false);
 
          plusBtn = view.findViewById(R.id.add_saving_btn);
+         del =  view.findViewById(R.id.delete_btn);
          savingList = view.findViewById(R.id.savingRE);
          db = new DBhelper(getContext() );
 
@@ -50,8 +54,20 @@ public class Savings extends Fragment {
              }
          });
 
+        /*del.setOnClickListener(new View.OnClickListener() {
+            @Override
+                public void onClick(View v) {
+            //db.deleteSaving(ID);
+                System.out.println("bla");
+
+            }
+        });*/
+
+
+
         return view;
     }
+
 
     @Override
     public void onStart() {
