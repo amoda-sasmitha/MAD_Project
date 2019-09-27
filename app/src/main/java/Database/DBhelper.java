@@ -61,7 +61,8 @@ public class DBhelper extends SQLiteOpenHelper {
                 DBConfig.Savings.COLUMN_NAME_SAVINGNAME + " TEXT , "+
                 DBConfig.Savings.COLUMN_NAME_SAVINGDISCRIPTION + " TEXT , "+
                 DBConfig.Savings.COLUMN_NAME_TARGETAMOUNT + " DOUBLE ,"+
-                DBConfig.Savings.COLUMN_NAME_STARTAMOUNT + " DOUBLE "+ " );";
+                DBConfig.Savings.COLUMN_NAME_STARTAMOUNT + " DOUBLE ,"+
+                DBConfig.Savings.COLUMN_NAME_DATE +  " );";
 
 
         db.execSQL(sql_ct_savings);
