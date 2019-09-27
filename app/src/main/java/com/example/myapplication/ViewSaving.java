@@ -23,8 +23,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import Database.DBhelper;
 import Models.SavingModel;
+import Util.Util;
 
 public class ViewSaving extends Fragment {
     private SavingModel saving;
@@ -32,6 +36,7 @@ public class ViewSaving extends Fragment {
     private ImageButton delete_btn , edit_btn;
     private  TextView name , total, current , start , description;
     private ProgressBar progress;
+    private TextView today, totamount;
     DBhelper db;
     @Nullable
     @Override
@@ -48,14 +53,16 @@ public class ViewSaving extends Fragment {
         start = view.findViewById(R.id.account);
         description = view.findViewById(R.id.description_text);
         progress = view.findViewById(R.id.progressBar);
-
+        today = view.findViewById(R.id.text02);
+        totamount = view.findViewById(R.id.textView12);
         db = new DBhelper(getContext() );
         name.setText( saving.getSavingName() );
         total.setText( "Rs. "+ String.format("%.2f", saving.getTargetAmount() ));
         current.setText( "Rs. "+ String.format("%.2f", ( saving.getCurrentAmount()  +  saving.getStartAmount() ) ));
         start.setText( "Rs. "+ String.format("%.2f", saving.getStartAmount() ));
         description.setText( saving.getSavingDescription());
-
+        totamount.setText( "Rs. "+ String.format("%.2f", Util.getTotalBalance(getContext()) )  );
+        today.setText(new SimpleDateFormat("dd MMMM yyyy").format(new Date()));
         double progressvalue = ( saving.getCurrentAmount()  +  saving.getStartAmount() )  /  saving.getTargetAmount()  * 100;
         progress.setProgress((int) progressvalue );
 

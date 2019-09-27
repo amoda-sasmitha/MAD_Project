@@ -34,7 +34,7 @@
         android:layout_marginStart="16dp"
         android:text="@string/rs_12450_00"
         android:textColor="#ffffff"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:textStyle="bold"/>
 
     <TextView
@@ -48,7 +48,7 @@
         android:layout_marginEnd="16dp"
         android:text="@string/DateV2"
         android:textColor="#ffffff"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:textStyle="bold" />
     <RelativeLayout
         android:layout_below="@+id/textView12"

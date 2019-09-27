@@ -180,11 +180,9 @@ public class Expenses extends Fragment {
         dailyrv.setNestedScrollingEnabled(false);
         DailyExpensesAdapter adapter = new DailyExpensesAdapter( dbx ,getActivity().getApplicationContext()  );
         dailyrv.setAdapter(adapter);
-
         overview = Util.getOverview( dbdata , period , ismonthly);
         inflow.setText( "Rs. "+ String.format("%.2f", overview.getInflow() ) );
         outflow.setText( "Rs. "+ String.format("%.2f", overview.getOutflow() ) );
-
         overviewbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
