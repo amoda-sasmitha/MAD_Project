@@ -64,7 +64,7 @@ public class AddEditCategory extends AppCompatActivity {
                 gridView.setAdapter(categoryIconAdapter);
                 dialog.show();
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
+                //Adding icon
                 gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -85,7 +85,7 @@ public class AddEditCategory extends AppCompatActivity {
         });
 
     }
-
+    //Add Categories
     public void addCategory(View view) {
 
         if (name.length() == 0) {

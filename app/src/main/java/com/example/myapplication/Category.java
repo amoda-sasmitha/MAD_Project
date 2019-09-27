@@ -94,6 +94,7 @@ public class Category extends Fragment {
         Erv.setAdapter( adapterExpense );
         Irv.setAdapter( adapterIncome );
 
+        //Search function
         search.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -104,7 +105,7 @@ public class Category extends Fragment {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
             }
-
+            // Live search function 
             @Override
             public void afterTextChanged(Editable editable) {
 
