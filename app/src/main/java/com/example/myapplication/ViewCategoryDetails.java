@@ -71,6 +71,8 @@ public class ViewCategoryDetails extends AppCompatActivity {
         }else {
             category_t.setText("Main Category");
         }
+
+        //Getting the latest transcation involving this selected category
         date.setText(new SimpleDateFormat("dd MMMM yyyy").format(new Date()));
         totamount.setText( "Rs. "+ String.format("%.2f", Util.getTotalBalance(ViewCategoryDetails.this ))  );
 
@@ -92,7 +94,7 @@ public class ViewCategoryDetails extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+            //The on click listener fot the delete button
         delete_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -108,7 +110,7 @@ public class ViewCategoryDetails extends AppCompatActivity {
                 //The delete confirmation dialog
                 dialog.show();
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                //making the background trasnparent as the dialog box appears
+                //making the background transparent as the dialog box appears
 
                 close.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -116,6 +118,8 @@ public class ViewCategoryDetails extends AppCompatActivity {
                         dialog.dismiss();
                     }
                 });
+
+                //Confirming thr deletion of a category
                 accept.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -147,6 +151,8 @@ public class ViewCategoryDetails extends AppCompatActivity {
                 });
             }
         });
+
+
         ArrayList<Transaction> latest = db.latestTransactions(ID);
         TransactionAdapter Tadapter = new TransactionAdapter( latest , this , true);
         latestTransactions.setHasFixedSize(true);
