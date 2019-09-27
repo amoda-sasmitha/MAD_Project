@@ -10,15 +10,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-
 import Database.DBhelper;
 import Models.AccountModel;
-
 public class AddAccount extends AppCompatActivity {
-
     DBhelper db;
     EditText accountName,  accountIniAmount, accountNumber, accountDescription;
     Spinner accountType;

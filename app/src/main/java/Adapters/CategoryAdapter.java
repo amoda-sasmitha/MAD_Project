@@ -1,11 +1,7 @@
 package Adapters;
-
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,50 +9,36 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.myapplication.AddExpense;
 import com.example.myapplication.EditExpense;
-
 import com.example.myapplication.R;
 import com.example.myapplication.ViewCategoryDetails;
-
 import java.util.ArrayList;
 import java.util.Collection;
-
-
 import Models.CategoryModel;
 import Models.Transaction;
-
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder> implements Filterable {
-
     private ArrayList<CategoryModel> arrayList = null;
     private ArrayList<CategoryModel> arrayListfull;
     private OnCategoryClickListener onCategory;
     private Context context;
     private Bundle bundle;
-
     public CategoryAdapter(ArrayList<CategoryModel> arrayList  ,Context context , Bundle bundle ) {
         this.arrayList = arrayList;
         this.context = context;
         this.bundle = bundle;
         this.arrayListfull = new ArrayList<>(arrayList);
-
-
     }
-
     @NonNull
     @Override
     public CategoryAdapter.CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from( parent.getContext() ).inflate(R.layout.category_row , parent , false );
         return new CategoryViewHolder(view , this.context );
     }
-
     @Override
     public void onBindViewHolder(@NonNull CategoryAdapter.CategoryViewHolder holder, int position) {
         CategoryModel c = arrayList.get(position);
@@ -64,10 +46,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         holder.name.setText( c.getName());
         holder.type.setText( c.getType() );
         holder.icon.setImageResource(resID);
-
-
     }
-
     @Override
     public int getItemCount() {
         return arrayList.size();
