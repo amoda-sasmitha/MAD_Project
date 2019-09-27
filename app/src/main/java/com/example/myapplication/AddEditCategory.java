@@ -50,7 +50,7 @@ public class AddEditCategory extends AppCompatActivity {
 
         db = new DBhelper(this);
         icons =  getResources().getStringArray(R.array.category_Icons);
-
+            //Opening the dialog box when clicking the icon image view in the form
         icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,9 +62,10 @@ public class AddEditCategory extends AppCompatActivity {
                 ImageButton close = dialog.findViewById(R.id.close_btn);
                 CategoryIconAdapter categoryIconAdapter = new CategoryIconAdapter(AddEditCategory.this);
                 gridView.setAdapter(categoryIconAdapter);
-                dialog.show();
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show(); // Showing the dialog box with new icons
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT)); // Transparent the rest of the form when the dialog box is opened
 
+                //Adding a new icon to a new category
                 gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -73,7 +74,7 @@ public class AddEditCategory extends AppCompatActivity {
                         dialog.dismiss();
                     }
                 });
-
+                //Canceling the dialog in the category adding form
                 close.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -85,17 +86,17 @@ public class AddEditCategory extends AppCompatActivity {
         });
 
     }
-
+    //Add Categories
     public void addCategory(View view) {
-
+        //validation for the category name
         if (name.length() == 0) {
             name.setError("Enter Category Name");
-
+        //validation for the category description
         } else if (description.length() == 0) {
             description.setError("Enter Description");
         } else {
 
-            int selectedId = radioGroup.getCheckedRadioButtonId();
+            int selectedId = radioGroup.getCheckedRadioButtonId(); //Automatically checking a radio button when opening the form
             SelectedBtn = findViewById(selectedId);
 
             CategoryModel category = new CategoryModel();
@@ -111,13 +112,13 @@ public class AddEditCategory extends AppCompatActivity {
             TextView text = layout.findViewById(R.id.textMsg);
             CardView background = layout.findViewById(R.id.back);
 
-            //creat toast
+            //create toast
             Toast toast = new Toast(this);
             toast.setDuration(Toast.LENGTH_LONG);
             toast.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 230);
 
 
-            if (result == false) {
+            if (result == false) { //testing the insertion if unsuccessful
                 text.setText("Category Added Unsuccessfully");
                 background.setCardBackgroundColor(getResources().getColor(R.color.red));
                 text.setTextColor(getResources().getColor(R.color.white));
