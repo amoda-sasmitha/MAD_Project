@@ -25,6 +25,7 @@ import Database.DBhelper;
 import Models.CategoryModel;
 import Models.Transaction;
 import Util.Util;
+
 public class ViewCategoryDetails extends AppCompatActivity {
     private ImageButton edit_categorybtn, delete_btn;
     private TextView categoryName , description, category_type , category_t, date, totamount;
@@ -65,7 +66,7 @@ public class ViewCategoryDetails extends AppCompatActivity {
 
         //Checking if a category is predefind or a category which is made by the user
         icon.setImageResource(resID );
-        if( category.getID() > 15 ){
+        if( category.getID() > 15 ){ //if the id is higher than 15 its a a user category
             category_t.setText("User Category");
         }else {
             category_t.setText("Main Category");
@@ -104,9 +105,11 @@ public class ViewCategoryDetails extends AppCompatActivity {
                 ImageButton close = dialog.findViewById(R.id.close_btn);
 
                 textView.setText("Are you sure, you want to delete this category ?");
-                //The delete confirmation dialog 
+                //The delete confirmation dialog
                 dialog.show();
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                //making the background trasnparent as the dialog box appears
+
                 close.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -118,12 +121,16 @@ public class ViewCategoryDetails extends AppCompatActivity {
                     public void onClick(View view) {
                         db.deleteAllTransactionInCategory( ID );
                         boolean lastResult = db.deleteCategory(ID);
+
                         View layout = getLayoutInflater().inflate( R.layout.toast_message , (ViewGroup) view.findViewById(R.id.toastRoot) );
                         TextView text = layout.findViewById(R.id.textMsg);
                         CardView background = layout.findViewById(R.id.back);
+
+                        //Toast
                         Toast toast = new Toast( ViewCategoryDetails.this);
                         toast.setDuration(Toast.LENGTH_LONG);
                         toast.setGravity(Gravity.BOTTOM|Gravity.CENTER , 0 , 230 );
+
                         if(!lastResult){
                             text.setText("Category Deleted Unsuccessfully");
                             toast.setView(layout);
