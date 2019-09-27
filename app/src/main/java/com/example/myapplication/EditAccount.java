@@ -34,7 +34,8 @@ public class EditAccount extends AppCompatActivity {
         description = findViewById( R.id.txt_add_acc_edit_des );
         accNumber.setText( account.getAccountNumber() );
         name.setText( account.getAccountName() );
-        amount.setText( account.getAmount()+"0");
+        amount.setText( account.getBalance()+"0");
+
         description.setText( account.getAccountDescription() );
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,

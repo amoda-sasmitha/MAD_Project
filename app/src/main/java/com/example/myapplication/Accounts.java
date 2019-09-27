@@ -26,6 +26,7 @@ public class Accounts extends Fragment  {
     private RecyclerView ARV;
     private EditText search;
     private AccountAdapter adapter;
+
     DBhelper db;
     @SuppressLint("WrongConstant")
     @Nullable
