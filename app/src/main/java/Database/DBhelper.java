@@ -483,7 +483,7 @@ public class DBhelper extends SQLiteOpenHelper {
     //view all accounts
 
     public ArrayList<AccountModel> readAllAccounts(){
-        SQLiteDatabase db = getReadableDatabase();
+        SQLiteDatabase db = getReadableDatabase(); //get readable db for update
 
         String[] projection = { DBConfig.Accounts.COLUMN_NAME_ID , DBConfig.Accounts.COLUMN_NAME_ANAME , DBConfig.Accounts.COLUMN_NAME_DESCRIPTION
         , DBConfig.Accounts.COLUMN_NAME_AMOUNT , DBConfig.Accounts.COLUMN_NAME_NUMBER , DBConfig.Accounts.COLUMN_NAME_TYPE };
@@ -518,7 +518,8 @@ public class DBhelper extends SQLiteOpenHelper {
                      "FROM  accounts A LEFT OUTER JOIN transactions T  ON  A.AID = T.AID  LEFT OUTER JOIN categories C ON C.CID = T.CID " +
                      " GROUP BY A.AID";
 
-
+//balance will calculate by using transactions , accounts, categories tables
+// case - if the trans  income then add and if it expns then deducted
         ArrayList<AccountModel> arrayList = new ArrayList<>();
 
         Cursor values = db.rawQuery( sql , null );
@@ -552,7 +553,7 @@ public class DBhelper extends SQLiteOpenHelper {
             return false;
         }
     }
-
+//get lastes  transactoisn
     public ArrayList<Transaction>  AccountlatestTransactions( String AID ){
         SQLiteDatabase db = getReadableDatabase();
 
@@ -597,6 +598,7 @@ public class DBhelper extends SQLiteOpenHelper {
 
         return arrayList;
     }
+
     //-------------------------------Pubudu Arosha----------------------------------------------------------------
     //add account
     public boolean addSaving(SavingModel savingModel ){

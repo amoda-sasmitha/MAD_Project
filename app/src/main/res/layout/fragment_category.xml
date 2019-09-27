@@ -19,23 +19,23 @@
      />
 
 
-
     <EditText
 
         android:id="@+id/search"
-        android:layout_marginTop="12dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView13"
-        android:paddingVertical="6dp"
-        android:paddingHorizontal="8dp"
         android:layout_marginHorizontal="12dp"
-        android:drawableEnd="@drawable/searchbtn"
+        android:layout_marginTop="12dp"
         android:background="@drawable/rounded_edit_text"
+        android:drawableEnd="@drawable/searchbtn"
+        android:hint="@string/categoryhintserch"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="6dp"
         android:textColor="@color/darkGray"
-        android:textSize="14sp"
 
-       />
+
+        android:textSize="14sp" />
 
 
 

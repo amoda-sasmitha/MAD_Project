@@ -54,6 +54,7 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.AccountA
     public int getItemCount() {
         return arrayList.size();
     }
+
     public class AccountAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView name, type, amount;
         ImageView icon;
@@ -74,6 +75,7 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.AccountA
             item.onItemClickListener( view, getAdapterPosition() );
         }
     }
+
     @Override
     public Filter getFilter() {
         return accountFilter;
