@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,20 +22,23 @@ import com.example.myapplication.view_account_indetails;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 
 import Interface.IItemClickListener;
 import Models.AccountModel;
+import Models.CategoryModel;
 import Util.Util;
 
-public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.AccountAdapterViewHolder> {
+public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.AccountAdapterViewHolder> implements Filterable {
 
     Context context;
     ArrayList<AccountModel> arrayList;
-    ArrayList<AccountModel> arrayListSearch;
+    ArrayList<AccountModel> arrayListfull;
 
     public AccountAdapter(Context context, ArrayList<AccountModel> arrayList) {
         this.context = context;
         this.arrayList = arrayList;
+        this.arrayListfull = new ArrayList<>(arrayList);
     }
 
     @NonNull
@@ -93,4 +98,40 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.AccountA
             item.onItemClickListener( view, getAdapterPosition() );
         }
     }
+
+    @Override
+    public Filter getFilter() {
+        return accountFilter;
+    }
+
+    private Filter accountFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence ch) {
+            ArrayList<AccountModel> FilteredList = new ArrayList<>();
+
+            if( ch == null || ch.length() == 0 ){
+                FilteredList.addAll(arrayListfull);
+            }else{
+                String pattern = ch.toString().toLowerCase().trim();
+                for (AccountModel model : arrayListfull) {
+                    if( model.getAccountName().toLowerCase().contains(pattern) ){
+                        FilteredList.add(model);
+
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = FilteredList;
+            return  results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+
+            arrayList.clear();
+            arrayList.addAll((Collection<? extends AccountModel>) filterResults.values);
+            notifyDataSetChanged();
+        }
+    };
+
 }

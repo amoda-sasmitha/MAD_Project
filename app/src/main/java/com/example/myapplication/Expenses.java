@@ -188,11 +188,14 @@ public class Expenses extends Fragment {
         overviewbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                OverviewX overviewX = new OverviewX();
-                Bundle data = new Bundle();
-                data.putSerializable("Overview" , overview);
-                overviewX.setArguments(data);
-                getFragmentManager().beginTransaction().replace(R.id.fragment_container,  overviewX ).commit();
+
+                if( overview.getInflow() > 0 || overview.getOutflow() > 0  ) {
+                    OverviewX overviewX = new OverviewX();
+                    Bundle data = new Bundle();
+                    data.putSerializable("Overview", overview);
+                    overviewX.setArguments(data);
+                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, overviewX).commit();
+                }
             }
         });
 

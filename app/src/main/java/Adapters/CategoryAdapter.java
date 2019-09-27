@@ -1,16 +1,19 @@
 package Adapters;
 
-import android.app.Activity;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,19 +22,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.AddExpense;
 import com.example.myapplication.EditExpense;
-import com.example.myapplication.Expenses;
+
 import com.example.myapplication.R;
 import com.example.myapplication.ViewCategoryDetails;
 
 import java.util.ArrayList;
-import java.util.ResourceBundle;
+import java.util.Collection;
+
 
 import Models.CategoryModel;
 import Models.Transaction;
 
-public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder> {
+public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder> implements Filterable {
 
-    private ArrayList<CategoryModel> arrayList;
+    private ArrayList<CategoryModel> arrayList = null;
+    private ArrayList<CategoryModel> arrayListfull;
     private OnCategoryClickListener onCategory;
     private Context context;
     private Bundle bundle;
@@ -40,6 +45,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         this.arrayList = arrayList;
         this.context = context;
         this.bundle = bundle;
+        this.arrayListfull = new ArrayList<>(arrayList);
 
 
     }
@@ -66,6 +72,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     public int getItemCount() {
         return arrayList.size();
     }
+
+
 
     public class CategoryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
@@ -123,7 +131,41 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         void onCategoryClick(int position);
     }
 
+    @Override
+    public Filter getFilter() {
 
+        return categoryFilter;
+    }
+
+    private Filter categoryFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence ch) {
+            ArrayList<CategoryModel> FilteredList = new ArrayList<>();
+
+            if( ch == null || ch.length() == 0 ){
+                FilteredList.addAll(arrayListfull);
+            }else{
+                String pattern = ch.toString().toLowerCase().trim();
+                for (CategoryModel model : arrayListfull) {
+                    if( model.getName().toLowerCase().contains(pattern) ){
+                        FilteredList.add(model);
+
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = FilteredList;
+            return  results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+
+                arrayList.clear();
+                arrayList.addAll((Collection<? extends CategoryModel>) filterResults.values);
+                notifyDataSetChanged();
+        }
+    };
 
 
 }

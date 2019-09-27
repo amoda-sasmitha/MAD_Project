@@ -637,29 +637,7 @@ public class DBhelper extends SQLiteOpenHelper {
         }
     }
 
-    public ArrayList<SavingModel> readAllSavings(){
-        SQLiteDatabase db = getReadableDatabase();
 
-        String[] projection = { DBConfig.Savings.COLUMN_NAME_ID , DBConfig.Savings.COLUMN_NAME_SAVINGNAME , DBConfig.Savings.COLUMN_NAME_SAVINGDISCRIPTION,
-            DBConfig.Savings.COLUMN_NAME_STARTAMOUNT , DBConfig.Savings.COLUMN_NAME_TARGETAMOUNT };
-
-        ArrayList<SavingModel> arrayList = new ArrayList<>();
-
-        Cursor values = db.query(DBConfig.Savings.TABLE_NAME , projection , null, null , null ,null , null  );
-        while(values.moveToNext() ){
-                SavingModel saving = new SavingModel();
-                saving.setID( values.getInt( values.getColumnIndexOrThrow( DBConfig.Savings.COLUMN_NAME_ID )));
-                saving.setSavingName( values.getString( values.getColumnIndexOrThrow( DBConfig.Savings.COLUMN_NAME_SAVINGNAME )));
-                saving.setSavingDescription( values.getString( values.getColumnIndexOrThrow( DBConfig.Savings.COLUMN_NAME_SAVINGDISCRIPTION )));
-                saving.setTargetAmount( values.getDouble( values.getColumnIndexOrThrow( DBConfig.Savings.COLUMN_NAME_TARGETAMOUNT )));
-                saving.setStartAmount( values.getDouble( values.getColumnIndexOrThrow( DBConfig.Savings.COLUMN_NAME_STARTAMOUNT )));
-
-                arrayList.add(saving);
-
-        }
-
-        return arrayList;
-    }
 
     public ArrayList<SavingModel>  readAllSavingsWithAmount(){
         SQLiteDatabase db = getReadableDatabase();
