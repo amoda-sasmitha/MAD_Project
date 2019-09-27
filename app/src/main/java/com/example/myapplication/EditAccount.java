@@ -1,6 +1,4 @@
 package com.example.myapplication;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -12,15 +10,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-
 import Database.DBhelper;
 import Models.AccountModel;
-
 public class EditAccount extends AppCompatActivity {
-
     EditText accNumber, name , amount, description;
     Button submitBtn;
     Spinner spinner;
@@ -29,10 +23,8 @@ public class EditAccount extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_account  );
-
         Intent intent = getIntent();
         final AccountModel account = (AccountModel) intent.getSerializableExtra("Account");
-
         db = new DBhelper(this);
         submitBtn = findViewById(R.id.save_btn);
         spinner = (Spinner) findViewById(R.id.editText3);
@@ -44,15 +36,12 @@ public class EditAccount extends AppCompatActivity {
         name.setText( account.getAccountName() );
         amount.setText( account.getAmount()+"0");
         description.setText( account.getAccountDescription() );
-
-
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                         R.array.spinnerAccounts, android.R.layout.simple_spinner_item);
         // Specify the layout to use when the list of choices appears
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
-
                 spinner.setAdapter(adapter);
                 for (int i = 0; i < spinner.getCount(); i++) {
                     if (spinner.getItemAtPosition(i).equals( account.getAccountType() )) {
@@ -60,12 +49,9 @@ public class EditAccount extends AppCompatActivity {
                         break;
                     }
                  }
-
-    submitBtn.setOnClickListener(new View.OnClickListener() {
+        submitBtn.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-
-
             //validate user input
             if (name.length() == 0) {
                 name.setError("Enter Account Name");
@@ -78,21 +64,16 @@ public class EditAccount extends AppCompatActivity {
             } else if (description.length() == 0) {
                 description.setError("Enter Description");
             } else {
-
-
                 AccountModel newAccount = new AccountModel();
                 newAccount.setId(account.getId());
                 newAccount.setAccountName(name.getText().toString().trim());
                 newAccount.setAccountType(spinner.getItemAtPosition(spinner.getSelectedItemPosition()).toString().trim());
                 newAccount.setAccountDescription(description.getText().toString().trim());
-
                 boolean result = db.updateAccount(newAccount);
-
                 //inflate layout
                 View layout = getLayoutInflater().inflate(R.layout.toast_message, (ViewGroup) view.findViewById(R.id.toastRoot));
                 TextView text = layout.findViewById(R.id.textMsg);
                 CardView background = layout.findViewById(R.id.back);
-
                 //creat toast
                 Toast toast = new Toast(getApplicationContext());
                 toast.setDuration(Toast.LENGTH_LONG);
@@ -119,7 +100,7 @@ public class EditAccount extends AppCompatActivity {
                 }
             }
         }
-    });
+     });
 
     }
 

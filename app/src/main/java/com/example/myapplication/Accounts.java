@@ -1,6 +1,4 @@
 package com.example.myapplication;
-
-import android.accounts.Account;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,24 +7,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import java.util.ArrayList;
-
-//import Adapters.AccountsAdapter;
 import Adapters.AccountAdapter;
 import Database.DBhelper;
 import Models.AccountModel;
-import Models.Transaction;
 import Util.Util;
-
 
 public class Accounts extends Fragment  {
 
@@ -50,7 +41,6 @@ public class Accounts extends Fragment  {
         ArrayList<AccountModel> data = db.readAllAccountsWithBalance();  //get all acounts details in open page from using array list
         AccountAdapter adapter = new AccountAdapter( getActivity().getApplicationContext() , data );
         ARV.setAdapter( adapter);
-
 //    call add btn
         addbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,10 +50,8 @@ public class Accounts extends Fragment  {
 
             }
         });
-
         return view;
     }
-
     @Override
     public void onStart() { //get all acounts details in open page from using array list
         super.onStart();  //in onstart get all account details from db

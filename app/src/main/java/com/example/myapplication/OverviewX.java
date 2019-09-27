@@ -2,7 +2,6 @@ package com.example.myapplication;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
-
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
@@ -13,46 +12,31 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import com.github.mikephil.charting.animation.Easing;
-
 import com.github.mikephil.charting.charts.PieChart;
-
-
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
-
 import com.savvi.rangedatepicker.CalendarPickerView;
-
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
-
 import Adapters.PiechartLegendAdapter;
 import Database.DBhelper;
 import Models.Overview;
 import Models.Transaction;
 import Util.Util;
-
-
 public class OverviewX extends Fragment {
-
     private Overview overview;
     private TextView daterange;
     private PieChart pieChartExpense;
@@ -66,7 +50,6 @@ public class OverviewX extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_overview , container, false);
-
         db = new DBhelper(getContext());
         pieChartExpense = view.findViewById(R.id.piechartExpense);
         pieChartIncome = view.findViewById(R.id.piechartIncome);
@@ -76,10 +59,7 @@ public class OverviewX extends Fragment {
         outflow = view.findViewById( R.id.outflow );
         expenseLegend = view.findViewById(R.id.piechartLegend1);
         incomeLegend = view.findViewById(R.id.piechartLegend2);
-
         overview = (Overview) getArguments().getSerializable("Overview");
-
-
         daterange = view.findViewById(R.id.daterange);
         daterange.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SimpleDateFormat")
@@ -91,28 +71,21 @@ public class OverviewX extends Fragment {
                 final CalendarPickerView calendar = datepicker.findViewById(R.id.calendar_view);
                 TextView okbtn = datepicker.findViewById(R.id.okbtn);
                 TextView cancel = datepicker.findViewById(R.id.cancelbtn);
-
-
                 @SuppressLint("SimpleDateFormat") Date from  = new SimpleDateFormat("dd-MM-yyyy").parse(overview.getStartDate() );
                 @SuppressLint("SimpleDateFormat") Date to  = new SimpleDateFormat("dd-MM-yyyy").parse(overview.getEndDate() );
                 dates = new ArrayList<>();
                 dates.add(from);
                 dates.add(to);
-
                 Log.i("DB", Util.getLastDate( overview.getEndDate() ));
                 Calendar firstdate = Calendar.getInstance();
                 firstdate.setTime(Objects.requireNonNull(new SimpleDateFormat("dd-MM-yyyy").parse(Util.getFirsttDate(overview.getStartDate()))));
                 firstdate.add(Calendar.MONTH , -6);
-
                 Calendar lastdate = Calendar.getInstance();
                 lastdate.setTime(Objects.requireNonNull(new SimpleDateFormat("dd-MM-yyyy").parse(Util.getLastDate(overview.getEndDate()))));
                 lastdate.add( Calendar.DATE , 1);
-
-
                 calendar.init( firstdate.getTime() , lastdate.getTime() ) //
                         .inMode(CalendarPickerView.SelectionMode.RANGE)
                         .withSelectedDates(dates);
-
                 okbtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -123,10 +96,8 @@ public class OverviewX extends Fragment {
                             Log.i("DB",  dates.get( dates.size() -1 ).toString() );
                             calendar.clearSelectedDates();
                             datepicker.dismiss();
-
                     }
                 });
-
                 datepicker.show();
                 datepicker.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 } catch (ParseException e) {
@@ -142,19 +113,14 @@ public class OverviewX extends Fragment {
         }
         return view;
     }
-
     @SuppressLint("DefaultLocale")
     private void setOverviewDaterange(Date firstdate, Date lastdate){
-
         ArrayList<Transaction> incomeL = new ArrayList<>();
         ArrayList<Transaction> expenseL = new ArrayList<>();
-
-
         SimpleDateFormat normaldate = new SimpleDateFormat("dd-MM-yyyy");
         String datetextString;
         double totalIncome = 0;
         double totalexpense = 0;
-
         if( firstdate.equals(lastdate) ){
             datetextString = new SimpleDateFormat("EEE, dd MMMM yyyy").format(firstdate);
         }else{
@@ -164,7 +130,6 @@ public class OverviewX extends Fragment {
         }
         daterange.setText(datetextString);
         ArrayList<Transaction> categoricalData = db.transactionGroupByCategories(  normaldate.format(firstdate), normaldate.format(lastdate) );
-
         //      expense pie chart values set
         pieChartExpense.setUsePercentValues(true);
         pieChartExpense.getDescription().setEnabled(false);
@@ -172,7 +137,6 @@ public class OverviewX extends Fragment {
         pieChartExpense.setDrawHoleEnabled(true);
         pieChartExpense.setHoleColor(Color.WHITE);
         pieChartExpense.setTransparentCircleRadius(60f);
-
         //      Income pie chart values set
         pieChartIncome.setUsePercentValues(true);
         pieChartIncome.getDescription().setEnabled(false);
@@ -180,9 +144,6 @@ public class OverviewX extends Fragment {
         pieChartIncome.setDrawHoleEnabled(true);
         pieChartIncome.setHoleColor(Color.WHITE);
         pieChartIncome.setTransparentCircleRadius(60f);
-
-
-
         ArrayList<PieEntry> yvaluesE = new ArrayList<>();
         ArrayList<PieEntry> yvaluesI = new ArrayList<>();
 
@@ -193,7 +154,6 @@ public class OverviewX extends Fragment {
                 totalIncome += item.getAmount();
             }
         }
-
         for ( Transaction item : categoricalData ) {
 
             int resID =  getContext().getResources().getIdentifier( item.getCategoryModel().getIcon() , "drawable", getContext().getPackageName());
@@ -211,7 +171,6 @@ public class OverviewX extends Fragment {
                 yvaluesI.add( new PieEntry( value , user_icon  ) );
             }
         }
-
         PieDataSet Expensedataset = new PieDataSet( yvaluesE , "Expenses");
         Expensedataset.setSliceSpace(3f);
         Expensedataset.setSelectionShift(5f);
@@ -219,7 +178,6 @@ public class OverviewX extends Fragment {
         Expensedataset.setValueLineColor(Color.GRAY);
         Expensedataset.setDrawIcons(true);
         Expensedataset.setYValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
-
         PieDataSet Incomedataset = new PieDataSet( yvaluesI , "Incomes");
         Incomedataset.setSliceSpace(3f);
         Incomedataset.setSelectionShift(5f);
@@ -227,12 +185,10 @@ public class OverviewX extends Fragment {
         Incomedataset.setValueLineColor(Color.GRAY);
         Incomedataset.setDrawIcons(true);
         Incomedataset.setYValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
-
         PieData ExpenseData = new PieData(  Expensedataset );
         ExpenseData.setValueTextSize(12f);
         ExpenseData.setDrawValues(true);
         ExpenseData.setValueTextColor(R.color.green);
-
         PieData  IncomeData = new PieData(  Incomedataset );
         IncomeData.setValueTextSize(12f);
         IncomeData.setDrawValues(true);
@@ -247,7 +203,6 @@ public class OverviewX extends Fragment {
             r2.setVisibility( View.VISIBLE);
 
         }
-
         pieChartExpense.setData(ExpenseData);
         pieChartExpense.animateY(800, Easing.EaseInOutCubic );
         pieChartExpense.invalidate();
@@ -273,7 +228,6 @@ public class OverviewX extends Fragment {
         setListViewHeightBasedOnChildren(incomeLegend);
         incomeLegend.setDivider(null);
     }
-
     public static void setListViewHeightBasedOnChildren(ListView listView) {
         ListAdapter listAdapter = listView.getAdapter();
         if (listAdapter == null) return;

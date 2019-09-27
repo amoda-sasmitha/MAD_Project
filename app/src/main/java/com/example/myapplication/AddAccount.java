@@ -36,11 +36,11 @@ public class AddAccount extends AppCompatActivity {
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
 
-        accountName = (EditText) findViewById(R.id.textAddAcountName);
-        accountType = (Spinner) findViewById(R.id.spinnerAccounts);
-        accountIniAmount = (EditText) findViewById(R.id.add_account_initial_account_txt);
-        accountNumber = (EditText) findViewById(R.id.account_no_txt2);
-        accountDescription = (EditText) findViewById(R.id.account_des);
+        accountName = findViewById(R.id.textAddAcountName);
+        accountType = findViewById(R.id.spinnerAccounts);
+        accountIniAmount =  findViewById(R.id.add_account_initial_account_txt);
+        accountNumber =  findViewById(R.id.account_no_txt2);
+        accountDescription =  findViewById(R.id.account_des);
         accountIniAmount.setInputType(InputType.TYPE_CLASS_NUMBER);
 
         accountName.hasFocus();
@@ -89,7 +89,7 @@ public class AddAccount extends AppCompatActivity {
            toast.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 230);
 
 
-           if (result == false) {
+           if (!result) {
                text.setText("Account Added Unsuccessfully");
                background.setCardBackgroundColor(getResources().getColor(R.color.red));
                text.setTextColor(getResources().getColor(R.color.white));

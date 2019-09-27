@@ -1,16 +1,13 @@
 package com.example.myapplication;
-
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,24 +15,18 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-
 import Adapters.DailyExpensesAdapter;
 import Database.DBhelper;
 import Models.DailyTransaction;
 import Models.Overview;
 import Models.Transaction;
 import Util.Util;
-
-
 public class Expenses extends Fragment {
-
     private TextView AccountBtn, accountbtn , PeriodText , DateIn , TotalAmount , inflow , outflow;
     private FloatingActionButton plusBtn;
     private TextView categoryText , amount, date ;
@@ -44,16 +35,13 @@ public class Expenses extends Fragment {
     private Button monthly , daily;
     private RelativeLayout overviewbtn;
     boolean ismonthly;
-
     DBhelper db;
     String period;
     Overview overview;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_expenses, container, false);
-
         monthly = view.findViewById(R.id.button);
         daily = view.findViewById(R.id.button3);
         AccountBtn = view.findViewById(R.id.Account);
@@ -68,22 +56,18 @@ public class Expenses extends Fragment {
         inflow = view.findViewById(R.id.inflow);
         outflow = view.findViewById(R.id.outflow);
         overviewbtn = view.findViewById(R.id.cardViewAccount3);
-
         if( getArguments() != null ){
             period = getArguments().getString("period");
             ismonthly = getArguments().getBoolean("ismonthly");
-
         }else{
             period =  new SimpleDateFormat("dd-MM-yyyy").format( new Date() );
             ismonthly = false;
         }
-
-        if(ismonthly == true ){
+        if(ismonthly){
             buttonClick("Monthly");
         }else{
             buttonClick("Daily");
         }
-
         plusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -91,17 +75,14 @@ public class Expenses extends Fragment {
                 startActivity(intent);
             }
         });
-
         setAccountClick();
         db = new DBhelper(getContext());
-
         prev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 Bundle bundle = new Bundle();
-
-                if( ismonthly == true){
+                if(ismonthly){
                 bundle.putString( "period" , Util.addMonths( period , -1 ) );
                 }else{
                 bundle.putString( "period" , Util.addDays( period, -1) );
@@ -112,13 +93,12 @@ public class Expenses extends Fragment {
 
             }
         });
-
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 Bundle bundle = new Bundle();
-                if( ismonthly == true){
+                if(ismonthly){
 
                     bundle.putString( "period" , Util.addMonths( period , 1 ) );
                 }else{
@@ -130,7 +110,6 @@ public class Expenses extends Fragment {
 
             }
         });
-
         monthly.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -145,7 +124,6 @@ public class Expenses extends Fragment {
 
             }
         });
-
         daily.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -161,10 +139,8 @@ public class Expenses extends Fragment {
             }
         });
 
-
         return view;
     }
-
     public void setAccountClick(){
         accountbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -179,21 +155,17 @@ public class Expenses extends Fragment {
             }
         });
     }
-
-
     @Override
     public void onStart() {
         super.onStart();
         TotalAmount.setText( "Rs. "+ String.format("%.2f", Util.getTotalBalance(getContext()) )  );
         ArrayList<Transaction> dbdata = null;
         ArrayList<DailyTransaction> dbx = null;
-
-        if( ismonthly == true){
+        if(ismonthly){
             PeriodText.setText( Util.MonthFormatter( period) );
             DateIn.setText( "      "+period.substring(6 ,10 )+"      " );
             dbdata = db.readAllTransactions( Util.getFirsttDate(period) , Util.getLastDate(period) );
             dbx = Util.sortTransaction( Util.getFirsttDate(period) , Util.getLastDate(period) , dbdata );
-
         }else{
             try {
                 DateIn.setText( new SimpleDateFormat("dd-MMMM-yyyy").format(new SimpleDateFormat("dd-MM-yyyy").parse(period) ) );
@@ -204,7 +176,6 @@ public class Expenses extends Fragment {
             dbdata = db.readAllTransactions( period ,period);
             dbx = Util.sortTransaction( period , period , dbdata );
         }
-
         dailyrv.setLayoutManager( new LinearLayoutManager( getActivity().getApplicationContext() ));
         dailyrv.setNestedScrollingEnabled(false);
         DailyExpensesAdapter adapter = new DailyExpensesAdapter( dbx ,getActivity().getApplicationContext()  );
@@ -226,7 +197,6 @@ public class Expenses extends Fragment {
         });
 
     }
-
     public void buttonClick(String btn){
         if(btn.equals("Monthly")){
             monthly.setTextColor( getResources().getColor(R.color.black) );

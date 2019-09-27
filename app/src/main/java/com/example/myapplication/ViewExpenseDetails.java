@@ -2,16 +2,11 @@ package com.example.myapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 public class ViewExpenseDetails extends AppCompatActivity {
-
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -42,10 +37,8 @@ public class ViewExpenseDetails extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setSelectedItemId(R.id.nav_expenses);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
         Intent intent = getIntent();
         ViewExpense viewExpense = new ViewExpense();
-
         if( intent.getExtras() != null ){
             Bundle dataset = intent.getExtras();
             viewExpense.setArguments(dataset);
