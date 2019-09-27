@@ -1,18 +1,12 @@
 package com.example.myapplication;
-
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.net.Uri;
 import android.os.Bundle;
-
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,14 +16,11 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import Database.DBhelper;
 import Models.SavingModel;
 import Util.Util;
-
 public class ViewSaving extends Fragment {
     private SavingModel saving;
     private Button addTransaction;
@@ -41,12 +32,9 @@ public class ViewSaving extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         View view =  inflater.inflate(R.layout.fragment_view_saving, container, false);
-
         Bundle bundle = getArguments();
         saving = (SavingModel) bundle.getSerializable("Saving");
-
         name = view.findViewById(R.id.saving_text);
         total = view.findViewById(R.id.full_amount_text);
         current = view.findViewById(R.id.current_amount_text);
@@ -65,23 +53,17 @@ public class ViewSaving extends Fragment {
         today.setText(new SimpleDateFormat("dd MMMM yyyy").format(new Date()));
         double progressvalue = ( saving.getCurrentAmount()  +  saving.getStartAmount() )  /  saving.getTargetAmount()  * 100;
         progress.setProgress((int) progressvalue );
-
         edit_btn = view.findViewById(R.id.edit_btn);
         delete_btn = view.findViewById(R.id.delete_btn);
         addTransaction = view.findViewById(R.id.add_btn);
-
-
         addTransaction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity() , AddEditExpenses.class );
                 intent.putExtra( "Saving" , saving);
                 startActivity(intent);
-
             }
         });
-
-
         delete_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,27 +75,22 @@ public class ViewSaving extends Fragment {
                 textView.setText("Are you sure , you want to delete this saving ?");
                 dialog.show();
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
                 close.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         dialog.dismiss();
                     }
                 });
-
                 accept.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
                          boolean lastResult = db. deleteSaving( saving.getID() );
-
                         View layout = getLayoutInflater().inflate( R.layout.toast_message , (ViewGroup) view.findViewById(R.id.toastRoot) );
                         TextView text = layout.findViewById(R.id.textMsg);
                         CardView background = layout.findViewById(R.id.back);
                         Toast toast = new Toast( getContext() );
                         toast.setDuration(Toast.LENGTH_LONG);
                         toast.setGravity(Gravity.BOTTOM|Gravity.CENTER , 0 , 230 );
-
                         if( lastResult == false ){
                             text.setText("Saving Deleted Unsuccessfully");
                             toast.setView(layout);
@@ -124,12 +101,10 @@ public class ViewSaving extends Fragment {
                             getActivity().finish();
                             toast.show();
                         }
-
                     }
                 });
             }
         });
-
         edit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -139,10 +114,7 @@ public class ViewSaving extends Fragment {
             }
         });
 
-
-
         return view;
     }
-
 
 }

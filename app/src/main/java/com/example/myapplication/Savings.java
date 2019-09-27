@@ -45,7 +45,6 @@ public class Savings extends Fragment {
          });
         return view;
     }
-
     @Override
     public void onStart() {
         super.onStart();

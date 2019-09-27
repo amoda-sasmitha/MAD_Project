@@ -1,5 +1,4 @@
 package com.example.myapplication;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import android.content.Intent;
@@ -29,46 +28,39 @@ public class Edit_Category extends AppCompatActivity {
         setContentView(R.layout.activity_edit_category);
         Intent intent = getIntent();
         final CategoryModel category = (CategoryModel) intent.getSerializableExtra("Category");
-
-       db = new DBhelper(this);
-
-       saveBtn = findViewById(R.id.save_btn);
-       categoryName = findViewById(R.id.editText);
-       categoryDescription = findViewById(R.id.edit_description);
-       radioGroup = findViewById(R.id.radio);
-       categoryIcon = findViewById(R.id.category_icon);
-       categoryName.setText(category.getName());
-       categoryDescription.setText(category.getDescription());
-       if(category.getType().equals("Income")){
-           radioGroup.check(R.id.income_btn_radio);
-       }else{
-           radioGroup.check(R.id.expenses_btn_radio);
-       }
-        categoryIcon.setImageResource( getResources().getIdentifier( category.getIcon()  , "drawable", getPackageName() ));
-        saveBtn.setOnClickListener(new View.OnClickListener() {
+        db = new DBhelper(this);
+        saveBtn = findViewById(R.id.save_btn);
+        categoryName = findViewById(R.id.editText);
+        categoryDescription = findViewById(R.id.edit_description);
+        radioGroup = findViewById(R.id.radio);
+        categoryIcon = findViewById(R.id.category_icon);
+        categoryName.setText(category.getName());
+        categoryDescription.setText(category.getDescription());
+        if(category.getType().equals("Income")){
+            radioGroup.check(R.id.income_btn_radio);
+        }else{
+            radioGroup.check(R.id.expenses_btn_radio);
+        }
+         categoryIcon.setImageResource( getResources().getIdentifier( category.getIcon()  , "drawable", getPackageName() ));
+         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 //validation for category name in editing form
                 if (categoryName.length() == 0) {
                     categoryName.setError("Enter Category");
                     //validation for category description in editing form
-
                 } else   if(categoryDescription.length() == 0){
                     categoryDescription.setError("Enter Description");
                 }
                 else{
                 CategoryModel newCategory = new CategoryModel();
-
                 newCategory.setID(category.getID());
                 newCategory.setName(categoryName.getText().toString().trim());
                 newCategory.setDescription(categoryDescription.getText().toString());
-
                 int selectedBtn = radioGroup.getCheckedRadioButtonId();
                 radioButton = findViewById(selectedBtn);
                 newCategory.setType(radioButton.getText().toString().trim());
                 boolean result = db.updateCategory(newCategory);
-
                 View layout = getLayoutInflater().inflate(R.layout.toast_message, (ViewGroup)view.findViewById(R.id.toastRoot));
                 TextView text = layout.findViewById(R.id.textMsg);
                 CardView background = layout.findViewById(R.id.back);
@@ -76,7 +68,6 @@ public class Edit_Category extends AppCompatActivity {
                 Toast toast = new Toast( getApplicationContext() );
                 toast.setDuration(Toast.LENGTH_LONG);
                 toast.setGravity(Gravity.BOTTOM|Gravity.CENTER , 0 , 230 );
-
                 //check whether update is successful
             if (result == false){
                 text.setText("Category Update Unsuccessful");
@@ -85,7 +76,6 @@ public class Edit_Category extends AppCompatActivity {
                 toast.setView(layout);
                 toast.show();
                 //check whether update is successful
-
             }else{
                 background.setCardBackgroundColor( getResources().getColor(R.color.green));
                 text.setTextColor( getResources().getColor( R.color.white ));
@@ -97,7 +87,6 @@ public class Edit_Category extends AppCompatActivity {
                 startActivity(intent);
                 finish();
                 }
-
             }
             }
         });

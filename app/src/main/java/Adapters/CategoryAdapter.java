@@ -52,15 +52,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         return arrayList.size();
     }
 
-
-
     public class CategoryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-
         ImageView icon;
         TextView name , type;
         Context context;
-
-
         public CategoryViewHolder(@NonNull View itemView  , Context context ) {
             super(itemView);
             itemView.setOnClickListener( this );
@@ -69,14 +64,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
             type = itemView.findViewById(R.id.type);
             icon = itemView.findViewById( R.id.icon);
         }
-
-
         @Override
         public void onClick(View view) {
-
               CategoryModel c = arrayList.get( getAdapterPosition() );
               if( bundle.getSerializable( "expenseData") != null ){
-
                   FragmentManager manager = ((AppCompatActivity)context).getSupportFragmentManager();
                   Transaction current = (Transaction) bundle.getSerializable("expenseData");
                   current.setCategoryModel(c);
@@ -84,9 +75,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
                   AddExpense expense = new AddExpense();
                   expense.setArguments(bundle);
                   manager.beginTransaction().replace(R.id.fragment_container,expense).commit();
-
               }else if( bundle.getSerializable( "expenseDataUpdate") != null ) {
-
                   FragmentManager manager = ((AppCompatActivity)context).getSupportFragmentManager();
                   Transaction current = (Transaction) bundle.getSerializable("expenseDataUpdate");
                   current.setCategoryModel(c);
@@ -128,7 +117,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
                 for (CategoryModel model : arrayListfull) {
                     if( model.getName().toLowerCase().contains(pattern) ){
                         FilteredList.add(model);
-
                     }
                 }
             }
@@ -136,10 +124,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
             results.values = FilteredList;
             return  results;
         }
-
         @Override
         protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-
                 arrayList.clear();
                 arrayList.addAll((Collection<? extends CategoryModel>) filterResults.values);
                 notifyDataSetChanged();

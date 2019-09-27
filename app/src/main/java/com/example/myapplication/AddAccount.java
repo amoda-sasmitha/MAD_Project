@@ -1,5 +1,4 @@
 package com.example.myapplication;
-
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.Gravity;
@@ -22,28 +21,21 @@ public class AddAccount extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_account);
-
         Spinner spinner = (Spinner) findViewById(R.id.spinnerAccounts);
-
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.spinnerAccounts, android.R.layout.simple_spinner_item);
         // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
-
         accountName = findViewById(R.id.textAddAcountName);
         accountType = findViewById(R.id.spinnerAccounts);
         accountIniAmount =  findViewById(R.id.add_account_initial_account_txt);
         accountNumber =  findViewById(R.id.account_no_txt2);
         accountDescription =  findViewById(R.id.account_des);
         accountIniAmount.setInputType(InputType.TYPE_CLASS_NUMBER);
-
         accountName.hasFocus();
-
     db = new DBhelper(this);
-
-
     }
     public void addAccountDetails(View view){
         //validate user input
@@ -62,9 +54,7 @@ public class AddAccount extends AppCompatActivity {
         else if(accountDescription.length() == 0){
            accountDescription.setError("Enter Description");
         }
-
        else {
-
            AccountModel am = new AccountModel();  //get new account modal
            am.setAccountName(accountName.getText().toString().trim());
            am.setAccountType(accountType.getItemAtPosition(accountType.getSelectedItemPosition()).toString().trim());
@@ -73,18 +63,14 @@ public class AddAccount extends AppCompatActivity {
            am.setAccountDescription(accountDescription.getText().toString().trim());
            //set booleadn result
            boolean result = db.addAccount(am);
-
            //inflate layout
            View layout = getLayoutInflater().inflate(R.layout.toast_message, (ViewGroup) view.findViewById(R.id.toastRoot));
            TextView text = layout.findViewById(R.id.textMsg);
            CardView background = layout.findViewById(R.id.back);
-
            //creat toast
            Toast toast = new Toast(this);
            toast.setDuration(Toast.LENGTH_LONG);
            toast.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 230);
-
-
            if (!result) {
                text.setText("Account Added Unsuccessfully");
                background.setCardBackgroundColor(getResources().getColor(R.color.red));

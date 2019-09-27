@@ -1,5 +1,4 @@
 package com.example.myapplication;
-
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -54,7 +53,6 @@ public class EditExpense extends Fragment {
         spinner.setAdapter(Spinner_adapter);
         updateDate(view);
         UpdateCategory();
-
         if( getArguments() != null && getArguments().getSerializable( "expenseedit") != null ){
             Bundle ReceivedData = getArguments();
             Transaction transaction = (Transaction) ReceivedData.getSerializable("expenseedit");
@@ -195,11 +193,8 @@ public class EditExpense extends Fragment {
                 dataBundle.putSerializable( "expenseDataUpdate" , current );
                 category.setArguments( dataBundle );
                 getFragmentManager().beginTransaction().replace(R.id.fragment_container , category).commit();
-
             }
         });
-
     }
-
 }
 

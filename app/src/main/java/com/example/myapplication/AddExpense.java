@@ -1,5 +1,4 @@
 package com.example.myapplication;
-
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -99,7 +98,6 @@ public class AddExpense extends Fragment {
                         if( fromSaving ){
                             db.addSavingTransaction( saving.getID() , (int) id );
                         }
-
                     //inflate layout
                     View layout = getLayoutInflater().inflate( R.layout.toast_message , (ViewGroup) view.findViewById(R.id.toastRoot) );
                     TextView text = layout.findViewById(R.id.textMsg);
@@ -131,7 +129,6 @@ public class AddExpense extends Fragment {
 
         return view;
     }
-
     public void updateDate( View view){
         select_date = view.findViewById(R.id.select_date);
         select_date.setText(  new SimpleDateFormat("EEEE , dd MMMM yyyy").format( new Date())  );
@@ -172,7 +169,6 @@ public class AddExpense extends Fragment {
             Description.setText( saving.getSavingName() );
 
         }else {
-
             if (getArguments() != null &&  getArguments().getSerializable("expenseData") != null ) {
                 Bundle bundle = getArguments();
                 Transaction current = (Transaction) bundle.getSerializable("expenseData");
@@ -190,7 +186,6 @@ public class AddExpense extends Fragment {
                         break;
                     }
                 }
-
             }
             category_select.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -207,7 +202,6 @@ public class AddExpense extends Fragment {
                     dataBundle.putSerializable("expenseData", current);
                     category.setArguments(dataBundle);
                     getFragmentManager().beginTransaction().replace(R.id.fragment_container, category).commit();
-
                 }
             });
         }

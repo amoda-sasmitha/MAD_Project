@@ -135,7 +135,6 @@ public class Expenses extends Fragment {
                 bundle.putBoolean( "ismonthly" , ismonthly );
                 Expenses.this.setArguments( bundle );
                 ft.detach( Expenses.this).attach( Expenses.this ).commit();
-
             }
         });
 

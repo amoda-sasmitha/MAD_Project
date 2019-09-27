@@ -3,31 +3,17 @@ package Adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.myapplication.AddExpense;
-import com.example.myapplication.EditExpense;
 import com.example.myapplication.R;
-import com.example.myapplication.ViewCategoryDetails;
 import com.example.myapplication.ViewSavingDetails;
-
 import java.util.ArrayList;
-
-import Models.CategoryModel;
 import Models.SavingModel;
-import Models.Transaction;
-
 public class SavingAdapter extends RecyclerView.Adapter<SavingAdapter.SavingViewHolder> {
 
     private ArrayList<SavingModel> arrayList;
@@ -39,7 +25,6 @@ public class SavingAdapter extends RecyclerView.Adapter<SavingAdapter.SavingView
         this.arrayList = arrayList;
         this.context = context;
         this.bundle = bundle;
-
 
     }
 

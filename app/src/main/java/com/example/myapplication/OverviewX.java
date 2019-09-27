@@ -1,5 +1,4 @@
 package com.example.myapplication;
-
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.graphics.Bitmap;
