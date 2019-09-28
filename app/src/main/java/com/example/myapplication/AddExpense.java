@@ -80,48 +80,71 @@ public class AddExpense extends Fragment {
                 else{
                     String amounttemp =   amount.getText().toString().trim();
                     double amountx  = (amounttemp.length() > 0 ) ? Double.valueOf(amounttemp) : 0;
-                    Transaction current = new Transaction();
-                    current.setAmount(amountx );
-                    current.setCategoryModel(currentCategory );
-                    current.setDescription( Description.getText().toString().trim() );
-                    current.setDate( select_date.getText().toString().trim() );
-                    current.setAccountId( Acc_arrayList.get( spinner.getSelectedItemPosition() ).getId() );
-                    long id = db.insertTransaction(current);
-                    boolean result;
 
-                        if(id > 0){
+                    double balance = 0;
+                    ArrayList<AccountModel> accounts = db.readAllAccountsWithBalance();
+                    for (AccountModel account : accounts) {
+                        if( account.getId() == Acc_arrayList.get( spinner.getSelectedItemPosition() ).getId()){
+                            balance = account.getBalance();
+                            break;
+                        }
+                    }
+
+                    //inflate layout
+                    View layout = getLayoutInflater().inflate(R.layout.toast_message, (ViewGroup) view.findViewById(R.id.toastRoot));
+                    TextView text = layout.findViewById(R.id.textMsg);
+                    CardView background = layout.findViewById(R.id.back);
+                    Toast toast = new Toast(getContext());
+                    toast.setDuration(Toast.LENGTH_LONG);
+
+                    if( ( balance >= amountx && currentCategory.getType().equals("Expense") ) || currentCategory.getType().equals("Income") ) {
+
+                        Transaction current = new Transaction();
+                        current.setAmount(amountx);
+                        current.setCategoryModel(currentCategory);
+                        current.setDescription(Description.getText().toString().trim());
+                        current.setDate(select_date.getText().toString().trim());
+                        current.setAccountId(Acc_arrayList.get(spinner.getSelectedItemPosition()).getId());
+                        long id = db.insertTransaction(current);
+                        boolean result;
+
+                        if (id > 0) {
                             result = true;
-                        }else{
+                        } else {
                             result = false;
                         }
 
-                        if( fromSaving ){
-                            db.addSavingTransaction( saving.getID() , (int) id );
+                        if (fromSaving) {
+                            db.addSavingTransaction(saving.getID(), (int) id);
                         }
-                    //inflate layout
-                    View layout = getLayoutInflater().inflate( R.layout.toast_message , (ViewGroup) view.findViewById(R.id.toastRoot) );
-                    TextView text = layout.findViewById(R.id.textMsg);
-                    CardView background = layout.findViewById(R.id.back);
-                    Toast toast = new Toast( getContext() );
-                    toast.setDuration(Toast.LENGTH_LONG);
-                    toast.setGravity(Gravity.BOTTOM|Gravity.CENTER , 0 , 230 );
 
-                    if( result == false ){
-                        text.setText("Transaction Added Unsuccessfully");
-                        background.setCardBackgroundColor( getResources().getColor(R.color.red));
-                        text.setTextColor( getResources().getColor( R.color.white ));
-                        toast.setView(layout);
-                        toast.show();
+                        toast.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 230);
+
+                        if (result == false) {
+                            text.setText("Transaction Added Unsuccessfully");
+                            background.setCardBackgroundColor(getResources().getColor(R.color.red));
+                            text.setTextColor(getResources().getColor(R.color.white));
+                            toast.setView(layout);
+                            toast.show();
+
+                        } else {
+                            background.setCardBackgroundColor(getResources().getColor(R.color.green));
+                            text.setTextColor(getResources().getColor(R.color.white));
+                            text.setText("Transaction Added Successfully");
+                            toast.setView(layout);
+                            Intent intent = new Intent(getContext(), MainActivity.class);
+                            startActivity(intent);
+                            toast.show();
+
+                        }
 
                     }else{
-                        background.setCardBackgroundColor( getResources().getColor(R.color.green));
-                        text.setTextColor( getResources().getColor( R.color.white ));
-                        text.setText("Transaction Added Successfully");
+                        text.setText("Transaction must equal or less than the balance , Current Balance = Rs. " + balance );
+                        background.setCardBackgroundColor(getResources().getColor(R.color.red));
+                        toast.setGravity(Gravity.TOP | Gravity.CENTER, 0, 130);
+                        text.setTextColor(getResources().getColor(R.color.white));
                         toast.setView(layout);
-                        Intent intent = new Intent( getContext() , MainActivity.class);
-                        startActivity(intent);
                         toast.show();
-
                     }
               }
             }

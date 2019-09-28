@@ -124,6 +124,7 @@ public class Expenses extends Fragment {
                 }
             }
         });
+        
         monthly.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
