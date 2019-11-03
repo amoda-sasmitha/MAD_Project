@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,8 +15,7 @@
         android:background="@drawable/shape"
         android:gravity="center"
 
-        > </View>
-
+        />
 
 
 
@@ -26,16 +24,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-       android:layout_marginLeft="8dp"
-        android:text="Add Categories"
+       android:layout_marginStart="8dp"
+        android:text="@string/add_categories"
         android:textColor="#ffffff"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
 
         />
 
+    <TextView
+        android:id="@+id/date_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="12dp"
+        android:textAlignment="textEnd"
+        android:layout_marginEnd="16dp"
+        android:text="@string/DateV2"
+        android:layout_toEndOf="@id/category_name"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
     <RelativeLayout
-        android:id="@+id/cardView"
+        android:id="@+id/cardViewAccount3"
         android:layout_width="match_parent"
         android:layout_below="@id/category_name"
         android:layout_marginTop="20dp"
@@ -49,28 +61,29 @@
         >
 
         <TextView
-            android:id="@+id/category_type"
+            android:id="@+id/account_subTotal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:textColor="#706F6F"
+            android:textColor="@color/TextGray"
             android:background="@drawable/card"
             android:backgroundTint="#E8ECE8"
             android:elevation="5dp"
-            android:text="New Category"
-            android:textSize="16dp"
+            android:text="@string/new_category"
+            android:textSize="16sp"
             android:textStyle="bold"
           />
 
 
-        <Button
+        <ImageView
             android:id="@id/category_icon"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_below="@id/category_type"
-            android:layout_marginLeft="12dp"
+            android:layout_below="@id/account_subTotal"
+            android:layout_marginStart="12dp"
             android:layout_marginTop="15dp"
-            android:background="@drawable/circle"
+            android:background="@drawable/other"
+            android:tag="other"
 
             />
 
@@ -79,109 +92,122 @@
             android:id="@+id/editText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/category_type"
+            android:layout_below="@id/account_subTotal"
             android:layout_marginStart="8dp"
             android:layout_marginTop="17dp"
             android:layout_marginEnd="12dp"
-            android:layout_marginRight="12dp"
-            android:layout_toRightOf="@id/category_icon"
+            android:layout_toEndOf="@id/category_icon"
             android:background="@drawable/rounded_edit_text"
-            android:hint="Category name"
+            android:hint="@string/category_name"
+            android:importantForAutofill="no"
             android:inputType="textPersonName"
             android:padding="8dp"
-            android:textSize="15sp" />
+            android:textSize="15sp" tools:targetApi="o"/>
+
         <TextView
             android:id="@+id/category_description_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@id/editText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
             android:layout_marginTop="14dp"
-            android:layout_marginLeft="12dp"
-            android:textColor="#7E7C7C"
             android:elevation="5dp"
-            android:text="Add description"
-            android:textSize="16dp"
-            android:textStyle="bold"/>
-        <EditText
+            android:text="@string/add_description"
+            android:textColor="@color/TextGray"
             android:textSize="14sp"
-           android:id="@+id/edit_description"
-            android:inputType="textMultiLine"
-            android:layout_marginRight="12dp"
-            android:layout_marginLeft="12dp"
-            android:layout_marginTop="8dp"
-            android:lines="8"
-            android:hint="Write a brief description about the category"
-            android:padding="8dp"
-            android:background="@drawable/rounded_edit_text"
-            android:layout_below="@id/category_description_text"
-            android:minLines="5"
-            android:gravity="top|left"
-            android:maxLines="5"
-            android:layout_height="wrap_content"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edit_description"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/category_description_text"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/rounded_edit_text"
+            android:layout_marginStart="12dp"
+            android:hint="@string/description_hint"
+            android:inputType="textMultiLine"
+            android:lines="8"
+            android:importantForAutofill="no"
+            android:maxLines="5"
+            android:minLines="5"
+            android:gravity="top|start"
+
+            android:padding="8dp"
             android:scrollbars="vertical"
-        />
+            android:textSize="14sp" tools:targetApi="o"/>
 
         <TextView
             android:id="@+id/category_type_text"
-            android:layout_below="@id/edit_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/edit_description"
+            android:layout_marginStart="12dp"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="12dp"
-            android:textColor="#7E7C7C"
             android:elevation="5dp"
-            android:text="Category type"
-            android:textSize="16dp"
-            android:textStyle="bold"/>
-
-        <RadioButton
-            android:id="@+id/income_btn_radio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Income"
-            android:layout_below="@id/category_type_text"
-            android:layout_marginTop="8dp"
-            android:textColor="#7E7C7C"
-            android:textStyle="bold"
-            android:layout_marginLeft="45dp"
+            android:text="@string/category_type"
+            android:textColor="@color/TextGray"
             android:textSize="14sp"
+            android:textStyle="bold" />
 
-
-            />
-
-        <RadioButton
-            android:id="@+id/expenses_btn_radio"
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/radio"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Expense"
             android:layout_below="@id/category_type_text"
-            android:layout_marginTop="8dp"
-            android:layout_toRightOf="@id/income_btn_radio"
-            android:textColor="#7E7C7C"
-            android:textStyle="bold"
-            android:textSize="14sp"
-            android:layout_marginLeft="20dp"
+            android:orientation="horizontal"
+            android:checkedButton="@+id/expenses_btn_radio"
+
+            >
+
+            <RadioButton
+                android:id="@+id/expenses_btn_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/expense"
+                android:textColor="#7E7C7C"
+                android:textSize="14sp"
+                android:textStyle="bold"
 
 
-            />
+                />
 
+            <RadioButton
+                android:id="@+id/income_btn_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+
+                android:layout_marginTop="8dp"
+                android:text="@string/income"
+                android:textColor="@color/TextGray"
+                android:textSize="14sp"
+                android:textStyle="bold"
+
+
+                />
+
+        </RadioGroup>
 
         <Button
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
-            android:layout_below="@id/income_btn_radio"
+            android:layout_below="@id/radio"
             android:layout_alignParentEnd="true"
             android:layout_marginLeft="12dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="12dp"
-            android:backgroundTint="#bdc3c7"
-            android:text="Save Category"
+            android:backgroundTint="@color/green"
+            android:onClick="addCategory"
+            android:text="@string/save_category"
             android:textAllCaps="false"
-            android:textColor="#ffffff"
-            android:textSize="15sp"
+            android:textColor="@color/white"
 
+            android:textSize="15sp"
             android:textStyle="bold" />
 
     </RelativeLayout>

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/gray"
+    android:layout_height="match_parent"
+    tools:context=".view_account_indetails">
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@drawable/shape"
+        android:gravity="center">
+
+    </View>
+
+
+
+
+    <TextView
+        android:id="@+id/category_date1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/account_indetail__28_june_2019"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/category_date1"
+        android:layout_marginTop="5dp"
+    >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+        >
+    <RelativeLayout
+        android:id="@+id/headercard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/card"
+        android:elevation="5dp"
+        >
+
+        <TextView
+            android:id="@+id/accountName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="@string/account_details5"
+            android:textSize="20sp"
+            android:textStyle="bold"
+
+            />
+
+        <View
+            android:id="@+id/line1"
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_below="@id/accountName"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:background="@color/gray" />
+
+        <ImageView
+            android:id="@+id/category_icon"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_below="@id/line1"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:background="@mipmap/bank"
+
+            android:contentDescription="@string/account_indetail_todo" />
+
+        <TextView
+            android:id="@+id/category_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/line1"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@id/category_icon"
+            android:text="@string/current_amount5"
+            android:textSize="14sp"
+
+            />
+
+        <TextView
+            android:id="@+id/Amount_text"
+            android:layout_width="121dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/category_name"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="2dp"
+            android:layout_toEndOf="@id/category_icon"
+            android:text="@string/account_indetail_rs_25000_00"
+            android:textColor="@color/blue"
+            android:textSize="16sp"
+            android:textStyle="bold"
+
+            />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Amount_text"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@id/category_icon"
+            android:text="@string/acc"
+            android:textSize="14sp"
+
+            />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/date"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="2dp"
+            android:layout_toEndOf="@id/category_icon"
+            android:text="@string/bank_account"
+            android:textSize="16sp"
+            android:textStyle="bold"
+
+            />
+
+        <TextView
+            android:id="@+id/account_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/description"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@id/category_icon"
+            android:text="@string/account_indetail_account_number"
+            android:textSize="14sp"
+
+            />
+
+        <TextView
+            android:id="@+id/account_text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/account"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@id/category_icon"
+            android:text="@string/description5"
+            android:textSize="14sp"
+
+            />
+
+        <TextView
+            android:id="@+id/account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/account_text"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="2dp"
+            android:layout_toEndOf="@id/category_icon"
+            android:text="@string/account_indetail__32551844"
+            android:textSize="16sp"
+
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/account2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/account_text2"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="2dp"
+            android:layout_toEndOf="@id/category_icon"
+            android:text="@string/account_indetail__32551844"
+            android:textSize="16sp"
+
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/line2"
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_below="@id/account2"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="10dp"
+            android:background="@color/gray" />
+
+
+
+        <ImageButton
+            android:id="@+id/edit_btn02"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/line1"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="28dp"
+            android:layout_toEndOf="@+id/category_name"
+            android:background="@drawable/circle"
+            android:backgroundTint="@color/blue"
+            android:contentDescription="@string/account_indetail_todo"
+            android:src="@drawable/edit_btn" />
+
+        <ImageButton
+
+            android:id="@+id/delete_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/line1"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="28dp"
+            android:layout_toEndOf="@id/edit_btn02"
+            android:background="@drawable/circle"
+            android:contentDescription="@string/account_indetail_todo"
+            android:src="@drawable/delete_btn" />
+
+    </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/cardViewAccount2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/card"
+                android:elevation="6dp"
+                android:paddingBottom="14dp">
+
+                <TextView
+                    android:id="@+id/dateNum1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="4dp"
+                    android:elevation="5dp"
+                    android:text="@string/latest_transactions"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/line3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="2dp"
+                    android:layout_below="@id/dateNum1"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@color/gray"></View>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/latestT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/line3" />
+
+
+            </RelativeLayout>
+
+</LinearLayout>
+    </ScrollView>
+
+
+
+
+
+
+
+</RelativeLayout>

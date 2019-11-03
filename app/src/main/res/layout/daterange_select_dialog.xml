@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/card"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <RelativeLayout
+        android:id="@+id/cal"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+
+        android:padding="2dp"
+        >
+        <com.savvi.rangedatepicker.CalendarPickerView
+
+            android:id="@+id/calendar_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbarStyle="outsideOverlay"
+            android:clipToPadding="false"
+            app:tsquare_orientation_horizontal="false"
+            app:tsquare_dividerColor="@color/calendar_divider"
+            app:tsquare_headerTextColor="@color/calendar_text_highlighted"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+
+        >
+    <TextView
+
+        android:id="@+id/okbtn"
+        android:layout_alignParentEnd="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ok9"
+        android:textStyle="bold"
+        android:background="?android:attr/selectableItemBackground"
+        android:textSize="14sp"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="5dp"
+        android:layout_marginEnd="10dp"
+
+        />
+        <TextView
+            android:layout_marginEnd="10dp"
+            android:paddingHorizontal="15dp"
+            android:paddingVertical="5dp"
+            android:layout_toStartOf="@+id/okbtn"
+            android:id="@+id/cancelbtn"
+            android:background="?android:attr/selectableItemBackground"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:text="@string/cancel9"
+            android:textStyle="bold"
+            android:textSize="14sp"
+
+            />
+    </RelativeLayout>
+</LinearLayout>

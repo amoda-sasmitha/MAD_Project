@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddAccount">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#d8d8d8">
+
+
+        <View
+
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:background="@drawable/shape"
+            android:gravity="center"></View>
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="389dp"
+            android:layout_height="580dp"
+            android:layout_below="@+id/category_name"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="34dp"
+            android:background="@drawable/card"
+            android:src="@drawable/card"
+            android:contentDescription="@string/todooo" />
+
+        <EditText
+            android:id="@+id/account_des"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/account_no_txt2"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:layout_toEndOf="@+id/lbl_account_des"
+            android:ems="8"
+            android:hint="@string/add_account_hint_des"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            tools:targetApi="o" />
+
+        <EditText
+            android:id="@+id/account_no_txt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/add_account_initial_account_txt"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:layout_toEndOf="@+id/lbl_account_number2"
+            android:ems="8"
+            android:hint="@string/add_account_hint_number"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            tools:targetApi="o" />
+
+        <TextView
+            android:id="@+id/lbl_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lable_account_name"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="50dp"
+            android:text="@string/account_ammount"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/save_btn"
+            android:layout_width="326dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/account_des"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginStart="41dp"
+            android:layout_marginTop="69dp"
+            android:layout_marginEnd="44dp"
+            android:background="@drawable/card"
+            android:backgroundTint="@color/green"
+            android:onClick="addAccountDetails"
+            android:text="@string/add_btn_account"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lbl_account_des"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lbl_account_number2"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="50dp"
+            android:text="@string/add_account_description"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lbl_account_number2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lbl_amount"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="50dp"
+            android:text="@string/accont_number"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lable_account_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="233dp"
+            android:text="@string/text_account_type"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/category_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="55dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/title_add_account"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lable_acount_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="163dp"
+            android:text="@string/text_account_name"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/textAddAcountName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="150dp"
+            android:layout_marginEnd="19dp"
+            android:layout_toEndOf="@+id/lable_acount_type"
+            android:ems="10"
+            android:hint="@string/add_account_hint"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:text="@string/empty"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            tools:targetApi="o" />
+
+        <Spinner
+            android:id="@+id/spinnerAccounts"
+            android:layout_width="200dp"
+            android:layout_height="41dp"
+            android:layout_below="@+id/textAddAcountName"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:layout_toEndOf="@+id/lable_account_name" />
+
+        <EditText
+            android:id="@+id/add_account_initial_account_txt"
+            android:layout_width="231dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spinnerAccounts"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:layout_toEndOf="@+id/lbl_amount"
+            android:ems="10"
+            android:hint="@string/add_account_hint_amount"
+            android:inputType="textPersonName"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            android:autofillHints="" />
+
+    </RelativeLayout>
+</RelativeLayout>

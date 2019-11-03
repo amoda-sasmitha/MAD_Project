@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddExpense"
+    android:background="@color/gray">
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/shape"
+        android:gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/add_expenses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/add_expense_income"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card"
+        android:paddingBottom="10dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_below="@+id/add_expenses"
+        android:elevation="5dp"
+        android:layout_marginTop="20dp"
+
+
+        >
+
+        <TextView
+            android:id="@+id/expenses_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="#706F6F"
+            android:background="@drawable/card"
+            android:backgroundTint="#E8ECE8"
+            android:elevation="5dp"
+            android:text="@string/new_expense_income"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/amount_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/expenses_name"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="10dp"
+            android:text="@string/account_ammount"
+            android:textColor="@color/TextGray"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+        <EditText
+
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/expenses_name"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="12dp"
+            android:textStyle="bold"
+            android:layout_toEndOf="@id/amount_text"
+            android:background="@drawable/rounded_edit_text"
+            android:hint="@string/zero"
+            android:padding="8dp"
+            android:textAlignment="textEnd"
+            android:textSize="20sp"
+            android:inputType="numberDecimal"
+            android:textColor="@color/green"
+            android:importantForAutofill="no" tools:targetApi="o" />
+
+        <TextView
+            android:id="@+id/add_category_text"
+            android:layout_below="@id/amount_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="12dp"
+            android:textColor="@color/TextGray"
+            android:text="@string/des2"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@id/category_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/add_category_text"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="6dp"
+
+            android:contentDescription="@string/todo"
+
+            android:src="@drawable/not_selected_btn" />
+
+        <EditText
+
+            android:id="@+id/category_select_Text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/add_category_text"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="12dp"
+            android:layout_toEndOf="@id/category_icon"
+            android:background="@drawable/rounded_edit_text"
+            android:focusable="false"
+            android:hint="@string/category_name"
+            android:inputType="textPersonName"
+            android:padding="8dp"
+            android:textSize="15sp"
+            android:importantForAutofill="no" tools:targetApi="o" />
+
+        <TextView
+            android:id="@+id/expense_description_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/category_icon"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="20dp"
+            android:elevation="5dp"
+            android:text="@string/add_description"
+            android:textColor="@color/TextGray"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:textSize="14sp"
+            android:id="@+id/edit_description"
+            android:inputType="textMultiLine"
+            android:layout_marginRight="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="8dp"
+            android:lines="8"
+            android:hint="@string/des"
+            android:padding="8dp"
+            android:background="@drawable/rounded_edit_text"
+            android:layout_below="@id/expense_description_text"
+            android:minLines="5"
+            android:gravity="top|start"
+            android:maxLines="5"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:scrollbars="vertical"
+            android:importantForAutofill="no" tools:targetApi="o" />
+
+
+        <TextView
+            android:id="@+id/expense_account_select_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_description"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:elevation="5dp"
+            android:text="@string/select_date"
+            android:textColor="@color/TextGray"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+
+        <EditText
+            android:id="@+id/select_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/expense_account_select_text"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/rounded_edit_text"
+            android:focusable="false"
+            android:hint="@string/DateV4"
+            android:importantForAutofill="no"
+            android:inputType="date"
+            android:padding="8dp"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            tools:targetApi="o" />
+
+        <TextView
+            android:id="@+id/expense_account_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/select_date"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:elevation="5dp"
+            android:text="@string/select_account"
+            android:textColor="@color/TextGray"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+
+        <Spinner
+            android:id="@+id/select_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/expense_account_text"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="12dp"
+
+            android:background="@drawable/rounded_edit_text"
+            />
+
+
+        <Button
+            android:id="@+id/save_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/select_account"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="12dp"
+            android:backgroundTint="@color/green"
+            android:text="@string/save_expense_income"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+</RelativeLayout>

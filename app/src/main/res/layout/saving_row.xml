@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/saving01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:layout_below="@id/date_hr"
+        android:paddingBottom="5dp"
+
+        >
+
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/saving_for_desk_setup8534"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="14dp"
+            android:textStyle="bold"
+
+            />
+
+        <ProgressBar
+            android:layout_below="@id/name"
+            android:id="@+id/progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="false"
+            android:max="100"
+            android:layout_marginEnd="14dp"
+            android:layout_marginStart="14dp"
+            android:minHeight="10dp"
+            android:minWidth="200dp"
+            android:progress="50"
+
+            android:progressTint="@color/green"
+            android:background="#F8F8F8"
+            android:layout_marginTop="6dp"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            />
+        <TextView
+            android:id="@+id/current"
+            android:layout_below="@id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rs_34000_008534"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="20dp"
+            />
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_below="@id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="@string/rs_45000_008534"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="20dp"
+            />
+
+    </RelativeLayout>
+</LinearLayout>

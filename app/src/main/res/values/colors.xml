@@ -3,7 +3,44 @@
     <color name="colorPrimary">#38EF7D</color>
     <color name="colorPrimaryDark">#11998E</color>
     <color name="colorAccent">#11998E</color>
-    <color name="red" >#e74c3c</color>
-    <color name="yellow" >#f1c40f</color>
-    <color name="blue" >#3498db</color>
+    <color name="red">#e74c3c</color>
+    <color name="yellow">#F1C40F</color>
+    <color name="blue">#3E89BB</color>
+    <color name="green">#2ECC71</color>
+    <color name="gray">#d8d8d8</color>
+    <color name="lightGray">#f4f4f4</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="kindaGray">#E8ECE8</color>
+    <color name="darkGray">#706F6F</color>
+    <color name="TextGray">#7E7C7C</color>
+    <color name="whateverColor" >#d4d8d6</color>
+    <color name="kindaRed" >#ee5253</color>
+
+
+    <color name="black_overlay">#66000000</color>
+    <color name="btnGray">#9A9A9A</color>
+
+    <color name="calendar_selected_day_bg">#2ECC71</color>
+    <color name="calendar_selected_range_bg">#2ECC71</color>
+
+    //this is for HighLighted dates
+    <color name="calendar_unavailable_bg">#F44336</color>
+    <color name="calendar_range_middle_unavailable_bg">#F44336</color>
+
+    // this is for Deactivated dates
+    <color name="calendar_range_middle_deactivated_bg">#673AB7</color>
+
+
+    <color name="pie1">#bf2c3e50</color>
+    <color name="pie7">#bf8e44ad</color>
+    <color name="pie8">#bf2980b9</color>
+    <color name="pie4">#bf27ae60</color>
+    <color name="pie6">#bf16a085</color>
+    <color name="pie3">#bff1c40f</color>
+    <color name="pie2">#bfe67e22</color>
+    <color name="pie5">#bfe74c3c</color>
+
+
+
 </resources>

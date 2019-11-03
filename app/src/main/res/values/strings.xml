@@ -1,10 +1,285 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Monefy</string>
+
+    <!-- Author: Amoda Sasmitha  -->
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_categories">Categories</string>
     <string name="title_expenses">Expenses</string>
     <string name="title_savings">Savings</string>
+    <!--<string name="bank_account">Bank Account</string>-->
+    <string name="expense">Expense</string>
+
+    <!-- Author: Vishvi Wathasha  -->
+    <string name="add_categories">Add Categories</string>
+    <string name="new_category">New Category</string>
+    <string name="category_name">Category name</string>
+    <string name="description_hint">Write a brief description about the categoryModel</string>
+    <string name="category_type">Category type</string>
+    <string name="income">Income</string>
+    <string name="save_category">Save Category</string>
+
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="bank_account1">Bank Account</string>
+    <string name="Amount_rs_12450_00">Rs 12450.00</string>
+    <string name="_28_june_2019">28 June 2019</string>
+    <string name="todo1">TODO</string>
+    <string name="lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_sed_do_eiusmod_tempor_incidication_ut_labore_et_dolore_magna_aliqua_ut_enim_ad_minim_veniam">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidication.ut labore et dolore magna aliqua. Ut enim ad minim veniam</string>
+
+    <string name="category_details">Category Details</string>
+    <string name="main_category">Main Category</string>
+    <string name="food_and_beverages">Food and Beverages</string>
+    <string name="rs_12450_00">Rs 12450.00</string>
+    <string name="bills_and_utilities">Bills and Utilities</string>
+    <string name="main_category1">main categoryModel</string>
+    <string name="bills_and_utilities1">Bills and Utilities</string>
+    <string name="main_category3">main categoryModel</string>
+    <string name="bills_and_utilities3">Interest Money</string>
+    <string name="main_category4">main categoryModel</string>
+    <string name="main_category5">main categoryModel</string>
+    <string name="food_and_beverages1">Salary</string>
+    <string name="write_a_brief_description_about_the_category">Write a brief description about the categoryModel</string>
+    <string name="category_name1">Category name</string>
+    <string name="add_description1">Add description</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="edit_categories">Edit Categories</string>
+    <string name="new_category1">New Category</string>
+    <string name="category_type1">Category type</string>
+    <string name="income2">Income</string>
+    <string name="categories1">Categories</string>
+    <string name="food_and_beverages2">Food and Beverages</string>
+    <string name="bills_and_utilities2">Bills and Utilities</string>
+    <string name="expenses">Expenses</string>
+    <string name="income1">Income</string>
+    <string name="main_category6">main categoryModel</string>
+    <string name="main_category7">main categoryModel</string>
+    <string name="main_category8">main categoryModel</string>
+    <string name="electricity">Electricity</string>
+    <string name="bills_and_utilities4">Bills and Utilities</string>
+
+    <!-- Author: Padula Guruge  -->
+
+    <!--Add Accounts-->
+
+    <string name="text_account_name">Account Name</string>
+    <string name="text_account_type">Account Type</string>
+    <string name="empty" />
+    <string name="title_add_account">Add Account</string>
+    <string name="account_ammount">Initial  Amount</string>
+    <string name="accont_number">Account Number</string>
+    <string name="add">Add</string>
+
+
+
+
+    <string name="tv_tetx_bank">Bank</string>
+    <string name="tv_credte">Cards</string>
+    <string name="tv_bank">Rs 2500.00</string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="saving_details">Saving Details</string>
+    <string name="edit_start_amount">Edit Start Amount</string>
+    <string name="edit_description">Edit Description</string>
+    <string name="edit_saving">Edit Saving</string>
+
+
+    <string name="update">Update</string>
+    <string name="_0_00">0.00</string>
+
+
+    <string name="overview">Overview</string>
+    <string name="date">Yesterday</string>
+    <string name="sampleValue01">Rs 1453.00</string>
+    <string name="DateV2">28 July 2019</string>
+    <string name="monthly">Monthly</string>
+    <string name="daily">Daily</string>
+    <string name="accountType">Bank Account</string>
+    <string name="AmountV3">Rs 12450.00</string>
+    <string name="inflow">Inflow</string>
+    <string name="AmountV5">Rs 230.00</string>
+    <string name="AmountV4">Rs 230.00</string>
+    <string name="outflow">Outflow</string>
+    <string name="RandomNumber">29</string>
+    <string name="RandomDate">Monday</string>
+    <string name="DateV6">28 July 2019</string>
+    <string name="CategoryV4">Food and Beverages</string>
+    <string name="MemoV1">for Lunch</string>
+    <string name="AmountV7">Rs 230.00</string>
+    <string name="CategoryV2">Bills and Utilities</string>
+    <string name="MemoV2">for phone bill</string>
+    <string name="IconV3">Icon</string>
+    <string name="icon2">Icon2</string>
+    <string name="transaction_details">Transaction Details</string>
+    <string name="transaction_date">Transaction date</string>
+    <string name="DateV4">Monday, 5 June 2019</string>
+    <string name="description">Description</string>
+    <string name="DumyText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidication.ut labore et dolore magna aliqua. Ut enim ad minim veniam</string>
+    <string name="transaction_account">Transaction Account</string>
+    <string name="edit_expense_income">Edit Expense / Income</string>
+    <string name="select_category">Select Category</string>
+    <string name="select_date">Select Date</string>
+    <string name="select_account">Select Account</string>
+
+    <string name="amount">Amount</string>
+    <string name="todo">TODO</string>
+    <string name="add_expense_income">Add Expense / Income</string>
+    <string name="sAccount">click and select the account</string>
+    <string name="save_expense_income">Save Expense / Income</string>
+    <string name="des">Write a brief description about the expense</string>
+    <string name="new_expense_income">New Expense / Income</string>
+    <string name="des2">Select Category</string>
+
+
+
+
+
+
+
+    <!--Strings padula -->
+
+
+    <string name="add_btn_account">Add</string>
+    <string name="todo_account">TODO</string>
+    <string name="amount_update_account">Amount</string>
+    <string name="btn_update_details">Update Details</string>
+    <string name="update_account_no">Account No</string>
+    <string name="update_account_type">Account Type</string>
+    <string name="update_update_account">Update Account</string>
+    <string name="update_account_name">Account Name</string>
+    <string name="update_todo">TODO</string>
+    <string name="update_rs_4560_00">Rs 4560.00</string>
+    <string name="update__2345654">2345654</string>
+    <string name="update_hnb_bank">HNB Bank</string>
+    <string name="update_bank_account">Bank Account</string>
+    <string name="account_all_total">Total</string>
+    <string name="account_all_rs3400_00">Rs3400.00</string>
+    <string name="account_all_accounts">Accounts</string>
+    <string name="account_indetail_account_delails">Account Delails</string>
+    <string name="account_indetail__28_june_2019">28 June 2019</string>
+    <string name="account_indetail_rs_25000_00">Rs. 25000.00</string>
+    <string name="account_indetail_account_number">Account Number</string>
+    <string name="account_indetail__32551844">32551844</string>
+    <string name="account_indetail_todo">TODO</string>
+    <string name="account_indetail_todo1">TODO</string>
+    <string name="account_indetail_todo2">TODO</string>
+    <string name="transportation">Transportation</string>
+    <string name="ele">Electricity</string>
+    <string name="acc">Account Type</string>
+    <string name="rs_45000_00">Rs 45000.00</string>
+
+    <string name="add_transaction">Add Transaction</string>
+    <string name="saving_for_desk_setup">Saving for Desk Setup</string>
+    <string name="rs_34000_00">Rs 34000.00</string>
+    <string name="initial_amount">Initial Amount</string>
+    <string name="rs_2350_00">Rs.2350.00</string>
+    <string name="add_account">Add Date</string>
+    <string name="add_date_txt">Add date</string>
+    <string name="lasttrans">Last Transaction Date</string>
+    <string name="lastamount" />
+    <string name="lamount">Last Transaction Amount</string>
+    <string name="view_account_indetails_name">Account Detail</string>
+    <string name="view_account_details_history">Transaction History</string>
+    <string name="add_account_hint">My Bank...</string>
+    <string name="add_account_hint_amount">25000.00</string>
+    <string name="add_account_hint_number" > 200XXXXXX3525 </string>
+    <string name="add_account_description">Description</string>
+    <string name="add_account_hint_des" > Description...</string>
+    <string name="txt_edit_account_des">Description</string>
+    <string name="account_edit_desc" />
+    <string name="account_edite_description">Description</string>
+    <string name="edit_target_amount">Edit Target Amount</string>
+
+
+    <string-array name="spinnerAccounts">
+            <item>Select Account Type</item>
+            <item>Bank Account</item>
+            <item>Card</item>
+            <item>Online Wallet</item>
+        </string-array>
+
+
+    <string-array name="category_Icons">
+        <item>bus</item>
+        <item>bill</item>
+        <item>invest</item>
+        <item>food</item>
+        <item>health</item>
+        <item>family</item>
+        <item>entertainment</item>
+        <item>gift</item>
+        <item>education</item>
+        <item>award</item>
+        <item>sell</item>
+        <item>interest</item>
+        <item>get</item>
+        <item>salary</item>
+
+    </string-array>
+
+    <!-- Author: Pubudu Arosha  -->
+
+    <string name="new_saving">New Saving</string>
+    <string name="add_saving">Add Saving</string>
+    <string name="saving_name">Saving name</string>
+    <string name="add_description">Add description</string>
+    <string name="write_a_brief_description_about_saving">write a brief description about saving</string>
+    <string name="add_target_amount">Add Target Amount</string>
+    <string name="zero">0.00</string>
+    <string name="add_start_amount">Add Start Amount</string>
+    <string name="save">Save</string>
     <string name="bank_account">Bank Account</string>
+    <string name="todoss">TODO</string>
+    <string name="todooo">TODO</string>
+    <string name="edit_savings">Edit Saving</string>
+    <string name="_0_000">0.00</string>
+    <string name="write_a_brief_description_about_savings">write a brief description about saving</string>
+    <string name="saving_names">Saving name</string>
+    <string name="_2019_02_100">2019/02/10</string>
+    <string name="account_details5">Account Details</string>
+    <string name="current_amount5">Current Amount</string>
+    <string name="rs_2500_005">Rs.2500.00</string>
+    <string name="description5">Description</string>
+    <string name="latest_transactions">Latest Transactions</string>
+    <!--<string name="latest_transactions">Latest Transactions</string>-->
+    <string name="hello_world">Hello World</string>
+    <string name="ok9">OK</string>
+    <string name="cancel9">cancel</string>
+    <string name="are_you_sure_you_want_to_delete_this_expense5">Are you sure you want to delete this expense?</string>
+    <string name="yes_i_m_sure55">Yes I\'m Sure !</string>
+    <string name="todo9">TODO</string>
+    <string name="todo22">TODO</string>
+    <string name="_09_03_201988">09-03-2019</string>
+    <string name="total_amount8">Total Amount</string>
+    <string name="rs_12453_00asd">Rs. 12453.00</string>
+    <string name="todo88">TODO</string>
+    <string name="this_month2">This Month</string>
+    <string name="september_2019ex">September 2019</string>
+    <string name="ttoam">Total Amount</string>
+    <string name="_2019_feb_12_2019_mar_0565">2019 Feb 12 - 2019 Mar 05</string>
+    <string name="expense_categories889">Expense Categories</string>
+    <string name="income_categories98">Income Categories</string>
+    <string name="overview658">Overview</string>
+    <string name="current_savings34">Current Savings</string>
+    <string name="finished_savings34">Finished Savings</string>
+    <string name="saving_for_dslr_camera434">Saving for DSLR Camera</string>
+    <string name="rs_68000_00345">Rs 68000.00</string>
+    <string name="savings754">Savings</string>
+    <string name="_28_june_201952">28 June 2019</string>
+    <string name="finished_date_fnisha">Finished Date : 01/06/2019</string>
+    <string name="todo8566">TODO</string>
+    <string name="food_and_beverages_rs_300_0085">Food and Beverages - Rs.300.00</string>
+    <string name="todo852">TODO</string>
+    <string name="saving_for_desk_setup8534">Saving for Desk Setup</string>
+    <string name="rs_34000_008534">Rs 34000.00</string>
+    <string name="rs_45000_008534">Rs 45000.00</string>
+    <string name="asd8534">asd</string>
+    <string name="todo85664">TODO</string>
+    <string name="categoryhintserch">Search Category</string>
+    <string name="searchAcconts">Search  Accounts</string>
+
+
 </resources>
